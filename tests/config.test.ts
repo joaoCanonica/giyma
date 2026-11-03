@@ -264,12 +264,16 @@ describe('coleções', () => {
       expect(t.whatsappMensagem).toBe(mensagens.tratamento(tema));
     }
   });
-  it('fases: 20 · 30 · 40 · 50 · 60+, frase vazia até a sessão 5', () => {
+  it('fases: 20 · 30 · 40 · 50 · 60+, cada uma com frase real da Ester e fonte', () => {
     const fases = ler('fases')
       .map(({ data }) => schemas.fase.parse(data))
       .sort((a, b) => a.ordem - b.ordem);
     expect(fases.map((f) => f.faixa)).toEqual([...schemas.FAIXAS]);
-    for (const f of fases) expect(f.frase).toBe('');
+    for (const f of fases) {
+      expect(f.frase?.texto.length).toBeGreaterThan(3);
+      expect(f.frase?.fonte).toMatch(/post|vídeo|carrossel/);
+      expect(f.oQueMuda).toBeTruthy();
+    }
   });
   it('resultados: todos pendentes, nenhum publicável', () => {
     const rs = ler('resultados').map(({ data }) => schemas.resultado.parse(data));

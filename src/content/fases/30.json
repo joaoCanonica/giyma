@@ -2,9 +2,12 @@
   "faixa": "30",
   "ordem": 2,
   "titulo": "Aos 30",
-  "oQueMuda": null,
+  "oQueMuda": "Aos 30, a produção natural de colágeno começa a cair e a firmeza já não é a mesma. Ainda não é motivo de preocupação: é o momento de cuidar com intenção, estimulando o colágeno para manter a firmeza da pele.",
   "focos": ["bioestimulador-de-colageno"],
-  "frase": "",
+  "frase": {
+    "texto": "Cada nova marca no tempo não precisa ser motivo de preocupação.",
+    "fonte": "carrossel DQXcUrsEVC7 (28/10/2025)"
+  },
   "video": {
     "trecho": "fases",
     "inicio": 18,

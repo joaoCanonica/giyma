@@ -5,13 +5,25 @@
   "categoria": "pele",
   "status": "confirmado",
   "areas": ["rosto"],
-  "paraQuem": null,
-  "oQueE": null,
-  "comoEFeito": null,
-  "cuidados": null,
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) faz peeling para renovar a camada mais superficial da pele e melhorar o viço, manchas leves e textura, depois de uma avaliação individual.",
+  "paraQuem": "Para quem quer renovar a pele. Aos 20, o foco é prevenção, e o peeling químico ajuda a manter a pele renovada; em outras fases, ele complementa outros tratamentos.",
+  "oQueE": "É a aplicação de ácidos na pele, na concentração indicada para o seu caso, para acelerar a renovação das células.",
+  "comoEFeito": "A Ester escolhe o tipo de peeling de acordo com a sua pele e com a época do ano. Pode ser uma sessão ou uma série.",
+  "cuidados": [
+    "Nos dias seguintes a pele pode ficar vermelha e descamar. É o processo de renovação.",
+    "Protetor solar é indispensável. Por isso o inverno, com menos sol, favorece o peeling.",
+    "Você recebe as orientações de cuidados em casa, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
   "duracaoSessao": null,
-  "resultadosEsperados": null,
+  "resultadosEsperados": "Pele com mais viço e textura mais uniforme. O resultado depende da sua pele e do tipo de peeling.",
   "faq": [],
+  "citacoes": [
+    {
+      "texto": "O foco é prevenção.",
+      "fonte": "vídeo DbBfgMjRUkX (20/07/2026), legendas (trecho \"Aos 20\")"
+    }
+  ],
   "midia": [],
   "fases": ["20"],
   "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre peeling.",
@@ -24,5 +36,9 @@
       "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
       "nota": "\"Aos 20\": peeling químico para renovar a pele (9–11 s)"
     }
-  ]
+  ],
+  "meta": {
+    "title": "Peeling em Lages · Giyma",
+    "description": "Peeling em Lages com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984): renovação da pele, viço e textura, com indicação individual."
+  }
 }

@@ -35,7 +35,13 @@ export function carregarConteudo(raiz = RAIZ) {
         data: JSON.parse(readFileSync(join(dir, f), 'utf8')),
       }));
   };
-  return { tratamentos: ler('tratamentos'), fases: ler('fases'), resultados: ler('resultados') };
+  return {
+    tratamentos: ler('tratamentos'),
+    fases: ler('fases'),
+    resultados: ler('resultados'),
+    paginas: ler('paginas'),
+    microtextos: ler('microtextos'),
+  };
 }
 
 export function carregarTudo(raiz = RAIZ) {
@@ -127,6 +133,8 @@ export function verificarConfig({ config, conteudo, manifesto }) {
   const tratamentos = validar(conteudo.tratamentos, schemas.tratamento, 'tratamentos');
   const fases = validar(conteudo.fases, schemas.fase, 'fases');
   const resultados = validar(conteudo.resultados, schemas.resultado, 'resultados');
+  const paginas = validar(conteudo.paginas ?? [], schemas.pagina, 'paginas');
+  const microtextos = validar(conteudo.microtextos ?? [], schemas.microtextos, 'microtextos');
 
   // Referências cruzadas.
   const slugs = new Map(tratamentos.map((t) => [t.data.slug, t.data]));
@@ -151,7 +159,7 @@ export function verificarConfig({ config, conteudo, manifesto }) {
           `fases/${f.id}: "${s}" é foco, mas o tratamento não lista a fase ${f.data.faixa}`,
         );
     }
-    if (!f.data.frase) avisos.push(`fase ${f.data.faixa}: frase da Ester vazia (sessão 5)`);
+    if (!f.data.frase) avisos.push(`fase ${f.data.faixa}: sem frase da Ester`);
   }
   for (const t of tratamentos) {
     for (const fx of t.data.fases) {
@@ -209,18 +217,63 @@ export function verificarConfig({ config, conteudo, manifesto }) {
     ['config.profissional.citacoes', textos(config.profissional.citacoes, new Set(['fonte']))],
     ['config.valores', textos(config.valores.map((v) => ({ nome: v.nome, frase: v.frase.valor })))],
     ['config.avaliacoes.destaque', textos({ texto: config.avaliacoes.destaque.valor.texto })],
+    ...paginas.map((p) => [
+      `paginas/${p.id}`,
+      textos(p.data, new Set(['fonte', 'pendente', 'pendentes'])),
+    ]),
+    ...microtextos.map((m) => [`microtextos/${m.id}`, textos(m.data, new Set(['pendentes']))]),
   ];
+  // {{nome-popular:botox}}: a exceção do CLAUDE.md (FAQ). Fora de pergunta/resposta de FAQ, é erro.
+  const POPULAR = /\{\{nome-popular:([^}]+)\}\}/g;
+  const ehFaq = (onde, caminho) =>
+    onde === 'paginas/perguntas-frequentes' || /(^|\.)faq\[/.test(caminho);
   for (const [onde, lista] of fontesDeTexto) {
     for (const { caminho, texto } of lista) {
-      for (const o of encontrarTermosVetados(texto))
+      if (POPULAR.test(texto) && !ehFaq(onde, caminho))
+        erros.push(`${onde}.${caminho}: nome popular fora da FAQ`);
+      POPULAR.lastIndex = 0;
+      const limpo = texto.replace(POPULAR, '');
+      for (const o of encontrarTermosVetados(limpo))
         erros.push(`${onde}.${caminho}: termo vetado "${o.termo}" em "${o.trecho}"`);
+      // "Dra. Ester" só com "farmacêutica esteta" e o CRF na mesma frase (as mensagens de
+      // WhatsApp vão na URL e são o modelo aprovado).
+      if (/Dra\.?\s*Esth?er/u.test(limpo) && !/whatsapp\./.test(caminho) && caminho !== 'texto') {
+        if (!limpo.includes('CRF-SC 3984') || !/farmacêutica esteta/i.test(limpo))
+          erros.push(
+            `${onde}.${caminho}: "Dra. Ester" sem "farmacêutica esteta · CRF-SC 3984" no mesmo texto`,
+          );
+      }
     }
+  }
+  // Pendências de texto (para o relatório).
+  const pendentesDeTexto = [];
+  for (const p of paginas) {
+    for (const x of p.data.pendentes ?? []) pendentesDeTexto.push(`${p.id}: ${x}`);
+    for (const [b, bloco] of Object.entries(p.data.blocos)) {
+      if (bloco.pendente) pendentesDeTexto.push(`${p.id}/${b}: ${bloco.pendente}`);
+      for (const it of bloco.itens ?? [])
+        if (it.pendente)
+          pendentesDeTexto.push(`${p.id}/${b}/${it.titulo ?? it.id}: ${it.pendente}`);
+      for (const it of bloco.itens ?? [])
+        if (it.origem === 'redacao-a-validar')
+          pendentesDeTexto.push(
+            `${p.id}/${b}/${it.titulo ?? it.id}: redação a validar com a Ester`,
+          );
+      if (bloco.origem === 'redacao-a-validar')
+        pendentesDeTexto.push(`${p.id}/${b}: redação a validar com a Ester`);
+    }
+  }
+  for (const m of microtextos)
+    for (const x of m.data.pendentes ?? []) pendentesDeTexto.push(`microtextos: ${x}`);
+  for (const t of tratamentos) {
+    if (t.data.status === 'confirmado' && (!t.data.resposta || !t.data.cuidados || !t.data.meta))
+      erros.push(`tratamentos/${t.id}: confirmado sem resposta, cuidados ou meta`);
   }
 
   if (config.avaliacoes.exibirNota)
     erros.push('avaliacoes.exibirNota=true com menos de 30 avaliações');
 
-  return { erros, travasProducao, avisos };
+  return { erros, travasProducao, avisos, pendentesDeTexto };
 }
 
 // ---------- HTML do dist ----------

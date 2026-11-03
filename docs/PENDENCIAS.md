@@ -53,3 +53,18 @@ Campos e decisões que dependem do cliente ou do João. Nada aqui é inventado n
 - **Retrato do hero:** o arquivo disponível tem 852 px de largura no recorte 3:4. No desktop em tela 2x ele aparece um pouco mole (precisaria de ~1320 px). Também tem o filtro escuro/rosado do post: dá para corrigir exposição e balanço de branco globais (permitido), mas o certo é o original do ensaio.
 - **Hero B (letras):** o vídeo em tela cheia tende a virar o LCP (o Chrome conta o primeiro quadro), mesmo entrando em fade: das medições, uma deu o texto (0,90 s) e outra o vídeo (1,51 s). Isso fere "vídeo nunca é o LCP". No desktop, a versão 16:9 tem só 720 px (fica borrada em tela cheia). Se o João preferir o B, precisamos do vídeo original em alta e repensar o enquadramento (vídeo em bloco, não tela cheia).
 - **Copy do hero** (H1 e linha de apoio): provisória, a sessão 5 refina.
+
+## Textos (sessão 5)
+
+Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 itens hoje). Os principais:
+
+- **Texto "Farmacêutico esteta" da Ester** (formulações, bioquímica, farmácia clínica, cosmetologia): não está no repositório. A seção "Por que uma farmacêutica" está com redação provisória baseada só em fatos confirmados.
+- **Redação a validar com a Ester** (não é fala literal dela; marcada `origem: "redacao-a-validar"`): "Vou ficar artificial?", "É um caminho sem volta?", "Creme ou bioestimulador nas mãos?", "O que é a avaliação personalizada?", "Quem pode aplicar? Farmacêutico pode?", "Como chegar e onde estacionar?", e a explicação das âncoras em /cada-fase. Os "3 mitos do preenchimento" só têm um transcrito (lábios); os outros dois vieram da lista de temas da investigação.
+- **Resposta "Farmacêutico pode?"**: cita as Resoluções CFF 616/2015, 645/2017 e 669/2018 (mantida pelo TRF1 em out/2025). Só publicar depois de confirmar a pós-graduação e a averbação da Ester.
+- **"Secagem de vasinhos"**: aparece no vídeo do inverno (DYnNCJ3P80V) como procedimento. Não está na lista confirmada: confirmar se ela faz.
+- **Fios de PDO**: citados no vídeo das fases (40+). Confirmar se ela faz.
+- **Carrossel "o que está incluso em cada atendimento"** (post de 21/10/2026): não transcrito; completaria "Como é a sua avaliação".
+- **Duração das sessões**: não informada (campo vazio em todos os tratamentos). A duração do efeito da toxina (3 a 6 meses, em média) vem da fala dela no vídeo DP9tLKNEeOG.
+- **Avaliação**: se tem custo e como funciona o agendamento (o site não fala de preço; a clínica informa no WhatsApp).
+- **Privacidade**: razão social, CNPJ, e-mail do encarregado de dados e data da política.
+- **"Dra." nos textos**: o fecho pedido "Na avaliação, a Dra. Ester explica…" saiu como "Na avaliação, a Ester explica o que faz sentido para você." (seção 8: "Dra." só junto do CRF). Onde aparece "Dra. Ester Santos", vem sempre com "(farmacêutica esteta, CRF-SC 3984)" na mesma frase, e o validate-config agora trava o contrário.

@@ -122,6 +122,33 @@ caso('foco de fase inexistente é erro', () => {
   assert.ok(tem(verificarConfig(c).erros, /fios-de-pdo/));
 });
 
+console.log('Textos (sessão 5)');
+const pagina_ = (c, id) => c.conteudo.paginas.find((p) => p.id === id).data;
+caso('textos reais: sem termo vetado nem "Dra." sem CRF', () => {
+  const r = verificarConfig(base);
+  assert.ok(!tem(r.erros, /termo vetado|Dra\. Ester/));
+});
+caso('"Botox" num texto de página é erro', () => {
+  const c = clone();
+  pagina_(c, 'home').blocos.manifesto.paragrafos.push('Botox com naturalidade.');
+  assert.ok(tem(verificarConfig(c).erros, /termo vetado "Botox"/));
+});
+caso('"Dra. Ester" sem o CRF no mesmo texto é erro', () => {
+  const c = clone();
+  pagina_(c, 'a-giyma').blocos.abertura.paragrafos.push('A Dra. Ester te espera.');
+  assert.ok(tem(verificarConfig(c).erros, /sem "farmacêutica esteta/));
+});
+caso('nome popular fora da FAQ é erro', () => {
+  const c = clone();
+  pagina_(c, 'home').blocos.manifesto.paragrafos.push('Sobre o {{nome-popular:botox}}.');
+  assert.ok(tem(verificarConfig(c).erros, /nome popular fora da FAQ/));
+});
+caso('meta title acima de 60 caracteres é erro de schema', () => {
+  const c = clone();
+  pagina_(c, 'home').meta.title = 'x'.repeat(61);
+  assert.ok(tem(verificarConfig(c).erros, /paginas\/home: meta.title/));
+});
+
 console.log('HTML (audit-compliance)');
 caso('página limpa passa', () =>
   assert.deepEqual(regras(pagina(`${ASSINATURA}<p>Para que sua melhor versão floresça.</p>`)), []),

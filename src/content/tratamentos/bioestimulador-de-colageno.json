@@ -5,13 +5,25 @@
   "categoria": "facial",
   "status": "confirmado",
   "areas": ["rosto", "mãos"],
-  "paraQuem": null,
-  "oQueE": null,
-  "comoEFeito": null,
-  "cuidados": null,
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) aplica bioestimulador de colágeno no rosto e nas mãos para estimular a produção de colágeno e devolver firmeza à pele aos poucos, depois de uma avaliação individual.",
+  "paraQuem": "Para quem sente a pele mais fina e menos firme. Por volta dos 30 anos, a produção de colágeno começa a cair; em cada fase, a avaliação define se o bioestimulador faz sentido.",
+  "oQueE": "É uma substância aplicada na pele que estimula o próprio organismo a produzir colágeno. Ele não preenche: a firmeza vem da pele, de dentro para fora.",
+  "comoEFeito": "A aplicação é feita em consultório, com anestésico. Como depende do seu colágeno, o resultado é gradual e aparece ao longo das semanas seguintes; às vezes o plano prevê mais de uma sessão.",
+  "cuidados": [
+    "É comum um leve inchaço, sensibilidade e roxo nos pontos de aplicação nos primeiros dias.",
+    "Pode haver orientações específicas de massagem e cuidados em casa: você sai da clínica sabendo o que fazer.",
+    "O retorno é combinado na avaliação, para acompanhar a resposta da sua pele.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
   "duracaoSessao": null,
-  "resultadosEsperados": null,
+  "resultadosEsperados": "Pele mais firme e com melhor qualidade, de forma gradual e natural. O resultado depende da resposta de cada organismo.",
   "faq": [],
+  "citacoes": [
+    {
+      "texto": "Cada nova marca no tempo não precisa ser motivo de preocupação. Mas é importante saber que a sua produção natural de colágeno já não é a mesma…",
+      "fonte": "carrossel DQXcUrsEVC7 (28/10/2025)"
+    }
+  ],
   "midia": [],
   "fases": ["30", "40", "50", "60+"],
   "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre bioestimulador de colágeno.",
@@ -28,5 +40,9 @@
       "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
       "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
     }
-  ]
+  ],
+  "meta": {
+    "title": "Bioestimulador de colágeno em Lages · Giyma",
+    "description": "Bioestimulador de colágeno no rosto e nas mãos em Lages, com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984). Firmeza gradual e natural."
+  }
 }

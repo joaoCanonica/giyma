@@ -2,14 +2,17 @@
   "faixa": "50",
   "ordem": 4,
   "titulo": "Aos 50",
-  "oQueMuda": null,
+  "oQueMuda": "Aos 50, a pele está mais fina e a perda de sustentação fica mais evidente, no rosto e nas mãos. O cuidado continua sendo de sustentação e qualidade de pele, sempre com naturalidade: abraçar a maturidade, não apagá-la.",
   "focos": [
     "contorno-facial",
     "sulcos-e-olheiras",
     "bioestimulador-de-colageno",
     "rejuvenescimento-de-maos"
   ],
-  "frase": "",
+  "frase": {
+    "texto": "A beleza está em abraçar a maturidade com naturalidade e segurança.",
+    "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+  },
   "video": {
     "trecho": "fases",
     "inicio": 29,

@@ -5,13 +5,19 @@
   "categoria": "maos",
   "status": "confirmado",
   "areas": ["mãos"],
-  "paraQuem": null,
-  "oQueE": null,
-  "comoEFeito": null,
-  "cuidados": null,
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) trata as mãos com bioestimulador de colágeno para devolver firmeza e qualidade à pele, que também mostra o tempo, sempre depois de uma avaliação individual.",
+  "paraQuem": "Para quem cuida do rosto e sente que as mãos ficaram para trás: pele mais fina, veias e tendões mais aparentes.",
+  "oQueE": "É a aplicação de bioestimulador de colágeno no dorso das mãos. Ele estimula a pele a produzir colágeno e melhora a sua espessura e firmeza com o tempo. Creme hidrata e protege a superfície; o bioestimulador age no colágeno.",
+  "comoEFeito": "Na avaliação, a Ester olha a pele das mãos e explica quantas sessões fazem sentido no seu caso. A aplicação é feita em consultório.",
+  "cuidados": [
+    "Nos primeiros dias as mãos podem ficar um pouco inchadas e sensíveis, e pode aparecer roxo. Passa.",
+    "Você recebe as orientações dos primeiros dias, inclusive sobre massagem e sol, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
   "duracaoSessao": null,
-  "resultadosEsperados": null,
+  "resultadosEsperados": "Mãos com pele mais firme e de melhor qualidade, de forma gradual.",
   "faq": [],
+  "citacoes": [],
   "midia": [],
   "fases": ["40", "50", "60+"],
   "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre rejuvenescimento das mãos.",
@@ -24,5 +30,9 @@
       "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
       "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
     }
-  ]
+  ],
+  "meta": {
+    "title": "Rejuvenescimento de mãos em Lages · Giyma",
+    "description": "Rejuvenescimento das mãos com bioestimulador de colágeno em Lages, com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984)."
+  }
 }

@@ -33,7 +33,7 @@ const fases: FaseLinha[] = (await getCollection('fases'))
     oQueMuda: f.oQueMuda,
     rascunho: f.base[0]?.nota ?? '',
     focos: f.focos.map((slug) => ({ slug, nome: nomeDe.get(slug) ?? slug })),
-    frase: f.frase,
+    frase: f.frase?.texto ?? '',
     whatsapp: linkWhatsApp(mensagens.fase(f.faixa)),
   }));
 

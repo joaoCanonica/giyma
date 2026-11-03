@@ -2,14 +2,17 @@
   "faixa": "40",
   "ordem": 3,
   "titulo": "Aos 40",
-  "oQueMuda": null,
+  "oQueMuda": "A partir dos 40, o rosto perde volume e sustentação em pontos estratégicos: o contorno fica menos definido e os sulcos aparecem mais. O cuidado passa a ser de sustentação, com ácido hialurônico onde faz sentido e estímulo de colágeno, também nas mãos.",
   "focos": [
     "contorno-facial",
     "sulcos-e-olheiras",
     "bioestimulador-de-colageno",
     "rejuvenescimento-de-maos"
   ],
-  "frase": "",
+  "frase": {
+    "texto": "Nós buscamos sustentação.",
+    "fonte": "vídeo DbBfgMjRUkX (20/07/2026), legendas (trecho \"Aos 40 ou +\")"
+  },
   "video": {
     "trecho": "fases",
     "inicio": 29,

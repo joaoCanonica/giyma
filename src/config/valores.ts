@@ -26,20 +26,26 @@ export const valores: readonly Valor[] = [
   {
     id: 'naturalidade-com-proposito',
     nome: 'Naturalidade com propósito',
-    frase: opcional<string>(null),
+    frase: confirmado(
+      'O segredo não está em uma fórmula mágica, e sim no respeito à individualidade do seu rosto.',
+      'frases reais enviadas pelo João (CLAUDE.md, seção 1)',
+    ),
     still: opcional<string>(null),
     nota: 'O quadro "face body dreams" aparece no tour (16,6–17,7 s); ainda não há still dele no manifesto.',
   },
   {
     id: 'etica-e-transparencia',
     nome: 'Ética e transparência',
-    frase: opcional<string>(null),
+    frase: confirmado(
+      'Chega de promessas vazias.',
+      'legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3: frases que se repetem)',
+    ),
     still: confirmado('still-xicaras', 'media.manifest.json (tour, 7,8 s)'),
   },
   {
     id: 'acolhimento-humanizado',
     nome: 'Acolhimento humanizado',
-    frase: opcional<string>(null),
+    frase: confirmado('Cada pessoa é única.', 'destaque "Comece aqui" do Instagram'),
     still: confirmado('still-modelo', 'media.manifest.json (tour, 20,3 s)'),
   },
 ];

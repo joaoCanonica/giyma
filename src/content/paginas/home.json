@@ -1,0 +1,263 @@
+{
+  "slug": "home",
+  "meta": {
+    "title": "Giyma Saúde e Estética Avançada · Lages/SC",
+    "description": "Harmonização facial em Lages com avaliação individual. Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984), na Rua Rui Barbosa, Centro."
+  },
+  "blocos": {
+    "hero": {
+      "rotulo": "Saúde e estética avançada · Lages",
+      "titulo": "Beleza natural em cada fase da vida.",
+      "paragrafos": [
+        "Harmonização facial com avaliação individual, planejamento e o cuidado de quem conhece a pele por dentro."
+      ],
+      "cta": {
+        "texto": "Agendar avaliação",
+        "mensagem": "geral"
+      }
+    },
+    "manifesto": {
+      "titulo": "Não é sobre mudar quem você é.",
+      "paragrafos": [
+        "É sobre alinhar o seu exterior com a força que existe no seu interior.",
+        "Estética não é futilidade. É autocuidado, é autoestima."
+      ],
+      "citacoes": [
+        {
+          "texto": "Não é sobre mudar quem você é. É sobre alinhar o seu exterior com a força que existe no seu interior.",
+          "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+        },
+        {
+          "texto": "Estética não é futilidade. É autocuidado, é autoestima.",
+          "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+        }
+      ],
+      "origem": "literal"
+    },
+    "ester": {
+      "rotulo": "Quem cuida de você",
+      "titulo": "Ela viveu o que oferece.",
+      "paragrafos": [
+        "Formada em Farmácia pela UFSC em 1999, a Ester foi professora universitária e trabalhou na vigilância sanitária e em análises laboratoriais.",
+        "Em 2015, a estética se abriu para os farmacêuticos. Aos 38, ela decidiu não ter medo das marcas do tempo e começou como paciente.",
+        "Em 2023, inaugurou a Giyma no Centro de Lages. Hoje, cuida de outras mulheres com a mesma segurança que quis para si."
+      ],
+      "itens": [
+        {
+          "id": "1999",
+          "titulo": "1999",
+          "texto": "Farmácia pela UFSC"
+        },
+        {
+          "id": "2015",
+          "titulo": "2015",
+          "texto": "A estética se abre ao farmacêutico"
+        },
+        {
+          "id": "2023",
+          "titulo": "2023",
+          "texto": "Nasce a Giyma, no Centro de Lages"
+        }
+      ],
+      "citacao": {
+        "texto": "O que começou como uma jornada como paciente, tornou-se a minha missão de vida aqui na clínica.",
+        "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+      },
+      "cta": {
+        "texto": "Conheça a história",
+        "mensagem": "link:/dra-ester-santos"
+      }
+    },
+    "linha-do-tempo": {
+      "rotulo": "A linha do tempo da pele",
+      "titulo": "Sua pele conta a sua história.",
+      "paragrafos": [
+        "Cada fase pede um cuidado diferente. Escolha a sua e veja o que costuma fazer sentido. A resposta certa vem na avaliação, porque cada pessoa é única."
+      ],
+      "citacao": {
+        "texto": "Sua pele conta a sua história.",
+        "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+      },
+      "cta": {
+        "texto": "Agendar avaliação para a minha fase",
+        "mensagem": "fase"
+      }
+    },
+    "tratamentos": {
+      "rotulo": "Tratamentos",
+      "titulo": "O que fazemos, com o cuidado de sempre.",
+      "paragrafos": ["Todos começam do mesmo jeito: com uma avaliação individual."]
+    },
+    "avaliacao": {
+      "rotulo": "Como é a sua avaliação",
+      "titulo": "Antes de qualquer procedimento, uma conversa.",
+      "paragrafos": [
+        "Cada pessoa é única, por isso a avaliação personalizada vem antes de qualquer procedimento."
+      ],
+      "itens": [
+        {
+          "id": "escuta",
+          "titulo": "Escuta",
+          "texto": "Você conta o que te incomoda, o que espera e o que não quer de jeito nenhum. Nada é decidido antes de ouvir."
+        },
+        {
+          "id": "analise",
+          "titulo": "Análise",
+          "texto": "A Ester olha o rosto e a pele com calma, de frente e de perfil, e considera a sua história e a sua saúde."
+        },
+        {
+          "id": "planejamento",
+          "titulo": "Planejamento",
+          "texto": "Juntas, vocês montam um plano por etapas, sem pressa: o que faz sentido agora, o que pode esperar e o que não é para você."
+        },
+        {
+          "id": "cuidado",
+          "titulo": "Cuidado depois",
+          "texto": "Você sai sabendo os cuidados dos primeiros dias, e o retorno é combinado para acompanhar o resultado."
+        }
+      ],
+      "citacao": {
+        "texto": "Cada pessoa é única, por isso eu faço uma avaliação personalizada antes de realizar qualquer procedimento.",
+        "fonte": "destaque \"Comece aqui\" do Instagram"
+      },
+      "cta": {
+        "texto": "Agendar avaliação",
+        "mensagem": "geral"
+      },
+      "pendente": "conteúdo do carrossel \"o que está incluso em cada atendimento\" (post de 21/10/2026) ainda não transcrito"
+    },
+    "espaco": {
+      "rotulo": "O espaço",
+      "titulo": "Já passou na frente? Entre.",
+      "paragrafos": [
+        "Um lugar pensado para você se sentir em casa, do café na recepção à luz do consultório."
+      ],
+      "itens": [
+        {
+          "id": "fachada",
+          "titulo": "Fachada",
+          "texto": "A faixa branca com o nome GIYMA, na Rua Rui Barbosa.",
+          "midia": "tour-capitulos-fachada"
+        },
+        {
+          "id": "entrada",
+          "titulo": "Entrada",
+          "texto": "O logo dourado na parede petróleo dá as boas-vindas.",
+          "midia": "tour-capitulos-entrada"
+        },
+        {
+          "id": "copa",
+          "titulo": "Copa",
+          "texto": "Um café enquanto você espera, nas xícaras da casa.",
+          "midia": "tour-capitulos-copa"
+        },
+        {
+          "id": "porta",
+          "titulo": "Consultório da Ester",
+          "texto": "A placa dourada na porta do consultório.",
+          "midia": "tour-capitulos-porta"
+        },
+        {
+          "id": "consultorio",
+          "titulo": "Consultório",
+          "texto": "Luz clara, poltrona confortável e tudo à mão.",
+          "midia": "tour-capitulos-consultorio"
+        },
+        {
+          "id": "planejamento",
+          "titulo": "Planejamento",
+          "texto": "A marcação no modelo do rosto: cada aplicação é pensada antes.",
+          "midia": "tour-capitulos-planejamento"
+        },
+        {
+          "id": "procedimento",
+          "titulo": "Procedimento",
+          "texto": "Luvas, máscara e calma: a segurança é inegociável.",
+          "midia": "tour-capitulos-procedimento"
+        },
+        {
+          "id": "recepcao",
+          "titulo": "Recepção",
+          "texto": "As letras douradas e a recepção onde a Ester te espera.",
+          "midia": "tour-capitulos-recepcao"
+        }
+      ],
+      "pendente": "capítulo \"Procedimento\" mostra paciente: direito de imagem a confirmar (sessão 9)"
+    },
+    "valores": {
+      "rotulo": "Valores",
+      "titulo": "O que não muda, em nenhum atendimento.",
+      "itens": [
+        {
+          "id": "seguranca-e-cuidado",
+          "titulo": "Segurança e cuidado",
+          "citacao": {
+            "texto": "Meu atendimento é direcionado a restaurar sua autoestima com segurança e cuidado.",
+            "fonte": "post Dew0bm9EbvR (21/10/2026), arte \"Valores\""
+          }
+        },
+        {
+          "id": "naturalidade-com-proposito",
+          "titulo": "Naturalidade com propósito",
+          "citacao": {
+            "texto": "O segredo não está em uma fórmula mágica, e sim no respeito à individualidade do seu rosto.",
+            "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+          }
+        },
+        {
+          "id": "etica-e-transparencia",
+          "titulo": "Ética e transparência",
+          "citacao": {
+            "texto": "Chega de promessas vazias.",
+            "fonte": "legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3)"
+          }
+        },
+        {
+          "id": "acolhimento-humanizado",
+          "titulo": "Acolhimento humanizado",
+          "citacao": {
+            "texto": "Cada pessoa é única.",
+            "fonte": "destaque \"Comece aqui\" do Instagram"
+          }
+        }
+      ]
+    },
+    "naturalidade": {
+      "rotulo": "Naturalidade com propósito",
+      "titulo": "Resultado bom é aquele em que você se reconhece.",
+      "paragrafos": [
+        "Os antes e depois aparecem aqui só com a autorização de cada paciente. Na avaliação, a Ester mostra casos parecidos com o seu e explica o que é possível esperar."
+      ],
+      "citacao": {
+        "texto": "Para que sua melhor versão floresça de dentro para fora.",
+        "fonte": "post DJU2r4mxkNR (06/05/2025)"
+      },
+      "cta": {
+        "texto": "Ler as perguntas frequentes",
+        "mensagem": "link:/perguntas-frequentes"
+      }
+    },
+    "depoimentos": {
+      "rotulo": "O que dizem",
+      "paragrafos": ["Avaliação publicada no Google."],
+      "cta": {
+        "texto": "Avaliar a Giyma no Google",
+        "mensagem": "link:google-ficha"
+      },
+      "pendente": "link direto de \"avaliar\" da ficha do Google; depoimentos autorizados (nenhum ainda)"
+    },
+    "agendar": {
+      "rotulo": "Agendar e visitar",
+      "titulo": "Agende sua avaliação.",
+      "paragrafos": [
+        "Você conversa com a equipe e agenda sua avaliação.",
+        "Rua Rui Barbosa, 277 · Centro · Lages/SC"
+      ],
+      "cta": {
+        "texto": "Agendar avaliação",
+        "mensagem": "geral"
+      }
+    }
+  },
+  "pendentes": ["horário de atendimento (o site mostra \"Horário pelo WhatsApp\")"]
+}

@@ -1,0 +1,28 @@
+{
+  "slug": "resultados",
+  "meta": {
+    "title": "Resultados com naturalidade e consentimento · Giyma",
+    "description": "Antes e depois na Giyma, em Lages: só com autorização de cada paciente, mesma luz e ângulo, com o procedimento e o tempo decorrido na legenda."
+  },
+  "blocos": {
+    "abertura": {
+      "rotulo": "Resultados",
+      "titulo": "Resultado bom é aquele em que você se reconhece.",
+      "paragrafos": [
+        "Cada antes e depois desta página só aparece com a autorização da paciente. As fotos são técnicas: mesma luz, mesmo ângulo, sem edição. A legenda diz o procedimento e o tempo depois.",
+        "Resultados variam de pessoa para pessoa. Eles mostram o cuidado, não uma promessa."
+      ]
+    },
+    "vazio": {
+      "titulo": "Os resultados, você vê na avaliação.",
+      "paragrafos": [
+        "Enquanto as autorizações não chegam, a Ester mostra casos parecidos com o seu durante a avaliação, com calma e explicando o que é possível esperar."
+      ],
+      "cta": {
+        "texto": "Ler as perguntas frequentes",
+        "mensagem": "link:/perguntas-frequentes"
+      }
+    }
+  },
+  "pendentes": ["nenhum par de antes e depois autorizado ainda"]
+}

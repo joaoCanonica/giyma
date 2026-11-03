@@ -1,0 +1,39 @@
+{
+  "slug": "cada-fase",
+  "meta": {
+    "title": "A linha do tempo da pele: 20, 30, 40, 50 e 60+ · Giyma",
+    "description": "O que muda na pele aos 20, 30, 40, 50 e 60+ e o que costuma fazer sentido em cada fase. Harmonização facial em Lages, com avaliação individual."
+  },
+  "blocos": {
+    "abertura": {
+      "rotulo": "A linha do tempo da pele",
+      "titulo": "Sua pele conta a sua história.",
+      "paragrafos": [
+        "Cada fase da vida pede um cuidado diferente. Aqui está o que costuma mudar e o que costuma fazer sentido. A resposta certa para você vem na avaliação."
+      ],
+      "citacao": {
+        "texto": "Sua pele conta a sua história.",
+        "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+      }
+    },
+    "video": {
+      "rotulo": "No vídeo",
+      "paragrafos": [
+        "A Ester explica o que costuma fazer sentido em cada idade, dos 20 aos 40 ou mais."
+      ]
+    },
+    "decisao": {
+      "paragrafos": [
+        "As fases ficam nesta página, com âncoras (?fase=20 … ?fase=60). Não há uma página por fase: 40, 50 e 60+ ainda não têm conteúdo próprio e diferente o bastante (o vídeo trata \"40 ou +\" junto)."
+      ],
+      "origem": "redacao-a-validar"
+    },
+    "convite": {
+      "titulo": "Qual é a sua fase?",
+      "cta": {
+        "texto": "Agendar avaliação para a minha fase",
+        "mensagem": "fase"
+      }
+    }
+  }
+}

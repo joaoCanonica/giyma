@@ -2,14 +2,17 @@
   "faixa": "60+",
   "ordem": 5,
   "titulo": "Aos 60 ou mais",
-  "oQueMuda": null,
+  "oQueMuda": "Aos 60 ou mais, cada rosto conta uma história longa, e o plano é ainda mais individual. O objetivo é qualidade de pele, sustentação e bem-estar, com segurança e sem exageros.",
   "focos": [
     "contorno-facial",
     "sulcos-e-olheiras",
     "bioestimulador-de-colageno",
     "rejuvenescimento-de-maos"
   ],
-  "frase": "",
+  "frase": {
+    "texto": "Quero que você se sinta aos 40, 50 ou 60 anos tão bem quanto eu me sinto hoje.",
+    "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+  },
   "video": {
     "trecho": "fases",
     "inicio": 29,

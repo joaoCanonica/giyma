@@ -2,9 +2,12 @@
   "faixa": "20",
   "ordem": 1,
   "titulo": "Aos 20",
-  "oQueMuda": null,
+  "oQueMuda": "Aos 20, a pele ainda produz bastante colágeno e se renova rápido. As primeiras linhas de expressão começam a aparecer quando o rosto se movimenta. O foco é prevenção: renovar a pele e, quando faz sentido, suavizar as linhas que insistem em aparecer.",
   "focos": ["peeling", "toxina-botulinica"],
-  "frase": "",
+  "frase": {
+    "texto": "O foco é prevenção.",
+    "fonte": "vídeo DbBfgMjRUkX (20/07/2026), legendas (trecho \"Aos 20\")"
+  },
   "video": {
     "trecho": "fases",
     "inicio": 6,

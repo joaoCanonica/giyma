@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
-import { fase, resultado, tratamento } from './content/schemas.ts';
+import { fase, microtextos, pagina, resultado, tratamento } from './content/schemas.ts';
 
 export const collections = {
   tratamentos: defineCollection({
@@ -10,6 +10,14 @@ export const collections = {
   fases: defineCollection({
     loader: glob({ pattern: '*.json', base: './src/content/fases' }),
     schema: fase,
+  }),
+  paginas: defineCollection({
+    loader: glob({ pattern: '*.json', base: './src/content/paginas' }),
+    schema: pagina,
+  }),
+  microtextos: defineCollection({
+    loader: glob({ pattern: '*.json', base: './src/content/microtextos' }),
+    schema: microtextos,
   }),
   resultados: defineCollection({
     loader: glob({ pattern: '*.json', base: './src/content/resultados' }),

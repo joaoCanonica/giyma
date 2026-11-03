@@ -5,6 +5,7 @@
   "categoria": "corporal",
   "status": "pendente",
   "areas": [],
+  "resposta": null,
   "paraQuem": null,
   "oQueE": null,
   "comoEFeito": null,
@@ -12,6 +13,7 @@
   "duracaoSessao": null,
   "resultadosEsperados": null,
   "faq": [],
+  "citacoes": [],
   "midia": [],
   "fases": [],
   "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre harmonização corporal.",
@@ -24,5 +26,9 @@
       "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
       "nota": "só na bio e no nome; quais procedimentos corporais ela faz: PENDENTE"
     }
-  ]
+  ],
+  "meta": {
+    "title": "Harmonização corporal em Lages · Giyma",
+    "description": "Harmonização corporal na Giyma, em Lages. Página em preparação: os procedimentos corporais serão publicados depois de confirmados pela clínica."
+  }
 }

@@ -8,7 +8,11 @@ import { carregarTudo, verificarConfig } from './lib/travas.mjs';
 
 const producao = process.argv.includes('--producao') || process.env.GIYMA_MODO === 'producao';
 const { config, conteudo, manifesto } = carregarTudo();
-const { erros, travasProducao, avisos } = verificarConfig({ config, conteudo, manifesto });
+const { erros, travasProducao, avisos, pendentesDeTexto } = verificarConfig({
+  config,
+  conteudo,
+  manifesto,
+});
 const pend = pendencias();
 
 console.log(`validate-config · modo ${producao ? 'PRODUÇÃO' : 'preview'}`);
@@ -23,6 +27,10 @@ for (const p of pend)
 if (avisos.length) {
   console.log(`\nAvisos (${avisos.length}):`);
   for (const a of avisos) console.log(`  ▲ ${a}`);
+}
+if (process.argv.includes('--textos')) {
+  console.log(`\nPendências de texto (${pendentesDeTexto.length}):`);
+  for (const t of pendentesDeTexto) console.log(`  · ${t}`);
 }
 console.log(`\nTravas de produção (${travasProducao.length}):`);
 for (const t of travasProducao) console.log(`  ${producao ? '✗' : '■'} ${t}`);

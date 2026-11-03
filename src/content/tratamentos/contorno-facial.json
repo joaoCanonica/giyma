@@ -5,13 +5,24 @@
   "categoria": "facial",
   "status": "confirmado",
   "areas": ["mento", "mandíbula", "malar", "zigomático"],
-  "paraQuem": null,
-  "oQueE": null,
-  "comoEFeito": null,
-  "cuidados": null,
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) usa ácido hialurônico para estruturar o contorno do rosto, no mento (queixo), na mandíbula, no malar e no zigomático, devolvendo sustentação com naturalidade, depois de uma avaliação individual.",
+  "paraQuem": "Para quem sente que o rosto perdeu definição ou sustentação, ou quer equilibrar as proporções do perfil, como um queixo mais projetado ou uma mandíbula mais marcada.",
+  "oQueE": "É o preenchimento com ácido hialurônico em pontos estratégicos da estrutura do rosto. Em vez de encher, ele sustenta e desenha o contorno.",
+  "comoEFeito": "A Ester estuda o seu rosto de frente e de perfil, explica o que faz sentido e monta um plano. Muitas vezes o caminho é por etapas, sem pressa.",
+  "cuidados": [
+    "Nos primeiros dias pode haver inchaço, sensibilidade ao toque e roxo nos pontos de aplicação. Tudo isso diminui sozinho.",
+    "Você recebe as orientações dos primeiros dias, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
   "duracaoSessao": null,
-  "resultadosEsperados": null,
+  "resultadosEsperados": "Um contorno mais definido e equilibrado, com o seu rosto de sempre. A intenção é sustentar e harmonizar, não transformar.",
   "faq": [],
+  "citacoes": [
+    {
+      "texto": "Nós buscamos sustentação.",
+      "fonte": "vídeo DbBfgMjRUkX (20/07/2026), legendas (trecho \"Aos 40 ou +\")"
+    }
+  ],
   "midia": [],
   "fases": ["40", "50", "60+"],
   "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre contorno facial.",
@@ -32,5 +43,9 @@
       "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
       "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
     }
-  ]
+  ],
+  "meta": {
+    "title": "Contorno facial: mento e mandíbula em Lages · Giyma",
+    "description": "Contorno facial com ácido hialurônico em Lages (mento, mandíbula, malar), com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984)."
+  }
 }

@@ -1,0 +1,50 @@
+{
+  "slug": "privacidade",
+  "meta": {
+    "title": "Privacidade · Giyma Saúde e Estética Avançada",
+    "description": "Como a Giyma trata os seus dados: o site não tem formulário nem cookies de rastreamento. O contato acontece pelo WhatsApp, quando você escolhe."
+  },
+  "blocos": {
+    "resumo": {
+      "rotulo": "Privacidade",
+      "titulo": "O seu cuidado começa pelos seus dados.",
+      "paragrafos": [
+        "Este site não tem formulário, não pede cadastro e não usa cookies de rastreamento ou publicidade. Você navega sem deixar dados com a gente."
+      ]
+    },
+    "whatsapp": {
+      "titulo": "Quando você fala com a gente",
+      "paragrafos": [
+        "O botão \"Agendar avaliação\" abre o WhatsApp com uma mensagem pronta. Você decide se envia. A partir daí, a conversa acontece no WhatsApp, que tem a própria política de privacidade.",
+        "Usamos o que você nos conta só para responder, agendar e cuidar do seu atendimento. Não vendemos nem compartilhamos os seus dados para publicidade."
+      ]
+    },
+    "saude": {
+      "titulo": "Dados de saúde e imagens",
+      "paragrafos": [
+        "Informações de saúde e fotos do seu rosto são dados sensíveis. Elas ficam no seu prontuário, com acesso restrito. Fotos de antes e depois só aparecem no site ou nas redes com a sua autorização por escrito, que você pode retirar quando quiser."
+      ]
+    },
+    "externos": {
+      "titulo": "Serviços externos",
+      "paragrafos": [
+        "Os links para Instagram, Google Maps, Waze e Apple Mapas levam a serviços de outras empresas, com as próprias regras. O mapa interativo só carrega se você pedir."
+      ]
+    },
+    "direitos": {
+      "titulo": "Seus direitos (LGPD)",
+      "paragrafos": [
+        "Você pode pedir para saber quais dados temos sobre você, corrigir, apagar ou retirar uma autorização. Basta chamar a gente no WhatsApp."
+      ]
+    },
+    "responsavel": {
+      "titulo": "Quem é responsável",
+      "paragrafos": ["Giyma Saúde e Estética Avançada · Rua Rui Barbosa, 277, Centro, Lages/SC."],
+      "pendente": "razão social, CNPJ e contato do encarregado de dados (LGPD)"
+    }
+  },
+  "pendentes": [
+    "razão social, CNPJ e e-mail do encarregado de dados",
+    "data de atualização da política"
+  ]
+}
