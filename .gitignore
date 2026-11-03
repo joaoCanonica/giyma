@@ -1,0 +1,17 @@
+# dependências e build
+node_modules/
+dist/
+.astro/
+
+# derivados de mídia (gerados no build)
+public/media/
+
+# capturas (só as imagens; a pasta fica)
+docs/capturas/**/*.png
+
+# ambiente
+.env*
+
+# sistema
+.DS_Store
+*.log
