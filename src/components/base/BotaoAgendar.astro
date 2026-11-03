@@ -1,0 +1,17 @@
+---
+// Ação principal única: "Agendar avaliação" no WhatsApp, com mensagem pronta por contexto.
+import { linkWhatsApp, mensagens } from '../../lib/whatsapp.ts';
+import Botao from './Botao.astro';
+
+interface Props {
+  /** Mensagem pronta (use mensagens.* de src/lib/whatsapp.ts). Padrão: a geral. */
+  mensagem?: string;
+  variante?: 'primario' | 'secundario';
+  class?: string | undefined;
+}
+const { mensagem = mensagens.geral(), variante = 'primario', class: classe } = Astro.props;
+---
+
+<Botao href={linkWhatsApp(mensagem)} variante={variante} icone="whatsapp" class={classe}>
+  <slot>Agendar avaliação</slot>
+</Botao>

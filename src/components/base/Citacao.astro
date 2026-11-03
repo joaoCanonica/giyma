@@ -1,0 +1,70 @@
+---
+// Citação da voz da Ester: texto literal + de onde veio (post, destaque).
+// Autor sem "Dra." de propósito: o título só aparece junto do CRF (AssinaturaProfissional).
+interface Props {
+  texto: string;
+  fonte: string;
+  autor?: string;
+  tamanho?: 'grande' | 'media';
+  class?: string | undefined;
+}
+const { texto, fonte, autor = 'Ester Santos', tamanho = 'grande', class: classe } = Astro.props;
+---
+
+<figure class:list={['citacao', `citacao--${tamanho}`, classe]}>
+  <blockquote>
+    <p>{texto}</p>
+  </blockquote>
+  <figcaption>
+    <span class="citacao-autor">{autor}</span>
+    <cite class="citacao-fonte">{fonte}</cite>
+  </figcaption>
+</figure>
+
+<style is:global>
+  .citacao {
+    margin-inline: 0;
+    margin-bottom: 0;
+    max-width: 30em;
+  }
+  .citacao blockquote {
+    margin: 0;
+  }
+  .citacao p {
+    font-family: var(--fonte-acento);
+    font-style: italic;
+    line-height: 1.32;
+    text-wrap: balance;
+  }
+  .citacao p::before {
+    content: '“';
+  }
+  .citacao p::after {
+    content: '”';
+  }
+  .citacao--grande p {
+    font-size: var(--t-2);
+  }
+  .citacao--media p {
+    font-size: var(--t-3);
+  }
+  .citacao figcaption {
+    margin-top: var(--e-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+  }
+  .citacao-autor {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+  .citacao-fonte {
+    font-style: normal;
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+</style>

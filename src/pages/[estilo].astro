@@ -1,0 +1,10 @@
+---
+// Publica /_estilo (o Astro não roteia arquivos com "_"). Página interna, noindex.
+import Estilo from './_estilo.astro';
+
+export function getStaticPaths() {
+  return [{ params: { estilo: '_estilo' } }];
+}
+---
+
+<Estilo />

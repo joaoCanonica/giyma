@@ -1,0 +1,99 @@
+---
+// Mapa estático. Sem serviço de mapa no navegador (privacidade e peso).
+// Hoje: a fachada real + endereço + plus code + rotas. Quando houver a imagem do mapa
+// (tiles OpenStreetMap gerados no build, com atribuição), passe em `mapa`.
+import { contato, enderecoEmLinha } from '../../config/contato.ts';
+import Imagem from './Imagem.astro';
+import Link from './Link.astro';
+import Rotulo from './Rotulo.astro';
+
+interface Props {
+  /** id de imagem do índice com o mapa (opcional). */
+  mapa?: string;
+  class?: string | undefined;
+}
+const { mapa, class: classe } = Astro.props;
+const m = contato.mapas.valor;
+const e = contato.endereco.valor;
+---
+
+<figure class:list={['mapa-estatico', classe]}>
+  <div class="mapa-imagem fio-hover">
+    {mapa ? (
+      <Imagem
+        id={mapa}
+        alt={`Mapa: ${enderecoEmLinha()}`}
+        sizes="(min-width: 60rem) 40rem, 100vw"
+      />
+    ) : (
+      <Imagem
+        id="still-fachada"
+        alt="Fachada da Giyma, com o nome na faixa branca e o monograma na porta de vidro"
+        sizes="(min-width: 60rem) 32rem, 100vw"
+      />
+    )}
+  </div>
+  <figcaption class="mapa-texto">
+    <Rotulo>Como chegar</Rotulo>
+    <address>
+      {e.logradouro}, {e.numero}
+      <br />
+      {e.bairro} · {e.cidade}/{e.uf}
+      <br />
+      <span class="t-tabular">CEP {e.cep}</span>
+    </address>
+    <p class="t-pequeno t-suave">
+      Plus code <span class="t-tabular">{contato.plusCode.valor}</span>
+    </p>
+    <ul class="mapa-rotas">
+      <li>
+        <Link href={m.googleRota} externo>
+          Google Maps
+        </Link>
+      </li>
+      <li>
+        <Link href={m.waze} externo>
+          Waze
+        </Link>
+      </li>
+      <li>
+        <Link href={m.appleMapas} externo>
+          Apple Mapas
+        </Link>
+      </li>
+    </ul>
+  </figcaption>
+</figure>
+
+<style is:global>
+  .mapa-estatico {
+    margin-inline: 0;
+    margin-bottom: 0;
+    display: grid;
+    gap: var(--e-3);
+  }
+  @media (min-width: 48rem) {
+    .mapa-estatico {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: end;
+    }
+  }
+  .mapa-imagem {
+    max-width: 30rem;
+  }
+  .mapa-estatico address {
+    margin: 0.75rem 0;
+    font-style: normal;
+    font-size: var(--t-3);
+    font-family: var(--fonte-titulo);
+    line-height: 1.3;
+  }
+  .mapa-rotas {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-2) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+// Rótulo em versalete espaçado (Josefin Sans, a família do logo).
+interface Props {
+  as?: 'span' | 'p' | 'h2' | 'h3';
+  class?: string | undefined;
+}
+const { as: Tag = 'span', class: classe } = Astro.props;
+---
+
+<Tag class:list={['rotulo', classe]}>
+  <slot />
+</Tag>
+
+<style is:global>
+  .rotulo {
+    display: inline-block;
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+</style>

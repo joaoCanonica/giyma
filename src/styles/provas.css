@@ -1,0 +1,39 @@
+/* Só para as provas tipográficas de /_estilo: as candidatas que não foram escolhidas. */
+@font-face {
+  font-family: 'Gilda Display';
+  src: url('./fontes/gilda-display-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Red Hat Text';
+  src: url('./fontes/red-hat-text-latin-wght-normal.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+.prova--a {
+  --p-titulo: 'Bellefair', serif;
+  --p-texto: 'Mulish', sans-serif;
+}
+.prova--b {
+  --p-titulo: 'Gilda Display', serif;
+  --p-texto: 'Red Hat Text', sans-serif;
+}
+.prova--c {
+  --p-titulo: 'Bellefair', serif;
+  --p-texto: 'Red Hat Text', sans-serif;
+}
+.prova--d {
+  --p-titulo: 'Gilda Display', serif;
+  --p-texto: 'Mulish', sans-serif;
+}
+.prova h3,
+.prova .p-titulo {
+  font-family: var(--p-titulo);
+}
+.prova p,
+.prova li,
+.prova .p-texto {
+  font-family: var(--p-texto);
+}

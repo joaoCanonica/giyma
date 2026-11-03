@@ -1,0 +1,52 @@
+---
+// Logo a partir dos SVG oficiais (cor única: currentColor).
+// Monograma ≤ 48 px usa a versão "pequena": mesmo desenho, traço 18 em vez de 11
+// (testado em 24/32/48/96 px; com 11 o traço some abaixo de 32 px).
+import horizontal from '../../../media-originais/marca/giyma-logo-horizontal.svg?raw';
+import monograma from '../../../media-originais/marca/giyma-logo-mark.svg?raw';
+import vertical from '../../../media-originais/marca/giyma-logo-vertical.svg?raw';
+import { novoId } from './ids.ts';
+
+interface Props {
+  variante?: 'vertical' | 'horizontal' | 'monograma';
+  /** Altura em px (define a versão do monograma). Sem valor = 100% do contêiner. */
+  tamanho?: number;
+  /** Texto acessível. Padrão: nome da marca. */
+  titulo?: string;
+  /** Ao lado de um texto que já diz "Giyma": esconde do leitor de tela. */
+  decorativo?: boolean;
+  class?: string | undefined;
+}
+
+const { variante = 'horizontal', tamanho, titulo, decorativo = false, class: classe } = Astro.props;
+const fontes = { vertical, horizontal, monograma } as const;
+let svg = fontes[variante];
+if (variante === 'monograma' && tamanho !== undefined && tamanho <= 48) {
+  svg = svg.replace('stroke-width="11"', 'stroke-width="18"');
+}
+
+const nome = titulo ?? (variante === 'monograma' ? 'Giyma' : 'Giyma Saúde e Estética Avançada');
+const id = novoId(`logo-${variante}`);
+const atributos = decorativo
+  ? 'aria-hidden="true" focusable="false"'
+  : `role="img" aria-labelledby="${id}"`;
+const estilo = tamanho ? ` style="height:${tamanho}px;width:auto"` : '';
+svg = svg
+  .replace(/<title>[^<]*<\/title>/, '')
+  .replace(/\s(role|aria-label)="[^"]*"/g, '')
+  .replace(
+    '<svg ',
+    `<svg class="logo logo--${variante}${classe ? ` ${classe}` : ''}" ${atributos}${estilo} `,
+  )
+  .replace(/(<svg[^>]*>)/, decorativo ? '$1' : `$1<title id="${id}">${nome}</title>`);
+---
+
+<Fragment set:html={svg} />
+
+<style is:global>
+  .logo {
+    display: block;
+    color: inherit;
+    overflow: visible;
+  }
+</style>

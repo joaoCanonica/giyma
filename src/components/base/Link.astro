@@ -1,0 +1,35 @@
+---
+// Link de texto: sublinhado fino que engrossa no hover; externo avisa ao leitor de tela.
+interface Props {
+  href: string;
+  externo?: boolean;
+  class?: string | undefined;
+}
+const { href, externo = false, class: classe } = Astro.props;
+---
+
+<a
+  class:list={['link', classe]}
+  href={href}
+  {...(externo ? { target: '_blank', rel: 'noopener' } : {})}
+>
+  <slot />
+  {externo && <span class="so-leitor"> (abre em nova aba)</span>}
+</a>
+
+<style is:global>
+  .link {
+    color: var(--link);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+    transition:
+      text-decoration-color var(--d-1) var(--curva),
+      text-decoration-thickness var(--d-1) var(--curva);
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+</style>

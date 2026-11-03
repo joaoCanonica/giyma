@@ -131,7 +131,14 @@ async function main() {
     cwd: raiz,
     stdio: ['ignore', 'pipe', 'inherit'],
   });
-  const encerrar = () => servidor.kill('SIGTERM');
+  // O preview do Astro 7 pode virar processo em segundo plano: encerra pelos dois caminhos.
+  let encerrado = false;
+  const encerrar = () => {
+    if (encerrado) return;
+    encerrado = true;
+    servidor.kill('SIGTERM');
+    spawnSync(astroBin, ['preview', 'stop'], { cwd: raiz, stdio: 'ignore' });
+  };
   process.on('exit', encerrar);
   process.on('SIGINT', () => process.exit(130));
 

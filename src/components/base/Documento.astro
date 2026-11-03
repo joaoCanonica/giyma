@@ -1,0 +1,42 @@
+---
+// Documento base: <head> (fontes, tokens, robots, ícones), faixa de preview e o slot.
+import '../../styles/global.css';
+import bellefair from '../../styles/fontes/bellefair-latin-400-normal.woff2?url';
+import mulish from '../../styles/fontes/mulish-latin-wght-normal.woff2?url';
+import { robots } from '../../config/index.ts';
+import PreviewBanner from '../PreviewBanner.astro';
+
+interface Props {
+  titulo: string;
+  descricao?: string;
+  /** Página interna (ex.: /_estilo): nunca indexa, mesmo em produção. */
+  interna?: boolean;
+  superficie?: 'perola' | 'nevoa' | 'cacau' | 'petroleo';
+}
+const { titulo, descricao, interna = false, superficie = 'perola' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content={interna ? 'noindex, nofollow' : robots()} />
+    <title>{titulo}</title>
+    {descricao && <meta name="description" content={descricao} />}
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href={bellefair} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={mulish} as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <slot name="head" />
+  </head>
+  <body data-superficie={superficie}>
+    <PreviewBanner />
+    <slot />
+  </body>
+</html>

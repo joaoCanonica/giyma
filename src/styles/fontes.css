@@ -1,0 +1,53 @@
+/* Fontes self-hosted (Fontsource, licença OFL-1.1, subset latino: cobre o português).
+   Escolha da sessão 3: Bellefair (títulos) · Mulish (texto) · EB Garamond Italic (acentos) ·
+   Josefin Sans (rótulos). Gilda Display e Red Hat Text ficam só nas provas de /_estilo. */
+
+@font-face {
+  font-family: 'Bellefair';
+  src: url('./fontes/bellefair-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('./fontes/mulish-latin-wght-normal.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mulish';
+  src: url('./fontes/mulish-latin-wght-italic.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('./fontes/eb-garamond-latin-wght-italic.woff2') format('woff2');
+  font-weight: 400 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('./fontes/josefin-sans-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Substitutas com métrica aproximada (reduzem o salto na troca). */
+@font-face {
+  font-family: 'Bellefair Substituta';
+  src: local('Georgia'), local('Times New Roman');
+  size-adjust: 94%;
+  ascent-override: 92%;
+}
+@font-face {
+  font-family: 'Mulish Substituta';
+  src: local('Arial'), local('Helvetica');
+  size-adjust: 104%;
+  ascent-override: 96%;
+}

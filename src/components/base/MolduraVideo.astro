@@ -1,0 +1,78 @@
+---
+// Moldura de vídeo vertical (9:16). Sempre mudo (áudio só com audioLiberado).
+//   loop: decorativo, toca só visível e sem movimento reduzido; sem controles.
+//   player: controles nativos, não toca sozinho.
+// O pôster (quadro mais nítido) e o LQIP seguram o espaço: vídeo nunca é o LCP.
+import { video } from './midia.ts';
+
+interface Props {
+  trecho: string;
+  modo?: 'loop' | 'player';
+  /** Descrição do que o vídeo mostra (obrigatória no player). */
+  titulo: string;
+  class?: string | undefined;
+}
+const { trecho, modo = 'loop', titulo, class: classe } = Astro.props;
+const v = video(trecho);
+const ordenar = <T extends { largura: number }>(l: readonly T[]) =>
+  [...l].sort((x, y) => y.largura - x.largura);
+const [webmG, webmP] = ordenar(v.fontes.webm);
+const [mp4G, mp4P] = ordenar(v.fontes.mp4);
+const poster = ordenar(v.poster.fontes.webp)[0]?.src;
+const proporcao = `${mp4G?.largura ?? 9}/${mp4G?.altura ?? 16}`;
+---
+
+<figure
+  class:list={['moldura-video', `moldura-video--${modo}`, classe]}
+  style={`--lqip:url("${v.poster.lqip}");aspect-ratio:${proporcao}`}
+>
+  <video
+    muted
+    playsinline
+    preload="none"
+    poster={poster}
+    loop={modo === 'loop'}
+    controls={modo === 'player'}
+    data-video-loop={modo === 'loop' ? '' : undefined}
+    aria-hidden={modo === 'loop' ? 'true' : undefined}
+    aria-label={modo === 'player' ? titulo : undefined}
+    width={mp4G?.largura}
+    height={mp4G?.altura}
+  >
+    {webmP && <source src={webmP.src} type="video/webm" media="(max-width: 40rem)" />}
+    {mp4P && <source src={mp4P.src} type="video/mp4" media="(max-width: 40rem)" />}
+    {webmG && <source src={webmG.src} type="video/webm" />}
+    {mp4G && <source src={mp4G.src} type="video/mp4" />}
+  </video>
+  {modo === 'player' && <figcaption class="so-leitor">{titulo} (sem som)</figcaption>}
+</figure>
+
+<style is:global>
+  .moldura-video {
+    margin-inline: 0;
+    margin-bottom: 0;
+    max-width: 26rem;
+    background: var(--lqip) center / cover no-repeat;
+  }
+  .moldura-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  const parado = matchMedia('(prefers-reduced-motion: reduce)');
+  const obs = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting && !parado.matches) v.play().catch(() => {});
+        else v.pause();
+      }
+    },
+    { threshold: 0.4 },
+  );
+  for (const v of document.querySelectorAll<HTMLVideoElement>('[data-video-loop]')) obs.observe(v);
+</script>

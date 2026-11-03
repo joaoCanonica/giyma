@@ -1,0 +1,67 @@
+---
+// "Dra. Ester Santos · farmacêutica esteta · CRF-SC 3984": sempre juntos (seção 8).
+// O audit-compliance só aceita o nome dentro deste componente (data-assinatura-profissional).
+import { profissional } from '../../config/index.ts';
+
+interface Props {
+  as?: 'p' | 'span' | 'div';
+  /** linha: tudo em uma linha · bloco: nome grande, credenciais embaixo. */
+  formato?: 'linha' | 'bloco';
+  class?: string | undefined;
+}
+const { as: Tag = 'p', formato = 'linha', class: classe } = Astro.props;
+const p = profissional;
+---
+
+<Tag
+  class:list={['assinatura-profissional', `assinatura-profissional--${formato}`, classe]}
+  data-assinatura-profissional
+>
+  <span class="ap-nome">
+    {p.tratamento.valor} {p.nome.valor}
+  </span>
+  <span class="ap-sep" aria-hidden="true">
+    {' '}
+    ·{' '}
+  </span>
+  <span class="ap-profissao">{p.profissao.valor}</span>
+  <span class="ap-sep" aria-hidden="true">
+    ·
+  </span>
+  <span class="ap-registro t-tabular">{p.registro.valor}</span>
+</Tag>
+
+<style is:global>
+  .assinatura-profissional {
+    margin: 0;
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+  .assinatura-profissional .ap-nome {
+    color: var(--texto);
+  }
+  .assinatura-profissional .ap-registro {
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .assinatura-profissional--bloco {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .assinatura-profissional--bloco .ap-nome {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-2);
+    line-height: 1.05;
+  }
+  .assinatura-profissional--bloco .ap-sep {
+    display: none;
+  }
+  .assinatura-profissional--bloco .ap-profissao,
+  .assinatura-profissional--bloco .ap-registro {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+</style>

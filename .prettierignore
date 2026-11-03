@@ -10,3 +10,4 @@ docs/
 CLAUDE.md
 .cache/
 media.manifest.json
+src/styles/tokens.css

@@ -1,0 +1,173 @@
+---
+// Antes e depois com range nativo (teclado, leitor de tela). Legendas "Antes" e
+// "Depois · {tempo}" sempre visíveis. Sem JS: os dois lado a lado.
+// Em produção, só pares com consentimento=autorizado (a trava do audit-compliance acusa o resto).
+import { imagem, srcset } from './midia.ts';
+
+interface Props {
+  antes: string;
+  depois: string;
+  /** Tempo decorrido (obrigatório na legenda). */
+  tempo: string;
+  procedimento: string;
+  altAntes: string;
+  altDepois: string;
+  legenda?: string;
+}
+const { antes, depois, tempo, procedimento, altAntes, altDepois, legenda } = Astro.props;
+const a = imagem(antes);
+const d = imagem(depois);
+const fonte = (i: typeof a) => i.fontes.webp[Math.min(1, i.fontes.webp.length - 1)]?.src;
+---
+
+<figure class="comparador" data-comparador style="--pos: 50%">
+  <div class="comp-quadro" style={`aspect-ratio:${a.largura}/${a.altura}`}>
+    <picture class="comp-antes">
+      <source
+        type="image/avif"
+        srcset={srcset(a.fontes.avif)}
+        sizes="(min-width: 60rem) 40rem, 100vw"
+      />
+      <img
+        src={fonte(a)}
+        srcset={srcset(a.fontes.webp)}
+        sizes="(min-width: 60rem) 40rem, 100vw"
+        alt={altAntes}
+        width={a.largura}
+        height={a.altura}
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+    <picture class="comp-depois">
+      <source
+        type="image/avif"
+        srcset={srcset(d.fontes.avif)}
+        sizes="(min-width: 60rem) 40rem, 100vw"
+      />
+      <img
+        src={fonte(d)}
+        srcset={srcset(d.fontes.webp)}
+        sizes="(min-width: 60rem) 40rem, 100vw"
+        alt={altDepois}
+        width={d.largura}
+        height={d.altura}
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+    <span class="comp-rotulo comp-rotulo--antes">Antes</span>
+    <span class="comp-rotulo comp-rotulo--depois">Depois · {tempo}</span>
+    <span class="comp-linha" aria-hidden="true"></span>
+    <input
+      class="comp-range"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      step="1"
+      aria-label={`Comparar antes e depois: ${procedimento}`}
+      aria-valuetext="50% depois"
+    />
+  </div>
+  <figcaption class="comp-legenda">{legenda ?? `${procedimento} · ${tempo} depois`}</figcaption>
+</figure>
+
+<style is:global>
+  .comparador {
+    margin-inline: 0;
+    margin-bottom: 0;
+  }
+  .comp-quadro {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .comp-quadro picture,
+  .comp-quadro img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .comp-rotulo {
+    position: absolute;
+    top: 0.75rem;
+    padding: 0.3rem 0.6rem 0.25rem;
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-perola);
+    background: color-mix(in srgb, var(--c-cacau) 82%, transparent);
+  }
+  .comp-rotulo--antes {
+    left: 0.75rem;
+  }
+  .comp-rotulo--depois {
+    right: 0.75rem;
+    text-align: right;
+  }
+  .comp-rotulo {
+    max-width: calc(50% - 1.25rem);
+  }
+  .comp-range,
+  .comp-linha {
+    display: none;
+  }
+  /* Com JS: sobreposto, a divisória segue o range. */
+  .comparador[data-pronto] .comp-quadro {
+    display: block;
+    overflow: hidden;
+  }
+  .comparador[data-pronto] .comp-depois {
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 0 0 var(--pos));
+  }
+  .comparador[data-pronto] .comp-linha {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--pos);
+    width: 1px;
+    background: var(--c-perola);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--c-cacau) 35%, transparent);
+    pointer-events: none;
+  }
+  .comparador[data-pronto] .comp-range {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+  }
+  .comparador[data-pronto] .comp-quadro:has(.comp-range:focus-visible) {
+    outline: 2px solid var(--foco);
+    outline-offset: 3px;
+  }
+  .comp-legenda {
+    margin-top: 0.75rem;
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+</style>
+
+<script>
+  for (const fig of document.querySelectorAll<HTMLElement>('[data-comparador]')) {
+    const range = fig.querySelector<HTMLInputElement>('.comp-range');
+    if (!range) continue;
+    const aplicar = () => {
+      fig.style.setProperty('--pos', `${range.value}%`);
+      range.setAttribute('aria-valuetext', `${100 - Number(range.value)}% depois`);
+    };
+    range.addEventListener('input', aplicar);
+    aplicar();
+    fig.dataset.pronto = '';
+  }
+</script>

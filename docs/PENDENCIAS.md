@@ -39,3 +39,10 @@ Campos e decisões que dependem do cliente ou do João. Nada aqui é inventado n
 - **Textos dos tratamentos e das fases** (`paraQuem`, `oQueE`, `comoEFeito`, `cuidados`, `resultadosEsperados`, `oQueMuda`, `frase`): `null`/vazio até a sessão 5. Duração da sessão de cada procedimento: não informada.
 - **Origem do nome Giyma** (Gi + Ma): opcional e vazia; não publicar sem a confirmação da Ester.
 - **"botox" na FAQ:** a única exceção do CLAUDE.md. A auditoria só aceita a palavra dentro de um elemento com `data-nome-popular` (a lista de termos não foi alterada).
+
+## Design system (sessão 3)
+
+- **Mapa estático:** o OpenStreetMap estava bloqueado na rede da sessão. O componente `<MapaEstatico>` usa hoje a fachada real, o endereço, o plus code e as rotas (Google, Waze, Apple) e aceita a imagem do mapa (`mapa="id"`) quando ela puder ser gerada no build com atribuição "© OpenStreetMap". Liberar `tile.openstreetmap.org` na rede ou mandar uma imagem de mapa autorizada.
+- **MDN:** `developer.mozilla.org` está fora da rede da sessão; a pesquisa foi feita no repositório do MDN no GitHub (mdn/content).
+- **Logo:** o monograma ganhou uma versão "pequena" (traço 18 em vez de 11, mesmo desenho) para ≤ 48 px e para os ícones. Validar com a clínica junto com o arquivo original do designer.
+- **Paleta calibrada nos stills:** petróleo #1F2E44 (parede medida #242B3F), ouro velho #B8925C (sombra das letras #AA7F4A), cacau #231A16. Conferir com o João na primeira rodada de capturas.

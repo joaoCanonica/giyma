@@ -1,0 +1,528 @@
+---
+// /_estilo: o sistema de design inteiro (interno, noindex). Publicado por src/pages/[estilo].astro,
+// porque o Astro não roteia arquivos que começam com "_".
+import { getCollection } from 'astro:content';
+import '../styles/provas.css';
+import AssinaturaProfissional from '../components/base/AssinaturaProfissional.astro';
+import Botao from '../components/base/Botao.astro';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Citacao from '../components/base/Citacao.astro';
+import Comparador from '../components/base/Comparador.astro';
+import Documento from '../components/base/Documento.astro';
+import Imagem from '../components/base/Imagem.astro';
+import LinhaDoTempo, { type FaseLinha } from '../components/base/LinhaDoTempo.astro';
+import Link from '../components/base/Link.astro';
+import MapaEstatico from '../components/base/MapaEstatico.astro';
+import MolduraVideo from '../components/base/MolduraVideo.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Florescer from '../components/marca/Florescer.astro';
+import Haste from '../components/marca/Haste.astro';
+import Logo from '../components/marca/Logo.astro';
+import { profissional } from '../config/index.ts';
+import { linkWhatsApp, mensagens } from '../lib/whatsapp.ts';
+import { contraste, pares, superficies } from '../styles/tokens.mjs';
+
+const tratamentos = await getCollection('tratamentos');
+const nomeDe = new Map(tratamentos.map((t) => [t.data.slug, t.data.nome]));
+const fases: FaseLinha[] = (await getCollection('fases'))
+  .map((f) => f.data)
+  .sort((a, b) => a.ordem - b.ordem)
+  .map((f) => ({
+    faixa: f.faixa,
+    titulo: f.titulo,
+    oQueMuda: f.oQueMuda,
+    rascunho: f.base[0]?.nota ?? '',
+    focos: f.focos.map((slug) => ({ slug, nome: nomeDe.get(slug) ?? slug })),
+    frase: f.frase,
+    whatsapp: linkWhatsApp(mensagens.fase(f.faixa)),
+  }));
+
+const citacaoLonga = profissional.citacoes.find((c) => c.texto.startsWith('O que começou'));
+const citacaoCurta = profissional.citacoes.find((c) => c.texto.startsWith('A beleza está'));
+const sups = ['perola', 'nevoa', 'cacau', 'petroleo'] as const;
+const nomesSup = { perola: 'Pérola', nevoa: 'Névoa', cacau: 'Cacau', petroleo: 'Petróleo' };
+const provas = [
+  { classe: 'prova--a', nome: 'A · Bellefair + Mulish', escolhida: true },
+  { classe: 'prova--b', nome: 'B · Gilda Display + Red Hat Text', escolhida: false },
+  { classe: 'prova--c', nome: 'C · Bellefair + Red Hat Text', escolhida: false },
+  { classe: 'prova--d', nome: 'D · Gilda Display + Mulish', escolhida: false },
+];
+const fase40 = fases.find((f) => f.faixa === '40');
+---
+
+<Documento titulo="Sistema de design · Giyma" interna>
+  <header class="capitulo" data-superficie="cacau">
+    <div class="contido estilo-capa">
+      <Logo variante="vertical" class="estilo-capa-logo" />
+      <div class="pilha">
+        <Rotulo>Página interna · noindex</Rotulo>
+        <h1 class="t-display">Sistema de design</h1>
+        <p class="t-acento t-3">
+          O Florescer, a linha do tempo da pele e as peças que montam o site.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="cor">
+    <div class="contido pilha">
+      <Rotulo as="h2">
+        <span id="cor">Cor · calibrada nos stills</span>
+      </Rotulo>
+      <p class="medida t-suave">
+        Petróleo da parede da recepção (medido #242B3F), ouro das letras douradas (sombra #AA7F4A,
+        tom médio #E8B87C), cacau do fundo do ensaio. O ouro chapado fica em fios, monograma e
+        números grandes sobre fundo escuro; sobre pérola, rótulos e números usam o ouro-tinta (AA).
+      </p>
+      <div class="estilo-sups">
+        {sups.map((s) => (
+          <div class="estilo-sup" data-superficie={s}>
+            <p class="t-3">{nomesSup[s]}</p>
+            <p class="t-pequeno t-suave">Texto secundário</p>
+            <p>
+              <Rotulo>Rótulo</Rotulo>
+            </p>
+            <p class="t-numero estilo-sup-numero">1999</p>
+            <hr class="fio" />
+            <p class="t-pequeno t-suave">
+              Razões no tema claro (o audit-contraste confere os dois temas):
+            </p>
+            <ul class="estilo-razoes t-pequeno t-tabular">
+              {pares.map((p) => {
+                const papeis = superficies.claro[s];
+                const c = contraste(
+                  papeis[p.frente as keyof typeof papeis],
+                  papeis[p.fundo as keyof typeof papeis],
+                );
+                return (
+                  <li>
+                    {p.frente} {c.toFixed(1)}:1
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="nevoa" aria-labelledby="tipo">
+    <div class="contido pilha" style="--pilha: var(--e-4)">
+      <Rotulo as="h2">
+        <span id="tipo">Tipografia</span>
+      </Rotulo>
+      <div class="pilha" style="--pilha: var(--e-2)">
+        <p class="t-display">Florescer</p>
+        <p class="t-1">Sua pele conta a sua história</p>
+        <p class="t-2">Naturalidade com propósito</p>
+        <p class="t-3">Avaliação antes de qualquer procedimento</p>
+        <p class="medida">
+          Texto corrido em Mulish, 17–18 px, entrelinha 1,68. A medida fica perto de 34 em para a
+          leitura não cansar, e os números entram em tabular quando se alinham: 1999 · 2015 · 2023.
+        </p>
+        <p>
+          <span class="t-acento t-3">acento em EB Garamond Italic</span>
+        </p>
+        <p>
+          <Rotulo>Rótulo em Josefin Sans · versalete espaçado</Rotulo>
+        </p>
+        <p class="t-numero">2015</p>
+      </div>
+
+      <hr class="fio" />
+      <Rotulo as="h3">Provas: títulos × texto</Rotulo>
+      <div class="estilo-provas">
+        {provas.map((p) => (
+          <article
+            class:list={['prova', p.classe, { 'prova--escolhida': p.escolhida }]}
+            data-superficie="perola"
+          >
+            <Rotulo>
+              {p.nome}
+              {p.escolhida ? ' · escolhida' : ''}
+            </Rotulo>
+            <div class="prova-hero" data-assinatura-profissional>
+              <p class="p-titulo prova-nome">Dra. Ester Santos</p>
+              <p class="p-texto prova-credencial">
+                farmacêutica esteta · <span class="sem-quebra">CRF-SC 3984</span>
+              </p>
+            </div>
+            <div class="prova-linha">
+              <span class="p-titulo prova-num">40</span>
+              <div>
+                <h3>Aos 40</h3>
+                <p>{fase40?.rascunho}</p>
+              </div>
+            </div>
+            <blockquote class="prova-citacao">
+              <p class="t-acento">{citacaoLonga?.texto}</p>
+              <p class="t-pequeno">Ester Santos · {citacaoLonga?.fonte}</p>
+            </blockquote>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="logo">
+    <div class="contido pilha" style="--pilha: var(--e-4)">
+      <Rotulo as="h2">
+        <span id="logo">Logo</span>
+      </Rotulo>
+      <div class="estilo-logos">
+        <Logo variante="horizontal" class="estilo-logo-h" />
+        <Logo variante="vertical" class="estilo-logo-v" />
+      </div>
+      <div class="estilo-tamanhos">
+        {[24, 32, 48, 96].map((t) => (
+          <div class="estilo-tamanho">
+            <Logo variante="monograma" tamanho={t} titulo={`Monograma ${t} px`} />
+            <span class="t-pequeno t-suave t-tabular">
+              {t} px{t <= 48 ? ' · pequena' : ''}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div class="estilo-tamanhos" data-superficie="cacau">
+        {[24, 32, 48, 96].map((t) => (
+          <div class="estilo-tamanho estilo-ouro">
+            <Logo variante="monograma" tamanho={t} decorativo />
+            <span class="t-pequeno t-suave t-tabular">{t} px</span>
+          </div>
+        ))}
+        <div class="estilo-tamanho">
+          <img
+            src="/apple-touch-icon.png"
+            width="60"
+            height="60"
+            alt="Ícone para a tela inicial (180 px)"
+          />
+          <span class="t-pequeno t-suave">apple-touch-icon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="cacau" aria-labelledby="florescer">
+    <div class="contido pilha" style="--pilha: var(--e-4)">
+      <Rotulo as="h2">
+        <span id="florescer">A assinatura: O Florescer</span>
+      </Rotulo>
+      <div class="estilo-florescer">
+        <Florescer as="figure" class="estilo-retrato">
+          <Imagem
+            id="retrato-4x5"
+            alt="Ester Santos de blusa branca, braços cruzados, sorrindo, em fundo marrom"
+            sizes="(min-width: 60rem) 26rem, 90vw"
+          />
+        </Florescer>
+        <div class="pilha">
+          <p class="t-3">(a) Revelação</p>
+          <p class="medida t-suave">
+            Duas folhas (elipses de clip-path) nascem finas junto à haste, no centro, e se afastam
+            até descobrir a imagem. 800 ms, uma vez, quando o bloco entra na tela. Com movimento
+            reduzido ou sem JS, a imagem aparece direto.
+          </p>
+          <AssinaturaProfissional formato="bloco" />
+        </div>
+      </div>
+      <div class="estilo-hastes">
+        <Haste />
+        <p class="t-3">(b) Haste · divisor entre capítulos</p>
+        <Haste altura={80} />
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="componentes">
+    <div class="contido pilha" style="--pilha: var(--e-4)">
+      <Rotulo as="h2">
+        <span id="componentes">Componentes base</span>
+      </Rotulo>
+      <div class="estilo-sups">
+        {sups.map((s) => (
+          <div class="estilo-sup estilo-botoes" data-superficie={s}>
+            <BotaoAgendar />
+            <Botao href="#componentes" variante="secundario">
+              Ver tratamentos
+            </Botao>
+            <p>
+              Texto com <Link href="#componentes">link interno</Link> e{' '}
+              <Link href="https://www.instagram.com/dra_estersantos/" externo>
+                Instagram
+              </Link>
+              .
+            </p>
+          </div>
+        ))}
+      </div>
+      <p class="t-pequeno t-suave">
+        (c) Hover: fio dourado de 1 px acende por dentro da borda. Foco: anel de 2 px na cor de foco
+        da superfície (≥ 3:1). Use Tab.
+      </p>
+      <div class="estilo-duas">
+        {citacaoCurta && <Citacao texto={citacaoCurta.texto} fonte={citacaoCurta.fonte} />}
+        <div class="pilha">
+          <AssinaturaProfissional />
+          <AssinaturaProfissional formato="bloco" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="petroleo" aria-label="Linha do tempo da pele">
+    <div class="contido">
+      <LinhaDoTempo fases={fases} />
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="midia">
+    <div class="contido pilha" style="--pilha: var(--e-4)">
+      <Rotulo as="h2">
+        <span id="midia">Mídia</span>
+      </Rotulo>
+      <div class="estilo-duas">
+        <div class="pilha">
+          <p class="t-3">Comparador</p>
+          <p class="t-pequeno t-suave">
+            Demonstração com dois quadros do tour: nenhum antes e depois tem autorização ainda, e
+            nenhum vai para o site sem ela.
+          </p>
+          <Comparador
+            antes="still-consultorio"
+            depois="still-recepcao"
+            tempo="demonstração"
+            procedimento="Demonstração do comparador"
+            altAntes="Consultório da Giyma com a poltrona de procedimento"
+            altDepois="Ester Santos na recepção da Giyma"
+            legenda="Demonstração com dois quadros do tour (não é antes e depois)."
+          />
+        </div>
+        <div class="pilha">
+          <p class="t-3">Imagem com LQIP</p>
+          <div class="fio-hover">
+            <Imagem
+              id="still-placa"
+              alt="Placa dourada com o nome da Ester na porta do consultório"
+              sizes="(min-width: 60rem) 30rem, 90vw"
+            />
+          </div>
+          <p class="t-pequeno t-suave">Quadro de vídeo: no máximo 720 px físicos.</p>
+        </div>
+      </div>
+      <div class="estilo-videos">
+        <div class="pilha">
+          <p class="t-3">Loop (mudo, só visível)</p>
+          <MolduraVideo trecho="loop-letras" titulo="Letras douradas da Giyma na parede petróleo" />
+        </div>
+        <div class="pilha">
+          <p class="t-3">Player (sem som)</p>
+          <MolduraVideo
+            trecho="fases"
+            modo="player"
+            titulo="Ester explica o que costuma fazer sentido em cada fase da pele"
+          />
+        </div>
+      </div>
+      <MapaEstatico />
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="nevoa" aria-labelledby="movimento">
+    <div class="contido pilha">
+      <Rotulo as="h2">
+        <span id="movimento">Movimento</span>
+      </Rotulo>
+      <ul class="estilo-mov t-tabular">
+        <li>
+          <span>200 ms</span> hover, cor, foco
+        </li>
+        <li>
+          <span>400 ms</span> troca de estado, folhas da haste
+        </li>
+        <li>
+          <span>700 ms</span> folhas se abrindo
+        </li>
+        <li>
+          <span>900 ms</span> linha da haste, revelação maior
+        </li>
+        <li>
+          <span>cubic-bezier(0.22, 0.61, 0.24, 1)</span> a curva assinatura: sai rápido e assenta
+          devagar, sem bounce
+        </li>
+        <li>
+          <span>reduced-motion</span> durações zeradas, estados finais diretos
+        </li>
+      </ul>
+    </div>
+  </section>
+</Documento>
+
+<style>
+  .estilo-capa {
+    display: grid;
+    gap: var(--e-4);
+    align-items: end;
+  }
+  @media (min-width: 56rem) {
+    .estilo-capa {
+      grid-template-columns: auto 1fr;
+      gap: var(--e-5);
+    }
+  }
+  :global(.estilo-capa-logo) {
+    width: clamp(9rem, 20vw, 14rem);
+    color: var(--fio);
+  }
+  .estilo-sups {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .estilo-sup {
+    padding: var(--e-3);
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+  }
+  .estilo-sup-numero {
+    font-size: 3.5rem;
+  }
+  .estilo-razoes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    color: var(--suave);
+  }
+  .estilo-provas {
+    display: grid;
+    gap: var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  }
+  .prova {
+    padding: var(--e-3);
+    display: grid;
+    gap: var(--e-3);
+    align-content: start;
+  }
+  .prova--escolhida {
+    box-shadow: inset 0 0 0 1px var(--fio);
+  }
+  .prova-nome {
+    font-size: clamp(2.2rem, 1.6rem + 2vw, 3.2rem);
+    line-height: 1;
+  }
+  .prova-credencial {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: var(--suave);
+  }
+  .prova-linha {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--e-2);
+    align-items: start;
+  }
+  .prova-num {
+    font-size: 4.5rem;
+    line-height: 0.85;
+    color: var(--numero);
+  }
+  .prova-linha h3 {
+    font-size: 1.6rem;
+  }
+  .prova-linha p {
+    margin-top: 0.4rem;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .prova-citacao {
+    margin: 0;
+  }
+  .prova .prova-citacao .t-acento {
+    font-family: var(--fonte-acento);
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  .prova-citacao .t-pequeno {
+    margin-top: 0.5rem;
+    color: var(--suave);
+  }
+  .estilo-logos {
+    display: grid;
+    gap: var(--e-4);
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    align-items: end;
+  }
+  :global(.estilo-logo-h) {
+    width: min(100%, 26rem);
+  }
+  :global(.estilo-logo-v) {
+    width: min(70%, 15rem);
+  }
+  .estilo-tamanhos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: var(--e-4);
+    padding: var(--e-3);
+  }
+  .estilo-tamanho {
+    display: grid;
+    justify-items: start;
+    gap: 0.5rem;
+  }
+  .estilo-ouro {
+    color: var(--fio);
+  }
+  .estilo-florescer,
+  .estilo-duas {
+    display: grid;
+    gap: var(--e-5);
+    align-items: center;
+  }
+  @media (min-width: 56rem) {
+    .estilo-florescer,
+    .estilo-duas {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+  :global(.estilo-retrato) {
+    margin-inline: 0;
+    max-width: 26rem;
+  }
+  .estilo-hastes {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--e-4);
+  }
+  .estilo-botoes {
+    gap: var(--e-2);
+    justify-items: start;
+  }
+  .estilo-videos {
+    display: grid;
+    gap: var(--e-4);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .estilo-mov {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .estilo-mov span {
+    display: inline-block;
+    min-width: 7rem;
+    margin-right: 1rem;
+    color: var(--rotulo);
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+  }
+</style>
