@@ -16,7 +16,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check && eslint . && prettier --check .",
-    "test": "vitest run",
+    "test": "vitest run && node scripts/test-config.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
     "validate-config": "node scripts/validate-config.mjs",
@@ -27,7 +27,8 @@
     "audit-contraste": "node scripts/audit-contraste.mjs",
     "media:prepare": "node scripts/prepare-media.mjs",
     "capturar": "node scripts/capturar.mjs",
-    "media:stills": "node scripts/extract-stills.mjs"
+    "media:stills": "node scripts/extract-stills.mjs",
+    "test-config": "node scripts/test-config.mjs"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -47,6 +48,7 @@
     "eslint": "10.14.0",
     "eslint-plugin-astro": "3.2.1",
     "globals": "17.14.0",
+    "node-html-parser": "9.0.6",
     "playwright": "1.63.0",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",

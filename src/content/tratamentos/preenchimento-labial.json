@@ -1,0 +1,34 @@
+{
+  "slug": "preenchimento-labial",
+  "nome": "Preenchimento labial",
+  "nomePopular": null,
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["lábios (volume e contorno)"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [
+    {
+      "pergunta": "O preenchimento labial sempre aumenta muito os lábios?",
+      "resposta": "Não. O resultado é personalizado e pode ser bem sutil, apenas para definir o contorno e hidratar.",
+      "fonte": "arte f28 (DOZUDsrEdFL), resposta literal"
+    }
+  ],
+  "midia": [],
+  "fases": [],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre preenchimento labial.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "≥ 6 posts com antes e depois"
+    },
+    {
+      "ref": "media.manifest.json, f14/f16/f17",
+      "nota": "carrossel \"3 coisas que o preenchimento labial fará na sua autoestima\" (DJ7aKJLBLv5)"
+    }
+  ]
+}

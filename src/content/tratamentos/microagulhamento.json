@@ -1,0 +1,30 @@
+{
+  "slug": "microagulhamento",
+  "nome": "Microagulhamento",
+  "nomePopular": null,
+  "categoria": "pele",
+  "status": "confirmado",
+  "areas": ["rosto"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [
+    {
+      "pergunta": "Microagulhamento dói?",
+      "resposta": "Com o uso de anestésico tópico, o procedimento é confortável e seguro.",
+      "fonte": "arte f25 (DOZUDsrEdFL), resposta literal"
+    }
+  ],
+  "midia": [],
+  "fases": [],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre microagulhamento.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "post 23/05/2025"
+    }
+  ]
+}

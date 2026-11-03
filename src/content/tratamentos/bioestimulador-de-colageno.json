@@ -1,0 +1,32 @@
+{
+  "slug": "bioestimulador-de-colageno",
+  "nome": "Bioestimulador de colágeno",
+  "nomePopular": null,
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["rosto", "mãos"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [],
+  "midia": [],
+  "fases": ["30", "40", "50", "60+"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre bioestimulador de colágeno.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "posts 29/08/2025, 01/12/2024 e 30/10/2026"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 30\": produção de colágeno começa a cair; bioestimuladores para manter a firmeza (18–29 s)"
+    },
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
+      "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
+    }
+  ]
+}

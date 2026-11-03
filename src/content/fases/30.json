@@ -1,0 +1,23 @@
+{
+  "faixa": "30",
+  "ordem": 2,
+  "titulo": "Aos 30",
+  "oQueMuda": null,
+  "focos": ["bioestimulador-de-colageno"],
+  "frase": "",
+  "video": {
+    "trecho": "fases",
+    "inicio": 18,
+    "fim": 29
+  },
+  "base": [
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 30\": a produção de colágeno começa a cair; bioestimuladores para manter a firmeza (18–29 s)"
+    },
+    {
+      "ref": "carrossel DQXcUrsEVC7 (28/10/2025), artes f30–f33",
+      "nota": "\"Cada nova marca no tempo não precisa ser motivo de preocupação. Mas é importante saber que a sua produção natural de colágeno já não é a mesma…\" · \"a Prevenção se torna sua Maior Aliada\""
+    }
+  ]
+}

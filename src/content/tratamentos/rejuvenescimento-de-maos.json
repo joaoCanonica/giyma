@@ -1,0 +1,28 @@
+{
+  "slug": "rejuvenescimento-de-maos",
+  "nome": "Rejuvenescimento das mãos",
+  "nomePopular": null,
+  "categoria": "maos",
+  "status": "confirmado",
+  "areas": ["mãos"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [],
+  "midia": [],
+  "fases": ["40", "50", "60+"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre rejuvenescimento das mãos.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "bioestimulador nas mãos (posts 29/08/2025 e 30/10/2026); creme × bioestimulador"
+    },
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
+      "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
+    }
+  ]
+}

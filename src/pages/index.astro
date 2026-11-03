@@ -1,5 +1,9 @@
 ---
-// Página temporária da fundação. Substituída na sessão 4 (entrada e hero).
+// Página temporária. Substituída na sessão 4 (entrada e hero).
+import AssinaturaProfissional from '../components/AssinaturaProfissional.astro';
+import PreviewBanner from '../components/PreviewBanner.astro';
+import Provisorio from '../components/Provisorio.astro';
+import { horario, robots } from '../config/index.ts';
 ---
 
 <!doctype html>
@@ -7,7 +11,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content={robots()} />
     <title>Giyma</title>
     <style is:inline>
       :root[data-theme='escuro'] {
@@ -16,6 +20,12 @@
     </style>
   </head>
   <body>
+    <PreviewBanner />
     <h1>Giyma</h1>
+    <AssinaturaProfissional />
+    <p>
+      {horario.textoSemHorario}
+      {horario.semana.estado === 'bloqueante' && <Provisorio rotulo={horario.semana.rotulo} />}
+    </p>
   </body>
 </html>

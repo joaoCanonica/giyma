@@ -1,0 +1,32 @@
+---
+// Faixa "em revisão": só em preview. Some sozinha em produção (GIYMA_MODO=producao).
+import { ehPreview, pendencias } from '../config/index.ts';
+
+const mostrar = ehPreview();
+const lista = pendencias();
+const bloqueantes = lista.filter((p) => p.estado === 'bloqueante').length;
+const plural = (n: number, palavra: string) => `${n} ${palavra}${n === 1 ? '' : 's'}`;
+const resumo = `${plural(lista.length, 'pendência')} (${plural(bloqueantes, 'bloqueante')})`;
+---
+
+{mostrar && (
+  <div class="preview-banner" role="note" data-preview-banner>
+    <strong>Em revisão</strong> · versão provisória, fora do ar para buscadores · {resumo}
+  </div>
+)}
+
+<style>
+  .preview-banner {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.4rem 1rem;
+    font:
+      500 0.8125rem/1.4 system-ui,
+      sans-serif;
+    letter-spacing: 0.02em;
+    color: #f3f1ee;
+    background: #1e3348;
+    border-bottom: 1px solid #b8975f;
+  }
+</style>

@@ -25,3 +25,17 @@ Campos e decisões que dependem do cliente ou do João. Nada aqui é inventado n
 - Tour sem legenda e sem música; vídeo das letras douradas em resolução maior.
 - Logo original do designer.
 - Artes com pontos de atenção no texto (não reproduzir literal): "Dra." sem CRF e "expert" (07), telefone com dígito faltando (29), "o melhor" (37), "valores dos procedimentos" = preço (41), "Botox" como chamada (36).
+
+## Config e conteúdo (sessão 2)
+
+`pnpm validate-config` lista tudo com o estado atual (17 pendências na config, 2 bloqueantes). Resumo:
+
+- **Horário** (`horario.semana`): bloqueante. Único motivo que hoje trava a produção. O site mostra "Horário pelo WhatsApp" com selo PROVISÓRIO. O motor (`src/lib/horario.ts`) já está pronto e testado: basta trocar por `confirmado({ seg: [...], ... }, fonte)`.
+- **Pós-graduação em estética** (`profissional.posEstetica`): bloqueante só para a página `/dra-ester-santos` (fica fora da produção até chegar). Conferir também a **averbação** no CRF-SC.
+- **Fases 50 e 60+:** o vídeo DbBfgMjRUkX trata "Aos 40 ou +" junto. As fases 50 e 60+ usam o mesmo trecho (29–43 s) e os mesmos focos do 40, mais os conteúdos de mãos e bioestimulador para "40, 50 ou 60 anos". Confirmar com a Ester se há diferença real entre 40, 50 e 60+.
+- **Fios de PDO:** citados no vídeo (40+, "combinado com fios de PDO") e sem tratamento cadastrado. Confirmar se ela faz; se fizer, vira registro em `src/content/tratamentos/`.
+- **Valores:** frase só de "Segurança e cuidado" (arte de 21/10/2026). Faltam as de Naturalidade, Ética e Acolhimento (sessão 5). Sem still limpo para Segurança (procedimento mostra paciente) e para Naturalidade (quadro "face body dreams", tour 16,6–17,7 s, ainda não extraído).
+- **Resultados:** os 9 pares em `src/content/resultados/` estão `pendente`. Para publicar cada um: autorização escrita, procedimento, tempo decorrido e legenda; o consentimento precisa ser trocado no manifesto **e** na coleção (a trava acusa divergência).
+- **Textos dos tratamentos e das fases** (`paraQuem`, `oQueE`, `comoEFeito`, `cuidados`, `resultadosEsperados`, `oQueMuda`, `frase`): `null`/vazio até a sessão 5. Duração da sessão de cada procedimento: não informada.
+- **Origem do nome Giyma** (Gi + Ma): opcional e vazia; não publicar sem a confirmação da Ester.
+- **"botox" na FAQ:** a única exceção do CLAUDE.md. A auditoria só aceita a palavra dentro de um elemento com `data-nome-popular` (a lista de termos não foi alterada).

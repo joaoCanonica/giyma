@@ -64,6 +64,6 @@ describe('fundação', () => {
   });
 
   it('a página temporária não é indexável', () => {
-    expect(ler('src/pages/index.astro')).toContain('noindex');
+    expect(ler('src/pages/index.astro')).toContain('content={robots()}');
   });
 });

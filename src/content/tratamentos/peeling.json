@@ -1,0 +1,28 @@
+{
+  "slug": "peeling",
+  "nome": "Peeling",
+  "nomePopular": null,
+  "categoria": "pele",
+  "status": "confirmado",
+  "areas": ["rosto"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [],
+  "midia": [],
+  "fases": ["20"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre peeling.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "post 31/10/2025"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 20\": peeling químico para renovar a pele (9–11 s)"
+    }
+  ]
+}

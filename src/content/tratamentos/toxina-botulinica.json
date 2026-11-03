@@ -1,0 +1,38 @@
+{
+  "slug": "toxina-botulinica",
+  "nome": "Toxina botulínica",
+  "nomePopular": "botox",
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["linhas da testa", "glabela (entre as sobrancelhas)", "pés de galinha"],
+  "paraQuem": null,
+  "oQueE": null,
+  "comoEFeito": null,
+  "cuidados": null,
+  "duracaoSessao": null,
+  "resultadosEsperados": null,
+  "faq": [
+    {
+      "pergunta": "A toxina botulínica deixa o rosto paralisado?",
+      "resposta": "Não! Quando bem aplicado, ele suaviza as rugas sem tirar sua naturalidade.",
+      "fonte": "arte f26 (DOZUDsrEdFL), resposta literal"
+    }
+  ],
+  "midia": ["faq-toxina"],
+  "fases": ["20"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre toxina botulínica.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "vários posts e reels (preventiva e full face)"
+    },
+    {
+      "ref": "media.manifest.json, f34-arte",
+      "nota": "rugas dinâmicas: testa, glabela, pés de galinha"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 20\": toxina preventiva para linhas de expressão (11–18 s)"
+    }
+  ]
+}

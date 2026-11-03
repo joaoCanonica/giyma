@@ -1,0 +1,19 @@
+{
+  "faixa": "20",
+  "ordem": 1,
+  "titulo": "Aos 20",
+  "oQueMuda": null,
+  "focos": ["peeling", "toxina-botulinica"],
+  "frase": "",
+  "video": {
+    "trecho": "fases",
+    "inicio": 6,
+    "fim": 18
+  },
+  "base": [
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 20\": \"O foco é prevenção\"; peeling químico; toxina preventiva para as linhas de expressão (6–18 s)"
+    }
+  ]
+}
