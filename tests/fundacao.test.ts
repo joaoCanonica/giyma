@@ -57,9 +57,9 @@ describe('fundação', () => {
     }
   });
 
-  it('logos continuam em assets/', () => {
+  it('logos estão em media-originais/marca/', () => {
     for (const logo of ['vertical', 'horizontal', 'mark']) {
-      expect(existsSync(join(raiz, `assets/giyma-logo-${logo}.svg`))).toBe(true);
+      expect(existsSync(join(raiz, `media-originais/marca/giyma-logo-${logo}.svg`))).toBe(true);
     }
   });
 

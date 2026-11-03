@@ -26,5 +26,5 @@ Feito pela WAXLO. Contexto, regras e proibições do projeto: [`CLAUDE.md`](CLAU
 - `src/` — `config`, `components`, `layouts`, `pages`, `styles`, `scripts`, `content`, `lib`
 - `scripts/` — scripts de build, auditoria e captura
 - `docs/` — investigação, mapa de mídia, prompts, pendências, `dados/` e `capturas/`
-- `media-originais/` — originais (recebem `assets/` e `videos/` na sessão 1)
+- `media-originais/` — originais intactos (`fotos/`, `videos/`, `marca/`), descritos em `media.manifest.json`; catálogo em `docs/MIDIA_CATALOGO.md`
 - `public/` — arquivos públicos; `public/media/` é gerado e fica fora do git

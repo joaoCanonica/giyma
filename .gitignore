@@ -15,3 +15,6 @@ docs/capturas/**/*.png
 # sistema
 .DS_Store
 *.log
+
+# cache de mídia (extrações intermediárias)
+.cache/
