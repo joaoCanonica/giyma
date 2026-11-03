@@ -1,0 +1,125 @@
+{
+  "_leiaMe": "Avaliações públicas do Google coletadas em 02/11/2026. A Giyma tem só 1 avaliação: o site NÃO deve exibir nota/selo de nota até haver volume (meta: 30+). Exibir a avaliação literal com primeiro nome + inicial e link para a ficha. Nunca usar em JSON-LD (AggregateRating/Review autosservido). Recoletar a cada 30 dias.",
+  "fonte": {
+    "plataforma": "Google Maps",
+    "ficha": "Giyma | Saúde e Estética Avançada",
+    "urlFicha": "https://www.google.com/maps?cid=332599069459016165",
+    "cid": "0x94e01f47cce18701:0x49da1176bbae9e5",
+    "coordenadas": [
+      -27.819478,
+      -50.3300233
+    ],
+    "plusCode": "5MJ9+6X",
+    "categoria": "NÃO CADASTRADA (Google pede 'Adicionar categoria')",
+    "horario": "NÃO CADASTRADO",
+    "site": "NÃO CADASTRADO",
+    "atributo": "Se identifica como uma empresa de empreendedoras",
+    "linkAvaliar": "PENDENTE",
+    "coletadoEm": "2026-11-02"
+  },
+  "resumo": {
+    "nota": 5.0,
+    "total": 1,
+    "exibirNotaNoSite": false,
+    "motivo": "1 avaliação passa fragilidade; concorrentes têm de 13 a 337"
+  },
+  "avaliacoes": [
+    {
+      "id": "g-001",
+      "autor": "Nathalia Ferreira",
+      "autorExibicao": "Nathalia F.",
+      "nota": 5,
+      "quando": "6 meses atrás",
+      "mesAprox": "2026-05",
+      "texto": "Lugar aconchegante. Dra. Esther extremamente atenciosa e competente! Recomendo!",
+      "observacao": "A avaliação escreve 'Esther' (com h); no site, citar literal.",
+      "tags": [
+        "ambiente",
+        "atendimento"
+      ],
+      "destaqueHome": true,
+      "plataforma": "Google"
+    }
+  ],
+  "depoimentosForaDoGoogle": {
+    "nota": "No Instagram há depoimentos em áudio/mensagem (posts DPol82hET0l e DMvUX6LRp3r) e o destaque 'Atendimentos'. Só entram no site com autorização por escrito da paciente e sem rosto/nome se ela pedir.",
+    "status": "PENDENTE"
+  },
+  "concorrenciaNoGoogle_02_11_2026": [
+    {
+      "nome": "Audere Clínica de Estética (Dra. Tatiane de Liz)",
+      "nota": 4.9,
+      "total": 337
+    },
+    {
+      "nome": "Dra. Tatiane de Liz | Harmonização Facial em Lages",
+      "nota": 5.0,
+      "total": 183
+    },
+    {
+      "nome": "Paula Gracietti – Laser e Estética | Clínica e Cursos",
+      "nota": 5.0,
+      "total": 149
+    },
+    {
+      "nome": "Clínica KP – Odontologia e Harmonização Orofacial",
+      "nota": 5.0,
+      "total": 126
+    },
+    {
+      "nome": "Clínica Biavatti Lages",
+      "nota": 5.0,
+      "total": 109
+    },
+    {
+      "nome": "Enf. Elisa Goulart | Harmonização Facial",
+      "nota": 5.0,
+      "total": 67
+    },
+    {
+      "nome": "Dra. Neisa Bräscher - Estética Avançada",
+      "nota": 4.9,
+      "total": 55
+    },
+    {
+      "nome": "WM Estética Avançada",
+      "nota": 5.0,
+      "total": 46
+    },
+    {
+      "nome": "Jaqueline Andrade | Harmonização Corporal e Facial",
+      "nota": 5.0,
+      "total": 43
+    },
+    {
+      "nome": "MARCELA CAMARGO estética avançada - Lages",
+      "nota": 4.8,
+      "total": 35
+    },
+    {
+      "nome": "Dra. Paola Derossi | Harmonização Orofacial",
+      "nota": 4.8,
+      "total": 23
+    },
+    {
+      "nome": "Dra. Rithiele Bassuli",
+      "nota": 5.0,
+      "total": 23
+    },
+    {
+      "nome": "Forma e Face",
+      "nota": 5.0,
+      "total": 21
+    },
+    {
+      "nome": "Harmonização Facial Dra Thamylle Seemann",
+      "nota": 5.0,
+      "total": 13
+    },
+    {
+      "nome": "Giyma | Saúde e Estética Avançada",
+      "nota": 5.0,
+      "total": 1
+    }
+  ]
+}
