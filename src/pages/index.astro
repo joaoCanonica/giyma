@@ -1,31 +1,21 @@
 ---
-// Página temporária. Substituída na sessão 4 (entrada e hero).
-import AssinaturaProfissional from '../components/base/AssinaturaProfissional.astro';
-import PreviewBanner from '../components/PreviewBanner.astro';
-import Provisorio from '../components/Provisorio.astro';
-import { horario, robots } from '../config/index.ts';
+// Home. Sessão 4: só a entrada e o hero (o resto vem na sessão 6A).
+import Documento from '../components/base/Documento.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import HeroRetrato from '../components/hero/HeroRetrato.astro';
 ---
 
-<!doctype html>
-<html lang="pt-BR" data-theme="claro">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content={robots()} />
-    <title>Giyma</title>
-    <style is:inline>
-      :root[data-theme='escuro'] {
-        color-scheme: dark;
-      }
-    </style>
-  </head>
-  <body>
-    <PreviewBanner />
-    <h1>Giyma</h1>
-    <AssinaturaProfissional />
-    <p>
-      {horario.textoSemHorario}
-      {horario.semana.estado === 'bloqueante' && <Provisorio rotulo={horario.semana.rotulo} />}
-    </p>
-  </body>
-</html>
+<Documento
+  titulo="Giyma Saúde e Estética Avançada · Lages/SC"
+  descricao="Harmonização facial em Lages com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984): avaliação individual e planejamento."
+  superficie="cacau"
+>
+  <Entrada slot="inicio" />
+  <div class="topo">
+    <Cabecalho />
+    <main>
+      <HeroRetrato />
+    </main>
+  </div>
+</Documento>

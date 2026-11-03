@@ -157,6 +157,14 @@ async function main() {
             colorScheme: tema.esquema,
             reducedMotion: mov.reduzido,
           });
+          // A entrada da home roda uma vez por sessão: aqui fotografamos o estado final.
+          await contexto.addInitScript(() => {
+            try {
+              sessionStorage.setItem('giyma-entrada', '1');
+            } catch {
+              // sem storage
+            }
+          });
           // O tema vale antes de qualquer script da página.
           await contexto.addInitScript((t) => {
             const aplicar = () => document.documentElement?.setAttribute('data-theme', t);

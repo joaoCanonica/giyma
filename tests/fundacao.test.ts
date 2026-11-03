@@ -63,7 +63,10 @@ describe('fundação', () => {
     }
   });
 
-  it('a página temporária não é indexável', () => {
-    expect(ler('src/pages/index.astro')).toContain('content={robots()}');
+  it('a home usa o Documento, que decide o robots (preview nunca indexa)', () => {
+    expect(ler('src/pages/index.astro')).toContain('<Documento');
+    expect(ler('src/components/base/Documento.astro')).toContain(
+      "interna ? 'noindex, nofollow' : robots()",
+    );
   });
 });

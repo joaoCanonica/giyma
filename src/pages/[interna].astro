@@ -1,0 +1,18 @@
+---
+// Publica as páginas internas (noindex): o Astro não roteia arquivos que começam com "_".
+import Estilo from './_estilo.astro';
+import HeroA from './_hero-a.astro';
+import HeroB from './_hero-b.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { interna: '_estilo' } },
+    { params: { interna: '_hero-a' } },
+    { params: { interna: '_hero-b' } },
+  ];
+}
+const paginas = { _estilo: Estilo, '_hero-a': HeroA, '_hero-b': HeroB } as const;
+const Pagina = paginas[Astro.params.interna as keyof typeof paginas];
+---
+
+<Pagina />

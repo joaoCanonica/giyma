@@ -1,0 +1,91 @@
+---
+// A entrada "O Florescer". Coloque como PRIMEIRO filho do <body> (síncrono: a camada
+// existe desde o primeiro quadro, sem piscar o hero). O JS é quem cria a camada.
+import codigo from './entrada.js?raw';
+---
+
+<script is:inline set:html={codigo} />
+<style is:global>
+  .entrada {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  .entrada-metade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%; /* as elipses têm rx ≥ deslocamento: as aberturas se encontram no centro */
+    background: var(--c-perola);
+    pointer-events: auto;
+  }
+  .entrada-metade--e {
+    left: 0;
+  }
+  .entrada-metade--d {
+    right: 0;
+  }
+  .entrada-pilha {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+    color: var(--c-cacau);
+  }
+  .entrada-monograma {
+    width: clamp(5.5rem, 4rem + 6vw, 8rem);
+    overflow: visible;
+  }
+  .entrada-monograma path {
+    fill: none;
+    stroke: var(--c-ouro);
+    stroke-width: 11;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .entrada-nome {
+    margin-right: -0.3em; /* compensa o tracking da última letra */
+    font-family: var(--fonte-rotulo);
+    font-weight: 300;
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+    letter-spacing: 0.3em;
+    line-height: 1;
+    opacity: 0;
+  }
+  .entrada-nome span {
+    display: inline-block;
+  }
+  .entrada-sub {
+    font-family: var(--fonte-rotulo);
+    font-size: 0.6875rem;
+    letter-spacing: 0.32em;
+    opacity: 0;
+  }
+  .entrada-pular {
+    position: absolute;
+    top: max(1rem, env(safe-area-inset-top));
+    right: var(--margem);
+    pointer-events: auto;
+    padding: 0.7rem 0.9rem;
+    font-family: var(--fonte-rotulo);
+    font-size: 0.8125rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--c-cacau);
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--c-cacau) 35%, transparent);
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .entrada-pular:hover {
+    border-color: var(--c-cacau);
+  }
+  .entrada-pular:focus-visible {
+    outline: 2px solid var(--c-petroleo);
+    outline-offset: 3px;
+  }
+</style>

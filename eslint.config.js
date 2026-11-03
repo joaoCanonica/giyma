@@ -16,7 +16,7 @@ export default defineConfig(
   },
   {
     // Playwright: funções passadas a page.evaluate rodam no navegador.
-    files: ['src/scripts/**/*.ts', 'scripts/capturar.mjs'],
+    files: ['src/scripts/**/*.ts', 'src/components/**/*.js', 'scripts/capturar.mjs'],
     languageOptions: { globals: { ...globals.browser } },
   },
 );

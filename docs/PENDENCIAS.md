@@ -46,3 +46,10 @@ Campos e decisões que dependem do cliente ou do João. Nada aqui é inventado n
 - **MDN:** `developer.mozilla.org` está fora da rede da sessão; a pesquisa foi feita no repositório do MDN no GitHub (mdn/content).
 - **Logo:** o monograma ganhou uma versão "pequena" (traço 18 em vez de 11, mesmo desenho) para ≤ 48 px e para os ícones. Validar com a clínica junto com o arquivo original do designer.
 - **Paleta calibrada nos stills:** petróleo #1F2E44 (parede medida #242B3F), ouro velho #B8925C (sombra das letras #AA7F4A), cacau #231A16. Conferir com o João na primeira rodada de capturas.
+
+## Entrada e hero (sessão 4)
+
+- **Botão "Conheça a Dra. Ester"** saiu como **"Conheça a Ester Santos"**: "Dra." sem o CRF-SC 3984 no mesmo bloco viola a seção 8 (o audit-compliance reprova). Se o João quiser o "Dra." no botão, a alternativa é o botão levar o CRF junto (ex.: "Conheça a Dra. Ester · CRF-SC 3984").
+- **Retrato do hero:** o arquivo disponível tem 852 px de largura no recorte 3:4. No desktop em tela 2x ele aparece um pouco mole (precisaria de ~1320 px). Também tem o filtro escuro/rosado do post: dá para corrigir exposição e balanço de branco globais (permitido), mas o certo é o original do ensaio.
+- **Hero B (letras):** o vídeo em tela cheia tende a virar o LCP (o Chrome conta o primeiro quadro), mesmo entrando em fade: das medições, uma deu o texto (0,90 s) e outra o vídeo (1,51 s). Isso fere "vídeo nunca é o LCP". No desktop, a versão 16:9 tem só 720 px (fica borrada em tela cheia). Se o João preferir o B, precisamos do vídeo original em alta e repensar o enquadramento (vídeo em bloco, não tela cheia).
+- **Copy do hero** (H1 e linha de apoio): provisória, a sessão 5 refina.

@@ -36,6 +36,7 @@ const { titulo, descricao, interna = false, superficie = 'perola' } = Astro.prop
     <slot name="head" />
   </head>
   <body data-superficie={superficie}>
+    <slot name="inicio" />
     <PreviewBanner />
     <slot />
   </body>

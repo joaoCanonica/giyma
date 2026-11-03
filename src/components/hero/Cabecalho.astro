@@ -1,0 +1,36 @@
+---
+// Cabeçalho sobre o hero. O logo é o destino do FLIP da entrada (data-entrada-destino).
+import Logo from '../marca/Logo.astro';
+---
+
+<header class="cabecalho">
+  <a class="cabecalho-marca" href="/" data-entrada-destino>
+    <Logo variante="horizontal" />
+  </a>
+</header>
+
+<style is:global>
+  /* O cabeçalho flutua sobre o hero, dentro de .topo (abaixo da faixa de preview). */
+  .topo {
+    position: relative;
+  }
+  .cabecalho {
+    position: absolute;
+    z-index: 10;
+    inset: 0 0 auto;
+    padding: clamp(1rem, 0.6rem + 1.6vw, 2rem) var(--margem);
+    pointer-events: none;
+  }
+  .cabecalho-marca {
+    display: inline-block;
+    pointer-events: auto;
+    color: var(--c-ouro);
+  }
+  .cabecalho-marca .logo {
+    width: clamp(8.5rem, 7rem + 5vw, 11.5rem);
+  }
+  /* Durante a entrada, o logo do cabeçalho espera o monograma chegar. */
+  html[data-entrada] .cabecalho-marca {
+    opacity: 0;
+  }
+</style>

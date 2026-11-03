@@ -1,0 +1,136 @@
+---
+// Hero A: composição editorial assimétrica em cacau, retrato da Ester sangrando à direita.
+// O retrato é o LCP: no HTML desde o início, eager + fetchpriority="high".
+import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
+import { imagem, srcset } from '../base/midia.ts';
+import Haste from '../marca/Haste.astro';
+import HeroTexto from './HeroTexto.astro';
+
+const mobile = imagem('retrato-4x5');
+const desktop = imagem('retrato-3x4');
+const ALT = 'Ester Santos de blusa branca, braços cruzados, sorrindo, em fundo marrom';
+const src = mobile.fontes.webp.find((f) => f.largura === 800)?.src ?? mobile.fontes.webp[0]?.src;
+---
+
+<section class="hero hero--retrato" data-superficie="cacau" aria-labelledby="hero-titulo">
+  <figure class="hero-retrato" style={`--lqip:url("${mobile.lqip}")`}>
+    <picture>
+      <source
+        media="(min-width: 56rem)"
+        type="image/avif"
+        srcset={srcset(desktop.fontes.avif)}
+        sizes="46vw"
+      />
+      <source
+        media="(min-width: 56rem)"
+        type="image/webp"
+        srcset={srcset(desktop.fontes.webp)}
+        sizes="46vw"
+      />
+      <source type="image/avif" srcset={srcset(mobile.fontes.avif)} sizes="100vw" />
+      <source type="image/webp" srcset={srcset(mobile.fontes.webp)} sizes="100vw" />
+      <img
+        src={src}
+        alt={ALT}
+        width={mobile.largura}
+        height={mobile.altura}
+        loading="eager"
+        decoding="sync"
+        fetchpriority="high"
+      />
+    </picture>
+    <figcaption class="hero-placa">
+      <AssinaturaProfissional formato="bloco" as="span" />
+    </figcaption>
+  </figure>
+
+  <div class="hero-texto">
+    <HeroTexto />
+  </div>
+
+  <div class="hero-haste" aria-hidden="true">
+    <Haste altura={150} />
+  </div>
+</section>
+
+<style is:global>
+  .hero--retrato {
+    position: relative;
+    display: grid;
+    overflow: hidden;
+  }
+  .hero-retrato {
+    position: relative;
+    margin: 0;
+    background: var(--lqip) center / cover no-repeat;
+  }
+  .hero-retrato img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+  }
+  .hero-texto {
+    padding: var(--e-4) var(--margem) var(--e-5);
+  }
+  .hero-haste {
+    display: none;
+  }
+
+  /* Mobile: retrato 4:5 em cima, o nome numa placa cacau no pé da foto. */
+  @media (max-width: 55.99rem) {
+    .hero-retrato {
+      aspect-ratio: 4 / 5;
+      max-height: 60svh;
+      width: 100%;
+    }
+    .hero-placa {
+      position: absolute;
+      left: var(--margem);
+      bottom: 0;
+      transform: translateY(42%);
+      padding: 0.9rem 1.1rem 0.8rem;
+      background: var(--fundo);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--fio) 60%, transparent);
+    }
+    .hero-placa .ap-nome {
+      font-size: 1.75rem;
+    }
+    .hero-texto {
+      padding-top: calc(var(--e-4) + 1.5rem);
+    }
+  }
+
+  /* Desktop: texto à esquerda, retrato 3:4 sangrando para a direita e para baixo. */
+  @media (min-width: 56rem) {
+    .hero--retrato {
+      grid-template-columns: minmax(0, 1fr) min(46vw, 48rem);
+      min-height: min(100svh, 62rem);
+      align-items: stretch;
+    }
+    .hero-retrato {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;
+      aspect-ratio: 3 / 4;
+      max-height: calc(100% - 5.5rem);
+      justify-self: end;
+      width: 100%;
+    }
+    .hero-placa {
+      display: none;
+    }
+    .hero-texto {
+      grid-column: 1;
+      grid-row: 1;
+      align-self: center;
+      padding: 8rem clamp(2rem, 4vw, 5rem) 5rem var(--margem);
+    }
+    .hero-haste {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: calc(min(46vw, 48rem) + clamp(1rem, 2vw, 2rem));
+    }
+  }
+</style>
