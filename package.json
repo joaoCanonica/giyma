@@ -17,6 +17,7 @@
     "preview": "astro preview",
     "check": "astro check && eslint . && prettier --check .",
     "test": "vitest run && node scripts/test-config.mjs",
+    "test:e2e": "node scripts/e2e-funil.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
     "validate-config": "node scripts/validate-config.mjs",

@@ -36,7 +36,7 @@ const ano = new Date().getFullYear();
       </a>
       <AssinaturaProfissional />
     </div>
-    <address class="rodape-contato">
+    <address class="rodape-contato" data-origem="rodape">
       <span>{String(m.rodape['endereco'] ?? '')}</span>
       <Link href={wa}>{String(m.rodape['whatsapp'] ?? '')}</Link>
       <Link href={ig.url} externo>
@@ -56,6 +56,11 @@ const ano = new Date().getFullYear();
     </nav>
     <div class="rodape-legal t-pequeno t-suave">
       <p>{String(m.rodape['aviso'] ?? '')}</p>
+      <p>
+        <button type="button" class="link rodape-pref" data-abrir-consentimento>
+          Preferências de privacidade
+        </button>
+      </p>
       <p>
         {String(m.rodape['direitos'] ?? '').replace('{ano}', String(ano))}
         {marca.cnpj.valor ? (
@@ -118,5 +123,14 @@ const ano = new Date().getFullYear();
     gap: 0.3rem;
     padding-top: var(--e-3);
     border-top: 1px solid color-mix(in srgb, var(--fio) 30%, transparent);
+  }
+  .rodape-pref {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
   }
 </style>

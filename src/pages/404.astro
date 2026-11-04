@@ -24,7 +24,7 @@ const caminhos = await Promise.all(
     {b?.paragrafos?.map((x) => (
       <p class="t-suave">{x}</p>
     ))}
-    <ol class="nf-caminhos">
+    <ol class="nf-caminhos" data-origem="erro-404">
       {caminhos.map((c) => (
         <li>
           <Link href={c.href}>{c.titulo}</Link>

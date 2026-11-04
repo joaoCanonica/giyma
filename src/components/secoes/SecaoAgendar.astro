@@ -2,6 +2,7 @@
 // 10. Agendar e visitar (cacau): o CTA grande, horário (ou "Horário pelo WhatsApp"), endereço,
 // mapa estático com rotas e Instagram. O botão flutuante some quando esta seção aparece.
 import BotaoAgendar from '../base/BotaoAgendar.astro';
+import Assistente from '../cta/Assistente.astro';
 import Link from '../base/Link.astro';
 import MapaEstatico from '../base/MapaEstatico.astro';
 import Rotulo from '../base/Rotulo.astro';
@@ -36,7 +37,7 @@ const ig = contato.instagram.valor;
         <p class="t-3 t-suave">{bloco.paragrafos?.[0]}</p>
       </div>
       <div class="agendar-acao">
-        <BotaoAgendar>{bloco.cta?.texto}</BotaoAgendar>
+        <BotaoAgendar origem="home-agendar">{bloco.cta?.texto}</BotaoAgendar>
         <div class="agendar-horario">
           <Rotulo>Horário</Rotulo>
           {semana ? (
@@ -61,11 +62,17 @@ const ig = contato.instagram.valor;
         </p>
       </div>
     </div>
+    <div class="agendar-assist">
+      <Assistente id="assistente-home" origem="assistente-home" />
+    </div>
     <MapaEstatico />
   </div>
 </section>
 
 <style>
+  .agendar-assist {
+    margin-bottom: var(--e-5);
+  }
   .agendar-topo {
     display: grid;
     gap: var(--e-4);

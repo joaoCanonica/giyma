@@ -3,12 +3,20 @@
 // (<span data-nome-popular>), a exceção da seção 8. Respostas que são redação (não fala da
 // Ester) aparecem com selo PROVISÓRIO no preview até ela validar.
 import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Assistente from '../components/cta/Assistente.astro';
 import Rotulo from '../components/base/Rotulo.astro';
 import Provisorio from '../components/Provisorio.astro';
-import { comAssinatura, fontePublica, pagina, textoHtml } from '../components/secoes/dados.ts';
+import {
+  comAssinatura,
+  fontePublica,
+  microtextos,
+  pagina,
+  textoHtml,
+} from '../components/secoes/dados.ts';
 import Pagina from '../layouts/Pagina.astro';
 
 const p = await pagina('perguntas-frequentes');
+const m = await microtextos();
 const b = p.blocos;
 const GRUPOS = ['toxina', 'preenchimento', 'bioestimulador', 'avaliacao', 'profissional', 'visita'];
 const grupos = GRUPOS.flatMap((id) => (b[id] ? [{ id, bloco: b[id] }] : []));
@@ -77,7 +85,10 @@ const credito = (fonte?: string, origem?: string) =>
       <h2 id="fq-cta" class="t-1">
         A sua resposta vem na avaliação.
       </h2>
-      <BotaoAgendar />
+      <BotaoAgendar mensagem={m.whatsapp['duvida:faq']} origem="faq" />
+      <div class="fq-assist">
+        <Assistente id="assistente-faq" origem="assistente-faq" />
+      </div>
     </div>
   </section>
 </Pagina>
@@ -166,5 +177,11 @@ const credito = (fonte?: string, origem?: string) =>
   .fq-cta-grade {
     justify-items: center;
     text-align: center;
+  }
+  .fq-assist {
+    width: 100%;
+    max-width: 44rem;
+    margin-top: var(--e-3);
+    text-align: start;
   }
 </style>

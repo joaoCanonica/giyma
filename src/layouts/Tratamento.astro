@@ -116,7 +116,7 @@ const semQuebra = (s: string) =>
             <AssinaturaProfissional />
             {mensagem && (
               <div>
-                <BotaoAgendar mensagem={mensagem}>
+                <BotaoAgendar mensagem={mensagem} origem="tratamento-topo" tratamento={t.slug}>
                   Agendar avaliação<span class="tr-sobre"> sobre {nomeMinusculo}</span>
                 </BotaoAgendar>
               </div>
@@ -305,7 +305,7 @@ const semQuebra = (s: string) =>
           </h2>
           <p class="t-suave">Você conversa com a equipe e agenda sua avaliação.</p>
           {mensagem && (
-            <BotaoAgendar mensagem={mensagem}>
+            <BotaoAgendar mensagem={mensagem} origem="tratamento-final" tratamento={t.slug}>
               Agendar avaliação<span class="tr-sobre"> sobre {nomeMinusculo}</span>
             </BotaoAgendar>
           )}
@@ -340,7 +340,7 @@ const semQuebra = (s: string) =>
     </main>
   </div>
   <Rodape />
-  <BotaoFlutuante />
+  <BotaoFlutuante mensagem={mensagem} tratamento={t.slug} />
 </Documento>
 
 <style>

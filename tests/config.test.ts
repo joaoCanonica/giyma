@@ -23,7 +23,16 @@ import {
   validarSemana,
   type Semana,
 } from '../src/lib/horario.ts';
-import { FAIXA_EM_TEXTO, linkWhatsApp, mensagens } from '../src/lib/whatsapp.ts';
+import { classificar } from '../src/lib/medicao.ts';
+import {
+  FAIXA_EM_TEXTO,
+  HISTORICO_EM_TEXTO,
+  INCOMODOS,
+  linkWhatsApp,
+  mensagens,
+  type Faixa,
+  type Historico,
+} from '../src/lib/whatsapp.ts';
 
 const RAIZ = join(import.meta.dirname, '..');
 
@@ -207,6 +216,45 @@ describe('WhatsApp', () => {
       ...schemas.FAIXAS.map((f) => mensagens.fase(f)),
     ];
     for (const m of todas) expect(encontrarTermosVetados(m)).toEqual([]);
+  });
+  it('assistente: texto exato', () => {
+    expect(mensagens.assistente('linhas de expressão', '40', 'nunca')).toBe(
+      'Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação. O que me incomoda hoje: linhas de expressão. Tenho entre 40 e 49 anos. Nunca fiz procedimento estético.',
+    );
+    expect(() => mensagens.assistente(' ', '40', 'nunca')).toThrow();
+  });
+  it('assistente: o modelo do componente gera o mesmo link em todas as combinações', () => {
+    // Mesma montagem de src/components/cta/Assistente.astro (modelo + troca no navegador).
+    const modelo = mensagens
+      .assistente('§i', '20', 'nunca')
+      .replace(FAIXA_EM_TEXTO['20'], '§f')
+      .replace(HISTORICO_EM_TEXTO.nunca, '§h');
+    const geral = linkWhatsApp(mensagens.geral());
+    const base = geral.slice(0, geral.indexOf('?text=') + 6);
+    let n = 0;
+    for (const i of INCOMODOS)
+      for (const f of Object.keys(FAIXA_EM_TEXTO) as Faixa[])
+        for (const h of Object.keys(HISTORICO_EM_TEXTO) as Historico[]) {
+          const t = modelo
+            .replace('§i', i)
+            .replace('§f', FAIXA_EM_TEXTO[f])
+            .replace('§h', HISTORICO_EM_TEXTO[h]);
+          expect(base + encodeURIComponent(t)).toBe(linkWhatsApp(mensagens.assistente(i, f, h)));
+          expect(encontrarTermosVetados(t)).toEqual([]);
+          n++;
+        }
+    expect(n).toBe(INCOMODOS.length * 5 * 2);
+  });
+});
+
+describe('medição', () => {
+  it('classifica os três eventos pelo destino do link', () => {
+    expect(classificar('https://wa.me/5549998273904?text=oi')).toBe('clique_whatsapp');
+    expect(classificar('https://www.google.com/maps/dir/?api=1')).toBe('clique_como_chegar');
+    expect(classificar('https://waze.com/ul?q=x')).toBe('clique_como_chegar');
+    expect(classificar('https://maps.apple.com/?q=x')).toBe('clique_como_chegar');
+    expect(classificar('https://www.instagram.com/dra_estersantos')).toBe('clique_instagram');
+    expect(classificar('/tratamentos')).toBeNull();
   });
 });
 

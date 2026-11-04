@@ -91,7 +91,7 @@ const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output
           </>
         )}
         <div>
-          <BotaoAgendar />
+          <BotaoAgendar mensagem={m.whatsapp['duvida:como-chegar']} origem="como-chegar" />
         </div>
       </div>
     </div>
@@ -165,6 +165,8 @@ const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output
 </style>
 
 <script>
+  import { abrir, aceito, quandoAceitar } from '../components/consentimento/consentimento.ts';
+
   for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copiar]')) {
     const aviso = b.parentElement?.querySelector<HTMLElement>('[data-aviso]');
     const rotulo = b.querySelector<HTMLElement>('[data-rotulo]');
@@ -180,9 +182,10 @@ const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output
       }
     });
   }
-  // Mapa interativo: só carrega o serviço externo depois do clique (consentimento).
+  // Mapa interativo (Google): só carrega depois do clique E do consentimento.
   for (const caixa of document.querySelectorAll<HTMLElement>('[data-mapa]')) {
-    caixa.querySelector('[data-mostrar-mapa]')?.addEventListener('click', () => {
+    const carregar = () => {
+      if (caixa.querySelector('iframe')) return;
       const f = document.createElement('iframe');
       f.src = caixa.dataset.mapa ?? '';
       f.title = 'Mapa interativo com a localização da Giyma (Google Maps)';
@@ -190,6 +193,11 @@ const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output
       f.referrerPolicy = 'no-referrer-when-downgrade';
       caixa.replaceChildren(f);
       f.focus();
+    };
+    caixa.querySelector('[data-mostrar-mapa]')?.addEventListener('click', () => {
+      if (aceito()) return carregar();
+      quandoAceitar(carregar);
+      abrir();
     });
   }
 </script>

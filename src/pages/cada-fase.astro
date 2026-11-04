@@ -77,10 +77,34 @@ const fases: FaseLinha[] = await Promise.all(
       <h2 id="cf-convite" class="t-1">
         {b['convite']?.titulo}
       </h2>
-      <BotaoAgendar>{b['convite']?.cta?.texto}</BotaoAgendar>
+      <div data-cta-fase>
+        <BotaoAgendar origem="cada-fase">{b['convite']?.cta?.texto}</BotaoAgendar>
+      </div>
     </div>
   </section>
 </Pagina>
+
+<script>
+  // Convite final: sem JS, mensagem geral; com JS, a mensagem da fase escolhida nas abas.
+  const cta = document.querySelector<HTMLAnchorElement>('[data-cta-fase] a');
+  const aplicar = (fase?: string, href?: string) => {
+    if (!cta || !fase || !href) return;
+    cta.href = href;
+    cta.dataset.fase = fase;
+  };
+  addEventListener('giyma:fase', (e) => {
+    const d = (e as CustomEvent<{ fase?: string; href?: string }>).detail;
+    aplicar(d.fase, d.href);
+  });
+  const aba = document.querySelector<HTMLElement>(
+    '[data-linha] [role="tab"][aria-selected="true"]',
+  );
+  const painel = aba && document.getElementById(aba.getAttribute('aria-controls') ?? '');
+  aplicar(
+    aba?.dataset.fase,
+    painel?.querySelector('a[href^="https://wa.me/"]')?.getAttribute('href') ?? undefined,
+  );
+</script>
 
 <style>
   .cf-grade {

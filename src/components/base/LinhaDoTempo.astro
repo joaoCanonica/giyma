@@ -115,7 +115,12 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
           )}
           {f.frase && <p class="t-acento t-3">{f.frase}</p>}
           <div>
-            <Botao href={f.whatsapp} variante="secundario" icone="whatsapp">
+            <Botao
+              href={f.whatsapp}
+              variante="secundario"
+              icone="whatsapp"
+              dados={{ origem: 'linha-do-tempo', fase: f.faixa }}
+            >
               {rotuloBotao.replace('{faixa}', rotuloFaixa(f.faixa))}
             </Botao>
           </div>
@@ -240,6 +245,16 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
         }
         p.hidden = !ativo;
       }
+      // Avisa a página (ex.: o convite final de /cada-fase segue a fase escolhida).
+      const link = paineis
+        .find((p) => p.dataset.fase === aba.dataset.fase)
+        ?.querySelector<HTMLAnchorElement>('a[href^="https://wa.me/"]');
+      raiz.dispatchEvent(
+        new CustomEvent('giyma:fase', {
+          bubbles: true,
+          detail: { fase: aba.dataset.fase, href: link?.getAttribute('href') },
+        }),
+      );
       if (focar) aba.focus();
       if (url) {
         const u = new URL(location.href);

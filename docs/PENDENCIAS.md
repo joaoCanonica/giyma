@@ -89,3 +89,9 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **FAQ:** o grupo pedido como "Sobre a Dra. Ester" saiu como "Sobre a profissional" (seção 8). Respostas de redação aparecem com selo PROVISÓRIO no preview até a Ester validar.
 - **/como-chegar:** o mapa estático real (tiles) segue pendente (rede bloqueada); a página usa a fachada. O mapa interativo do Google só carrega depois do clique. Estacionamento: em preview mostra "Pergunte à equipe no WhatsApp" com selo; em produção, o bloco some até o dado chegar.
 - **Páginas internas** (/_estilo, /_hero-a, /_hero-b) não são geradas em produção.
+
+## Funil e LGPD (sessão 7)
+
+- **Medição:** proposta Plausible (sem cookie), carregada só depois de "Aceitar". Falta o João decidir (Plausible pago, Umami auto-hospedado ou nenhuma) e informar o domínio final: `PLAUSIBLE_DOMINIO` no build. Sem ele, a medição fica desligada e o aviso de privacidade só abre pelo rodapé ou pelo mapa. Ver docs/FUNIL.md.
+- **Política de privacidade:** o texto agora cita a medição anônima e o mapa sob consentimento; seguem pendentes razão social, CNPJ, encarregado de dados e data (já listados acima). Conferência jurídica na sessão 9.
+- **Mensagem geral do WhatsApp** diz "com a Dra. Ester" (texto que a paciente envia, não aparece na página). Confirmar com a clínica se preferem "com a Dra. Ester Santos" ou só "uma avaliação".

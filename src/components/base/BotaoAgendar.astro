@@ -5,13 +5,30 @@ import Botao from './Botao.astro';
 
 interface Props {
   /** Mensagem pronta (use mensagens.* de src/lib/whatsapp.ts). Padrão: a geral. */
-  mensagem?: string;
+  mensagem?: string | undefined;
   variante?: 'primario' | 'secundario';
   class?: string | undefined;
+  /** De onde vem o clique (medição). Ex.: "hero", "tratamento-final". */
+  origem?: string | undefined;
+  tratamento?: string | undefined;
+  fase?: string | undefined;
 }
-const { mensagem = mensagens.geral(), variante = 'primario', class: classe } = Astro.props;
+const {
+  mensagem = mensagens.geral(),
+  variante = 'primario',
+  class: classe,
+  origem,
+  tratamento,
+  fase,
+} = Astro.props;
 ---
 
-<Botao href={linkWhatsApp(mensagem)} variante={variante} icone="whatsapp" class={classe}>
+<Botao
+  href={linkWhatsApp(mensagem)}
+  variante={variante}
+  icone="whatsapp"
+  class={classe}
+  dados={{ origem, tratamento, fase }}
+>
   <slot>Agendar avaliação</slot>
 </Botao>

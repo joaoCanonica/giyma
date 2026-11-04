@@ -1,13 +1,26 @@
 ---
 // Botão flutuante "Agendar" (só mobile). Some quando a seção "Agendar e visitar" está na tela
 // (e no hero, que já tem o próprio botão). Glifo oficial do WhatsApp (o mesmo do Botao).
-import { destino, microtextos } from './dados.ts';
+import { linkWhatsApp, mensagens } from '../../lib/whatsapp.ts';
+import { microtextos } from './dados.ts';
 
+interface Props {
+  /** Mensagem do contexto (ex.: a do tratamento). Padrão: a geral. */
+  mensagem?: string | undefined;
+  tratamento?: string | undefined;
+}
+const { mensagem = mensagens.geral(), tratamento } = Astro.props;
 const m = await microtextos();
-const href = await destino('geral');
+const href = linkWhatsApp(mensagem);
 ---
 
-<a class="flutuante" href={href} data-flutuante>
+<a
+  class="flutuante"
+  href={href}
+  data-flutuante
+  data-origem="flutuante"
+  data-tratamento={tratamento}
+>
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path
       fill="currentColor"
@@ -45,7 +58,8 @@ const href = await destino('geral');
     width: 1.15rem;
     height: 1.15rem;
   }
-  .flutuante[data-escondido] {
+  .flutuante[data-escondido],
+  [data-consentimento-aberto] .flutuante {
     opacity: 0;
     transform: translateY(1rem);
     pointer-events: none;

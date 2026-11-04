@@ -141,7 +141,9 @@ let n = 0;
           {b['convite']?.paragrafos?.map((p) => (
             <p class="t-suave">{p}</p>
           ))}
-          <BotaoAgendar>{b['convite']?.cta?.texto ?? 'Agendar avaliação'}</BotaoAgendar>
+          <BotaoAgendar origem="tratamentos-indice">
+            {b['convite']?.cta?.texto ?? 'Agendar avaliação'}
+          </BotaoAgendar>
         </div>
       </section>
     </main>

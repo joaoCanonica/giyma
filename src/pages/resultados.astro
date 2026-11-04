@@ -8,11 +8,12 @@ import Link from '../components/base/Link.astro';
 import Rotulo from '../components/base/Rotulo.astro';
 import { par } from '../components/base/midia.ts';
 import Haste from '../components/marca/Haste.astro';
-import { destino, pagina } from '../components/secoes/dados.ts';
+import { destino, microtextos, pagina } from '../components/secoes/dados.ts';
 import { publicavel } from '../content/schemas.ts';
 import Pagina from '../layouts/Pagina.astro';
 
 const p = await pagina('resultados');
+const m = await microtextos();
 const b = p.blocos;
 const nomes = new Map((await getCollection('tratamentos')).map((t) => [t.data.slug, t.data.nome]));
 const pares = (await getCollection('resultados'))
@@ -88,7 +89,7 @@ const faq = b['vazio']?.cta ? await destino(b['vazio'].cta.mensagem) : '/pergunt
             <Link href={faq}>{b['vazio']?.cta?.texto}</Link>
           </p>
           <div>
-            <BotaoAgendar />
+            <BotaoAgendar mensagem={m.whatsapp['duvida:resultados']} origem="resultados" />
           </div>
         </div>
       </div>

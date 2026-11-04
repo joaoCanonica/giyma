@@ -4,6 +4,7 @@ import '../../styles/global.css';
 import bellefair from '../../styles/fontes/bellefair-latin-400-normal.woff2?url';
 import mulish from '../../styles/fontes/mulish-latin-wght-normal.woff2?url';
 import { robots } from '../../config/index.ts';
+import Consentimento from '../consentimento/Consentimento.astro';
 import PreviewBanner from '../PreviewBanner.astro';
 
 interface Props {
@@ -39,5 +40,6 @@ const { titulo, descricao, interna = false, superficie = 'perola' } = Astro.prop
     <slot name="inicio" />
     <PreviewBanner />
     <slot />
+    <Consentimento />
   </body>
 </html>
