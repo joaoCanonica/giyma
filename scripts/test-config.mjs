@@ -225,6 +225,13 @@ caso('srcset com antes e depois trava', () =>
     ).includes('midia-proibida'),
   ),
 );
+caso('referência interna no texto visível trava', () =>
+  assert.ok(
+    regras(pagina('<p>Ester Santos · frases (CLAUDE.md, seção 1)</p>')).includes(
+      'referencia-interna',
+    ),
+  ),
+);
 caso('selo PROVISÓRIO passa em preview e trava em produção', () => {
   const html = pagina('<span data-provisorio>PROVISÓRIO</span>');
   assert.deepEqual(regras(html, 'preview'), []);

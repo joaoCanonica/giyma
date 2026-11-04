@@ -1,0 +1,171 @@
+---
+// 4. Tratamentos (petróleo): índice editorial em lista grande. A imagem acende ao lado no
+// hover/foco (desktop); no mobile, miniatura fixa. Só tratamentos confirmados.
+// Versalete = as áreas (o nome popular "botox" é marca comercial: só na FAQ, seção 8).
+// Imagens: stills reais do espaço (ainda não há fotos por tratamento).
+import { getCollection } from 'astro:content';
+import Imagem from '../base/Imagem.astro';
+import Rotulo from '../base/Rotulo.astro';
+import type { Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const ORDEM = [
+  'toxina-botulinica',
+  'preenchimento-labial',
+  'contorno-facial',
+  'sulcos-e-olheiras',
+  'bioestimulador-de-colageno',
+  'rejuvenescimento-de-maos',
+  'microagulhamento',
+  'peeling',
+];
+const IMAGEM: Record<string, string> = {
+  'toxina-botulinica': 'still-modelo',
+  'preenchimento-labial': 'still-consultorio',
+  'contorno-facial': 'retrato-4x5',
+  'sulcos-e-olheiras': 'still-recepcao',
+  'bioestimulador-de-colageno': 'still-xicaras',
+  'rejuvenescimento-de-maos': 'still-placa',
+  microagulhamento: 'still-consultorio',
+  peeling: 'still-entrada',
+};
+const lista = (await getCollection('tratamentos'))
+  .map((t) => t.data)
+  .filter((t) => t.status === 'confirmado')
+  .sort((a, b) => ORDEM.indexOf(a.slug) - ORDEM.indexOf(b.slug));
+const primeiraFrase = (s: string | null) => (s ?? '').split(/(?<=\.)\s/)[0] ?? '';
+const titulo = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+---
+
+<section class="capitulo secao-trat" data-superficie="petroleo" aria-labelledby="trat-titulo">
+  <div class="contido">
+    <header class="pilha secao-trat-cabeca">
+      <Rotulo>{bloco.rotulo}</Rotulo>
+      <h2 id="trat-titulo" class="t-1">
+        {bloco.titulo}
+      </h2>
+      {bloco.paragrafos?.map((p) => (
+        <p class="t-suave">{p}</p>
+      ))}
+    </header>
+    <ol class="trat-lista">
+      {lista.map((t, i) => (
+        <li class="trat-item">
+          <a class="trat-link" href={`/tratamentos/${t.slug}`}>
+            <span class="trat-num t-tabular" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span class="trat-corpo">
+              <span class="trat-nome">{t.nome}</span>
+              <span class="trat-areas">{t.areas.map(titulo).join(' · ')}</span>
+              <span class="trat-linha">{primeiraFrase(t.paraQuem)}</span>
+            </span>
+          </a>
+          <div class="trat-img" aria-hidden="true">
+            <Imagem
+              id={IMAGEM[t.slug] ?? 'still-consultorio'}
+              alt=""
+              sizes="(min-width: 64rem) 22rem, 5rem"
+            />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .secao-trat-cabeca {
+    margin-bottom: var(--e-4);
+  }
+  .trat-lista {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid color-mix(in srgb, var(--fio) 50%, transparent);
+  }
+  .trat-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 4.5rem;
+    gap: var(--e-2);
+    align-items: center;
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 50%, transparent);
+  }
+  .trat-link {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: var(--e-2);
+    padding: var(--e-3) 0;
+    color: inherit;
+    text-decoration: none;
+  }
+  .trat-num {
+    padding-top: 0.6rem;
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.1em;
+    color: var(--rotulo);
+  }
+  .trat-corpo {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .trat-nome {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-2);
+    line-height: 1.05;
+    transition: color var(--d-2) var(--curva);
+  }
+  .trat-areas {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+  .trat-linha {
+    color: var(--suave);
+    font-size: var(--t-pequeno);
+    max-width: 38em;
+  }
+  .trat-link:hover .trat-nome,
+  .trat-link:focus-visible .trat-nome {
+    color: var(--c-ouro-claro);
+  }
+  .trat-img {
+    width: 4.5rem;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  /* Desktop: a imagem do item em foco acende numa coluna fixa à direita. */
+  @media (min-width: 64rem) {
+    .trat-lista {
+      padding-right: 26rem;
+    }
+    .trat-item {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .trat-img {
+      position: absolute;
+      top: var(--e-3);
+      right: 0;
+      width: 22rem;
+      opacity: 0;
+      clip-path: inset(0 50%);
+      transition:
+        opacity var(--d-2) var(--curva),
+        clip-path var(--d-3) var(--curva);
+      pointer-events: none;
+    }
+    .trat-item:hover .trat-img,
+    .trat-item:focus-within .trat-img,
+    .trat-lista:not(:hover, :focus-within) .trat-item:first-child .trat-img {
+      opacity: 1;
+      clip-path: inset(0 0);
+    }
+  }
+</style>

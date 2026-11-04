@@ -1,0 +1,97 @@
+---
+// 2. A Ester (cacau): retrato secundário, a história em poucas linhas, os marcos como números.
+import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
+import Imagem from '../base/Imagem.astro';
+import Link from '../base/Link.astro';
+import Rotulo from '../base/Rotulo.astro';
+import Florescer from '../marca/Florescer.astro';
+import { destino, microtextos, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const m = await microtextos();
+const href = bloco.cta ? await destino(bloco.cta.mensagem) : '/dra-ester-santos';
+---
+
+<section class="capitulo ester" data-superficie="cacau" aria-labelledby="ester-titulo">
+  <div class="contido ester-grade">
+    <Florescer as="figure" class="ester-foto">
+      <Imagem
+        id="still-entrada"
+        alt={m.alt['still-entrada'] ?? ''}
+        sizes="(min-width: 56rem) 34vw, 90vw"
+      />
+    </Florescer>
+    <div class="ester-texto pilha">
+      <Rotulo>{bloco.rotulo}</Rotulo>
+      <h2 id="ester-titulo" class="t-1">
+        {bloco.titulo}
+      </h2>
+      <div class="ester-historia">
+        {bloco.paragrafos?.map((p) => (
+          <p>{p}</p>
+        ))}
+      </div>
+      <ol class="ester-marcos" aria-label="Marcos">
+        {bloco.itens?.map((i) => (
+          <li>
+            <span class="t-numero">{i.titulo}</span>
+            <span class="ester-marco-texto">{i.texto}</span>
+          </li>
+        ))}
+      </ol>
+      <AssinaturaProfissional />
+      {bloco.cta && (
+        <p>
+          <Link href={href}>{bloco.cta.texto}</Link>
+        </p>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .ester-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: center;
+  }
+  @media (min-width: 56rem) {
+    .ester-grade {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+  }
+  :global(.ester-foto) {
+    margin: 0;
+    max-width: 30rem;
+  }
+  .ester-historia {
+    max-width: 34em;
+    color: var(--suave);
+  }
+  .ester-marcos {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-4) 0 var(--e-3);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--e-3);
+    border-top: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+    padding-top: var(--e-3);
+  }
+  .ester-marcos li {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+  }
+  .ester-marcos .t-numero {
+    font-size: clamp(2.6rem, 1.6rem + 3.6vw, 5rem);
+  }
+  .ester-marco-texto {
+    font-size: var(--t-pequeno);
+    line-height: 1.4;
+    color: var(--suave);
+  }
+</style>

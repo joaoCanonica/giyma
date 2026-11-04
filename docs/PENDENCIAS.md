@@ -68,3 +68,10 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **Avaliação**: se tem custo e como funciona o agendamento (o site não fala de preço; a clínica informa no WhatsApp).
 - **Privacidade**: razão social, CNPJ, e-mail do encarregado de dados e data da política.
 - **"Dra." nos textos**: o fecho pedido "Na avaliação, a Dra. Ester explica…" saiu como "Na avaliação, a Ester explica o que faz sentido para você." (seção 8: "Dra." só junto do CRF). Onde aparece "Dra. Ester Santos", vem sempre com "(farmacêutica esteta, CRF-SC 3984)" na mesma frase, e o validate-config agora trava o contrário.
+
+## Home (sessão 6A)
+
+- **Índice de tratamentos:** o versalete mostra as áreas (ex.: "Linhas da testa · glabela · pés de galinha"), não o nome popular: o único nome popular é "botox", marca comercial (seção 8: só na FAQ).
+- **Imagens por tratamento:** não há fotos próprias de cada tratamento (antes e depois sem autorização). A imagem que acende ao lado usa stills reais do espaço; trocar quando houver fotos por tratamento.
+- **Resultados com pares autorizados:** quando o primeiro par for autorizado, o `<Comparador>` da seção 8 precisa ler as imagens de `indice.resultados` (hoje ele lê `indice.imagens`). O caminho não roda enquanto nenhum par está autorizado.
+- **"Avaliar a Giyma no Google":** aponta para a ficha; falta o link direto de avaliação.

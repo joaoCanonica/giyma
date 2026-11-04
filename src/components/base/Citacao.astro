@@ -17,7 +17,7 @@ const { texto, fonte, autor = 'Ester Santos', tamanho = 'grande', class: classe 
   </blockquote>
   <figcaption>
     <span class="citacao-autor">{autor}</span>
-    <cite class="citacao-fonte">{fonte}</cite>
+    {fonte && <cite class="citacao-fonte">{fonte}</cite>}
   </figcaption>
 </figure>
 

@@ -8,7 +8,7 @@ import PreviewBanner from '../PreviewBanner.astro';
 
 interface Props {
   titulo: string;
-  descricao?: string;
+  descricao?: string | undefined;
   /** Página interna (ex.: /_estilo): nunca indexa, mesmo em produção. */
   interna?: boolean;
   superficie?: 'perola' | 'nevoa' | 'cacau' | 'petroleo';

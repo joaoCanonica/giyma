@@ -21,8 +21,18 @@ interface Props {
   /** Fase aberta sem ?fase= na URL. */
   inicial?: FaseLinha['faixa'];
   id?: string;
+  /** Texto do botão de cada fase ({faixa} é trocado pela faixa). */
+  rotuloBotao?: string;
+  /** false: a seção que usa o componente já tem o próprio título. */
+  comTitulo?: boolean;
 }
-const { fases, inicial = '40', id = 'linha-do-tempo' } = Astro.props;
+const {
+  fases,
+  inicial = '40',
+  id = 'linha-do-tempo',
+  rotuloBotao = 'Conversar sobre os {faixa}',
+  comTitulo = true,
+} = Astro.props;
 const param = (f: string) => f.replace('+', '');
 const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
 ---
@@ -34,9 +44,15 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
   data-inicial={param(inicial)}
   aria-labelledby={`${id}-titulo`}
 >
-  <Rotulo as="h2" class="linha-titulo">
-    <span id={`${id}-titulo`}>A linha do tempo da pele</span>
-  </Rotulo>
+  {comTitulo ? (
+    <Rotulo as="h2" class="linha-titulo">
+      <span id={`${id}-titulo`}>A linha do tempo da pele</span>
+    </Rotulo>
+  ) : (
+    <span class="so-leitor" id={`${id}-titulo`}>
+      Fases da pele
+    </span>
+  )}
   <div class="linha-abas" role="tablist" aria-labelledby={`${id}-titulo`}>
     {fases.map((f, i) => (
       <button
@@ -99,7 +115,7 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
           {f.frase && <p class="t-acento t-3">{f.frase}</p>}
           <div>
             <Botao href={f.whatsapp} variante="secundario" icone="whatsapp">
-              Conversar sobre os {rotuloFaixa(f.faixa)}
+              {rotuloBotao.replace('{faixa}', rotuloFaixa(f.faixa))}
             </Botao>
           </div>
         </div>

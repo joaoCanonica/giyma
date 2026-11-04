@@ -30,7 +30,7 @@ const proporcao = `${mp4G?.largura ?? 9}/${mp4G?.altura ?? 16}`;
     muted
     playsinline
     preload="none"
-    poster={poster}
+    data-poster={poster}
     loop={modo === 'loop'}
     controls={modo === 'player'}
     data-video-loop={modo === 'loop' ? '' : undefined}
@@ -75,4 +75,18 @@ const proporcao = `${mp4G?.largura ?? 9}/${mp4G?.altura ?? 16}`;
     { threshold: 0.4 },
   );
   for (const v of document.querySelectorAll<HTMLVideoElement>('[data-video-loop]')) obs.observe(v);
+  // Pôster só quando o vídeo chega perto da tela: não disputa banda com o LCP.
+  const perto = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        if (!e.isIntersecting) continue;
+        const v = e.target as HTMLVideoElement;
+        if (v.dataset.poster) v.poster = v.dataset.poster;
+        perto.unobserve(v);
+      }
+    },
+    { rootMargin: '600px 0px' },
+  );
+  for (const v of document.querySelectorAll<HTMLVideoElement>('video[data-poster]'))
+    perto.observe(v);
 </script>

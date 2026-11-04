@@ -355,6 +355,12 @@ export function auditarHtml(html, { manifesto, modo = 'preview', existe = () => 
     }
   }
 
+  // 1b. Referências internas (fontes de trabalho) não podem vazar para o texto visível.
+  for (const t of textosDoc) {
+    const m = /CLAUDE\.md|docs\/|GIYMA_[A-Z]|WAXLO|media-originais/.exec(t.text);
+    if (m) problemas.push({ regra: 'referencia-interna', detalhe: `"${m[0]}" no texto visível` });
+  }
+
   // 2. "Dra. Ester (Santos)" sempre dentro de <AssinaturaProfissional> com o CRF.
   for (const t of textosDoc) {
     const texto = textoNormal(t.text);

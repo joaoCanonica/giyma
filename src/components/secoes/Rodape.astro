@@ -1,0 +1,117 @@
+---
+// 11. Rodapé: logo, assinatura profissional, endereço, WhatsApp escrito, Instagram, CNPJ
+// (pendente), privacidade e links.
+import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
+import Link from '../base/Link.astro';
+import Logo from '../marca/Logo.astro';
+import Provisorio from '../Provisorio.astro';
+import { contato, marca } from '../../config/index.ts';
+import { destino, microtextos } from './dados.ts';
+
+const m = await microtextos();
+const wa = await destino('geral');
+const ig = contato.instagram.valor;
+const links: [string, string][] = [
+  ['/tratamentos', 'Tratamentos'],
+  ['/a-giyma', 'A Giyma'],
+  ['/dra-ester-santos', m.navegacao['dra-ester-santos'] ?? 'Ester Santos'],
+  ['/cada-fase', 'Cada fase'],
+  ['/perguntas-frequentes', 'Perguntas frequentes'],
+  ['/como-chegar', 'Como chegar'],
+  ['/privacidade', 'Privacidade'],
+];
+const ano = new Date().getFullYear();
+---
+
+<footer class="rodape" data-superficie="cacau">
+  <div class="contido rodape-grade">
+    <div class="rodape-marca">
+      <a href="/" class="rodape-logo">
+        <Logo variante="horizontal" />
+      </a>
+      <AssinaturaProfissional />
+    </div>
+    <address class="rodape-contato">
+      <span>{String(m.rodape['endereco'] ?? '')}</span>
+      <Link href={wa}>{String(m.rodape['whatsapp'] ?? '')}</Link>
+      <Link href={ig.url} externo>
+        Instagram @{ig.usuario}
+      </Link>
+    </address>
+    <nav class="rodape-nav" aria-label="Rodapé">
+      <ul>
+        {links.map(([href, nome]) => (
+          <li>
+            <a class="link" href={href}>
+              {nome}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="rodape-legal t-pequeno t-suave">
+      <p>{String(m.rodape['aviso'] ?? '')}</p>
+      <p>
+        {String(m.rodape['direitos'] ?? '').replace('{ano}', String(ano))}
+        {marca.cnpj.valor ? (
+          <span> · CNPJ {marca.cnpj.valor}</span>
+        ) : (
+          <span>
+            {' '}
+            · CNPJ <Provisorio rotulo="CNPJ e razão social" />
+          </span>
+        )}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    padding-block: var(--e-5) var(--e-4);
+    border-top: 1px solid color-mix(in srgb, var(--fio) 40%, transparent);
+  }
+  .rodape-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .rodape-grade {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr);
+    }
+    .rodape-legal {
+      grid-column: 1 / -1;
+    }
+  }
+  .rodape-marca {
+    display: grid;
+    gap: var(--e-2);
+    align-content: start;
+  }
+  .rodape-logo {
+    color: var(--fio);
+    width: 11rem;
+  }
+  .rodape-contato {
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+    font-style: normal;
+  }
+  .rodape-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .rodape-nav .link {
+    color: var(--texto);
+  }
+  .rodape-legal {
+    display: grid;
+    gap: 0.3rem;
+    padding-top: var(--e-3);
+    border-top: 1px solid color-mix(in srgb, var(--fio) 30%, transparent);
+  }
+</style>
