@@ -528,8 +528,55 @@ function limparOrfaos(indice) {
 
 // ---------- principal ----------
 
+/** ffmpeg e ffprobe no PATH? (a imagem de build da Vercel não tem.) */
+async function temFfmpeg() {
+  try {
+    await rodar('ffmpeg', ['-version']);
+    await rodar('ffprobe', ['-version']);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Sem ffmpeg (ex.: build na Vercel), usa os derivados versionados em public/media/ (estão no
+ * git). Confere que o índice existe e que todo arquivo citado nele está lá; senão, falha.
+ */
+function usarDerivadosVersionados() {
+  const caminho = join(PUBLICO, 'indice.json');
+  if (!existsSync(caminho)) return false;
+  const indice = JSON.parse(readFileSync(caminho, 'utf8'));
+  const faltando = [];
+  const andar = (x) => {
+    if (Array.isArray(x)) return x.forEach(andar);
+    if (x && typeof x === 'object')
+      for (const [k, v] of Object.entries(x)) {
+        if (k === 'src' && typeof v === 'string' && v.startsWith('/media/')) {
+          if (!existsSync(join(RAIZ, 'public', v))) faltando.push(v);
+        } else andar(v);
+      }
+  };
+  andar(indice);
+  if (faltando.length) {
+    console.error(`media:prepare: faltam ${faltando.length} derivados em public/media (ex.: ${faltando[0]}).`);
+    return false;
+  }
+  return true;
+}
+
 async function main() {
   const inicio = Date.now();
+  if (!(await temFfmpeg())) {
+    if (usarDerivadosVersionados()) {
+      console.log('media:prepare: sem ffmpeg; usando os derivados versionados em public/media (ok).');
+      return;
+    }
+    console.error(
+      'media:prepare: ffmpeg/ffprobe não encontrados e public/media incompleto. Rode "pnpm media:prepare" numa máquina com ffmpeg e versione public/media.',
+    );
+    process.exit(1);
+  }
   const manifesto = carregarManifesto();
   const erros = validarManifesto(manifesto);
   if (erros.length) {

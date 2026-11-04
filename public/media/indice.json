@@ -1,0 +1,1887 @@
+{
+  "versao": 1,
+  "marca": {
+    "logo-vertical": {
+      "src": "/media/marca/logo-vertical.svg",
+      "largura": 426,
+      "altura": 345
+    },
+    "logo-horizontal": {
+      "src": "/media/marca/logo-horizontal.svg",
+      "largura": 555,
+      "altura": 159
+    },
+    "logo-mark": {
+      "src": "/media/marca/logo-mark.svg",
+      "largura": 334,
+      "altura": 405
+    }
+  },
+  "imagens": {
+    "retrato-4x5": {
+      "origem": "f38-retrato-ester",
+      "natureza": "foto",
+      "proporcao": "4:5",
+      "largura": 852,
+      "altura": 1065,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/retrato-4x5-480.avif",
+            "largura": 480,
+            "altura": 600,
+            "kb": 8
+          },
+          {
+            "src": "/media/img/retrato-4x5-800.avif",
+            "largura": 800,
+            "altura": 1000,
+            "kb": 20
+          },
+          {
+            "src": "/media/img/retrato-4x5-852.avif",
+            "largura": 852,
+            "altura": 1065,
+            "kb": 21
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/retrato-4x5-480.webp",
+            "largura": 480,
+            "altura": 600,
+            "kb": 9
+          },
+          {
+            "src": "/media/img/retrato-4x5-800.webp",
+            "largura": 800,
+            "altura": 1000,
+            "kb": 21
+          },
+          {
+            "src": "/media/img/retrato-4x5-852.webp",
+            "largura": 852,
+            "altura": 1065,
+            "kb": 24
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBQCdASoYAB4APu1sqk6ppqOiMBgIATAdiWUAvnsvwaoCmn4GVatjFVJvwfWBVjnhE5EJoAD+695zt2nBxd2SNCJh7/l3BP+Fo+otrzCr46eRPry5WS3LMHNXbDvCCP1192vpENs8eLdLhRzSVo4TsgNmZDUyyGSxGQ/A9Q9qngAA"
+    },
+    "retrato-3x4": {
+      "origem": "f38-retrato-ester",
+      "natureza": "foto",
+      "proporcao": "3:4",
+      "largura": 852,
+      "altura": 1136,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/retrato-3x4-480.avif",
+            "largura": 480,
+            "altura": 640,
+            "kb": 9
+          },
+          {
+            "src": "/media/img/retrato-3x4-800.avif",
+            "largura": 800,
+            "altura": 1067,
+            "kb": 20
+          },
+          {
+            "src": "/media/img/retrato-3x4-852.avif",
+            "largura": 852,
+            "altura": 1136,
+            "kb": 23
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/retrato-3x4-480.webp",
+            "largura": 480,
+            "altura": 640,
+            "kb": 10
+          },
+          {
+            "src": "/media/img/retrato-3x4-800.webp",
+            "largura": 800,
+            "altura": 1067,
+            "kb": 21
+          },
+          {
+            "src": "/media/img/retrato-3x4-852.webp",
+            "largura": 852,
+            "altura": 1136,
+            "kb": 25
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACwBACdASoYACAAPu1iqE4ppaOiMAgBMB2JYwCuHCHf5mPfvO2G5aABwhbejMwAAP7r2d99oLjeSamFsddZ1+goQa49NRtgg7gznTDKDn37MIMS4XynQJpGZ1IUzEf0GuHnhvs7lNuhsf70N/Ge1O67nivV/01Gn86mYoU+PRYhQ5cUaAA="
+    },
+    "retrato-16x9": {
+      "origem": "f38-retrato-ester",
+      "natureza": "foto",
+      "proporcao": "16:9",
+      "largura": 1184,
+      "altura": 666,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/retrato-16x9-480.avif",
+            "largura": 480,
+            "altura": 270,
+            "kb": 3
+          },
+          {
+            "src": "/media/img/retrato-16x9-800.avif",
+            "largura": 800,
+            "altura": 450,
+            "kb": 8
+          },
+          {
+            "src": "/media/img/retrato-16x9-1184.avif",
+            "largura": 1184,
+            "altura": 666,
+            "kb": 15
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/retrato-16x9-480.webp",
+            "largura": 480,
+            "altura": 270,
+            "kb": 3
+          },
+          {
+            "src": "/media/img/retrato-16x9-800.webp",
+            "largura": 800,
+            "altura": 450,
+            "kb": 9
+          },
+          {
+            "src": "/media/img/retrato-16x9-1184.webp",
+            "largura": 1184,
+            "altura": 666,
+            "kb": 18
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAABQAwCdASoYAA4APu1iqU2ppaQiMAgBMB2JZQCo9CHf34rTgAD+696H2F0Au883kWoFO9A/ZfUNc5qzkO6LvTlVaGV4AA=="
+    },
+    "still-fachada": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 0.5,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 772,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-fachada-480.avif",
+            "largura": 480,
+            "altura": 515,
+            "kb": 12
+          },
+          {
+            "src": "/media/img/still-fachada-720.avif",
+            "largura": 720,
+            "altura": 772,
+            "kb": 20
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-fachada-480.webp",
+            "largura": 480,
+            "altura": 515,
+            "kb": 19
+          },
+          {
+            "src": "/media/img/still-fachada-720.webp",
+            "largura": 720,
+            "altura": 772,
+            "kb": 31
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAACwBQCdASoYABoAPu1sq1EppaOiqAqpMB2JYwDDQiAAFj9AFDWp7fu+hULr50xv0uNngAEB5UgA/uCAZNCz4odEyM0R2MepgOcdFI1iNGtdfdKL4ET9BaTaEefGGrYAv6/1NiFhz2zUdLSqqE4MFjIwkUpTXhaGahc3I6j3e0SY1tVJHfniE14OqpZlUA3NgACkQYo/vF/rmmMCELdQ6izF2EmxggAZMK4KUhfG7HulXpkgIFHSMKOUXs2Qfz5dShvf3YR/FsAAAA=="
+    },
+    "still-entrada": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 4.9,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-entrada-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 8
+          },
+          {
+            "src": "/media/img/still-entrada-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 13
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-entrada-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 10
+          },
+          {
+            "src": "/media/img/still-entrada-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 16
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwBACdASoYAB0APu1sq1GppaOiqAqpMB2JQBYdhjnNRz/WPzC5x/v5Zv/MTGy3vgAA+BVEKsAfjeZcNdd3Uw6Av4KXJ9o/i9IJLEVIYq6Gj8AwZ6JANUG7XwovMETs3sFfsiT7CQ1uFpwMjYjCr+G+n8HFw0MOeVebHKZeyj4ZifN3/7VIc9cPL53xzzVVjuKo2CAuoUAAAA=="
+    },
+    "still-xicaras": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 7.8,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-xicaras-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 8
+          },
+          {
+            "src": "/media/img/still-xicaras-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 14
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-xicaras-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 11
+          },
+          {
+            "src": "/media/img/still-xicaras-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 17
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQBACdASoYAB0APu1usFIppiSiqAgBMB2JYwC9WFn+RtUavRdnQjG2zpbgx7gMAAD+92LrSnXx50JtfIf8kISC5vaXY699VWdEkLVOwQrOADYKnbrtWpp4RIpjOf8Ci7WQeAm4MfdatLqzMTo3glBS/WYujDQmBhU/WcvRdfZFwVLw075RJCL555/hfXk/mNJzCSHAAAA="
+    },
+    "still-placa": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 12.2,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-placa-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 5
+          },
+          {
+            "src": "/media/img/still-placa-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 9
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-placa-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 6
+          },
+          {
+            "src": "/media/img/still-placa-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 11
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACQBACdASoYAB0APu1krE+ppSQiMBgIATAdiWQAnTNkBS1RVHoy8ivJ929CeQAA/so3XLarasQ2ULBQ/cElkQNzImkT66q5xG+6Gew+Ey1TbW/I5fEKPuNzcCl6PDpYLgOTSVhun1e61lJHjPOduejxtoFYt4A2w/oAAA=="
+    },
+    "still-consultorio": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 13.6,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-consultorio-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 8
+          },
+          {
+            "src": "/media/img/still-consultorio-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 12
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-consultorio-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 9
+          },
+          {
+            "src": "/media/img/still-consultorio-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 15
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACQBACdASoYAB0APuVipE2pJiMiMAwBIByJQBUeg1c1v2xfEtzCujoIIm4K6UQA+JymWJO6CQW/84CFuW0BJHQhvwk6ZITf7byJHvmf8I0mTk2+Q+8fL5eeP+xVJVDrRX9tUCm/c14oaZRK+PAKUy+ISPbbHUbKpKjaWWepatlVd5QIbJPTy+ucWtjWEQ4Q5NrpMVAsreWhEBlnAAA="
+    },
+    "still-modelo": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 20.3,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-modelo-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 11
+          },
+          {
+            "src": "/media/img/still-modelo-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 17
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-modelo-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 15
+          },
+          {
+            "src": "/media/img/still-modelo-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 24
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAAAwBQCdASoYAB0APu1irVAppSQisBgIATAdiWwAvzho7An8ausJ+3x8zNXxoAreaECkYAD+9gnfyVLKbjvhiPcuQ972gRMzAzcKGmWxLqgAvfXF0BqFAbj8hcFK+6pBI5/kYE726vteejYxwCCEPKIYQl/sw0XUQExAsnN+TEF0SYwAp+csOuCdMP/uKsWSYkM41CocqNkXiZ+6WS2v/rJhOIIdipIpc6Nc6yUu9tF+pApk1J/h5Y0Pw0J6SzaUzaX2w4n9r3AAAA=="
+    },
+    "still-produto": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 25.8,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-produto-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 12
+          },
+          {
+            "src": "/media/img/still-produto-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 19
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-produto-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 16
+          },
+          {
+            "src": "/media/img/still-produto-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 24
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4IPoAAADQBQCdASoYAB0APu1mqk2ppaQiMAgBMB2JaACsMoADQJfwIf5Yg3ieDcDsdhraaT3sZRjvIMAAAP7qez3wTybc8vOrsDkF0kvV1fmcNgksYWnkzH0gna+ZExMZLAK+LCpmzelixmqs3HycNn49U7X5y0VpUnt9jPxdI4C3oSIGjjEKZhsRr6hfM8jfNLFfXPJbS8FAyiLyTX+kXaYUEoLdcGF1OxQDv00OMjf5dWZzeHNISg8Dmz3ElEnXy3K0htxI4CTJ1N4AIPYr2rzmmya/a9qGOZWJPSLoYdVPEE9mjItNvkYSaCTDe8m0AlUxx5YVuPVCqG3R4AAA"
+    },
+    "still-letras-tour": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 27.8,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-letras-tour-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 7
+          },
+          {
+            "src": "/media/img/still-letras-tour-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 12
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-letras-tour-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 10
+          },
+          {
+            "src": "/media/img/still-letras-tour-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 16
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAADQBQCdASoYAB0APu1qr1CppaQiqAqpMB2JZgCdMzLsmmqLsBLnVji5BEq6wN+LgMeTV59ePRgAAPxdatMNNcB2PYnZ6vozCgd1+frOiZxwnsTl1LUPipR+E9I+d2lsTVDEE+seCfzjW1yepkfG9rTA/Af4ycTHSAIqAtGr8vp3jRkG5fsLEmTFEsKicfHKTdUdTMlHLfDxoLHdVIs5/IDNP/78udiCir+xzrkQF7BDoxAA"
+    },
+    "still-recepcao": {
+      "origem": "v-tour",
+      "natureza": "quadro de vídeo",
+      "em": 30.5,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 872,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-recepcao-480.avif",
+            "largura": 480,
+            "altura": 581,
+            "kb": 12
+          },
+          {
+            "src": "/media/img/still-recepcao-720.avif",
+            "largura": 720,
+            "altura": 872,
+            "kb": 20
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-recepcao-480.webp",
+            "largura": 480,
+            "altura": 581,
+            "kb": 17
+          },
+          {
+            "src": "/media/img/still-recepcao-720.webp",
+            "largura": 720,
+            "altura": 872,
+            "kb": 27
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRh4BAABXRUJQVlA4IBIBAABQBgCdASoYAB0APu1oqk+ppaOiKA1RMB2JQBb3gUSzAcsnCh2g1xfo39bFUREk0PX2L7a6Qk0lSGvXAAD9U+Zs251oZygyBQVI/YzaUyCABsXkDapcRmXKla3HeNoNhXjkSYeSqQkvxS7yd17114gS+Drd2pxjgOulJG2iyEqPMOz3btjOXlJHemJ7T7TLyB7dzee+Uldo8T/mWU5K6zwqdd9UKvlp7uWBqqLJnSnGGEHhuemR2U2IdyUfEHsTfVSIp89mdNxIaIajVrWjURu1UdMEFUQdPkhJAhwy1lout57Y9JwlW7kwzhuRrlKkfFSC1F3Xws8hPDawosu/Wyq7cJA+7I8eHRQ6cIOK1yKyCAAA"
+    },
+    "still-letras-close": {
+      "origem": "v-letras",
+      "natureza": "quadro de vídeo",
+      "em": 9.8,
+      "larguraMaxExibicao": 720,
+      "largura": 720,
+      "altura": 1280,
+      "fontes": {
+        "avif": [
+          {
+            "src": "/media/img/still-letras-close-480.avif",
+            "largura": 480,
+            "altura": 853,
+            "kb": 13
+          },
+          {
+            "src": "/media/img/still-letras-close-720.avif",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 21
+          }
+        ],
+        "webp": [
+          {
+            "src": "/media/img/still-letras-close-480.webp",
+            "largura": 480,
+            "altura": 853,
+            "kb": 18
+          },
+          {
+            "src": "/media/img/still-letras-close-720.webp",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 28
+          }
+        ]
+      },
+      "lqip": "data:image/webp;base64,UklGRhgBAABXRUJQVlA4IAwBAADwBgCdASoYACsAPu1qp08ppiMiKqwBMB2JaACvLXS91FABdAOvgU+H2rGh0T/mzql8hgfDiCRwazDKV+o/X9cgAPawG1jtSIhBm+JhfXYGkA2iKyJ8cgwohl1yLI6KJ5RACe7KVZ+ZeZH5AOchDN1SnqCPMOZvG1P24WEl8pd0aPGUygQdPwby1BAlvem7V1ilyZ298kmTai0tnxMf0/O2TjdcT9iVeVmtNZYRUHHo3S4XpTZp7jBGexRCSSioeRDXknpxUlj+glZ7VBO3EnQsNY8x/ikyMsSBZgQKkHAN3SH1j6sgX7wIz0cr0+qEqoyXWDqdTqaRZUK+mrVeAT4q6cjnjIXl9LNAvxAA"
+    }
+  },
+  "videos": {
+    "tour-completo": {
+      "origem": "v-tour",
+      "trecho": "tour-completo",
+      "inicio": 0,
+      "fim": 32.3,
+      "duracao": 32.3,
+      "loop": false,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/tour-completo-720.mp4",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 4984
+          },
+          {
+            "src": "/media/video/tour-completo-540.mp4",
+            "largura": 540,
+            "altura": 960,
+            "kb": 3363
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/tour-completo-720.webm",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 3986
+          },
+          {
+            "src": "/media/video/tour-completo-540.webm",
+            "largura": 540,
+            "altura": 960,
+            "kb": 2790
+          }
+        ]
+      },
+      "poster": {
+        "em": 30.85,
+        "largura": 720,
+        "altura": 1280,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/tour-completo-poster-720.avif",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 25
+            },
+            {
+              "src": "/media/video/tour-completo-poster-540.avif",
+              "largura": 540,
+              "altura": 960,
+              "kb": 18
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/tour-completo-poster-720.webp",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 33
+            },
+            {
+              "src": "/media/video/tour-completo-poster-540.webp",
+              "largura": 540,
+              "altura": 960,
+              "kb": 24
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRiABAABXRUJQVlA4IBQBAADQBgCdASoYACsAPulip02pJaOiNVgIASAdCUAXuju5cLyTxEuVU/deGFVnsqpgRSDlw8hF5xrlhMBOMhokwYAA+p/euwxhqALkq/RnVeusru9pCLwYZORp80FiquLb43udCqTzUxrMCsdTSe4Ro/TQVOQMfSjoM6UP/4UFZyUXKr2yk9wDOnaNP6QOVRZm8xI2MD8f7Vqr9yBLWUozBMhELPwNplUCJGJySTWy5EluRZGOoc8oHOgmDOYvq0GpRKWrUVIjl4ZiisffA5zv3i0k8TQ9iPfFdGczR27l8wG8DkJg/9cn1oUc6HK8CMgT+OgqsO708QwtUd5md1ieZNgh4Vw5TX4K0ShF25Q2LGVW5Oj+AAA="
+      }
+    },
+    "tour-capitulos": {
+      "origem": "v-tour",
+      "trecho": "tour-capitulos",
+      "capitulos": [
+        {
+          "id": "fachada",
+          "titulo": "Fachada",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 0,
+          "fim": 2.6,
+          "duracao": 2.6,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-fachada-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 263
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-fachada-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 268
+              }
+            ]
+          },
+          "poster": {
+            "em": 0.5,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-fachada-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 30
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-fachada-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 49
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRiwBAABXRUJQVlA4ICABAAAwBwCdASoYACsAPu1kqk6ppaOiKqwBMB2JYwDB0AgR8sgfuz3ulaf7UUZIqD+fWVF/1L4/F1TmC0H4VuPFJZPWoMgA/uAqkJdc80ZjsRmOBVVee7sO3nxipA6OEh3b80txC9HySTZzdkTvNyyD6QtVYQD6qpF6dIPyBIxmEJWdpl7qRS5jsdG3ve9Sm5TH6o3wlz8s50mON1VEOiaswTkf2XS4aK5WSyWXbFXbanpOmcPzc4aAEKtGZauYUZ2hasPLkgJMAp81DUbpvpuXhSFt0/bC/kBJ86E5QgFNtLuOu/z/2NUBEjGlq3tRvYb4/t00AKyiwKuQ7Cus6M1ZiBXEVqH/8tFobmgdF6bjndpHK19guFgJaBWV+1gzLliAAAA="
+          }
+        },
+        {
+          "id": "entrada",
+          "titulo": "Entrada",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 3.5,
+          "fim": 5.5,
+          "duracao": 2,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-entrada-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 370
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-entrada-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 358
+              }
+            ]
+          },
+          "poster": {
+            "em": 4.25,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-entrada-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 19
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-entrada-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 25
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRhgBAABXRUJQVlA4IAwBAACQBgCdASoYACsAPu1or1IppSQiqrgIATAdiWMAwN8y5DvvgXc2Zefd+rVR1xhO6RmRrLrfKmqqvTbFUkIAAOIiWsUL7Ub93E9vzOZHQBupQPgXJaQwyYBFyrshr2aAoY3avnIPwLId3jUwC9ghuRY4XsTQFYv0YwyppuDH02+Rr5oTqfzcwblwHrO69U6zx6dPOIm0yPS5dzxEOxCnioaBVfbEN3M/l/Cko/ImNiOnoUgVgek+48ewYey0iFj2jpRIqzKmpDFyTvo2EQpWd4z21sr/S8UZkfo0AXNAISZfFBbiJEGF+UfLw99JXGZUR4gAkJob9V4R5SVUi7SsX1Resi50/CIB4btkiYgA"
+          }
+        },
+        {
+          "id": "copa",
+          "titulo": "Copa",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 5.7,
+          "fim": 8.5,
+          "duracao": 2.8,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-copa-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 283
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-copa-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 194
+              }
+            ]
+          },
+          "poster": {
+            "em": 6.95,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-copa-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 25
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-copa-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 31
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAADQBgCdASoYACsAPu1mqk4ppaQiKrgN+TAdiWIAnTKAAw08jRcBLmpCFosYxcQ1uk1MPpc21zvsf5KVglEBIAAA9zG0egS550H2t8iQaF8lYrbrqwUU+5S9A4s8iy/umWezlMUVY94FJG86bTqM/UvQvWg3HQws1FVUfmMpbPUPgXv0CHyOIAUDftOgn47Iot73/AYplN4Gab3ZLYaPOb+e67oBBDTVekWdUS8VmJz+X7NnZaWyRFA9B+CtG/eWcsN3Rz241k8oXs5jZ6+o2Ku31v42SZtG/olzofRrBm4h+XEDlUVgnTC5sTIC3+fgAAA="
+          }
+        },
+        {
+          "id": "porta",
+          "titulo": "Porta “Dra. Ester Santos”",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 9.13,
+          "fim": 12.5,
+          "duracao": 3.37,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-porta-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 376
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-porta-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 292
+              }
+            ]
+          },
+          "poster": {
+            "em": 11.38,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-porta-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 15
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-porta-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 19
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAADwBgCdASoYACsAPu1kq1CppSOiqrgMATAdiUAVhnvAUBLussm0dBJe/Jwov/e31PSf45Fo1l5r7pXEp/RLdEgAAP7uGzfiNgM19keTorYCvHjOQ1RS4fKqFnlk6/Szgdmn/MxYmjbbRfWE6IDt/3g9LTsse9jP1JO1C1fzAFIw1bIJyGu6yIYw9R84915mx6O1ExNlbDKJCyuwYmdQdLPap1ZsGLERPaxrm6q7g9AYwzY+2W0nlSJ9aMmndjPg3Jlo3o3+bKxKldjoX4HgM/glrFrF3RqR5VfU05GlKRm28AAA"
+          }
+        },
+        {
+          "id": "consultorio",
+          "titulo": "Consultório",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 13.1,
+          "fim": 15.5,
+          "duracao": 2.4,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-consultorio-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 164
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-consultorio-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 115
+              }
+            ]
+          },
+          "poster": {
+            "em": 14.35,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-consultorio-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 18
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-consultorio-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 25
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRlABAABXRUJQVlA4IEQBAAAQBwCdASoYACsAPu1qp08ppiMiKqwBMB2JQBUk8Ufn96+JPgn8t0MGO6ObaW/9DTOqwdaZszGiX5whGtWTrQgcgAD+3ujHXQg5e/AL29MGVo0rp4oRFUkfx1jLcBc1huq8i72fvmw1xiiAyT+FQeO6pZVthZ6rTszGiXG6erbsGk+6i7StbB9cZHsQaVnpFA7v5OSjGi2m7RtvHcwTOPWVkmhIDr7DwKKpJTC1iCyCkO5Ys/SHTT2F3131E759tAvYnXk4PdXLfQyOgpPeiZO+c/CpB8FzAZxuvWEJZUqivruyVs3mw2bEEOE6lVEeXB32ntl2DN5ack/KGfabLz963L7UP75DNV4M6rY6Kv8Jfx3phfDzJhZwqwWcKh8hjKPdrZ/5xTvdHpTfJAM379pniA8zJbDjUBt7dnx3COqwuvgAAAA="
+          }
+        },
+        {
+          "id": "planejamento",
+          "titulo": "Planejamento",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 15.5,
+          "fim": 20.5,
+          "duracao": 5,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-planejamento-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 395
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-planejamento-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 296
+              }
+            ]
+          },
+          "poster": {
+            "em": 19.5,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-planejamento-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 19
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-planejamento-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 24
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRiIBAABXRUJQVlA4IBYBAABQBwCdASoYACsAPuVkpU2pJiOiNVgIASAciWQAvKgKFljFEUVgz64Jy9aiL0+R9tLDoPwtvhHPvR1UFnXd8BGnj0/AAP6DsMbh3xoHL1KO0V0Y9O5TNc/K1Zd2/zPTsyYsQHG+iNbF52xOaCQyWNsJoBLIQsC6vHoDg/WRym6J0+YzcTeVv8VmUg/7b2hsnkLpX9wSl7u0VRDULgZRcAyVTN6BzisiBWR8YENEq5VguqdOQELe38DNImyLmBsjdE9z7E1L9aSVpxpyNQGqfrrhqXuy2fNcNw+lBU5QULkzKzM2UekYZLzP+uEEFN2hVXrzTvSZY7qcvLI4Xiv4PQvoxiUqtS3Ip8rivA+z5xIQLHpHSmsYAA=="
+          }
+        },
+        {
+          "id": "procedimento",
+          "titulo": "Procedimento",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 21.33,
+          "fim": 24.5,
+          "duracao": 3.17,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-procedimento-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 314
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-procedimento-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 254
+              }
+            ]
+          },
+          "poster": {
+            "em": 23.08,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-procedimento-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 17
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-procedimento-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 23
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRlYBAABXRUJQVlA4IEoBAACQBwCdASoYACsAPu1srlIppaQipWsxMB2JYgC7ISAqaPfmpt9KY0wJoQaSboNV9KZ481om9QV3e/maKlU7HF4L+ELrfQAA/uRVYB5k9boHiaxeQsVPZ/TmvVAO1MXL732XDc+RylnP6warAJzRVMIrFlhIC9Nq3D31Pcp1iSsnm53qEFqaNgbqmO9qW7rIeZ4foIhqZQ2doWxGn4iFquCcw6F2pqfzWMc2sX0uMn53W28b7DYx5JxRdjX1Ncu3zIf5l48xyhe41+5/RCgVWXCR+8qQnX3q0yjbvzBtUebHdsnUxXbe4WWxqObYTzHSeDUML4eqLP1hj7XtZqUsf54i1K/tYJWUK7rWPO/8CJ91HyE8nySwmi3rqQfWEyuB/YPbYneSwUdcwph6RkcZhAhhTbmakBDRhZAotOTeR0wlvQ+o4vP6JVQAAAA="
+          }
+        },
+        {
+          "id": "recepcao",
+          "titulo": "Recepção",
+          "origem": "v-tour",
+          "trecho": "tour-capitulos",
+          "inicio": 27.23,
+          "fim": 31.7,
+          "duracao": 4.47,
+          "loop": false,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/tour-capitulos-recepcao-540.mp4",
+                "largura": 540,
+                "altura": 960,
+                "kb": 469
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/tour-capitulos-recepcao-540.webm",
+                "largura": 540,
+                "altura": 960,
+                "kb": 389
+              }
+            ]
+          },
+          "poster": {
+            "em": 29.48,
+            "largura": 720,
+            "altura": 1280,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/tour-capitulos-recepcao-poster-540.avif",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 21
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/tour-capitulos-recepcao-poster-540.webp",
+                  "largura": 540,
+                  "altura": 960,
+                  "kb": 31
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRjwBAABXRUJQVlA4IDABAACQBgCdASoYACsAPu1qrFCppaQiqqgBMB2JYwC91bgxgAmcbe0k158X4b1azSIQpDNCpSKfem/kJeYXnMMAAP6nxy0ddDi7XKOqpNMM14CUAs70VcUBOYENFpekO6c+1cYVGPdEYKuGWipLOvbPk+ajSE2QBNgRFOTlXEXO3AIs7HFbHwbVts7rVknlV+UzhfFTdO6nWXrZMecOU8f01voimDZVmgo0p9Ibw3y++IVgPRxVWgZHPbl+k51SEmDojd8/0lmZkbyeqfq4b2gFFVUuj5/ePAPmLS6s9zcWtHj0CZFn4KVDBjlNaqo6b7iYrErDzhiPwtYgu7uVjwX0hJKZkqwS2sPKsD2AdolhiRRKiafm8tBcjUyta11L2Q5DrdngRZfriSg1BLjwF9BWgAAA"
+          }
+        }
+      ]
+    },
+    "loop-letras": {
+      "origem": "v-letras",
+      "trecho": "loop-letras",
+      "inicio": 6.6,
+      "fim": 10.5,
+      "duracao": 3.9,
+      "loop": true,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/loop-letras-720.mp4",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 745
+          },
+          {
+            "src": "/media/video/loop-letras-540.mp4",
+            "largura": 540,
+            "altura": 960,
+            "kb": 471
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/loop-letras-720.webm",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 636
+          },
+          {
+            "src": "/media/video/loop-letras-540.webm",
+            "largura": 540,
+            "altura": 960,
+            "kb": 442
+          }
+        ]
+      },
+      "poster": {
+        "em": 7.1,
+        "largura": 720,
+        "altura": 1280,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/loop-letras-poster-720.avif",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 21
+            },
+            {
+              "src": "/media/video/loop-letras-poster-540.avif",
+              "largura": 540,
+              "altura": 960,
+              "kb": 15
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/loop-letras-poster-720.webp",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 31
+            },
+            {
+              "src": "/media/video/loop-letras-poster-540.webp",
+              "largura": 540,
+              "altura": 960,
+              "kb": 22
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAADwBQCdASoYACsAPu1qrVCppaQjpWzJMB2JZgCpJsqBc+ga0/L6zT0+icBA4VB3xHy1wAabx6IfEADqu+3PS61R8q4VKTi4F9PdvP1lkSv9UUyi20+1yUWtlCdC+5FbPYNIvrTNHPgSsdOYmZecJC0R0ZoAWJBXXxSO7DhBnIua0/NUl8nhDs9WARCgm0H88DM+UZ32CpSZ8yrFyidYlQ+KsMbYXfkc4o4ix0NIJxZh05TYmVCNFrVCj+NcdXbeznJbuCp57wNfhhzIirvCT7IANWcmqNoAcYQQPbE/rPke9iGpHAi5kR4+rhMaDuAAAAA="
+      },
+      "variantes": {
+        "loop-letras-16x9": {
+          "proporcao": "16:9",
+          "origem": "v-letras",
+          "trecho": "loop-letras",
+          "inicio": 6.6,
+          "fim": 10.5,
+          "duracao": 3.9,
+          "loop": true,
+          "mudo": true,
+          "fontes": {
+            "mp4": [
+              {
+                "src": "/media/video/loop-letras-16x9-720.mp4",
+                "largura": 720,
+                "altura": 404,
+                "kb": 291
+              }
+            ],
+            "webm": [
+              {
+                "src": "/media/video/loop-letras-16x9-720.webm",
+                "largura": 720,
+                "altura": 404,
+                "kb": 293
+              }
+            ]
+          },
+          "poster": {
+            "em": 7.1,
+            "largura": 720,
+            "altura": 405,
+            "fontes": {
+              "avif": [
+                {
+                  "src": "/media/video/loop-letras-16x9-poster-720.avif",
+                  "largura": 720,
+                  "altura": 405,
+                  "kb": 9
+                }
+              ],
+              "webp": [
+                {
+                  "src": "/media/video/loop-letras-16x9-poster-720.webp",
+                  "largura": 720,
+                  "altura": 405,
+                  "kb": 13
+                }
+              ]
+            },
+            "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBACdASoYAA4APu1iqU2ppaOiMAgBMB2JQBOmSrWAAZgKO9c5D9hNudQhVbfgAP2ZkXJoAgXr5Pj77ngBaaz1Jxf7RezKE63C926ipWRuSqvGfK/JOzyD/FqAJKjfN0dOGRfxOsKolFRhW52SH3vugKw1SZxGWXuw497u9yYv3cI8kRBLmA9gG+ZNPQywpkA2UEvAAAA="
+          }
+        }
+      }
+    },
+    "fases": {
+      "origem": "v-fases",
+      "trecho": "fases",
+      "inicio": 0,
+      "fim": 53.6,
+      "duracao": 53.6,
+      "loop": false,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/fases-720.mp4",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 6191
+          },
+          {
+            "src": "/media/video/fases-540.mp4",
+            "largura": 540,
+            "altura": 960,
+            "kb": 4200
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/fases-720.webm",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 4666
+          },
+          {
+            "src": "/media/video/fases-540.webm",
+            "largura": 540,
+            "altura": 960,
+            "kb": 3306
+          }
+        ]
+      },
+      "poster": {
+        "em": 8.9,
+        "largura": 720,
+        "altura": 1280,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/fases-poster-720.avif",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 24
+            },
+            {
+              "src": "/media/video/fases-poster-540.avif",
+              "largura": 540,
+              "altura": 960,
+              "kb": 17
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/fases-poster-720.webp",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 33
+            },
+            {
+              "src": "/media/video/fases-poster-540.webp",
+              "largura": 540,
+              "altura": 960,
+              "kb": 23
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRh4BAABXRUJQVlA4IBIBAABwBwCdASoYACsAPt1apE2opSOiOrZoARAbiWMAql8y0HcaRDjcs2ERa93q6rQOcY1rm783YAakvipj6gRs4a/zbrErsAD9U3Ys4mLvaunkYFPiHb3/7LuEyLeClrQyjKUwfExqUGY8qDOvjKXe6MI7kq/XxYdu7KJa3G2Hn0iJ95+KgTbcIvNjM3IZ1N4IdmA7F8o/a7c7NZGI67X/RjQFzLE5JNHX+B+dzunAyGwFF93OR32AiNJooh+9mboXnetPkMUnhFB9900rKYwCuxkeHxIolFhafdmwXUzgHtEeKcvkj2z1AEIZO/O656/FFOFLeGmgRzfE0uYtMZ8vHDT13i7EZyKtxoQAoXjdjsnCmXYA"
+      }
+    },
+    "faq-toxina": {
+      "origem": "v-faq-toxina",
+      "trecho": "faq-toxina",
+      "inicio": 0,
+      "fim": 50.7,
+      "duracao": 50.7,
+      "loop": false,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/faq-toxina-720.mp4",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 7722
+          },
+          {
+            "src": "/media/video/faq-toxina-540.mp4",
+            "largura": 540,
+            "altura": 960,
+            "kb": 5124
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/faq-toxina-720.webm",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 6810
+          },
+          {
+            "src": "/media/video/faq-toxina-540.webm",
+            "largura": 540,
+            "altura": 960,
+            "kb": 4732
+          }
+        ]
+      },
+      "poster": {
+        "em": 7.05,
+        "largura": 720,
+        "altura": 1280,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/faq-toxina-poster-720.avif",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 33
+            },
+            {
+              "src": "/media/video/faq-toxina-poster-540.avif",
+              "largura": 540,
+              "altura": 960,
+              "kb": 24
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/faq-toxina-poster-720.webp",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 46
+            },
+            {
+              "src": "/media/video/faq-toxina-poster-540.webp",
+              "largura": 540,
+              "altura": 960,
+              "kb": 32
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRlABAABXRUJQVlA4IEQBAADwBwCdASoYACsAPu1wrlMppiQipWmZMB2JQBXENpynWRrW/ovxwGfWChi45ieHAYritwmUVLpder6UrQC/BagxnyShc0c1oAAA/me4Ld2dXXg3lmXLWxbPzvckEusp3myh6YQEeK5zcyu6NKga8jtIrvvloTeNctW0QN5Z/UZrly+CW/GAZMaljQJaXrHGzJrkiXL2LPCJx5Ic4Qi1A6KD59elshVgD95f7+7JGKQOL4DsYhZaxPzV518U5lB6/U9gY6nAZnoxFPIQAs3C98VPBDzoiqB60VQRyajuqAXgWCaQNvA9kJyrobVKFKRvhqAgJKS9smNz9cKIR+vZgHPwR1HUCep/440jRslA7leWdMPHDmdLz32LHhRCA3PdDe+iu9RSjhMc9t+LJjhtFU2+UUYAHYPauACpT028NMkxV1vRtAA="
+      }
+    },
+    "inverno": {
+      "origem": "v-inverno",
+      "trecho": "inverno",
+      "inicio": 0,
+      "fim": 42.8,
+      "duracao": 42.8,
+      "loop": false,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/inverno-720.mp4",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 8029
+          },
+          {
+            "src": "/media/video/inverno-540.mp4",
+            "largura": 540,
+            "altura": 960,
+            "kb": 5329
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/inverno-720.webm",
+            "largura": 720,
+            "altura": 1280,
+            "kb": 6875
+          },
+          {
+            "src": "/media/video/inverno-540.webm",
+            "largura": 540,
+            "altura": 960,
+            "kb": 4799
+          }
+        ]
+      },
+      "poster": {
+        "em": 40.9,
+        "largura": 720,
+        "altura": 1280,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/inverno-poster-720.avif",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 41
+            },
+            {
+              "src": "/media/video/inverno-poster-540.avif",
+              "largura": 540,
+              "altura": 960,
+              "kb": 28
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/inverno-poster-720.webp",
+              "largura": 720,
+              "altura": 1280,
+              "kb": 57
+            },
+            {
+              "src": "/media/video/inverno-poster-540.webp",
+              "largura": 540,
+              "altura": 960,
+              "kb": 39
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRkgBAABXRUJQVlA4IDwBAAAwBwCdASoYACsAPu1sq06ppqQiMBqoATAdiUAZIPJwRlNDRrS7iRz0bTeSTDp/TWy5MN00soMgjl0idYNwPpVOYAAA/oQcXGRlTXI3Dpf34n06dPAknWba2ovdV/sYDK2MfyiYfBS7b5UmCQADx5kl0uk5JiZE0c/HiNwXcfkxSlpIyHdY6bovpCIS9CGAzTYeV/gaahNE4o/aHpjuZFU+Gc0GBjJIrT6f6+MT8NzZBKEV1WWxPA6UVML3t6ZrXquypLO1aM7Q95AYYh6B34UNMqYrg9oLrMb0aVTOmHheCbJutihst5mURfAtruWJIRkgMsYP6u3WAhB0C7MV84Vdzbz2PmIDiiqv1EhMNAgV552DbDoc6ocQ6sQQ0zDTB1HOBRIwsFlk+yvB9IHcExG+xljCSZijRRZT4AAA"
+      }
+    },
+    "amo-giyma": {
+      "origem": "v-amo-giyma",
+      "trecho": "amo-giyma",
+      "inicio": 0,
+      "fim": 24.3,
+      "duracao": 24.3,
+      "loop": false,
+      "mudo": true,
+      "fontes": {
+        "mp4": [
+          {
+            "src": "/media/video/amo-giyma-360.mp4",
+            "largura": 360,
+            "altura": 640,
+            "kb": 1475
+          }
+        ],
+        "webm": [
+          {
+            "src": "/media/video/amo-giyma-360.webm",
+            "largura": 360,
+            "altura": 640,
+            "kb": 1756
+          }
+        ]
+      },
+      "poster": {
+        "em": 5.75,
+        "largura": 360,
+        "altura": 640,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/video/amo-giyma-poster-360.avif",
+              "largura": 360,
+              "altura": 640,
+              "kb": 13
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/video/amo-giyma-poster-360.webp",
+              "largura": 360,
+              "altura": 640,
+              "kb": 18
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRmQBAABXRUJQVlA4IFgBAACwBwCdASoYACsAPu1sr1IppaQiqrgIATAdiUAWww7xTKe9tEfWvLIfImFUaMyeJRzViU7tgTy0FmBkgcUvQIorhZFY3/VAAPqLxEmyqYr7BczdpgJEIyCfyIyi++OyYMvpCVMqJtRNpdhyBc0cuXHM2i6s0MUeR984IgA0XxqdTryDrlnZSctxkw85lp/2khqEBpwjutWJmDbfny9p6Io3E5/MqldRtWRXQsB22gs4s3MZSfVPLZsexfh0HwCgmxg/E/FonbwA+atVMqnc4L6KvdOFSXyu1KspNDxPvgA4p+rxYT6Km4b3/ZuLZfE8ommjqQwHjcyxwBgeOkw9LF7P66oBCeuTFB1HLz0caS3X8HaSreLDfYDX9zItxO25UNiqhGU29rifjr5GCWgMWdPZYnWOgG6PCehSOB0moz9fxfVTKYjwL+5Hv/QXSeHTWy42mMKnJgAAAA=="
+      }
+    }
+  },
+  "resultados": {
+    "f00-antes-depois": {
+      "procedimento": "preenchimento labial",
+      "tempoDecorrido": "depende de cada paciente",
+      "antes": {
+        "largura": 1283,
+        "altura": 500,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-480.avif",
+              "largura": 480,
+              "altura": 187,
+              "kb": 8
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-800.avif",
+              "largura": 800,
+              "altura": 312,
+              "kb": 17
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-1200.avif",
+              "largura": 1200,
+              "altura": 468,
+              "kb": 31
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-1283.avif",
+              "largura": 1283,
+              "altura": 500,
+              "kb": 37
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-480.webp",
+              "largura": 480,
+              "altura": 187,
+              "kb": 9
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-800.webp",
+              "largura": 800,
+              "altura": 312,
+              "kb": 21
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-1200.webp",
+              "largura": 1200,
+              "altura": 468,
+              "kb": 37
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-antes-1283.webp",
+              "largura": 1283,
+              "altura": 500,
+              "kb": 42
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoYAAkAPu1iqk2ppaQiMAgBMB2JYgCdABnshaXovYtNnIvgAP7Q+xqrj69L9wd65WW9IsLYqJjY1k4MrqdNvucon3vLhVP+TqkUYWXB/c1p2QRbB4alHeKFO5TlB6YyeoAAAA=="
+      },
+      "depois": {
+        "largura": 1283,
+        "altura": 500,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-480.avif",
+              "largura": 480,
+              "altura": 187,
+              "kb": 8
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-800.avif",
+              "largura": 800,
+              "altura": 312,
+              "kb": 17
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-1200.avif",
+              "largura": 1200,
+              "altura": 468,
+              "kb": 28
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-1283.avif",
+              "largura": 1283,
+              "altura": 500,
+              "kb": 34
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-480.webp",
+              "largura": 480,
+              "altura": 187,
+              "kb": 9
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-800.webp",
+              "largura": 800,
+              "altura": 312,
+              "kb": 20
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-1200.webp",
+              "largura": 1200,
+              "altura": 468,
+              "kb": 35
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-depois-1283.webp",
+              "largura": 1283,
+              "altura": 500,
+              "kb": 40
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoYAAkAPu1iqU2ppaQiMAgBMB2JZACdABlItT64lkHn3FoAAP7F76a2wOVOyl6/ENyFen+VKib5cFiwEBQMWBEqPZ9BRzOip50UGcjwcHCgWoEja9YE+eauQx2OzNiqy+Bk5SiSAAA="
+      },
+      "par": {
+        "largura": 2566,
+        "altura": 500,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f00-antes-depois-par-480.avif",
+              "largura": 480,
+              "altura": 94,
+              "kb": 4
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-800.avif",
+              "largura": 800,
+              "altura": 156,
+              "kb": 11
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-1200.avif",
+              "largura": 1200,
+              "altura": 234,
+              "kb": 22
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-1600.avif",
+              "largura": 1600,
+              "altura": 312,
+              "kb": 34
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f00-antes-depois-par-480.webp",
+              "largura": 480,
+              "altura": 94,
+              "kb": 5
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-800.webp",
+              "largura": 800,
+              "altura": 156,
+              "kb": 13
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-1200.webp",
+              "largura": 1200,
+              "altura": 234,
+              "kb": 27
+            },
+            {
+              "src": "/media/resultados/f00-antes-depois-par-1600.webp",
+              "largura": 1600,
+              "altura": 312,
+              "kb": 42
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACQAwCdASoYAAUAPu1kqU2ppaQiMAgBMB2JQBOgA3BFfx4Q+rFgAPlAXqxW+VACRDe3dPrkxFnqEFzzUM7zci4Gi0h9kqWAJ4MMoKpeVPbiEhRz8/80YPxYExhSkLH2slWYJvsD6MdHSvSr2HLAAA=="
+      }
+    },
+    "f03-antes-depois": {
+      "procedimento": "preenchimento de mento",
+      "tempoDecorrido": "depende de cada paciente",
+      "antes": {
+        "largura": 404,
+        "altura": 715,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f03-antes-depois-antes-404.avif",
+              "largura": 404,
+              "altura": 715,
+              "kb": 12
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f03-antes-depois-antes-404.webp",
+              "largura": 404,
+              "altura": 715,
+              "kb": 14
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRuIAAABXRUJQVlA4INYAAADQBQCdASoYACoAPtVWo02oJKMiNUwBABqJaACdACVFa8FnqsmFoEwqHzcfj2nFiQhQ3yPjfpOAAPavlSKtZNamJsjL6yfTmFkpWWDwf+KCY9GmqS2R8Lmr8Smh2Srbrv4SQaNk7Gri70sGWr9UwRQhecIxatoeUBEeBnXH4oc9jHOcXY/mrI3u6Hv5FasXLGETsZZUwdhLIT2oMLC3NcLGbigXBc2Dplcrejj/eyyYp+69QFSE6dGJYmX0Yeq5p1WZks3T2AFXsLJSYh2tsXh6YRb8QAAA"
+      },
+      "depois": {
+        "largura": 404,
+        "altura": 715,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f03-antes-depois-depois-404.avif",
+              "largura": 404,
+              "altura": 715,
+              "kb": 12
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f03-antes-depois-depois-404.webp",
+              "largura": 404,
+              "altura": 715,
+              "kb": 13
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAACwBgCdASoYACoAPt1gpk2opiOiNVgMARAbiWoApd/agpgbldswMp1OiXgzL4I922YvX8ak5e8uCwVgnYgSYAD+i81NyIxCX94ypztHL2RZN6AY8seLvIrEnFT6p9S0Nzb/1nQNID04Qm08IjYLFYP6BM0xP3znYpXqZ4UkwkvqzEBFKqdcHHmARW4zTD9BEV4KU105YrTURJeOu7T/2r2ZImHAY+05fXEYZAs66To7WtZYQios3L19DygOvbEZjF3cGkQKghcWBWD6fBXddCOBo2yPwIp//25qMVOtkvJ/7MAyU74gAA=="
+      },
+      "par": {
+        "largura": 808,
+        "altura": 715,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f03-antes-depois-par-480.avif",
+              "largura": 480,
+              "altura": 425,
+              "kb": 11
+            },
+            {
+              "src": "/media/resultados/f03-antes-depois-par-800.avif",
+              "largura": 800,
+              "altura": 708,
+              "kb": 23
+            },
+            {
+              "src": "/media/resultados/f03-antes-depois-par-808.avif",
+              "largura": 808,
+              "altura": 715,
+              "kb": 25
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f03-antes-depois-par-480.webp",
+              "largura": 480,
+              "altura": 425,
+              "kb": 12
+            },
+            {
+              "src": "/media/resultados/f03-antes-depois-par-800.webp",
+              "largura": 800,
+              "altura": 708,
+              "kb": 26
+            },
+            {
+              "src": "/media/resultados/f03-antes-depois-par-808.webp",
+              "largura": 808,
+              "altura": 715,
+              "kb": 28
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRtwAAABXRUJQVlA4INAAAABQBQCdASoYABUAPu1mq02ppaQiMAgBMB2JbACdLz2VrguAbWBZ/gSfAKCRdN0/VFkohdgA+3M++Ho44rQ2F3diwTGdzoAIL0oSso+qGFGEnCl/F3hdft3fp9AJK4a5YUZ+yX3TWwcFq3IF2gYcDNyuiNHszYm9L5WMXtD7mXVqwlBPBO+U4m0YdvxrYdt/VezZmdKhLChUWogYiwzwEmuZzw2bdOCgCuSAKYW7bYYTFQ4nKtCQ2bYCxs8uY230DbH8pPZOo1xDSaRscY1RYAAA"
+      }
+    },
+    "f05-antes-depois": {
+      "procedimento": "toxina botulínica (testa)",
+      "tempoDecorrido": "depende de cada paciente",
+      "antes": {
+        "largura": 650,
+        "altura": 364,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f05-antes-depois-antes-480.avif",
+              "largura": 480,
+              "altura": 269,
+              "kb": 12
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-antes-650.avif",
+              "largura": 650,
+              "altura": 364,
+              "kb": 21
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f05-antes-depois-antes-480.webp",
+              "largura": 480,
+              "altura": 269,
+              "kb": 17
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-antes-650.webp",
+              "largura": 650,
+              "altura": 364,
+              "kb": 28
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdMoR3ACajCCntRIDkd1vicVOAAP61XD9PpxosqifS6PimVe+9fRdhSl0aJZYwNaWk3/HDCnNVtB7cFKOnDLE61XCKT3Zv0AC/HbO0zcB/o8A1Sf/dDHV30BdmbtN21dY6dBlGZ9FeN9VOLmC4NT9oQAAA"
+      },
+      "depois": {
+        "largura": 650,
+        "altura": 364,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f05-antes-depois-depois-480.avif",
+              "largura": 480,
+              "altura": 269,
+              "kb": 14
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-depois-650.avif",
+              "largura": 650,
+              "altura": 364,
+              "kb": 23
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f05-antes-depois-depois-480.webp",
+              "largura": 480,
+              "altura": 269,
+              "kb": 19
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-depois-650.webp",
+              "largura": 650,
+              "altura": 364,
+              "kb": 31
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoYAA0APu1iqU2ppaOiMAgBMB2JbACdMoRwACXB3izJ+aLSFuMAAP62CEBeZYUANDZXckjJ1vuyGEg8LUj800Z3tS5ZohVG2wQ4R5NLzA2N4+STqQ89sphM34C903IL1Ia9gmw2VCebtBbPKdEbBxrKbFrBBIBhpS2oXrtdABHeAAAA"
+      },
+      "par": {
+        "largura": 1300,
+        "altura": 364,
+        "fontes": {
+          "avif": [
+            {
+              "src": "/media/resultados/f05-antes-depois-par-480.avif",
+              "largura": 480,
+              "altura": 134,
+              "kb": 7
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-800.avif",
+              "largura": 800,
+              "altura": 224,
+              "kb": 18
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-1200.avif",
+              "largura": 1200,
+              "altura": 336,
+              "kb": 38
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-1300.avif",
+              "largura": 1300,
+              "altura": 364,
+              "kb": 46
+            }
+          ],
+          "webp": [
+            {
+              "src": "/media/resultados/f05-antes-depois-par-480.webp",
+              "largura": 480,
+              "altura": 134,
+              "kb": 10
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-800.webp",
+              "largura": 800,
+              "altura": 224,
+              "kb": 25
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-1200.webp",
+              "largura": 1200,
+              "altura": 336,
+              "kb": 49
+            },
+            {
+              "src": "/media/resultados/f05-antes-depois-par-1300.webp",
+              "largura": 1300,
+              "altura": 364,
+              "kb": 59
+            }
+          ]
+        },
+        "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoYAAcAPu1iqU2ppaOiMAgBMB2JZgCdMoR4GCacH1+7PRwoJ6+EAP6w8Anb1mkWk9otJErtggjqp2eRWp+MBBpHkV20EQUC+pbi+98HvRN9UNCcnd0DrzCmd7+2RM+i7f7m4nJvabPPUDa1Olz7YVAjVgGBfeqUAAA="
+      }
+    }
+  }
+}
