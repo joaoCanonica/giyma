@@ -63,9 +63,10 @@ describe('fundação', () => {
     }
   });
 
-  it('a home usa o Documento, que decide o robots (preview nunca indexa)', () => {
+  it('a home usa o Documento, cujo <Seo> decide o robots (preview nunca indexa)', () => {
     expect(ler('src/pages/index.astro')).toContain('<Documento');
-    expect(ler('src/components/base/Documento.astro')).toContain(
+    expect(ler('src/components/base/Documento.astro')).toContain('<Seo');
+    expect(ler('src/components/seo/Seo.astro')).toContain(
       "interna ? 'noindex, nofollow' : robots()",
     );
   });

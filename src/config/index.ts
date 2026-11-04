@@ -9,7 +9,7 @@ import { valores } from './valores.ts';
 
 export { avaliacoes, contato, horario, marca, profissional, valores };
 export { modoAtual, ehPreview } from './ambiente.ts';
-export { seo, robots } from './seo.ts';
+export { seo, robots, indexavel, urlAbsoluta, nap } from './seo.ts';
 
 export const config = { marca, profissional, contato, horario, avaliacoes, valores } as const;
 

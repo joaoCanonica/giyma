@@ -3,9 +3,10 @@
 import '../../styles/global.css';
 import bellefair from '../../styles/fontes/bellefair-latin-400-normal.woff2?url';
 import mulish from '../../styles/fontes/mulish-latin-wght-normal.woff2?url';
-import { robots } from '../../config/index.ts';
 import Consentimento from '../consentimento/Consentimento.astro';
 import PreviewBanner from '../PreviewBanner.astro';
+import Seo from '../seo/Seo.astro';
+import type { ItemTrilha, No } from '../seo/jsonld.ts';
 
 interface Props {
   titulo: string;
@@ -13,8 +14,21 @@ interface Props {
   /** Página interna (ex.: /_estilo): nunca indexa, mesmo em produção. */
   interna?: boolean;
   superficie?: 'perola' | 'nevoa' | 'cacau' | 'petroleo';
+  /** Trilha (BreadcrumbList) a partir do Início, sem ele. */
+  trilha?: readonly ItemTrilha[] | undefined;
+  /** Nós extras do JSON-LD da página (Service, FAQPage…). */
+  jsonld?: readonly No[] | undefined;
+  tipoOg?: 'website' | 'profile' | 'article';
 }
-const { titulo, descricao, interna = false, superficie = 'perola' } = Astro.props;
+const {
+  titulo,
+  descricao,
+  interna = false,
+  superficie = 'perola',
+  trilha,
+  jsonld,
+  tipoOg = 'website',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,9 +36,14 @@ const { titulo, descricao, interna = false, superficie = 'perola' } = Astro.prop
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content={interna ? 'noindex, nofollow' : robots()} />
-    <title>{titulo}</title>
-    {descricao && <meta name="description" content={descricao} />}
+    <Seo
+      titulo={titulo}
+      descricao={descricao}
+      interna={interna}
+      trilha={trilha}
+      jsonld={jsonld}
+      tipoOg={tipoOg}
+    />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />

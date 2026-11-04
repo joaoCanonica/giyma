@@ -4,13 +4,12 @@
     "title": "Privacidade · Giyma Saúde e Estética Avançada",
     "description": "Como a Giyma trata os seus dados: sem formulário e sem cookies. Medição anônima e mapa do Google só se você aceitar. O contato é pelo WhatsApp."
   },
+  "resposta": "O site da Giyma Saúde e Estética Avançada não tem formulário nem cookies. O contato acontece pelo WhatsApp, quando você escolhe, e a medição anônima e o mapa do Google só carregam se você aceitar.",
   "blocos": {
     "resumo": {
       "rotulo": "Privacidade",
       "titulo": "O seu cuidado começa pelos seus dados.",
-      "paragrafos": [
-        "Este site não tem formulário, não pede cadastro e não usa cookies. Você navega sem deixar dados com a gente."
-      ]
+      "paragrafos": ["Você navega sem deixar dados com a gente."]
     },
     "whatsapp": {
       "titulo": "Quando você fala com a gente",

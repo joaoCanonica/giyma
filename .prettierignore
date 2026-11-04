@@ -11,3 +11,4 @@ CLAUDE.md
 .cache/
 media.manifest.json
 src/styles/tokens.css
+scripts/lib/schemaorg-vocab.json

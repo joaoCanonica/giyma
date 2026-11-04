@@ -95,3 +95,12 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **Medição:** proposta Plausible (sem cookie), carregada só depois de "Aceitar". Falta o João decidir (Plausible pago, Umami auto-hospedado ou nenhuma) e informar o domínio final: `PLAUSIBLE_DOMINIO` no build. Sem ele, a medição fica desligada e o aviso de privacidade só abre pelo rodapé ou pelo mapa. Ver docs/FUNIL.md.
 - **Política de privacidade:** o texto agora cita a medição anônima e o mapa sob consentimento; seguem pendentes razão social, CNPJ, encarregado de dados e data (já listados acima). Conferência jurídica na sessão 9.
 - **Mensagem geral do WhatsApp** diz "com a Dra. Ester" (texto que a paciente envia, não aparece na página). Confirmar com a clínica se preferem "com a Dra. Ester Santos" ou só "uma avaliação".
+
+## SEO e GEO (sessão 8)
+
+- **Domínio:** `SITE_URL` no build (canonical, Open Graph, JSON-LD, sitemap e llms.txt usam ele). Sem domínio, sai `http://localhost:4321`.
+- **Indexação:** `seo.indexar` segue `false` até a sessão 9. A troca para `true` foi simulada em produção e passou (robots, sitemap e Lighthouse SEO 100).
+- **Rich Results Test e validator.schema.org:** não abrem deste ambiente (rede). A validação foi feita localmente contra o vocabulário oficial do schema.org 30.1 e as exigências do Google (`pnpm audit-seo`). Rodar os dois testes oficiais com o site no ar e guardar as capturas.
+- **Nome na ficha do Google:** "Giyma | Saúde e Estética Avançada" ≠ "Giyma Saúde e Estética Avançada" do site. Alinhar (checklist em docs/SEO_GEO.md).
+- **Horário:** sem ele não há `openingHoursSpecification` (e a produção segue travada).
+- **Pós-graduação:** quando chegar, entra em `hasCredential` da Ester e a página /dra-ester-santos volta ao sitemap sozinha.

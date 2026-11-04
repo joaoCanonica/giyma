@@ -5,12 +5,13 @@ import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
 import Link from '../base/Link.astro';
 import Logo from '../marca/Logo.astro';
 import Provisorio from '../Provisorio.astro';
-import { contato, marca } from '../../config/index.ts';
+import { contato, marca, nap } from '../../config/index.ts';
 import { destino, esterPublicada, microtextos } from './dados.ts';
 
 const m = await microtextos();
 const wa = await destino('geral');
 const ig = contato.instagram.valor;
+const n = nap();
 const links: [string, string][] = [
   ['/tratamentos', 'Tratamentos'],
   ['/a-giyma', 'A Giyma'],
@@ -37,8 +38,12 @@ const ano = new Date().getFullYear();
       <AssinaturaProfissional />
     </div>
     <address class="rodape-contato" data-origem="rodape">
-      <span>{String(m.rodape['endereco'] ?? '')}</span>
-      <Link href={wa}>{String(m.rodape['whatsapp'] ?? '')}</Link>
+      {/* NAP: nome, endereço e telefone idênticos em todas as páginas (audit-seo confere). */}
+      <span data-nap="nome">{n.nome}</span>
+      <span data-nap="endereco">{n.endereco}</span>
+      <Link href={wa}>
+        WhatsApp <span data-nap="telefone">{n.telefone}</span>
+      </Link>
       <Link href={ig.url} externo>
         Instagram @{ig.usuario}
       </Link>

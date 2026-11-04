@@ -144,6 +144,8 @@ export const pagina = z
   .object({
     slug: z.string().regex(/^(home|404|[a-z0-9]+(-[a-z0-9]+)*)$/),
     meta,
+    /** Parágrafo-resposta no topo (quem, o quê, onde): o texto que Google e IAs citam. */
+    resposta: z.string().min(80).max(600).optional(),
     blocos: z.record(z.string(), bloco),
     pendentes: z.array(z.string()).optional(),
   })

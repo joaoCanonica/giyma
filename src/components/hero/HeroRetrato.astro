@@ -6,6 +6,10 @@ import { imagem, srcset } from '../base/midia.ts';
 import Haste from '../marca/Haste.astro';
 import HeroTexto from './HeroTexto.astro';
 
+interface Props {
+  resposta?: string | undefined;
+}
+const { resposta } = Astro.props;
 const mobile = imagem('retrato-4x5');
 const desktop = imagem('retrato-3x4');
 const ALT = 'Ester Santos de blusa branca, braços cruzados, sorrindo, em fundo marrom';
@@ -45,7 +49,7 @@ const src = mobile.fontes.webp.find((f) => f.largura === 800)?.src ?? mobile.fon
   </figure>
 
   <div class="hero-texto">
-    <HeroTexto />
+    <HeroTexto resposta={resposta} />
   </div>
 
   <div class="hero-haste" aria-hidden="true">

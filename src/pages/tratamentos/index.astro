@@ -43,6 +43,7 @@ let n = 0;
   titulo={pagina.data.meta.title}
   descricao={pagina.data.meta.description}
   superficie="perola"
+  trilha={[{ nome: 'Tratamentos', caminho: '/tratamentos' }]}
 >
   <div class="topo">
     <Cabecalho />
@@ -59,16 +60,21 @@ let n = 0;
               Tratamentos em Lages
             </h1>
             <p class="ti-subtitulo t-acento t-2">{b['abertura']?.titulo}</p>
-            {b['abertura']?.paragrafos?.map((p) => (
-              <p
-                class="ti-abertura"
-                data-assinatura-profissional
-                set:html={p
-                  .replace(/&/g, '&amp;')
-                  .replace(/</g, '&lt;')
-                  .replace('CRF-SC 3984', '<span class="sem-quebra">CRF-SC 3984</span>')}
-              />
-            ))}
+            {[pagina.data.resposta, ...(b['abertura']?.paragrafos ?? [])].flatMap((p, i) =>
+              p
+                ? [
+                    <p
+                      class="ti-abertura"
+                      data-resposta={i === 0 ? '' : undefined}
+                      data-assinatura-profissional
+                      set:html={p
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace('CRF-SC 3984', '<span class="sem-quebra">CRF-SC 3984</span>')}
+                    />,
+                  ]
+                : [],
+            )}
           </div>
         </div>
       </section>

@@ -7,6 +7,7 @@ import Haste from '../components/marca/Haste.astro';
 import BotaoFlutuante from '../components/secoes/BotaoFlutuante.astro';
 import { comAssinatura, textoHtml } from '../components/secoes/dados.ts';
 import Rodape from '../components/secoes/Rodape.astro';
+import type { No } from '../components/seo/jsonld.ts';
 
 interface Props {
   meta: { title: string; description: string };
@@ -17,6 +18,11 @@ interface Props {
   /** Segunda linha do H1, em itálico (ex.: "em Lages"). */
   tituloAcento?: string | undefined;
   abertura?: readonly string[] | undefined;
+  /** Parágrafo-resposta (quem, o quê, onde): o primeiro texto da página, citável por IAs. */
+  resposta?: string | undefined;
+  /** Nós extras do JSON-LD (FAQPage…). */
+  jsonld?: readonly No[] | undefined;
+  tipoOg?: 'website' | 'profile' | 'article';
   /** 404 e páginas internas: noindex sempre. */
   interna?: boolean;
   semHaste?: boolean;
@@ -28,12 +34,24 @@ const {
   titulo,
   tituloAcento,
   abertura = [],
+  resposta,
+  jsonld,
+  tipoOg = 'website',
   interna = false,
   semHaste = false,
 } = Astro.props;
+const caminho = Astro.url.pathname.replace(/\.html$/, '') || '/';
 ---
 
-<Documento titulo={meta.title} descricao={meta.description} interna={interna} superficie="perola">
+<Documento
+  titulo={meta.title}
+  descricao={meta.description}
+  interna={interna}
+  superficie="perola"
+  trilha={[{ nome: trilha, caminho }]}
+  jsonld={jsonld}
+  tipoOg={tipoOg}
+>
   <div class="topo">
     <Cabecalho />
     <main>
@@ -50,6 +68,14 @@ const {
               {titulo}
               {tituloAcento && <span class="t-acento">{tituloAcento}</span>}
             </h1>
+            {resposta && (
+              <p
+                class="pg-abertura pg-resposta"
+                data-resposta
+                {...comAssinatura(resposta)}
+                set:html={textoHtml(resposta)}
+              />
+            )}
             {abertura.map((p) => (
               <p class="pg-abertura" {...comAssinatura(p)} set:html={textoHtml(p)} />
             ))}

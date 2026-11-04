@@ -37,7 +37,7 @@ const bloco = (k: string) => {
   <div class="topo">
     <Cabecalho />
     <main>
-      <HeroRetrato />
+      <HeroRetrato resposta={pagina?.data.resposta} />
       <Manifesto bloco={bloco('manifesto')} />
       <SecaoEster bloco={bloco('ester')} />
       <SecaoLinhaDoTempo bloco={bloco('linha-do-tempo')} />

@@ -13,6 +13,7 @@ import {
   pagina,
   textoHtml,
 } from '../components/secoes/dados.ts';
+import { faq, textoPuro } from '../components/seo/jsonld.ts';
 import Pagina from '../layouts/Pagina.astro';
 
 const p = await pagina('perguntas-frequentes');
@@ -20,12 +21,27 @@ const m = await microtextos();
 const b = p.blocos;
 const GRUPOS = ['toxina', 'preenchimento', 'bioestimulador', 'avaliacao', 'profissional', 'visita'];
 const grupos = GRUPOS.flatMap((id) => (b[id] ? [{ id, bloco: b[id] }] : []));
+// FAQPage: as mesmas perguntas e respostas visíveis abaixo, em texto puro.
+const jsonld = [
+  faq(
+    '/perguntas-frequentes',
+    grupos.flatMap((g) =>
+      (g.bloco.itens ?? []).flatMap((it) =>
+        it.titulo && it.paragrafos?.length
+          ? [{ pergunta: textoPuro(it.titulo), resposta: textoPuro(it.paragrafos.join(' ')) }]
+          : [],
+      ),
+    ),
+  ),
+];
 const credito = (fonte?: string, origem?: string) =>
   origem === 'literal' || origem === 'baseado-em-post' ? fontePublica(fonte ?? '') : '';
 ---
 
 <Pagina
   meta={p.meta}
+  resposta={p.resposta}
+  jsonld={jsonld}
   trilha="Perguntas frequentes"
   rotulo={b['abertura']?.rotulo}
   titulo={b['abertura']?.titulo ?? ''}

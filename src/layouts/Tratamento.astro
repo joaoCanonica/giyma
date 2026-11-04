@@ -15,7 +15,8 @@ import Cabecalho from '../components/hero/Cabecalho.astro';
 import Haste from '../components/marca/Haste.astro';
 import Provisorio from '../components/Provisorio.astro';
 import BotaoFlutuante from '../components/secoes/BotaoFlutuante.astro';
-import { fontePublica, microtextos } from '../components/secoes/dados.ts';
+import { fontePublica, microtextos, pagina } from '../components/secoes/dados.ts';
+import { faq, servico, textoPuro } from '../components/seo/jsonld.ts';
 import Rodape from '../components/secoes/Rodape.astro';
 import { publicavel, type Tratamento } from '../content/schemas.ts';
 
@@ -73,12 +74,34 @@ const fase = (f: string) => (f === '60+' ? '60 ou mais' : f);
 /** Escapa e mantém "CRF-SC 3984" numa linha só. */
 const semQuebra = (s: string) =>
   html(s).replace('CRF-SC 3984', '<span class="sem-quebra">CRF-SC 3984</span>');
+
+// JSON-LD: o Service e as perguntas desta página. Pergunta que também está em
+// /perguntas-frequentes é marcada só lá (o Google pede uma marcação por pergunta no site).
+const normal = (s: string) => textoPuro(s).toLowerCase().replace(/\W+/gu, ' ').trim();
+const naFaqGeral = new Set(
+  Object.values((await pagina('perguntas-frequentes')).blocos).flatMap((b) =>
+    (b.itens ?? []).map((it) => normal(it.titulo ?? '')),
+  ),
+);
+const perguntasLd = t.faq
+  .filter((f) => f.resposta && !naFaqGeral.has(normal(f.pergunta)))
+  .map((f) => ({ pergunta: textoPuro(f.pergunta), resposta: textoPuro(f.resposta ?? '') }));
+const caminho = `/tratamentos/${t.slug}`;
+const jsonld = [
+  servico({ slug: t.slug, nome: t.nome, resposta: t.resposta, areas: t.areas }),
+  ...(perguntasLd.length ? [faq(caminho, perguntasLd)] : []),
+];
 ---
 
 <Documento
   titulo={t.meta?.title ?? `${t.nome} em Lages · Giyma`}
   descricao={t.meta?.description}
   superficie="perola"
+  trilha={[
+    { nome: 'Tratamentos', caminho: '/tratamentos' },
+    { nome: t.nome, caminho },
+  ]}
+  jsonld={jsonld}
 >
   <div class="topo">
     <Cabecalho />
@@ -105,6 +128,7 @@ const semQuebra = (s: string) =>
             {t.resposta ? (
               <p
                 class="tr-resposta"
+                data-resposta
                 data-assinatura-profissional
                 set:html={semQuebra(t.resposta)}
               />
@@ -131,12 +155,12 @@ const semQuebra = (s: string) =>
           <div class="contido tr-duas">
             <div class="pilha">
               <Rotulo as="h2">
-                <span id="tr-para-quem">Para quem é</span>
+                <span id="tr-para-quem">Para quem é?</span>
               </Rotulo>
               <p class="t-3 tr-destaque">{t.paraQuem}</p>
             </div>
             <div class="pilha">
-              <Rotulo as="h2">O que é</Rotulo>
+              <Rotulo as="h2">O que é?</Rotulo>
               <p class="medida">{t.oQueE}</p>
             </div>
           </div>
@@ -147,7 +171,7 @@ const semQuebra = (s: string) =>
         <section class="capitulo" data-superficie="nevoa" aria-labelledby="tr-como">
           <div class="contido">
             <Rotulo as="h2">
-              <span id="tr-como">Como é feito</span>
+              <span id="tr-como">Como é feito?</span>
             </Rotulo>
             <ol class="tr-passos">
               {passos.map((p, i) => (
@@ -168,7 +192,7 @@ const semQuebra = (s: string) =>
           <div class="contido tr-duas tr-duas--esperar">
             <div class="pilha">
               <Rotulo as="h2">
-                <span id="tr-esperar">O que esperar</span>
+                <span id="tr-esperar">O que esperar?</span>
               </Rotulo>
               <p class="t-2 tr-esperar">{t.resultadosEsperados}</p>
               <p class="t-pequeno t-suave">
@@ -187,7 +211,7 @@ const semQuebra = (s: string) =>
           <div class="contido tr-cuidados">
             <div class="pilha">
               <Rotulo as="h2">
-                <span id="tr-cuidados">Cuidados</span>
+                <span id="tr-cuidados">Quais são os cuidados?</span>
               </Rotulo>
               <p class="t-2">Antes e depois do procedimento, sem esconder nada.</p>
             </div>
@@ -272,7 +296,7 @@ const semQuebra = (s: string) =>
         >
           <div class="contido">
             <Rotulo as="h2">
-              <span id="tr-fases">Em que fase costuma fazer sentido</span>
+              <span id="tr-fases">Em que fase costuma fazer sentido?</span>
             </Rotulo>
             <ul class="tr-fases">
               {t.fases.map((f) => (

@@ -6,13 +6,15 @@ import BotaoAgendar from '../base/BotaoAgendar.astro';
 import Link from '../base/Link.astro';
 import Rotulo from '../base/Rotulo.astro';
 import { contato } from '../../config/index.ts';
-import { esterPublicada } from '../secoes/dados.ts';
+import { comAssinatura, esterPublicada, textoHtml } from '../secoes/dados.ts';
 
 interface Props {
   /** Na alternativa A (mobile), o nome já está na placa da foto. */
   assinaturaNoDesktop?: boolean;
+  /** Parágrafo-resposta da home (paginas/home.json): quem, o quê, onde. */
+  resposta?: string | undefined;
 }
-const { assinaturaNoDesktop = true } = Astro.props;
+const { assinaturaNoDesktop = true, resposta } = Astro.props;
 const e = contato.endereco.valor;
 const ig = contato.instagram.valor;
 ---
@@ -32,10 +34,14 @@ const ig = contato.instagram.valor;
       </Botao>
     )}
   </div>
-  <p class="ht-apoio">
-    Harmonização facial com avaliação individual, planejamento e o cuidado de quem conhece a pele
-    por dentro.
-  </p>
+  {resposta ? (
+    <p class="ht-apoio" data-resposta {...comAssinatura(resposta)} set:html={textoHtml(resposta)} />
+  ) : (
+    <p class="ht-apoio">
+      Harmonização facial com avaliação individual, planejamento e o cuidado de quem conhece a pele
+      por dentro.
+    </p>
+  )}
   <AssinaturaProfissional
     class:list={['ht-assinatura', { 'ht-assinatura--so-desktop': assinaturaNoDesktop }]}
   />
