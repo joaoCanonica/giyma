@@ -1,5 +1,24 @@
 # Deploy (Vercel, estático)
 
+## Caminho simples (recomendado)
+
+1. Na Vercel: **Add New → Project → importar `joaoCanonica/giyma`**. Não precisa mudar nada: o
+   `vercel.json` já define a instalação (`pnpm@10.28.0`), o build e a pasta `dist`.
+2. **Não precisa de variável de ambiente.**
+   - O deploy de produção vira produção sozinho (`VERCEL_ENV=production`): indexável, sem a faixa
+     "em revisão".
+   - Os previews ficam com noindex.
+   - A URL vem do próprio projeto (`VERCEL_PROJECT_PRODUCTION_URL`).
+   - Opcionais: `SITE_URL` quando houver domínio; `PLAUSIBLE_DOMINIO` se a medição for aprovada.
+3. A Vercel publica a branch **`main`**: o que estiver em `main` vai ao ar a cada push.
+
+**Por que funciona sem ffmpeg:** os derivados de mídia estão versionados em `public/media/`. O
+`media:prepare` detecta que não há ffmpeg e usa os arquivos prontos. Ao trocar uma foto ou um
+vídeo, rode `pnpm media:prepare` numa máquina com ffmpeg e commite `public/media/`.
+
+O roteiro abaixo (build pré-compilado pelo GitHub Actions) segue valendo, mas não é mais
+necessário.
+
 O site é estático (Astro, `dist/`). Os cabeçalhos ficam no `vercel.json`, e o CSP vai, por
 página, no próprio HTML (`scripts/pos-build.mjs`).
 
