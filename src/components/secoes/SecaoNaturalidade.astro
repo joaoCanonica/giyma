@@ -1,0 +1,92 @@
+---
+// 8. Resultados (petróleo). Só com pares autorizados; sem nenhum, a seção vira
+// "Naturalidade com propósito": a frase dela e o caminho para a FAQ.
+import { getCollection } from 'astro:content';
+import Citacao from '../base/Citacao.astro';
+import Comparador from '../base/Comparador.astro';
+import { par } from '../base/midia.ts';
+import Link from '../base/Link.astro';
+import Rotulo from '../base/Rotulo.astro';
+import { publicavel } from '../../content/schemas.ts';
+import { destino, fontePublica, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const pares = (await getCollection('resultados')).map((r) => r.data).filter(publicavel.resultado);
+// Só pares que existem no índice (o prepare-media só gera os autorizados).
+const autorizados = pares.flatMap((r) => {
+  const p = par(r.midia);
+  return p ? [{ ...r, p }] : [];
+});
+const href = bloco.cta ? await destino(bloco.cta.mensagem) : '/perguntas-frequentes';
+---
+
+<section class="capitulo naturalidade" data-superficie="petroleo" aria-labelledby="natural-titulo">
+  <div class="contido natural-grade">
+    {autorizados.length > 0 ? (
+      <>
+        <header class="pilha">
+          <Rotulo>Resultados</Rotulo>
+          <h2 id="natural-titulo" class="t-1">
+            {bloco.titulo}
+          </h2>
+        </header>
+        <div class="natural-pares">
+          {autorizados.slice(0, 3).map((r) => (
+            <Comparador
+              antes={r.p.antes}
+              depois={r.p.depois}
+              tempo={r.tempoDecorrido ?? ''}
+              procedimento={r.legenda ?? ''}
+              altAntes="Antes do procedimento"
+              altDepois="Depois do procedimento"
+            />
+          ))}
+        </div>
+      </>
+    ) : (
+      <>
+        <div class="pilha natural-texto">
+          <Rotulo>{bloco.rotulo}</Rotulo>
+          <h2 id="natural-titulo" class="t-1">
+            {bloco.titulo}
+          </h2>
+          {bloco.paragrafos?.map((p) => (
+            <p class="t-suave medida">{p}</p>
+          ))}
+          {bloco.cta && (
+            <p>
+              <Link href={href}>{bloco.cta.texto}</Link>
+            </p>
+          )}
+        </div>
+        {bloco.citacao && (
+          <Citacao
+            texto={bloco.citacao.texto}
+            fonte={fontePublica(bloco.citacao.fonte)}
+            class="natural-citacao"
+          />
+        )}
+      </>
+    )}
+  </div>
+</section>
+
+<style>
+  .natural-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: end;
+  }
+  @media (min-width: 56rem) {
+    .natural-grade {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    }
+  }
+  .natural-pares {
+    display: grid;
+    gap: var(--e-3);
+  }
+</style>

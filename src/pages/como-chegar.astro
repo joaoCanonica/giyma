@@ -1,0 +1,207 @@
+---
+// /como-chegar: endereço grande com botão copiar, a fachada, rotas (Google Maps, Waze, Apple
+// Mapas), horário e estacionamento (pendentes) e o mapa interativo só depois do clique.
+import Botao from '../components/base/Botao.astro';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Imagem from '../components/base/Imagem.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Provisorio from '../components/Provisorio.astro';
+import { microtextos, pagina } from '../components/secoes/dados.ts';
+import { enderecoEmLinha } from '../config/contato.ts';
+import { contato, ehPreview, horario } from '../config/index.ts';
+import { linhasDaSemana, type Semana } from '../lib/horario.ts';
+import Pagina from '../layouts/Pagina.astro';
+
+const p = await pagina('como-chegar');
+const b = p.blocos;
+const m = await microtextos();
+const mapas = contato.mapas.valor;
+const geo = contato.geo.valor;
+const campo = horario.semana as { estado: string; valor: unknown };
+const semana = campo.estado === 'confirmado' ? (campo.valor as Semana) : null;
+const estacionamento = contato.estacionamento.valor;
+const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output=embed`;
+---
+
+<Pagina
+  meta={p.meta}
+  resposta={p.resposta}
+  trilha="Como chegar"
+  rotulo={b['abertura']?.rotulo}
+  titulo={b['abertura']?.titulo ?? ''}
+  abertura={b['abertura']?.paragrafos}
+>
+  <div slot="hero" class="cc-acoes">
+    <button type="button" class="botao botao--secundario cc-copiar" data-copiar={enderecoEmLinha()}>
+      <span data-rotulo>{m.botoes['copiarEndereco']}</span>
+    </button>
+    <span class="so-leitor" aria-live="polite" data-aviso></span>
+  </div>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="cc-rotas">
+    <div class="contido cc-grade">
+      <figure class="cc-fachada">
+        <Imagem
+          id="still-fachada"
+          alt={m.alt['still-fachada'] ?? ''}
+          sizes="(min-width: 56rem) 30rem, 92vw"
+        />
+      </figure>
+      <div class="pilha cc-info">
+        <Rotulo as="h2">
+          <span id="cc-rotas">{b['rotas']?.rotulo}</span>
+        </Rotulo>
+        <div class="cc-rotas">
+          <Botao href={mapas.googleRota} variante="secundario">
+            {m.botoes['googleMaps']}
+          </Botao>
+          <Botao href={mapas.waze} variante="secundario">
+            {m.botoes['waze']}
+          </Botao>
+          <Botao href={mapas.appleMapas} variante="secundario">
+            {m.botoes['appleMapas']}
+          </Botao>
+        </div>
+        <p class="t-pequeno t-suave">
+          Plus code <span class="t-tabular">{contato.plusCode.valor}</span>
+        </p>
+
+        <Rotulo as="h2">{b['horario']?.rotulo}</Rotulo>
+        {semana ? (
+          <>
+            <ul class="cc-horario t-tabular">
+              {linhasDaSemana(semana).map((l) => (
+                <li>
+                  <span>{l.nome}</span> {l.texto}
+                </li>
+              ))}
+            </ul>
+            <p class="t-pequeno t-suave">{horario.observacao}</p>
+          </>
+        ) : (
+          <p>
+            {horario.textoSemHorario}
+            <Provisorio rotulo="horário de atendimento" />
+          </p>
+        )}
+
+        {(estacionamento || ehPreview()) && (
+          <>
+            <Rotulo as="h2">{b['estacionamento']?.rotulo}</Rotulo>
+            <p>
+              {estacionamento ?? 'Pergunte à equipe no WhatsApp.'}
+              {!estacionamento && <Provisorio rotulo="onde estacionar" />}
+            </p>
+          </>
+        )}
+        <div>
+          <BotaoAgendar mensagem={m.whatsapp['duvida:como-chegar']} origem="como-chegar" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="nevoa" data-agendar-secao aria-labelledby="cc-mapa">
+    <div class="contido pilha">
+      <Rotulo as="h2">
+        <span id="cc-mapa">Mapa</span>
+      </Rotulo>
+      {b['mapa']?.paragrafos?.map((x) => (
+        <p class="medida t-suave">{x}</p>
+      ))}
+      <div class="cc-mapa" data-mapa={mapaUrl}>
+        <button type="button" class="botao botao--secundario" data-mostrar-mapa>
+          {m.botoes['mapaInterativo']} (Google Maps)
+        </button>
+      </div>
+    </div>
+  </section>
+</Pagina>
+
+<style>
+  .cc-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .cc-copiar {
+    cursor: pointer;
+  }
+  .cc-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: start;
+  }
+  @media (min-width: 56rem) {
+    .cc-grade {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    }
+  }
+  .cc-fachada {
+    margin: 0;
+    max-width: 30rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .cc-info {
+    --pilha: var(--e-2);
+  }
+  .cc-info :global(.rotulo) {
+    margin-top: var(--e-3);
+  }
+  .cc-rotas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .cc-horario {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cc-mapa iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    max-height: 70svh;
+    border: 0;
+  }
+</style>
+
+<script>
+  import { abrir, aceito, quandoAceitar } from '../components/consentimento/consentimento.ts';
+
+  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-copiar]')) {
+    const aviso = b.parentElement?.querySelector<HTMLElement>('[data-aviso]');
+    const rotulo = b.querySelector<HTMLElement>('[data-rotulo]');
+    const original = rotulo?.textContent ?? '';
+    b.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(b.dataset.copiar ?? '');
+        if (rotulo) rotulo.textContent = 'Endereço copiado';
+        if (aviso) aviso.textContent = 'Endereço copiado';
+        setTimeout(() => rotulo && (rotulo.textContent = original), 2500);
+      } catch {
+        if (aviso) aviso.textContent = b.dataset.copiar ?? '';
+      }
+    });
+  }
+  // Mapa interativo (Google): só carrega depois do clique E do consentimento.
+  for (const caixa of document.querySelectorAll<HTMLElement>('[data-mapa]')) {
+    const carregar = () => {
+      if (caixa.querySelector('iframe')) return;
+      const f = document.createElement('iframe');
+      f.src = caixa.dataset.mapa ?? '';
+      f.title = 'Mapa interativo com a localização da Giyma (Google Maps)';
+      f.loading = 'lazy';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      caixa.replaceChildren(f);
+      f.focus();
+    };
+    caixa.querySelector('[data-mostrar-mapa]')?.addEventListener('click', () => {
+      if (aceito()) return carregar();
+      quandoAceitar(carregar);
+      abrir();
+    });
+  }
+</script>

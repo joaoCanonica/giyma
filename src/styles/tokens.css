@@ -1,0 +1,197 @@
+/* GERADO por src/styles/gerar-tokens.mjs a partir de tokens.mjs. Não edite à mão. */
+
+:root {
+  --c-cacau: #231A16;
+  --c-cacau2: #3A2A24;
+  --c-petroleo: #1F2E44;
+  --c-petroleo2: #2C3D57;
+  --c-perola: #F3F1EE;
+  --c-nevoa: #DADDE1;
+  --c-ouro: #B8925C;
+  --c-ouro-claro: #D9B983;
+  --c-ouro-tinta: #7A5A2E;
+  --c-terracota: #A0522D;
+  --c-tinta: #231A16;
+  --c-tinta-suave: #57493F;
+  --c-perola-suave: #CFC7BF;
+  --c-noite: #17110E;
+  --c-noite2: #221A16;
+  --c-cacau-noite: #2B201B;
+  --c-petroleo-noite: #18263A;
+}
+
+/* Tema claro (padrão). Capítulos: data-superficie="perola|nevoa|cacau|petroleo". */
+:root,
+:root [data-superficie='perola'] {
+  --fundo: #F3F1EE;
+  --texto: #231A16;
+  --suave: #57493F;
+  --rotulo: #7A5A2E;
+  --numero: #7A5A2E;
+  --fio: #B8925C;
+  --foco: #1F2E44;
+  --acao-fundo: #231A16;
+  --acao-texto: #F3F1EE;
+  --link: #1F2E44;
+  color-scheme: light;
+}
+
+:root [data-superficie='nevoa'] {
+  --fundo: #DADDE1;
+  --texto: #231A16;
+  --suave: #57493F;
+  --rotulo: #7A5A2E;
+  --numero: #7A5A2E;
+  --fio: #B8925C;
+  --foco: #1F2E44;
+  --acao-fundo: #231A16;
+  --acao-texto: #F3F1EE;
+  --link: #1F2E44;
+  color-scheme: light;
+}
+
+:root [data-superficie='cacau'] {
+  --fundo: #231A16;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+:root [data-superficie='petroleo'] {
+  --fundo: #1F2E44;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+/* Tema escuro escolhido. */
+:root[data-theme='escuro'],
+:root[data-theme='escuro'] [data-superficie='perola'] {
+  --fundo: #17110E;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+:root[data-theme='escuro'] [data-superficie='nevoa'] {
+  --fundo: #221A16;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+:root[data-theme='escuro'] [data-superficie='cacau'] {
+  --fundo: #2B201B;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+:root[data-theme='escuro'] [data-superficie='petroleo'] {
+  --fundo: #18263A;
+  --texto: #F3F1EE;
+  --suave: #CFC7BF;
+  --rotulo: #D9B983;
+  --numero: #B8925C;
+  --fio: #B8925C;
+  --foco: #D9B983;
+  --acao-fundo: #F3F1EE;
+  --acao-texto: #231A16;
+  --link: #D9B983;
+  color-scheme: dark;
+}
+
+/* Tema escuro do sistema, quando o usuário não escolheu. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='claro']),
+  :root:not([data-theme='claro']) [data-superficie='perola'] {
+    --fundo: #17110E;
+    --texto: #F3F1EE;
+    --suave: #CFC7BF;
+    --rotulo: #D9B983;
+    --numero: #B8925C;
+    --fio: #B8925C;
+    --foco: #D9B983;
+    --acao-fundo: #F3F1EE;
+    --acao-texto: #231A16;
+    --link: #D9B983;
+    color-scheme: dark;
+  }
+
+  :root:not([data-theme='claro']) [data-superficie='nevoa'] {
+    --fundo: #221A16;
+    --texto: #F3F1EE;
+    --suave: #CFC7BF;
+    --rotulo: #D9B983;
+    --numero: #B8925C;
+    --fio: #B8925C;
+    --foco: #D9B983;
+    --acao-fundo: #F3F1EE;
+    --acao-texto: #231A16;
+    --link: #D9B983;
+    color-scheme: dark;
+  }
+
+  :root:not([data-theme='claro']) [data-superficie='cacau'] {
+    --fundo: #2B201B;
+    --texto: #F3F1EE;
+    --suave: #CFC7BF;
+    --rotulo: #D9B983;
+    --numero: #B8925C;
+    --fio: #B8925C;
+    --foco: #D9B983;
+    --acao-fundo: #F3F1EE;
+    --acao-texto: #231A16;
+    --link: #D9B983;
+    color-scheme: dark;
+  }
+
+  :root:not([data-theme='claro']) [data-superficie='petroleo'] {
+    --fundo: #18263A;
+    --texto: #F3F1EE;
+    --suave: #CFC7BF;
+    --rotulo: #D9B983;
+    --numero: #B8925C;
+    --fio: #B8925C;
+    --foco: #D9B983;
+    --acao-fundo: #F3F1EE;
+    --acao-texto: #231A16;
+    --link: #D9B983;
+    color-scheme: dark;
+  }
+}

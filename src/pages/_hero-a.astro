@@ -1,0 +1,17 @@
+---
+// /_hero-a (interna, noindex): hero com o retrato. Publicado por [interna].astro.
+import Documento from '../components/base/Documento.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import HeroRetrato from '../components/hero/HeroRetrato.astro';
+---
+
+<Documento titulo="Hero A · retrato · Giyma" interna superficie="cacau">
+  <Entrada slot="inicio" />
+  <div class="topo">
+    <Cabecalho />
+    <main id="conteudo" tabindex="-1">
+      <HeroRetrato />
+    </main>
+  </div>
+</Documento>

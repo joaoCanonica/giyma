@@ -1,0 +1,42 @@
+{
+  "slug": "microagulhamento",
+  "nome": "Microagulhamento",
+  "nomePopular": null,
+  "categoria": "pele",
+  "status": "confirmado",
+  "areas": ["rosto"],
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) faz microagulhamento para estimular a renovação da pele e melhorar textura, poros e marcas, sempre a partir de uma avaliação individual.",
+  "paraQuem": "Para quem quer melhorar a textura e a qualidade da pele, poros e pequenas marcas.",
+  "oQueE": "São microperfurações feitas na pele com agulhas muito finas. Elas estimulam a pele a se renovar e a produzir colágeno.",
+  "comoEFeito": "Com anestésico tópico, o procedimento é confortável. A Ester define a profundidade e o número de sessões de acordo com a sua pele.",
+  "cuidados": [
+    "Nos dias seguintes a pele fica avermelhada e sensível, como depois de um dia de sol, e pode descamar de leve.",
+    "Proteção solar é parte do tratamento. Por isso o inverno, com menos sol, é uma época boa para começar.",
+    "Você recebe as orientações de cuidados em casa, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
+  "duracaoSessao": null,
+  "resultadosEsperados": "Pele com textura mais uniforme e melhor qualidade ao longo das sessões. A melhora é gradual.",
+  "faq": [
+    {
+      "pergunta": "Microagulhamento dói?",
+      "resposta": "Com o uso de anestésico tópico, o procedimento é confortável e seguro.",
+      "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+      "origem": "literal"
+    }
+  ],
+  "citacoes": [],
+  "midia": ["inverno"],
+  "fases": [],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre microagulhamento.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "post 23/05/2025"
+    }
+  ],
+  "meta": {
+    "title": "Microagulhamento em Lages · Giyma",
+    "description": "Microagulhamento em Lages com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984): textura, poros e marcas, com anestésico tópico."
+  }
+}

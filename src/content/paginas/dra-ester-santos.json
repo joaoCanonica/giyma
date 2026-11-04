@@ -1,0 +1,129 @@
+{
+  "slug": "dra-ester-santos",
+  "meta": {
+    "title": "Ester Santos, farmacêutica esteta em Lages · CRF-SC 3984",
+    "description": "Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984), formada pela UFSC em 1999. A história de quem viveu o que oferece, na Giyma, em Lages."
+  },
+  "resposta": "A Dra. Ester Santos é farmacêutica esteta (CRF-SC 3984), formada em Farmácia pela UFSC em 1999, e atende na Giyma, na Rua Rui Barbosa, 277, Centro de Lages/SC. Antes da estética, foi professora universitária e trabalhou na vigilância sanitária e em análises laboratoriais. Antes de cuidar de outras mulheres, ela foi paciente.",
+  "blocos": {
+    "abertura": {
+      "rotulo": "Quem cuida de você",
+      "titulo": "Ela decidiu não ter medo das marcas do tempo.",
+      "citacao": {
+        "texto": "Hoje eu celebro 50 anos de vida, mas o meu ‘renascimento’ aconteceu aos 38.",
+        "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+      }
+    },
+    "muitas-esters": {
+      "rotulo": "1999 · As muitas Esters",
+      "titulo": "Já houve muitas Esters dentro de mim.",
+      "paragrafos": [
+        "Em 1999, ela se formou em Farmácia pela Universidade Federal de Santa Catarina.",
+        "Foi farmacêutica, professora universitária, trabalhou na vigilância sanitária e em análises laboratoriais. Anos de ciência, de rigor e de cuidado com a saúde das pessoas, longe dos holofotes."
+      ],
+      "citacao": {
+        "texto": "O ano era 1999, quando me formei em Farmácia na Universidade Federal de Santa Catarina… já houveram muitas ‘Esters’ dentro de mim.",
+        "fonte": "post de 25/07/2023 (anúncio da Giyma)"
+      }
+    },
+    "2015": {
+      "rotulo": "2015",
+      "titulo": "A estética se abre ao farmacêutico.",
+      "paragrafos": [
+        "Em 2015, o Conselho Federal de Farmácia regulamentou a atuação do farmacêutico na estética. Para a Ester, foi o encontro entre a ciência que ela já dominava e o cuidado que ela queria oferecer."
+      ],
+      "citacao": {
+        "texto": "Acontece que em 2015 tudo mudou para os profissionais de farmácia, que passaram a trabalhar também na área da estética facial e corporal.",
+        "fonte": "post de 25/07/2023 (anúncio da Giyma)"
+      }
+    },
+    "os-38": {
+      "rotulo": "Os 38",
+      "titulo": "Primeiro, paciente.",
+      "paragrafos": [
+        "Aos 38 anos, ela tomou uma decisão que mudou tudo: cuidar de si, sem medo do tempo. A estética deixou de ser assunto dos outros e passou a ser parte da vida dela. Ela sabe, por dentro, o que é sentar na poltrona."
+      ],
+      "citacoes": [
+        {
+          "texto": "Foi nessa idade que eu tomei uma decisão que mudou tudo: eu decidi que não teria medo das marcas do tempo.",
+          "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+        },
+        {
+          "texto": "O que começou como uma jornada como paciente, tornou-se a minha missão de vida aqui na clínica.",
+          "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+        }
+      ]
+    },
+    "a-giyma": {
+      "rotulo": "2023 · A Giyma",
+      "titulo": "Aqui começa a nova história.",
+      "paragrafos": [
+        "Em 15 de setembro de 2023, ela inaugurou a Giyma, na Rua Rui Barbosa, no Centro de Lages: um espaço de saúde e beleza feito para receber com calma e tratar com segurança."
+      ],
+      "citacao": {
+        "texto": "Aqui começa a nova história da Ester. Aqui começa a minha nova história com VOCÊ.",
+        "fonte": "post de 25/07/2023 (anúncio da Giyma)"
+      }
+    },
+    "hoje": {
+      "rotulo": "Hoje",
+      "titulo": "Aos 50, a mesma decisão.",
+      "paragrafos": [
+        "Em 2026, a Ester completou 50 anos. O cuidado que ela oferece é o mesmo que escolheu para si: naturalidade, segurança e respeito ao tempo de cada uma."
+      ],
+      "citacoes": [
+        {
+          "texto": "Quero que você se sinta aos 40, 50 ou 60 anos tão bem quanto eu me sinto hoje.",
+          "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+        },
+        {
+          "texto": "A beleza está em abraçar a maturidade com naturalidade e segurança.",
+          "fonte": "post de 05/06/2026 (aniversário de 50 anos)"
+        }
+      ]
+    },
+    "formacao": {
+      "rotulo": "Formação e registro",
+      "itens": [
+        {
+          "titulo": "Farmácia",
+          "texto": "Universidade Federal de Santa Catarina (UFSC), 1999.",
+          "fonte": "post de 25/07/2023 (anúncio da Giyma)"
+        },
+        {
+          "titulo": "Registro profissional",
+          "texto": "CRF-SC 3984.",
+          "fonte": "bio do Instagram"
+        },
+        {
+          "titulo": "Pós-graduação em Farmácia Estética",
+          "texto": "Especialização lato sensu que habilita a farmacêutica, junto ao CRF-SC, para os procedimentos injetáveis.",
+          "fonte": "João, 04/11/2026"
+        }
+      ]
+    },
+    "por-que-farmaceutica": {
+      "rotulo": "Por que uma farmacêutica esteta",
+      "titulo": "Quem conhece a pele por dentro.",
+      "paragrafos": [
+        "A formação em Farmácia passa por bioquímica, farmacologia e pelo estudo de como cada substância age no corpo. É essa base que orienta a escolha do produto, da dose e do momento certo para cada pessoa.",
+        "A atuação do farmacêutico na estética é regulamentada pelo Conselho Federal de Farmácia desde 2015, e exige pós-graduação na área e registro da especialização no conselho regional."
+      ],
+      "origem": "redacao-a-validar",
+      "pendente": "o texto \"Farmacêutico esteta\" da Ester (formulações, bioquímica, farmácia clínica, cosmetologia) não está no repositório: substituir pela fala dela quando chegar"
+    },
+    "convite": {
+      "titulo": "Vamos conversar sobre a sua pele?",
+      "paragrafos": ["Você conversa com a equipe e agenda sua avaliação."],
+      "citacao": {
+        "texto": "Para que sua melhor versão floresça de dentro para fora.",
+        "fonte": "post DJU2r4mxkNR (06/05/2025)"
+      },
+      "cta": {
+        "texto": "Agendar avaliação",
+        "mensagem": "geral"
+      }
+    }
+  },
+  "pendentes": ["texto \"Farmacêutico esteta\" da Ester"]
+}

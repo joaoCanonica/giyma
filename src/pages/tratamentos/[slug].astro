@@ -1,0 +1,16 @@
+---
+// /tratamentos/{slug}. Pendentes (ex.: harmonização corporal) só existem no preview, com selo.
+import { getCollection } from 'astro:content';
+import { modoAtual } from '../../config/index.ts';
+import Tratamento from '../../layouts/Tratamento.astro';
+
+export async function getStaticPaths() {
+  const producao = modoAtual() === 'producao';
+  return (await getCollection('tratamentos'))
+    .filter((t) => !producao || t.data.status === 'confirmado')
+    .map((t) => ({ params: { slug: t.data.slug }, props: { t: t.data } }));
+}
+const { t } = Astro.props;
+---
+
+<Tratamento t={t} />

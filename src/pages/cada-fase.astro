@@ -1,0 +1,128 @@
+---
+// /cada-fase: a Linha do tempo da pele em página própria. ?fase=20|30|40|50|60 abre a fase.
+// Uma página por fase não foi criada: 40, 50 e 60+ ainda não têm conteúdo próprio (âncoras).
+import { getCollection } from 'astro:content';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Citacao from '../components/base/Citacao.astro';
+import LinhaDoTempo, { type FaseLinha } from '../components/base/LinhaDoTempo.astro';
+import MolduraVideo from '../components/base/MolduraVideo.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import { destino, fontePublica, microtextos, pagina } from '../components/secoes/dados.ts';
+import Pagina from '../layouts/Pagina.astro';
+
+const p = await pagina('cada-fase');
+const b = p.blocos;
+const m = await microtextos();
+const nomes = new Map((await getCollection('tratamentos')).map((t) => [t.data.slug, t.data.nome]));
+const fases: FaseLinha[] = await Promise.all(
+  (await getCollection('fases'))
+    .map((f) => f.data)
+    .sort((a, z) => a.ordem - z.ordem)
+    .map(async (f) => ({
+      faixa: f.faixa,
+      titulo: f.titulo,
+      oQueMuda: f.oQueMuda,
+      rascunho: f.base[0]?.nota ?? '',
+      focos: f.focos.map((slug) => ({ slug, nome: nomes.get(slug) ?? slug })),
+      frase: f.frase?.texto ?? '',
+      whatsapp: await destino(`fase:${f.faixa}`),
+    })),
+);
+---
+
+<Pagina
+  meta={p.meta}
+  resposta={p.resposta}
+  trilha="Cada fase"
+  rotulo={b['abertura']?.rotulo}
+  titulo={b['abertura']?.titulo ?? ''}
+  abertura={b['abertura']?.paragrafos}
+>
+  <section class="capitulo" data-superficie="perola">
+    <div class="contido cf-grade">
+      <LinhaDoTempo
+        fases={fases}
+        comTitulo={false}
+        id="fases"
+        rotuloBotao={b['convite']?.cta?.texto ?? 'Agendar avaliação'}
+      />
+      <div class="cf-video pilha">
+        <Rotulo as="h2">
+          <span id="cf-video-titulo">{b['video']?.rotulo}</span>
+        </Rotulo>
+        <MolduraVideo
+          trecho="fases"
+          modo="player"
+          titulo={m.videos['fases'] ?? 'Vídeo sobre as fases da pele'}
+        />
+        {b['video']?.paragrafos?.map((x) => (
+          <p class="t-pequeno t-suave">{x}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="capitulo cf-convite"
+    data-superficie="cacau"
+    data-agendar-secao
+    aria-labelledby="cf-convite"
+  >
+    <div class="contido pilha cf-convite-grade">
+      {b['abertura']?.citacao && (
+        <Citacao
+          texto={b['abertura'].citacao.texto}
+          fonte={fontePublica(b['abertura'].citacao.fonte)}
+        />
+      )}
+      <h2 id="cf-convite" class="t-1">
+        {b['convite']?.titulo}
+      </h2>
+      <div data-cta-fase>
+        <BotaoAgendar origem="cada-fase">{b['convite']?.cta?.texto}</BotaoAgendar>
+      </div>
+    </div>
+  </section>
+</Pagina>
+
+<script>
+  // Convite final: sem JS, mensagem geral; com JS, a mensagem da fase escolhida nas abas.
+  const cta = document.querySelector<HTMLAnchorElement>('[data-cta-fase] a');
+  const aplicar = (fase?: string, href?: string) => {
+    if (!cta || !fase || !href) return;
+    cta.href = href;
+    cta.dataset.fase = fase;
+  };
+  addEventListener('giyma:fase', (e) => {
+    const d = (e as CustomEvent<{ fase?: string; href?: string }>).detail;
+    aplicar(d.fase, d.href);
+  });
+  const aba = document.querySelector<HTMLElement>(
+    '[data-linha] [role="tab"][aria-selected="true"]',
+  );
+  const painel = aba && document.getElementById(aba.getAttribute('aria-controls') ?? '');
+  aplicar(
+    aba?.dataset.fase,
+    painel?.querySelector('a[href^="https://wa.me/"]')?.getAttribute('href') ?? undefined,
+  );
+</script>
+
+<style>
+  .cf-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: start;
+  }
+  @media (min-width: 64rem) {
+    .cf-grade {
+      grid-template-columns: minmax(0, 1fr) 18rem;
+    }
+  }
+  .cf-video {
+    max-width: 18rem;
+  }
+  .cf-convite-grade {
+    justify-items: center;
+    text-align: center;
+  }
+</style>

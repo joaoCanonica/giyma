@@ -1,0 +1,251 @@
+---
+// 6. O espaço (cacau): o tour em capítulos. Desktop: vídeo vertical à esquerda e capítulos à
+// direita (clicar leva o vídeo ao tempo). Mobile: carrossel nativo (scroll-snap) de stills.
+import Rotulo from '../base/Rotulo.astro';
+import Imagem from '../base/Imagem.astro';
+import { video } from '../base/midia.ts';
+import { microtextos, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+  superficie?: 'cacau' | 'petroleo';
+}
+const { bloco, superficie = 'cacau' } = Astro.props;
+const m = await microtextos();
+const tour = video('tour-completo');
+const capitulos = (
+  video('tour-capitulos') as unknown as { capitulos: { id: string; inicio: number }[] }
+).capitulos;
+const inicio = new Map(capitulos.map((c) => [c.id, c.inicio]));
+const STILL: Record<string, string> = {
+  fachada: 'still-fachada',
+  entrada: 'still-entrada',
+  copa: 'still-xicaras',
+  porta: 'still-placa',
+  consultorio: 'still-consultorio',
+  planejamento: 'still-modelo',
+  recepcao: 'still-recepcao',
+};
+const mp4 = [...tour.fontes.mp4].sort((a, b) => b.largura - a.largura)[0];
+const webm = [...tour.fontes.webm].sort((a, b) => b.largura - a.largura)[0];
+const poster = tour.poster.fontes.webp.at(-1)?.src;
+const tempo = (s: number) => `0:${String(Math.floor(s)).padStart(2, '0')}`;
+---
+
+<section class="capitulo espaco" data-superficie={superficie} aria-labelledby="espaco-titulo">
+  <div class="contido">
+    <header class="pilha espaco-cabeca">
+      <Rotulo>{bloco.rotulo}</Rotulo>
+      <h2 id="espaco-titulo" class="t-1">
+        {bloco.titulo}
+      </h2>
+      {bloco.paragrafos?.map((p) => (
+        <p class="medida t-suave">{p}</p>
+      ))}
+    </header>
+
+    <div class="espaco-tour" data-tour>
+      <figure class="espaco-video" style={`--lqip:url("${tour.poster.lqip}")`}>
+        <video
+          controls
+          muted
+          playsinline
+          preload="none"
+          data-poster={poster}
+          width={mp4?.largura}
+          height={mp4?.altura}
+          aria-label={m.videos['tour-completo']}
+          data-tour-video
+        >
+          {webm && <source src={webm.src} type="video/webm" />}
+          {mp4 && <source src={mp4.src} type="video/mp4" />}
+        </video>
+      </figure>
+      <ol class="espaco-capitulos">
+        {bloco.itens
+          ?.filter((c) => inicio.has(c.id ?? ''))
+          .map((c) => (
+            <li>
+              <button type="button" class="espaco-cap" data-ir={inicio.get(c.id ?? '') ?? 0}>
+                <span class="espaco-cap-tempo t-tabular">{tempo(inicio.get(c.id ?? '') ?? 0)}</span>
+                <span class="espaco-cap-nome">{c.titulo}</span>
+                <span class="espaco-cap-texto">{c.texto}</span>
+              </button>
+            </li>
+          ))}
+      </ol>
+    </div>
+
+    <ul class="espaco-carrossel" aria-label="O espaço em fotos" tabindex="0">
+      {bloco.itens
+        ?.filter((c) => STILL[c.id ?? ''])
+        .map((c) => (
+          <li>
+            <figure>
+              <Imagem
+                id={STILL[c.id ?? ''] ?? 'still-fachada'}
+                alt={m.alt[STILL[c.id ?? ''] ?? ''] ?? ''}
+                sizes="78vw"
+              />
+              <figcaption>
+                <strong>{c.titulo}</strong> {c.texto}
+              </figcaption>
+            </figure>
+          </li>
+        ))}
+    </ul>
+
+    <p class="espaco-endereco">Rua Rui Barbosa, 277 · Centro · Lages</p>
+  </div>
+</section>
+
+<style>
+  .espaco-cabeca {
+    margin-bottom: var(--e-5);
+  }
+  .espaco-tour {
+    display: none;
+  }
+  .espaco-carrossel {
+    list-style: none;
+    margin: 0 calc(-1 * var(--margem));
+    padding: 0 var(--margem);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;
+    gap: var(--e-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--margem);
+    scrollbar-width: thin;
+  }
+  .espaco-carrossel li {
+    scroll-snap-align: start;
+  }
+  .espaco-carrossel figure {
+    margin: 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .espaco-carrossel figcaption {
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+  .espaco-carrossel strong {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: var(--t-3);
+    color: var(--texto);
+  }
+  .espaco-endereco {
+    margin-top: var(--e-5);
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+  @media (min-width: 56rem) {
+    .espaco-carrossel {
+      display: none;
+    }
+    .espaco-tour {
+      display: grid;
+      grid-template-columns: 22rem minmax(0, 1fr);
+      gap: var(--e-5);
+      align-items: start;
+    }
+    .espaco-video {
+      margin: 0;
+      aspect-ratio: 9 / 16;
+      background: var(--lqip) center / cover no-repeat;
+    }
+    .espaco-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .espaco-capitulos {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid color-mix(in srgb, var(--fio) 50%, transparent);
+    }
+    .espaco-cap {
+      appearance: none;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 3.5rem 12rem minmax(0, 1fr);
+      gap: var(--e-2);
+      align-items: baseline;
+      padding: 1rem 0;
+      background: none;
+      border: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--fio) 50%, transparent);
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .espaco-cap-tempo {
+      font-family: var(--fonte-rotulo);
+      font-size: var(--t-rotulo);
+      letter-spacing: 0.1em;
+      color: var(--rotulo);
+    }
+    .espaco-cap-nome {
+      font-family: var(--fonte-titulo);
+      font-size: var(--t-3);
+      line-height: 1.1;
+    }
+    .espaco-cap-texto {
+      font-size: var(--t-pequeno);
+      color: var(--suave);
+    }
+    .espaco-cap:hover .espaco-cap-nome,
+    .espaco-cap[aria-current='true'] .espaco-cap-nome {
+      color: var(--c-ouro-claro);
+    }
+  }
+</style>
+
+<script>
+  const perto = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        if (!e.isIntersecting) continue;
+        const v = e.target as HTMLVideoElement;
+        if (v.dataset.poster) v.poster = v.dataset.poster;
+        perto.unobserve(v);
+      }
+    },
+    { rootMargin: '600px 0px' },
+  );
+  for (const v of document.querySelectorAll<HTMLVideoElement>('[data-tour-video][data-poster]'))
+    perto.observe(v);
+  for (const tour of document.querySelectorAll<HTMLElement>('[data-tour]')) {
+    const v = tour.querySelector<HTMLVideoElement>('[data-tour-video]');
+    const botoes = [...tour.querySelectorAll<HTMLButtonElement>('[data-ir]')];
+    if (!v) continue;
+    tour.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('[data-ir]');
+      if (!b) return;
+      for (const x of botoes) x.setAttribute('aria-current', String(x === b));
+      const ir = () => {
+        v.currentTime = Number(b.dataset.ir);
+        v.play().catch(() => {});
+      };
+      if (v.readyState >= 1) ir();
+      else {
+        v.addEventListener('loadedmetadata', ir, { once: true });
+        v.load();
+      }
+    });
+    v.addEventListener('timeupdate', () => {
+      let atual: HTMLButtonElement | undefined;
+      for (const b of botoes) if (v.currentTime >= Number(b.dataset.ir) - 0.05) atual = b;
+      for (const b of botoes) b.setAttribute('aria-current', String(b === atual));
+    });
+  }
+</script>

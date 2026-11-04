@@ -1,0 +1,609 @@
+---
+// Template de tratamento: pensado para busca local ("{tratamento} em Lages") e para quem chega
+// com medo: resposta direta, quem faz, como é, o que esperar, cuidados e perguntas.
+import { getCollection } from 'astro:content';
+import AssinaturaProfissional from '../components/base/AssinaturaProfissional.astro';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Citacao from '../components/base/Citacao.astro';
+import Comparador from '../components/base/Comparador.astro';
+import Documento from '../components/base/Documento.astro';
+import Link from '../components/base/Link.astro';
+import MolduraVideo from '../components/base/MolduraVideo.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import { par, temVideo } from '../components/base/midia.ts';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import Haste from '../components/marca/Haste.astro';
+import Provisorio from '../components/Provisorio.astro';
+import BotaoFlutuante from '../components/secoes/BotaoFlutuante.astro';
+import { fontePublica, microtextos, pagina } from '../components/secoes/dados.ts';
+import { faq, servico, textoPuro } from '../components/seo/jsonld.ts';
+import Rodape from '../components/secoes/Rodape.astro';
+import { publicavel, type Tratamento } from '../content/schemas.ts';
+
+interface Props {
+  t: Tratamento;
+}
+const { t } = Astro.props;
+const m = await microtextos();
+const pendente = t.status !== 'confirmado';
+const nomeMinusculo = t.nome.charAt(0).toLowerCase() + t.nome.slice(1);
+const mensagem = m.whatsapp[`tratamento:${t.slug}`];
+const CATEGORIA: Record<string, string> = {
+  facial: 'Rosto',
+  maos: 'Mãos',
+  pele: 'Qualidade da pele',
+  corporal: 'Corpo',
+};
+
+// "Como é feito": cada frase vira um passo.
+const passos = (t.comoEFeito ?? '').split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ])/).filter(Boolean);
+// Cuidados: o último item é o fecho ("Na avaliação, a Ester explica…").
+const cuidados = t.cuidados ?? [];
+const fecho = cuidados.length ? cuidados[cuidados.length - 1] : null;
+const listaCuidados = cuidados.slice(0, -1);
+
+// Vídeos da Ester ligados ao tratamento (só os que existem no índice).
+const videos = t.midia.filter(temVideo);
+
+// Pares autorizados deste tratamento (só existem no índice com consentimento=autorizado).
+const pares = (await getCollection('resultados'))
+  .map((r) => r.data)
+  .filter((r) => r.tratamento === t.slug && publicavel.resultado(r))
+  .flatMap((r) => {
+    const p = par(r.midia);
+    return p ? [{ r, p }] : [];
+  });
+
+// Relacionados: mesma categoria primeiro, depois quem divide fases.
+const todos = (await getCollection('tratamentos'))
+  .map((x) => x.data)
+  .filter((x) => x.status === 'confirmado' && x.slug !== t.slug);
+const relacionados = [
+  ...todos.filter((x) => x.categoria === t.categoria),
+  ...todos.filter((x) => x.categoria !== t.categoria && x.fases.some((f) => t.fases.includes(f))),
+].slice(0, 3);
+
+/** Escapa e troca {{nome-popular:x}} por <span data-nome-popular>x</span> (exceção da FAQ). */
+const html = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\{\{nome-popular:([^}]+)\}\}/g, '<span data-nome-popular>$1</span>');
+const fase = (f: string) => (f === '60+' ? '60 ou mais' : f);
+/** Escapa e mantém "CRF-SC 3984" numa linha só. */
+const semQuebra = (s: string) =>
+  html(s).replace('CRF-SC 3984', '<span class="sem-quebra">CRF-SC 3984</span>');
+
+// JSON-LD: o Service e as perguntas desta página. Pergunta que também está em
+// /perguntas-frequentes é marcada só lá (o Google pede uma marcação por pergunta no site).
+const normal = (s: string) => textoPuro(s).toLowerCase().replace(/\W+/gu, ' ').trim();
+const naFaqGeral = new Set(
+  Object.values((await pagina('perguntas-frequentes')).blocos).flatMap((b) =>
+    (b.itens ?? []).map((it) => normal(it.titulo ?? '')),
+  ),
+);
+const perguntasLd = t.faq
+  .filter((f) => f.resposta && !naFaqGeral.has(normal(f.pergunta)))
+  .map((f) => ({ pergunta: textoPuro(f.pergunta), resposta: textoPuro(f.resposta ?? '') }));
+const caminho = `/tratamentos/${t.slug}`;
+const jsonld = [
+  servico({ slug: t.slug, nome: t.nome, resposta: t.resposta, areas: t.areas }),
+  ...(perguntasLd.length ? [faq(caminho, perguntasLd)] : []),
+];
+---
+
+<Documento
+  titulo={t.meta?.title ?? `${t.nome} em Lages · Giyma`}
+  descricao={t.meta?.description}
+  superficie="perola"
+  trilha={[
+    { nome: 'Tratamentos', caminho: '/tratamentos' },
+    { nome: t.nome, caminho },
+  ]}
+  jsonld={jsonld}
+>
+  <div class="topo">
+    <Cabecalho />
+    <main id="conteudo" tabindex="-1">
+      <section class="hero tr-hero" data-superficie="cacau" aria-labelledby="tr-titulo">
+        <div class="contido tr-hero-grade">
+          <nav class="tr-trilha" aria-label="Você está em">
+            <ol>
+              <li>
+                <a href="/">Início</a>
+              </li>
+              <li>
+                <a href="/tratamentos">Tratamentos</a>
+              </li>
+              <li aria-current="page">{t.nome}</li>
+            </ol>
+          </nav>
+          <div class="tr-hero-texto pilha">
+            <Rotulo>{CATEGORIA[t.categoria] ?? 'Tratamento'} · Giyma, Centro de Lages</Rotulo>
+            <h1 id="tr-titulo" class="tr-h1">
+              {t.nome} <span class="t-acento">em Lages</span>
+              {pendente && <Provisorio rotulo="tratamento ainda não confirmado pela clínica" />}
+            </h1>
+            {t.resposta ? (
+              <p
+                class="tr-resposta"
+                data-resposta
+                data-assinatura-profissional
+                set:html={semQuebra(t.resposta)}
+              />
+            ) : (
+              <p class="tr-resposta">
+                Página em preparação: os detalhes entram quando a clínica confirmar.
+              </p>
+            )}
+            <AssinaturaProfissional />
+            {mensagem && (
+              <div>
+                <BotaoAgendar mensagem={mensagem} origem="tratamento-topo" tratamento={t.slug}>
+                  Agendar avaliação<span class="tr-sobre"> sobre {nomeMinusculo}</span>
+                </BotaoAgendar>
+              </div>
+            )}
+          </div>
+          <Haste altura={160} class="tr-hero-haste" />
+        </div>
+      </section>
+
+      {(t.paraQuem || t.oQueE) && (
+        <section class="capitulo" data-superficie="perola" aria-labelledby="tr-para-quem">
+          <div class="contido tr-duas">
+            <div class="pilha">
+              <Rotulo as="h2">
+                <span id="tr-para-quem">Para quem é?</span>
+              </Rotulo>
+              <p class="t-3 tr-destaque">{t.paraQuem}</p>
+            </div>
+            <div class="pilha">
+              <Rotulo as="h2">O que é?</Rotulo>
+              <p class="medida">{t.oQueE}</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {passos.length > 0 && (
+        <section class="capitulo" data-superficie="nevoa" aria-labelledby="tr-como">
+          <div class="contido">
+            <Rotulo as="h2">
+              <span id="tr-como">Como é feito?</span>
+            </Rotulo>
+            <ol class="tr-passos">
+              {passos.map((p, i) => (
+                <li>
+                  <span class="t-numero tr-passo-num" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  <p>{p}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {t.resultadosEsperados && (
+        <section class="capitulo" data-superficie="perola" aria-labelledby="tr-esperar">
+          <div class="contido tr-duas tr-duas--esperar">
+            <div class="pilha">
+              <Rotulo as="h2">
+                <span id="tr-esperar">O que esperar?</span>
+              </Rotulo>
+              <p class="t-2 tr-esperar">{t.resultadosEsperados}</p>
+              <p class="t-pequeno t-suave">
+                Cada organismo responde de um jeito: o resultado não é uma promessa.
+              </p>
+            </div>
+            {(t.citacoes ?? []).slice(0, 1).map((c) => (
+              <Citacao texto={c.texto} fonte={fontePublica(c.fonte)} tamanho="media" />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {listaCuidados.length > 0 && (
+        <section class="capitulo" data-superficie="cacau" aria-labelledby="tr-cuidados">
+          <div class="contido tr-cuidados">
+            <div class="pilha">
+              <Rotulo as="h2">
+                <span id="tr-cuidados">Quais são os cuidados?</span>
+              </Rotulo>
+              <p class="t-2">Antes e depois do procedimento, sem esconder nada.</p>
+            </div>
+            <ul class="tr-cuidados-lista">
+              {listaCuidados.map((c) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+            {fecho && <p class="t-3 tr-fecho">{fecho}</p>}
+          </div>
+        </section>
+      )}
+
+      {pares.length > 0 && (
+        <section class="capitulo" data-superficie="petroleo" aria-labelledby="tr-resultados">
+          <div class="contido pilha">
+            <Rotulo as="h2">
+              <span id="tr-resultados">Resultados com autorização</span>
+            </Rotulo>
+            {pares.map(({ r, p }) => (
+              <Comparador
+                antes={p.antes}
+                depois={p.depois}
+                tempo={r.tempoDecorrido ?? ''}
+                procedimento={r.legenda ?? t.nome}
+                altAntes={`Antes: ${t.nome}`}
+                altDepois={`Depois: ${t.nome}, ${r.tempoDecorrido ?? ''}`}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {videos.length > 0 && (
+        <section class="capitulo" data-superficie="perola" aria-labelledby="tr-video">
+          <div class="contido tr-videos">
+            <div class="pilha">
+              <Rotulo as="h2">
+                <span id="tr-video">A Ester explica</span>
+              </Rotulo>
+              {videos.map((v) => (
+                <p class="medida t-suave">{m.videos[v]}</p>
+              ))}
+            </div>
+            {videos.map((v) => (
+              <MolduraVideo trecho={v} modo="player" titulo={m.videos[v] ?? t.nome} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {t.faq.length > 0 && (
+        <section class="capitulo" data-superficie="nevoa" aria-labelledby="tr-faq">
+          <div class="contido tr-faq">
+            <Rotulo as="h2">
+              <span id="tr-faq">Perguntas frequentes</span>
+            </Rotulo>
+            {t.faq.map((f) => (
+              <details class="tr-pergunta fio-hover">
+                <summary>
+                  <Fragment set:html={html(f.pergunta)} />
+                </summary>
+                {f.resposta && (
+                  <p>
+                    <Fragment set:html={html(f.resposta)} />
+                  </p>
+                )}
+              </details>
+            ))}
+            <p>
+              <Link href="/perguntas-frequentes">Todas as perguntas frequentes</Link>
+            </p>
+          </div>
+        </section>
+      )}
+
+      {t.fases.length > 0 && (
+        <section
+          class="capitulo tr-fases-secao"
+          data-superficie="perola"
+          aria-labelledby="tr-fases"
+        >
+          <div class="contido">
+            <Rotulo as="h2">
+              <span id="tr-fases">Em que fase costuma fazer sentido?</span>
+            </Rotulo>
+            <ul class="tr-fases">
+              {t.fases.map((f) => (
+                <li>
+                  <a href={`/cada-fase?fase=${f.replace('+', '')}`} class="tr-fase">
+                    <span class="t-numero">{f}</span>
+                    <span class="tr-fase-texto">Aos {fase(f)}: ver a linha do tempo</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p class="t-pequeno t-suave">
+              A fase é um ponto de partida. A indicação vem da avaliação, porque cada pessoa é
+              única.
+            </p>
+          </div>
+        </section>
+      )}
+
+      <section
+        class="capitulo tr-cta"
+        data-superficie="cacau"
+        data-agendar-secao
+        aria-labelledby="tr-cta-titulo"
+      >
+        <div class="contido pilha tr-cta-grade">
+          <Haste altura={110} />
+          <h2 id="tr-cta-titulo" class="t-1">
+            Vamos conversar sobre {nomeMinusculo}?
+          </h2>
+          <p class="t-suave">Você conversa com a equipe e agenda sua avaliação.</p>
+          {mensagem && (
+            <BotaoAgendar mensagem={mensagem} origem="tratamento-final" tratamento={t.slug}>
+              Agendar avaliação<span class="tr-sobre"> sobre {nomeMinusculo}</span>
+            </BotaoAgendar>
+          )}
+        </div>
+      </section>
+
+      {relacionados.length > 0 && (
+        <section
+          class="capitulo tr-relacionados-secao"
+          data-superficie="perola"
+          aria-labelledby="tr-rel"
+        >
+          <div class="contido">
+            <Rotulo as="h2">
+              <span id="tr-rel">Tratamentos relacionados</span>
+            </Rotulo>
+            <ul class="tr-relacionados">
+              {relacionados.map((r) => (
+                <li>
+                  <a href={`/tratamentos/${r.slug}`} class="tr-rel fio-hover">
+                    <span class="tr-rel-nome">{r.nome}</span>
+                    <span class="t-pequeno t-suave">
+                      {(r.paraQuem ?? '').split(/(?<=\.)\s/)[0]}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+    </main>
+  </div>
+  <Rodape />
+  <BotaoFlutuante mensagem={mensagem} tratamento={t.slug} />
+</Documento>
+
+<style>
+  .tr-hero {
+    padding: clamp(6.5rem, 5rem + 6vw, 10rem) 0 var(--e-5);
+  }
+  .tr-hero-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .tr-trilha ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.6rem;
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+  .tr-trilha li + li::before {
+    content: '/';
+    margin-right: 0.6rem;
+    color: var(--fio);
+  }
+  .tr-trilha a {
+    color: inherit;
+  }
+  .tr-hero-texto {
+    min-width: 0;
+    max-width: 44rem;
+    --pilha: var(--e-3);
+  }
+  .tr-h1 {
+    /* A palavra mais longa ("Rejuvenescimento") cabe inteira até 320 px (sem hífen). */
+    font-size: min(var(--t-display), 12.2vw);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+  }
+  .tr-h1 .t-acento {
+    display: block;
+    font-size: 0.62em;
+    color: var(--rotulo);
+  }
+  .tr-resposta {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    max-width: 36em;
+  }
+  @media (min-width: 64rem) {
+    .tr-hero-grade {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+    .tr-trilha {
+      grid-column: 1 / -1;
+    }
+  }
+  .tr-duas {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .tr-duas {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: var(--e-5);
+    }
+  }
+  .tr-destaque {
+    line-height: 1.3;
+    max-width: 22em;
+  }
+  .tr-passos {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-4) 0 0;
+    display: grid;
+    gap: var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+  .tr-passos li {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    padding-top: var(--e-2);
+    border-top: 1px solid var(--fio);
+  }
+  .tr-passo-num {
+    font-size: clamp(3rem, 2rem + 3vw, 5rem);
+  }
+  .tr-esperar {
+    line-height: 1.2;
+    max-width: 18em;
+  }
+  .tr-duas--esperar {
+    align-items: end;
+  }
+  .tr-cuidados {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .tr-cuidados {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    }
+    .tr-fecho {
+      grid-column: 2;
+    }
+  }
+  .tr-cuidados-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--e-2);
+  }
+  .tr-cuidados-lista li {
+    padding-left: 1.4rem;
+    position: relative;
+    color: var(--suave);
+  }
+  .tr-cuidados-lista li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 0.7rem;
+    height: 1px;
+    background: var(--fio);
+  }
+  .tr-fecho {
+    font-family: var(--fonte-acento);
+    font-style: italic;
+  }
+  .tr-videos {
+    display: grid;
+    gap: var(--e-4);
+    align-items: start;
+  }
+  @media (min-width: 56rem) {
+    .tr-videos {
+      grid-template-columns: minmax(0, 26rem) repeat(auto-fit, minmax(14rem, 18rem));
+      justify-content: start;
+      gap: var(--e-5);
+    }
+  }
+  /* No mobile, o botão diz "Agendar avaliação"; o "sobre …" fica para o leitor de tela. */
+  @media (max-width: 39.99rem) {
+    .tr-sobre {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+  }
+  .tr-faq {
+    display: grid;
+    gap: var(--e-2);
+    max-width: 52rem;
+  }
+  .tr-pergunta {
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+    padding: var(--e-2) 0;
+  }
+  .tr-pergunta summary {
+    cursor: pointer;
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-3);
+    line-height: 1.25;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--e-2);
+  }
+  .tr-pergunta summary::-webkit-details-marker {
+    display: none;
+  }
+  .tr-pergunta summary::after {
+    content: '+';
+    font-family: var(--fonte-texto);
+    color: var(--rotulo);
+    transition: transform var(--d-2) var(--curva);
+  }
+  .tr-pergunta[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .tr-pergunta p {
+    margin-top: var(--e-2);
+    max-width: 40em;
+    color: var(--suave);
+  }
+  .tr-fases {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-3) 0 var(--e-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--e-3) var(--e-5);
+  }
+  .tr-fase {
+    display: grid;
+    gap: 0.3rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .tr-fase .t-numero {
+    font-size: clamp(3rem, 2rem + 3vw, 5rem);
+  }
+  .tr-fase-texto {
+    font-size: var(--t-pequeno);
+    color: var(--link);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .tr-cta-grade {
+    justify-items: center;
+    text-align: center;
+  }
+  .tr-relacionados {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-3) 0 0;
+    display: grid;
+    gap: var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+  .tr-rel {
+    display: grid;
+    gap: 0.4rem;
+    padding: var(--e-3) 0;
+    border-top: 1px solid var(--fio);
+    text-decoration: none;
+    color: inherit;
+  }
+  .tr-rel-nome {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-2);
+    line-height: 1.1;
+  }
+</style>

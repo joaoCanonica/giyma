@@ -1,0 +1,27 @@
+{
+  "slug": "404",
+  "meta": {
+    "title": "Página não encontrada · Giyma",
+    "description": "Esta página não existe ou mudou de endereço. Volte para o início, veja os tratamentos ou agende sua avaliação na Giyma, em Lages."
+  },
+  "blocos": {
+    "principal": {
+      "titulo": "Esta página não floresceu.",
+      "paragrafos": ["Ela não existe ou mudou de endereço. Três caminhos para seguir:"],
+      "itens": [
+        {
+          "titulo": "Voltar ao início",
+          "link": "/"
+        },
+        {
+          "titulo": "Ver os tratamentos",
+          "link": "/tratamentos"
+        },
+        {
+          "titulo": "Agendar avaliação",
+          "link": "whatsapp:geral"
+        }
+      ]
+    }
+  }
+}

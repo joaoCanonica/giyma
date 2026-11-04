@@ -1,0 +1,2087 @@
+{
+  "$schema": "./media.manifest.schema.json",
+  "versao": 1,
+  "itens": [
+    {
+      "id": "f00-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_468115140_18474909217051824_3675028794047350748_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "00",
+      "indiceMapa": 0,
+      "post": {
+        "codigo": null,
+        "data": "2023",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "GIYMA · ESTÉTICA AVANÇADA (marca d’água no centro)",
+      "uso": "Resultados: preenchimento labial (só com autorização).",
+      "consentimento": "autorizado",
+      "audioLiberado": false,
+      "problemas": [
+        "Logo GIYMA queimado na emenda: recortado fora.",
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1283,
+        "altura": 1271
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": "preenchimento labial",
+        "tempoDecorrido": "depende de cada paciente",
+        "disposicao": "empilhado",
+        "antes": {
+          "x": 0,
+          "y": 0,
+          "largura": 1283,
+          "altura": 500
+        },
+        "depois": {
+          "x": 0,
+          "y": 712,
+          "largura": 1283,
+          "altura": 500
+        },
+        "olhosTarjados": false,
+        "observacao": "Fotos empilhadas sem moldura. Recorte exclui o logo (mark y≈515–630, texto y≈632–705); mesma largura e altura, escala 1:1. Enquadramentos diferentes entre os dois lados (original)."
+      }
+    },
+    {
+      "id": "f01-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_491041853_18502669447051824_1207323367017140273_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "01–08",
+      "indiceMapa": 1,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Entre em contato e agende agora mesmo a sua avaliação!",
+      "uso": "Referência de voz (CTA).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f02-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_491440334_18502669381051824_8240122633583666619_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "01–08",
+      "indiceMapa": 2,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Resultados que falam por si. Conheça alguns dos procedimentos oferecidos e resultados alcançados aqui na GIYMA Saúde e Estética Avançada. Passe pro lado",
+      "uso": "Referência: retrato terracota de costas (pedir original do ensaio).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f03-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_491440650_18502669408051824_5462171341583919583_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "01–08",
+      "indiceMapa": 3,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Preenchimento de mento (queixo)",
+      "uso": "Resultados: preenchimento de mento (só com autorização).",
+      "consentimento": "autorizado",
+      "audioLiberado": false,
+      "problemas": [
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": "preenchimento de mento",
+        "tempoDecorrido": "depende de cada paciente",
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 88,
+          "y": 427,
+          "largura": 404,
+          "altura": 715
+        },
+        "depois": {
+          "x": 575,
+          "y": 427,
+          "largura": 404,
+          "altura": 715
+        },
+        "olhosTarjados": false,
+        "observacao": "Quadros internos: esquerdo x 64–516, direito x 549–1006, y 403–1166 (bordas douradas medidas). Recuo de 24 px nas bordas arredondadas."
+      }
+    },
+    {
+      "id": "f04-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_491441760_18502674268051824_3399467599710721847_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "01–08",
+      "indiceMapa": 4,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Quem está por trás da clínica GIYMA?",
+      "uso": "Referência: Ester de terracota com xícara (pedir original do ensaio).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f05-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_491442068_18502669399051824_7075191648737226537_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "01–08",
+      "indiceMapa": 5,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Toxina Botulínica",
+      "uso": "Resultados: toxina botulínica, testa (só com autorização).",
+      "consentimento": "autorizado",
+      "audioLiberado": false,
+      "problemas": [
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": "toxina botulínica (testa)",
+        "tempoDecorrido": "depende de cada paciente",
+        "disposicao": "empilhado",
+        "antes": {
+          "x": 210,
+          "y": 372,
+          "largura": 650,
+          "altura": 364
+        },
+        "depois": {
+          "x": 210,
+          "y": 819,
+          "largura": 650,
+          "altura": 364
+        },
+        "olhosTarjados": false,
+        "observacao": "Quadros internos: x 186–884; superior y 348–760; inferior y 793–1210. Recuo de 24 px."
+      }
+    },
+    {
+      "id": "f06-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_491442131_18502669390051824_8577496118892875443_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "01–08",
+      "indiceMapa": 6,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Preenchimento Labial",
+      "uso": "Resultados: preenchimento labial (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Tempo decorrido não informado."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": "preenchimento labial",
+        "tempoDecorrido": null,
+        "disposicao": "empilhado",
+        "antes": {
+          "x": 216,
+          "y": 353,
+          "largura": 649,
+          "altura": 366
+        },
+        "depois": {
+          "x": 216,
+          "y": 801,
+          "largura": 649,
+          "altura": 366
+        },
+        "olhosTarjados": false,
+        "observacao": "Quadros internos: x 192–889; superior y 329–743; inferior y 775–1193. Recuo de 24 px."
+      }
+    },
+    {
+      "id": "f07-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_491443496_18502674277051824_4043677686558296337_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "01–08",
+      "indiceMapa": 7,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Dra. Ester Santos · Farmacêutica Esteta. Proprietária da clínica de Estética Giyma. Ester é expert em harmonização facial e corporal.",
+      "uso": "Referência de voz. Não reproduzir \"Dra.\" sem o CRF-SC 3984.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "\"Dra.\" sem CRF ao lado e \"expert\": não reproduzir literal (seção 8)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f08-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_491444770_18502668181051824_8054532778745223418_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "01–08",
+      "indiceMapa": 8,
+      "post": {
+        "codigo": null,
+        "data": "2025-04-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Descubra o que posso fazer por você! Agende ainda hoje sua avaliação e desfrute de uma experiência acolhedora e singular! (49) 99827-3904",
+      "uso": "Referência: Ester de terracota de braços cruzados (pedir original do ensaio).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1350,
+        "altura": 1688
+      },
+      "derivados": false
+    },
+    {
+      "id": "f09-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_495296191_18506653045051824_2773120258434623012_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "09–12",
+      "indiceMapa": 9,
+      "post": {
+        "codigo": "DJU2r4mxkNR",
+        "data": "2025-05-06",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Na GIYMA, acreditamos na estética como forma de autoestima, bem-estar e escolha diária. Comece agora, agende sua avaliação!",
+      "uso": "Texto (voz da marca).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f10-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_495515822_18506653027051824_3088978940231969930_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "09–12",
+      "indiceMapa": 10,
+      "post": {
+        "codigo": "DJU2r4mxkNR",
+        "data": "2025-05-06",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Esse passo é se escolher",
+      "uso": "Texto. Logo grande usado na vetorização.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f11-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_496012815_18506653036051824_1337407818627301293_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "09–12",
+      "indiceMapa": 11,
+      "post": {
+        "codigo": "DJU2r4mxkNR",
+        "data": "2025-05-06",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Você não precisa esperar uma ocasião especial para se sentir bem",
+      "uso": "Texto. Ester de verde: referência.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f12-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_496392315_18506653018051824_830472129945308319_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "09–12",
+      "indiceMapa": 12,
+      "post": {
+        "codigo": "DJU2r4mxkNR",
+        "data": "2025-05-06",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "O cuidado que transforma começa com um simples passo",
+      "uso": "Texto. Ester de verde: referência (pedir original do ensaio).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f13-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_499546398_122119701758834492_8016450332729894000_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "13–17",
+      "indiceMapa": 13,
+      "post": {
+        "codigo": "DJ7aKJLBLv5",
+        "data": "2025-05-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Pronta para se apaixonar pelo reflexo no espelho? Agende sua avaliação e entenda como realçar sua beleza! 49 99827-3904",
+      "uso": "Texto (CTA do carrossel de preenchimento labial).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f14-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_499980230_122119701842834492_8556935887007372750_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "13–17",
+      "indiceMapa": 14,
+      "post": {
+        "codigo": "DJ7aKJLBLv5",
+        "data": "2025-05-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "2. Hidrata e suaviza linhas. A técnica não apenas define, mas também hidrata profundamente, reduzindo linhas finas e trazendo uma aparência mais jovem e saudável.",
+      "uso": "Texto da página de preenchimento labial.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f15-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_500228561_122119701866834492_6195739625666747364_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "13–17",
+      "indiceMapa": 15,
+      "post": {
+        "codigo": "DJ7aKJLBLv5",
+        "data": "2025-05-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "3 coisas que o preenchimento labial fará na sua autoestima",
+      "uso": "Texto (capa do carrossel).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Foto possivelmente de banco de imagens: não usar a imagem (CLAUDE.md, seção 6); só o texto."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f16-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_500254726_122119701854834492_3842370921971949395_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "13–17",
+      "indiceMapa": 16,
+      "post": {
+        "codigo": "DJ7aKJLBLv5",
+        "data": "2025-05-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "3. Eleva sua confiança. Quando você se sente bem, tudo ao seu redor muda. É sobre olhar no espelho e amar cada detalhe.",
+      "uso": "Texto da página de preenchimento labial.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f17-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_500363365_122119701848834492_954819887146812250_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "13–17",
+      "indiceMapa": 17,
+      "post": {
+        "codigo": "DJ7aKJLBLv5",
+        "data": "2025-05-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "1. Melhora o contorno e o volume. O preenchimento labial redefine os contornos naturais dos lábios, devolvendo volume perdido com o tempo e valorizando o formato da boca.",
+      "uso": "Texto da página de preenchimento labial.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f18-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_517341615_122129887706834492_7423770408293413115_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "18–22",
+      "indiceMapa": 18,
+      "post": {
+        "codigo": "DL5-LA6tKsP ou DMONnFLJuG0",
+        "data": "2025-07",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Resultados",
+      "uso": "Resultados: rosto frontal (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Marca d’água GIYMA sobre a emenda dos dois lados: não há recorte sem o logo que preserve o rosto inteiro. Pedir o original sem moldura.",
+        "Procedimento e tempo decorrido não informados."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1077,
+        "altura": 1346
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": null,
+        "procedimentoProvavel": "harmonização facial (não informado no post)",
+        "tempoDecorrido": null,
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 89,
+          "y": 384,
+          "largura": 439,
+          "altura": 881
+        },
+        "depois": {
+          "x": 552,
+          "y": 384,
+          "largura": 439,
+          "altura": 881
+        },
+        "olhosTarjados": true,
+        "observacao": "Quadros internos: esquerdo x 49–532, direito x 542–1034, y 344–1305. Recuo de 24 px nas bordas e 4 px na emenda. Recuo extra de 16 px por causa do raio dos cantos (~100 px)."
+      }
+    },
+    {
+      "id": "f19-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_517889752_122129887712834492_3198651500154726604_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "18–22",
+      "indiceMapa": 19,
+      "post": {
+        "codigo": "DL5-LA6tKsP ou DMONnFLJuG0",
+        "data": "2025-07",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "GIYMA · Saúde e Estética Avançada (logo abaixo do quadro)",
+      "uso": "Resultados: perfil esquerdo (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Marca d’água GIYMA sobre a emenda dos dois lados: não há recorte sem o logo que preserve o rosto inteiro. Pedir o original sem moldura.",
+        "Procedimento e tempo decorrido não informados."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": null,
+        "procedimentoProvavel": "harmonização facial (não informado no post)",
+        "tempoDecorrido": null,
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 86,
+          "y": 237,
+          "largura": 437,
+          "altura": 863
+        },
+        "depois": {
+          "x": 539,
+          "y": 237,
+          "largura": 437,
+          "altura": 863
+        },
+        "olhosTarjados": true,
+        "observacao": "Quadro x 46–1025, y 197–1140, emenda em x 527. Recuo extra de 16 px por causa do raio dos cantos (~100 px)."
+      }
+    },
+    {
+      "id": "f20-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_518007878_122129887688834492_6262631862747701751_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "18–22",
+      "indiceMapa": 20,
+      "post": {
+        "codigo": "DL5-LA6tKsP ou DMONnFLJuG0",
+        "data": "2025-07",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "GIYMA · Saúde e Estética Avançada (logo abaixo do quadro)",
+      "uso": "Resultados: perfil direito (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Marca d’água GIYMA sobre a emenda dos dois lados: não há recorte sem o logo que preserve o rosto inteiro. Pedir o original sem moldura.",
+        "Ângulo diferente entre antes e depois (rosto mais girado no depois).",
+        "Procedimento e tempo decorrido não informados."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": null,
+        "procedimentoProvavel": "harmonização facial (não informado no post)",
+        "tempoDecorrido": null,
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 105,
+          "y": 230,
+          "largura": 427,
+          "altura": 862
+        },
+        "depois": {
+          "x": 559,
+          "y": 230,
+          "largura": 427,
+          "altura": 862
+        },
+        "olhosTarjados": true,
+        "observacao": "Quadro x 47–1026, y 190–1132, emenda em x 555. Recuo extra de 16 px por causa do raio dos cantos (~100 px)."
+      }
+    },
+    {
+      "id": "f21-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_519038199_18520440442051824_7814042194341050968_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "18–22",
+      "indiceMapa": 21,
+      "post": {
+        "codigo": "DL5-LA6tKsP ou DMONnFLJuG0",
+        "data": "2025-07",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "GIYMA · Saúde e Estética Avançada (logo abaixo do quadro)",
+      "uso": "Resultados: lábios e mento de perfil (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Marca d’água GIYMA sobre a emenda dos dois lados: não há recorte sem o logo que preserve o rosto inteiro. Pedir o original sem moldura.",
+        "Procedimento e tempo decorrido não informados."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1352
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": null,
+        "procedimentoProvavel": "preenchimento labial e de mento (não informado no post)",
+        "tempoDecorrido": null,
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 105,
+          "y": 189,
+          "largura": 430,
+          "altura": 906
+        },
+        "depois": {
+          "x": 561,
+          "y": 189,
+          "largura": 430,
+          "altura": 906
+        },
+        "olhosTarjados": false,
+        "observacao": "Quadro x 47–1031, y 149–1135, emenda em x 557. Recuo extra de 16 px por causa do raio dos cantos (~100 px)."
+      }
+    },
+    {
+      "id": "f22-antes-depois",
+      "arquivo": "media-originais/fotos/SaveClip.App_520554272_18520440433051824_1888493473445648110_n.jpg",
+      "tipo": "foto",
+      "natureza": "antes-depois",
+      "grupo": "18–22",
+      "indiceMapa": 22,
+      "post": {
+        "codigo": "DL5-LA6tKsP ou DMONnFLJuG0",
+        "data": "2025-07",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Resultados",
+      "uso": "Resultados: lábios de perfil (só com autorização).",
+      "consentimento": "pendente",
+      "audioLiberado": false,
+      "problemas": [
+        "Marca d’água GIYMA sobre a emenda dos dois lados: não há recorte sem o logo que preserve o rosto inteiro. Pedir o original sem moldura.",
+        "Iluminação diferente entre antes e depois.",
+        "Procedimento e tempo decorrido não informados."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1077,
+        "altura": 1348
+      },
+      "derivados": false,
+      "antesDepois": {
+        "procedimento": null,
+        "procedimentoProvavel": "preenchimento labial (não informado no post)",
+        "tempoDecorrido": null,
+        "disposicao": "lado-a-lado",
+        "antes": {
+          "x": 87,
+          "y": 358,
+          "largura": 442,
+          "altura": 906
+        },
+        "depois": {
+          "x": 549,
+          "y": 358,
+          "largura": 442,
+          "altura": 906
+        },
+        "olhosTarjados": false,
+        "observacao": "Quadros internos: esquerdo x 47–533, direito x 543–1034, y 318–1304. Recuo extra de 16 px por causa do raio dos cantos (~100 px)."
+      }
+    },
+    {
+      "id": "f23-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_522388238_18521175997051824_5496572939947481785_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "23",
+      "indiceMapa": 23,
+      "post": {
+        "codigo": "DMYk9A8xCNE",
+        "data": "2025-07-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Na GIYMA estética vai além da aparência. É sobre se sentir bem e confiante. Autocuidado não é futilidade. É escolha, é força, é autoestima. Agende sua avaliação (49) 99827-3904",
+      "uso": "Texto (voz). Ester de jaleco: referência.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1350,
+        "altura": 1688
+      },
+      "derivados": false
+    },
+    {
+      "id": "f24-feedback",
+      "arquivo": "media-originais/fotos/SaveClip.App_526288937_18522856789051824_7036958909392141356_n.jpg",
+      "tipo": "foto",
+      "natureza": "print",
+      "grupo": "24",
+      "indiceMapa": 24,
+      "post": {
+        "codigo": "DMvUX6LRp3r",
+        "data": "2025-07-30",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Feedback que amamos! (prints de WhatsApp de pacientes; não transcritos sem autorização)",
+      "uso": "Depoimento em texto (src/config/avaliacoes.ts), autorizado (João, 04/11/2026). Nunca o print.",
+      "consentimento": "autorizado",
+      "audioLiberado": false,
+      "problemas": [],
+      "edicoes": [],
+      "naoUsar": true,
+      "motivoNaoUsar": "O print de WhatsApp não é usado como imagem: o depoimento entra como texto literal.",
+      "dimensoes": {
+        "largura": 1350,
+        "altura": 1688
+      },
+      "derivados": false
+    },
+    {
+      "id": "f25-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_542935275_18530537551051824_4471528730559851038_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "25–29",
+      "indiceMapa": 25,
+      "post": {
+        "codigo": "DOZUDsrEdFL",
+        "data": "2025-09-09",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "“Microagulhamento dói?” Com o uso de anestésico tópico, o procedimento é confortável e seguro.",
+      "uso": "FAQ.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f26-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_543779181_18530537542051824_1583656631735396995_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "25–29",
+      "indiceMapa": 26,
+      "post": {
+        "codigo": "DOZUDsrEdFL",
+        "data": "2025-09-09",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "“Botox deixa o rosto paralisado?” Não! Quando bem aplicado, ele suaviza as rugas sem tirar sua naturalidade.",
+      "uso": "FAQ (no site: \"toxina botulínica\"; \"botox\" só como nome popular).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f27-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_544108220_18530537524051824_7227244329464326619_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "25–29",
+      "indiceMapa": 27,
+      "post": {
+        "codigo": "DOZUDsrEdFL",
+        "data": "2025-09-09",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Dúvidas frequentes que recebo aqui na Giyma",
+      "uso": "FAQ (capa).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f28-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_544151095_18530537533051824_1854915402868166602_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "25–29",
+      "indiceMapa": 28,
+      "post": {
+        "codigo": "DOZUDsrEdFL",
+        "data": "2025-09-09",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "“O preenchimento labial sempre aumenta muito os lábios?” Não. O resultado é personalizado e pode ser bem sutil, apenas para definir o contorno e hidratar.",
+      "uso": "FAQ.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f29-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_544914503_18530537560051824_6458288540565252601_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "25–29",
+      "indiceMapa": 29,
+      "post": {
+        "codigo": "DOZUDsrEdFL",
+        "data": "2025-09-09",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "“Preciso de avaliação antes?” Sempre! Cada pele e cada rosto são únicos, por isso a avaliação personalizada é indispensável. Fale comigo e agende sua avaliação 49 9827-3904",
+      "uso": "FAQ.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Telefone na arte com um dígito a menos (\"49 9827-3904\"): não copiar; usar o da config."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f30-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_572009141_18539242675051824_3289947273127237378_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "30–33",
+      "indiceMapa": 30,
+      "post": {
+        "codigo": "DQXcUrsEVC7",
+        "data": "2025-10-28",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Investir no cuidado hoje é assegurar beleza e naturalidade no futuro. Você merece se sentir bem. Fale comigo e saiba como posso te ajudar.",
+      "uso": "Texto da fase \"30\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f31-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_572135576_18539242678051824_5123709030769098597_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "30–33",
+      "indiceMapa": 31,
+      "post": {
+        "codigo": "DQXcUrsEVC7",
+        "data": "2025-10-28",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "O seu rosto passa por transformações delicadas. E é exatamente neste momento que a Prevenção se torna sua Maior Aliada. Afinal, se olhar no espelho e se reconhecer é um presente",
+      "uso": "Texto da fase \"30\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Foto possivelmente de banco de imagens: não usar a imagem (CLAUDE.md, seção 6); só o texto."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f32-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_572436461_18539242651051824_3970407776518390470_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "30–33",
+      "indiceMapa": 32,
+      "post": {
+        "codigo": "DQXcUrsEVC7",
+        "data": "2025-10-28",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Hoje minha conversa é com você que chegou aos 30",
+      "uso": "Texto da fase \"30\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Foto de mãos com caneta: confirmar se é da clínica; até lá, só o texto."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f33-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_573947520_18539242660051824_8320573937586817628_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "30–33",
+      "indiceMapa": 33,
+      "post": {
+        "codigo": "DQXcUrsEVC7",
+        "data": "2025-10-28",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Cada nova marca no tempo não precisa ser motivo de preocupação. Mas é importante saber que a sua produção natural de colágeno já não é a mesma…",
+      "uso": "Texto da fase \"30\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f34-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_580988358_18541900336051824_76692191273391107_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "34–37",
+      "indiceMapa": 34,
+      "post": {
+        "codigo": "DQ-C44oEQVP",
+        "data": "2025-11-12",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Botox: Trata e previne rugas que aparecem com o tempo. As chamadas rugas dinâmicas. Pés de galinha · Linhas da testa · Glabela (ruga de \"bravo\" entre as sobrancelhas)",
+      "uso": "Texto da comparação (no site: \"toxina botulínica\").",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f35-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_581032727_18541900345051824_3225207498752266435_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "34–37",
+      "indiceMapa": 35,
+      "post": {
+        "codigo": "DQ-C44oEQVP",
+        "data": "2025-11-12",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Preenchimento: Repor o volume perdido com o tempo, preencher sulcos profundos e estruturar o rosto. Bigode chinês · Olheiras profundas · Lábios (volume e contorno) · Malar e Mandíbula (sustentação)",
+      "uso": "Texto da comparação.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f36-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_581109779_18541900324051824_1179825593525396455_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "34–37",
+      "indiceMapa": 36,
+      "post": {
+        "codigo": "DQ-C44oEQVP",
+        "data": "2025-11-12",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Botox vs Preenchimento. Passe pro lado",
+      "uso": "Texto (capa).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Foto possivelmente de banco de imagens: não usar a imagem (CLAUDE.md, seção 6); só o texto.",
+        "Usa a marca \"Botox\" como chamada: no site, \"toxina botulínica\" (seção 8)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f37-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_581837795_18541900354051824_2725454547721495830_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "34–37",
+      "indiceMapa": 37,
+      "post": {
+        "codigo": "DQ-C44oEQVP",
+        "data": "2025-11-12",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Cada pessoa é única. Quer descobrir qual o melhor para você? Fale comigo e agende sua Avaliação. 49 99827-3904",
+      "uso": "Texto (\"Cada pessoa é única.\" é frase real da voz).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "Contém \"o melhor\" (termo vetado): não reproduzir a segunda frase."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f38-retrato-ester",
+      "arquivo": "media-originais/fotos/SaveClip.App_627373272_18109141318675129_1940390459072331020_n.jpg",
+      "tipo": "foto",
+      "natureza": "retrato",
+      "grupo": "38",
+      "indiceMapa": 38,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido",
+        "conta": "outra conta (provável fotógrafo)"
+      },
+      "textoTranscrito": "ESTER SANTOS · Farmacêutica Esteta (assinatura pequena à direita)",
+      "uso": "Retrato da Ester: hero provisório até chegarem os originais do ensaio.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Assinatura queimada e fios dourados: removidos só por recorte.",
+        "Filtro escuro/rosado aplicado no post (não corrigido).",
+        "Crédito: a própria Ester postou; não há fotógrafo a creditar (João, 04/11/2026)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "credito": {
+        "status": "pendente"
+      },
+      "dimensoes": {
+        "largura": 1440,
+        "altura": 1800
+      },
+      "derivados": false,
+      "recortes": [
+        {
+          "id": "retrato-4x5",
+          "retangulo": {
+            "x": 250,
+            "y": 60,
+            "largura": 852,
+            "altura": 1065
+          },
+          "proporcao": "4:5",
+          "uso": "Hero mobile / retrato editorial.",
+          "observacao": "Exclui os fios dourados (x 232–244) e a assinatura (x 1110–1352, y 672–733). Corta o cotovelo esquerdo dela."
+        },
+        {
+          "id": "retrato-3x4",
+          "retangulo": {
+            "x": 250,
+            "y": 40,
+            "largura": 852,
+            "altura": 1136
+          },
+          "proporcao": "3:4",
+          "uso": "Retrato editorial (página da Ester).",
+          "observacao": "Mesmos limites laterais do 4:5."
+        },
+        {
+          "id": "retrato-16x9",
+          "retangulo": {
+            "x": 252,
+            "y": 0,
+            "largura": 1184,
+            "altura": 666
+          },
+          "proporcao": "16:9",
+          "uso": "Hero desktop (texto à direita, no fundo marrom).",
+          "observacao": "Cabe só acima da assinatura (y < 672): cabeça e ombros, rosto a ~43% da largura. 1184 px de largura: não cobre tela cheia em 2x sem upscale."
+        }
+      ]
+    },
+    {
+      "id": "f39-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_858932907_18644592172051824_8382978948547882125_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "39–43",
+      "indiceMapa": 39,
+      "post": {
+        "codigo": "Dew0bm9EbvR",
+        "data": "2026-10-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Valores. Meu atendimento é direcionado a restaurar sua autoestima com segurança e cuidado. Agende sua avaliação personalizada comigo: (49) 99827-3904",
+      "uso": "Valor \"Segurança e cuidado\" (texto). Foto com filtro azul: still limpo do tour.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1075,
+        "altura": 1344
+      },
+      "derivados": false
+    },
+    {
+      "id": "f40-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_859013078_18644592163051824_8930385870455586602_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "39–43",
+      "indiceMapa": 40,
+      "post": {
+        "codigo": "Dew0bm9EbvR",
+        "data": "2026-10-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Valores. Naturalidade com Propósito",
+      "uso": "Valor \"Naturalidade com propósito\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f41-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_859087593_18644592154051824_8508898242181266547_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "39–43",
+      "indiceMapa": 41,
+      "post": {
+        "codigo": "Dew0bm9EbvR",
+        "data": "2026-10-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Valores. Descubra os valores dos meus Procedimentos",
+      "uso": "Referência apenas.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa.",
+        "\"Valores dos procedimentos\" fala de preço: não usar o texto (seção 8)."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f42-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_859644133_18644592145051824_3220522395016072520_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "39–43",
+      "indiceMapa": 42,
+      "post": {
+        "codigo": "Dew0bm9EbvR",
+        "data": "2026-10-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Valores. Ética e Transparência",
+      "uso": "Valor \"Ética e transparência\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "f43-arte",
+      "arquivo": "media-originais/fotos/SaveClip.App_862490589_18644592181051824_5018467013862929483_n.jpg",
+      "tipo": "foto",
+      "natureza": "arte-instagram",
+      "grupo": "39–43",
+      "indiceMapa": 43,
+      "post": {
+        "codigo": "Dew0bm9EbvR",
+        "data": "2026-10-21",
+        "confianca": "confirmado"
+      },
+      "textoTranscrito": "Valores. Acolhimento Humanizado",
+      "uso": "Valor \"Acolhimento humanizado\".",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Arte com texto, logo e moldura queimados: não serve como fotografia limpa."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 1080,
+        "altura": 1350
+      },
+      "derivados": false
+    },
+    {
+      "id": "print-logo",
+      "arquivo": "media-originais/fotos/Captura de tela de 2026-11-03 10-17-55.png",
+      "tipo": "foto",
+      "natureza": "print",
+      "grupo": "—",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido"
+      },
+      "textoTranscrito": "GIYMA · Saúde e Estética Avançada",
+      "uso": "Só comparação do logo vetorizado.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "186×180 px."
+      ],
+      "edicoes": [],
+      "naoUsar": true,
+      "motivoNaoUsar": "Print de 186 px; substituído pelos SVG.",
+      "dimensoes": {
+        "largura": 186,
+        "altura": 180
+      },
+      "derivados": false
+    },
+    {
+      "id": "logo-vertical",
+      "arquivo": "media-originais/marca/giyma-logo-vertical.svg",
+      "tipo": "marca",
+      "natureza": "vetor",
+      "grupo": "marca",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido"
+      },
+      "textoTranscrito": "GIYMA · SAÚDE E ESTÉTICA AVANÇADA",
+      "uso": "Logo vertical (currentColor).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Reconstruído em vetor a partir das artes: validar com a clínica e pedir o arquivo do designer."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "credito": {
+        "status": "nao-se-aplica"
+      },
+      "dimensoes": {
+        "largura": 426,
+        "altura": 345
+      },
+      "derivados": true
+    },
+    {
+      "id": "logo-horizontal",
+      "arquivo": "media-originais/marca/giyma-logo-horizontal.svg",
+      "tipo": "marca",
+      "natureza": "vetor",
+      "grupo": "marca",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido"
+      },
+      "textoTranscrito": "GIYMA · SAÚDE E ESTÉTICA AVANÇADA",
+      "uso": "Logo horizontal (currentColor).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Reconstruído em vetor a partir das artes: validar com a clínica e pedir o arquivo do designer."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "credito": {
+        "status": "nao-se-aplica"
+      },
+      "dimensoes": {
+        "largura": 555,
+        "altura": 159
+      },
+      "derivados": true
+    },
+    {
+      "id": "logo-mark",
+      "arquivo": "media-originais/marca/giyma-logo-mark.svg",
+      "tipo": "marca",
+      "natureza": "vetor",
+      "grupo": "marca",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido"
+      },
+      "textoTranscrito": null,
+      "uso": "Logo mark (currentColor).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Reconstruído em vetor a partir das artes: validar com a clínica e pedir o arquivo do designer."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "credito": {
+        "status": "nao-se-aplica"
+      },
+      "dimensoes": {
+        "largura": 334,
+        "altura": 405
+      },
+      "derivados": true
+    },
+    {
+      "id": "v-tour",
+      "arquivo": "media-originais/videos/snapinsta-1793717791575.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": "DefMJWGP3lL",
+        "data": "2026-10-14",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Já passei na frente mas nunca entrei · O que tem dentro?",
+      "uso": "O mais importante: página \"A Giyma\", seção do espaço, \"Como chegar\" (fachada); stills limpos.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Legenda queimada do Instagram. \"Já passei na frente / mas nunca entrei\" (0–1,4 s, y 820–945) e \"O que tem dentro?\" (resto, y≈880–950).",
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Paciente aparece de costas na consulta (17,7–19,5 s) e deitada no procedimento (21,3–25,3 s): autorizado (João, 04/11/2026: \"tudo que mandei e temos foi autorizado\").",
+        "Fade para preto nos últimos 0,6 s."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 720,
+        "altura": 1280,
+        "duracao": 32.3,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "tour-completo",
+          "inicio": 0,
+          "fim": 32.3,
+          "uso": "Seção \"A Giyma\".",
+          "larguras": [
+            720,
+            540
+          ],
+          "poster": "auto",
+          "posterJanela": {
+            "inicio": 29.6,
+            "fim": 31.5
+          },
+          "observacao": "Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela)."
+        },
+        {
+          "id": "tour-capitulos",
+          "inicio": 0,
+          "fim": 32.3,
+          "uso": "Um clipe mudo por capítulo (loops curtos para as seções) e marcas de tempo para navegar no vídeo completo.",
+          "larguras": [
+            540
+          ],
+          "poster": "auto",
+          "observacao": "Cortes de cena medidos (ffmpeg scene): 1,43 · 2,60 · 5,70 · 7,23 · 9,13 · 13,10 · 14,27 · 15,50 · 16,60 · 17,73 · 19,53 · 21,33 · 23,37 · 25,33 · 27,23 · 29,47.",
+          "capitulos": [
+            {
+              "id": "fachada",
+              "titulo": "Fachada",
+              "inicio": 0,
+              "fim": 2.6,
+              "observacao": "Pedido 0–3; termina no corte de 2,60 s."
+            },
+            {
+              "id": "entrada",
+              "titulo": "Entrada",
+              "inicio": 3.5,
+              "fim": 5.5,
+              "observacao": "Pedido 4–5; Ester na porta e logo ao fundo."
+            },
+            {
+              "id": "copa",
+              "titulo": "Copa",
+              "inicio": 5.7,
+              "fim": 8.5,
+              "observacao": "Pedido 6–8; começa no corte de 5,70 s."
+            },
+            {
+              "id": "porta",
+              "titulo": "Porta “Dra. Ester Santos”",
+              "inicio": 9.13,
+              "fim": 12.5,
+              "observacao": "Placa visível 11,5–13,0 s."
+            },
+            {
+              "id": "consultorio",
+              "titulo": "Consultório",
+              "inicio": 13.1,
+              "fim": 15.5,
+              "observacao": "Poltrona e prateleiras; cortes 13,10 e 15,50."
+            },
+            {
+              "id": "planejamento",
+              "titulo": "Planejamento",
+              "inicio": 15.5,
+              "fim": 20.5,
+              "observacao": "Modelo anatômico 15,5–16,6 e 19,53–21,33; consulta 17,73–19,53 (paciente de costas)."
+            },
+            {
+              "id": "procedimento",
+              "titulo": "Procedimento",
+              "inicio": 21.33,
+              "fim": 24.5,
+              "observacao": "Paciente aparece: autorizado (João, 04/11/2026)."
+            },
+            {
+              "id": "recepcao",
+              "titulo": "Recepção",
+              "inicio": 27.23,
+              "fim": 31.7,
+              "observacao": "Letras douradas 27,23–29,47; Ester na recepção até o fade (31,7 s)."
+            }
+          ]
+        }
+      ],
+      "stills": [
+        {
+          "id": "still-fachada",
+          "em": 0.5,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 772
+          },
+          "uso": "Como chegar; seção do espaço.",
+          "observacao": "Recorte acima da legenda \"Já passei na frente…\" (que começa em y≈790).",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-entrada",
+          "em": 4.9,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Entrada com o logo ao fundo.",
+          "observacao": "Pedido 4 s; em 4,9 s o logo aparece atrás da Ester.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-xicaras",
+          "em": 7.8,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Copa (xícaras).",
+          "observacao": "Pedido 7 s; 7,0 é a jarra, as xícaras entram depois do corte de 7,23 s.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-placa",
+          "em": 12.2,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Placa da porta \"Dra. Ester Santos\".",
+          "observacao": "Pedido 11 s; em 11 s a Ester está passando, a placa fica nítida em 12,2 s.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-consultorio",
+          "em": 13.6,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Poltrona e consultório.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-modelo",
+          "em": 20.3,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Planejamento: modelo anatômico com a marcação (valor \"Acolhimento humanizado\").",
+          "observacao": "Pedido 19 s; em 19 s é a consulta com paciente de costas. A marcação começa em 19,53 s.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-produto",
+          "em": 25.8,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Ester com produto.",
+          "observacao": "Pedido 25 s; em 25 s ainda é o procedimento (corte em 25,33 s). Embalagem com marca visível: conferir se é marca de medicamento (seção 8).",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-letras-tour",
+          "em": 27.8,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Letras douradas (reserva; preferir still-letras-close).",
+          "observacao": "O recorte acima da legenda corta a base das letras.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        },
+        {
+          "id": "still-recepcao",
+          "em": 30.5,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 872
+          },
+          "uso": "Ester na recepção.",
+          "observacao": "Recorte na altura do tablet.",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        }
+      ]
+    },
+    {
+      "id": "v-letras",
+      "arquivo": "media-originais/videos/snapinsta-1793711483206.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": "2025-09-15",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": null,
+      "uso": "Loop da entrada/hero (letras douradas na parede petróleo).",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Brinde com espumante e Ester de vermelho (0–6,4 s): fora do loop."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 720,
+        "altura": 1280,
+        "duracao": 10.6,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "loop-letras",
+          "inicio": 6.6,
+          "fim": 10.5,
+          "uso": "Loop mudo das letras douradas.",
+          "loop": true,
+          "larguras": [
+            720,
+            540
+          ],
+          "pesoMaximoKB": 1000,
+          "poster": "auto",
+          "observacao": "Pedido 7,0–10,5; o corte de cena está em 6,43 s, então começa em 6,6 s.",
+          "variantes": [
+            {
+              "id": "loop-letras-16x9",
+              "retangulo": {
+                "x": 0,
+                "y": 500,
+                "largura": 720,
+                "altura": 405
+              },
+              "proporcao": "16:9",
+              "uso": "Desktop (720 px de largura: usar em bloco, não tela cheia)."
+            }
+          ]
+        }
+      ],
+      "stills": [
+        {
+          "id": "still-letras-close",
+          "em": 9.8,
+          "recorte": {
+            "x": 0,
+            "y": 0,
+            "largura": 720,
+            "altura": 1280
+          },
+          "uso": "Close das letras douradas (sem legenda).",
+          "natureza": "quadro de vídeo",
+          "larguraMaxExibicao": 720
+        }
+      ]
+    },
+    {
+      "id": "v-fases",
+      "arquivo": "media-originais/videos/snapinsta-1793717753324.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": "DbBfgMjRUkX",
+        "data": "2026-07-20",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Qual o procedimento estético ideal? (dos 20 aos 40+)",
+      "uso": "Base da \"Linha do tempo da pele\" e vídeo na página.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Legenda queimada do Instagram.",
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Cartela final GIYMA com telefone e ícones do Instagram a partir de 53,75 s: fora do trecho."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 720,
+        "altura": 1280,
+        "duracao": 58.667,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "fases",
+          "inicio": 0,
+          "fim": 53.6,
+          "uso": "Linha do tempo da pele.",
+          "larguras": [
+            720,
+            540
+          ],
+          "poster": "auto",
+          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela).",
+          "posterJanela": {
+            "inicio": 8.4,
+            "fim": 9.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "v-faq-toxina",
+      "arquivo": "media-originais/videos/snapinsta-1793717271460.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": "DP9tLKNEeOG",
+        "data": "2025-10-18",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Doutora, botox é só para quem já tem rugas profundas? / rosto paralisado?",
+      "uso": "Página de toxina botulínica + FAQ.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Legenda queimada do Instagram. Usa \"botox\" na legenda (nome popular: só na FAQ).",
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Cartela final GIYMA com telefone e ícones do Instagram a partir de 50,85 s: fora do trecho."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 720,
+        "altura": 1280,
+        "duracao": 54.067,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "faq-toxina",
+          "inicio": 0,
+          "fim": 50.7,
+          "uso": "Página de toxina botulínica e FAQ.",
+          "larguras": [
+            720,
+            540
+          ],
+          "poster": "auto",
+          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido entre 6,8 e 7,6 s (\"como prevenção.\"): a legenda queimada do pôster não traz a marca comercial (sessão 9).",
+          "posterJanela": {
+            "inicio": 6.8,
+            "fim": 7.6
+          }
+        }
+      ]
+    },
+    {
+      "id": "v-inverno",
+      "arquivo": "media-originais/videos/snapinsta-1793717726093.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": "DYnNCJ3P80V",
+        "data": "2026-05-21",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "O maior… (começar no inverno)",
+      "uso": "Página/FAQ \"por que começar no inverno\"; stills do consultório.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "Legenda queimada do Instagram.",
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Cartela final GIYMA com telefone e ícones do Instagram a partir de 43,0 s: fora do trecho."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 720,
+        "altura": 1280,
+        "duracao": 45.6,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "inverno",
+          "inicio": 0,
+          "fim": 42.8,
+          "uso": "FAQ \"por que começar no inverno\".",
+          "larguras": [
+            720,
+            540
+          ],
+          "poster": "auto",
+          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela).",
+          "posterJanela": {
+            "inicio": 38.9,
+            "fim": 41.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "v-amo-giyma",
+      "arquivo": "media-originais/videos/snapinsta-1793711809036.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": null,
+        "confianca": "desconhecido"
+      },
+      "textoTranscrito": "3 coisas que + amo na Giyma",
+      "uso": "Reserva: só em tamanho pequeno.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "360×640: baixa resolução.",
+        "Legenda queimada do Instagram.",
+        "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
+        "Cartela final GIYMA com telefone e ícones do Instagram a partir de 24,5 s: fora do trecho."
+      ],
+      "edicoes": [],
+      "naoUsar": false,
+      "dimensoes": {
+        "largura": 360,
+        "altura": 640,
+        "duracao": 27.233,
+        "fps": 30
+      },
+      "trechos": [
+        {
+          "id": "amo-giyma",
+          "inicio": 0,
+          "fim": 24.3,
+          "uso": "Reserva, uso pequeno.",
+          "larguras": [
+            360
+          ],
+          "poster": "auto",
+          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela).",
+          "posterJanela": {
+            "inicio": 5.5,
+            "fim": 7.5
+          }
+        }
+      ]
+    },
+    {
+      "id": "v-resultados-celular",
+      "arquivo": "media-originais/videos/snapinsta-1793717183596.mp4",
+      "tipo": "video",
+      "natureza": "video-instagram",
+      "grupo": "vídeos",
+      "indiceMapa": null,
+      "post": {
+        "codigo": null,
+        "data": "2025-08-25",
+        "confianca": "provavel"
+      },
+      "textoTranscrito": "Alô, autoestima",
+      "uso": "Nenhum.",
+      "consentimento": "nao-precisa",
+      "audioLiberado": false,
+      "problemas": [
+        "360×640, tela de celular mostrando resultados."
+      ],
+      "edicoes": [],
+      "naoUsar": true,
+      "motivoNaoUsar": "360p, filmagem de tela de celular com resultados (antes e depois sem autorização).",
+      "dimensoes": {
+        "largura": 360,
+        "altura": 640,
+        "duracao": 25.033,
+        "fps": 30
+      }
+    }
+  ]
+}

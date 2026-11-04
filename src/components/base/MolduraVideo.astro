@@ -1,0 +1,153 @@
+---
+// Moldura de vídeo vertical (9:16). Sempre mudo (áudio só com audioLiberado).
+//   loop: decorativo, toca só visível e sem movimento reduzido; sem controles.
+//   player: controles nativos, não toca sozinho.
+// O pôster (quadro mais nítido) e o LQIP seguram o espaço: vídeo nunca é o LCP.
+import { video } from './midia.ts';
+
+interface Props {
+  trecho: string;
+  modo?: 'loop' | 'player';
+  /** Descrição do que o vídeo mostra (obrigatória no player). */
+  titulo: string;
+  class?: string | undefined;
+}
+const { trecho, modo = 'loop', titulo, class: classe } = Astro.props;
+const v = video(trecho);
+const ordenar = <T extends { largura: number }>(l: readonly T[]) =>
+  [...l].sort((x, y) => y.largura - x.largura);
+const [webmG, webmP] = ordenar(v.fontes.webm);
+const [mp4G, mp4P] = ordenar(v.fontes.mp4);
+const poster = ordenar(v.poster.fontes.webp)[0]?.src;
+const proporcao = `${mp4G?.largura ?? 9}/${mp4G?.altura ?? 16}`;
+---
+
+<figure
+  class:list={['moldura-video', `moldura-video--${modo}`, classe]}
+  style={`--lqip:url("${v.poster.lqip}");aspect-ratio:${proporcao}`}
+>
+  <video
+    muted
+    playsinline
+    preload="none"
+    data-poster={poster}
+    loop={modo === 'loop'}
+    controls={modo === 'player'}
+    data-video-loop={modo === 'loop' ? '' : undefined}
+    aria-hidden={modo === 'loop' ? 'true' : undefined}
+    aria-label={modo === 'player' ? titulo : undefined}
+    width={mp4G?.largura}
+    height={mp4G?.altura}
+  >
+    {webmP && <source src={webmP.src} type="video/webm" media="(max-width: 40rem)" />}
+    {mp4P && <source src={mp4P.src} type="video/mp4" media="(max-width: 40rem)" />}
+    {webmG && <source src={webmG.src} type="video/webm" />}
+    {mp4G && <source src={mp4G.src} type="video/mp4" />}
+  </video>
+  {modo === 'player' && <figcaption class="so-leitor">{titulo} (sem som)</figcaption>}
+  {modo === 'loop' && (
+    <button type="button" class="moldura-pausa" data-pausa aria-pressed="false">
+      <span class="so-leitor">Pausar o vídeo: {titulo}</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path class="moldura-pausa-p" d="M5 3.5h2v9H5zM9 3.5h2v9H9z" fill="currentColor" />
+        <path class="moldura-pausa-t" d="M5 3.2v9.6L12.5 8z" fill="currentColor" />
+      </svg>
+    </button>
+  )}
+</figure>
+
+<style is:global>
+  .moldura-video {
+    margin-inline: 0;
+    margin-bottom: 0;
+    max-width: 26rem;
+    background: var(--lqip) center / cover no-repeat;
+  }
+  .moldura-video--loop {
+    position: relative;
+  }
+  /* Pausar (WCAG 2.2.2): pequeno, no canto, chapado; some no movimento reduzido (não toca). */
+  .moldura-pausa {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    color: var(--c-perola);
+    background: color-mix(in srgb, var(--c-cacau) 72%, transparent);
+    border: 1px solid color-mix(in srgb, var(--c-ouro) 70%, transparent);
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .moldura-pausa svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+  .moldura-pausa .moldura-pausa-t,
+  .moldura-pausa[aria-pressed='true'] .moldura-pausa-p {
+    display: none;
+  }
+  .moldura-pausa[aria-pressed='true'] .moldura-pausa-t {
+    display: inline;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .moldura-pausa {
+      display: none;
+    }
+  }
+  .moldura-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  const parado = matchMedia('(prefers-reduced-motion: reduce)');
+  const obs = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        const v = e.target as HTMLVideoElement;
+        if (e.isIntersecting && !parado.matches && !v.dataset.pausadoPelaPessoa)
+          v.play().catch(() => {});
+        else v.pause();
+      }
+    },
+    { threshold: 0.4 },
+  );
+  for (const v of document.querySelectorAll<HTMLVideoElement>('[data-video-loop]')) obs.observe(v);
+  // Pausar/retomar: a escolha da pessoa vale até ela mudar (o observador não retoma sozinho).
+  for (const b of document.querySelectorAll<HTMLButtonElement>('[data-pausa]')) {
+    const v = b.parentElement?.querySelector<HTMLVideoElement>('video');
+    b.addEventListener('click', () => {
+      if (!v) return;
+      const pausar = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', String(pausar));
+      if (pausar) {
+        v.dataset.pausadoPelaPessoa = '1';
+        v.pause();
+      } else {
+        delete v.dataset.pausadoPelaPessoa;
+        v.play().catch(() => {});
+      }
+    });
+  }
+  // Pôster só quando o vídeo chega perto da tela: não disputa banda com o LCP.
+  const perto = new IntersectionObserver(
+    (entradas) => {
+      for (const e of entradas) {
+        if (!e.isIntersecting) continue;
+        const v = e.target as HTMLVideoElement;
+        if (v.dataset.poster) v.poster = v.dataset.poster;
+        perto.unobserve(v);
+      }
+    },
+    { rootMargin: '600px 0px' },
+  );
+  for (const v of document.querySelectorAll<HTMLVideoElement>('video[data-poster]'))
+    perto.observe(v);
+</script>

@@ -1,0 +1,35 @@
+{
+  "slug": "como-chegar",
+  "meta": {
+    "title": "Como chegar à Giyma · Rua Rui Barbosa, 277, Lages",
+    "description": "A Giyma fica na Rua Rui Barbosa, 277, Centro de Lages/SC. Abra a rota no Google Maps, Waze ou Apple Mapas e agende sua avaliação."
+  },
+  "resposta": "A Giyma Saúde e Estética Avançada fica na Rua Rui Barbosa, 277, Centro, Lages/SC, CEP 88501-170. A avaliação é agendada pelo WhatsApp (49) 99827-3904, onde a equipe também orienta sobre a chegada.",
+  "blocos": {
+    "abertura": {
+      "rotulo": "Como chegar",
+      "titulo": "Rua Rui Barbosa, 277",
+      "paragrafos": [
+        "Centro · Lages/SC · CEP 88501-170",
+        "Procure a faixa branca com o nome GIYMA."
+      ]
+    },
+    "rotas": {
+      "rotulo": "Abrir a rota",
+      "paragrafos": ["Escolha o seu aplicativo de mapas."]
+    },
+    "mapa": {
+      "paragrafos": ["O mapa interativo só carrega se você pedir: ele vem de um serviço externo."],
+      "pendente": "consentimento do mapa interativo (sessão 7)"
+    },
+    "horario": {
+      "rotulo": "Qual é o horário?",
+      "paragrafos": ["Horário pelo WhatsApp."],
+      "pendente": "horário de atendimento"
+    },
+    "estacionamento": {
+      "rotulo": "Onde estacionar?",
+      "pendente": "onde estacionar: aguardando a clínica"
+    }
+  }
+}

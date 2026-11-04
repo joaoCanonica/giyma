@@ -1,0 +1,158 @@
+---
+// /resultados: só pares com consentimento=autorizado, com filtro por tratamento.
+// Sem nenhum par, a página explica que os resultados são mostrados na avaliação (não fica vazia).
+import { getCollection } from 'astro:content';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Comparador from '../components/base/Comparador.astro';
+import Link from '../components/base/Link.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import { par } from '../components/base/midia.ts';
+import Haste from '../components/marca/Haste.astro';
+import { destino, microtextos, pagina } from '../components/secoes/dados.ts';
+import { publicavel } from '../content/schemas.ts';
+import Pagina from '../layouts/Pagina.astro';
+
+const p = await pagina('resultados');
+const m = await microtextos();
+const b = p.blocos;
+const nomes = new Map((await getCollection('tratamentos')).map((t) => [t.data.slug, t.data.nome]));
+const pares = (await getCollection('resultados'))
+  .map((r) => r.data)
+  .filter(publicavel.resultado)
+  .flatMap((r) => {
+    const x = par(r.midia);
+    return x ? [{ r, x }] : [];
+  });
+const tratamentos = [
+  ...new Set(pares.map(({ r }) => r.tratamento).filter((t): t is string => Boolean(t))),
+];
+const faq = b['vazio']?.cta ? await destino(b['vazio'].cta.mensagem) : '/perguntas-frequentes';
+---
+
+<Pagina
+  meta={p.meta}
+  resposta={p.resposta}
+  trilha="Resultados"
+  rotulo={b['abertura']?.rotulo}
+  titulo={b['abertura']?.titulo ?? ''}
+  abertura={b['abertura']?.paragrafos}
+>
+  {pares.length > 0 ? (
+    <section
+      class="capitulo"
+      data-superficie="perola"
+      aria-label="Antes e depois autorizados"
+      data-resultados
+    >
+      <div class="contido">
+        {tratamentos.length > 1 && (
+          <nav class="rs-filtro" aria-label="Filtrar por tratamento">
+            <button type="button" data-filtro="" aria-pressed="true">
+              Todos
+            </button>
+            {tratamentos.map((t) => (
+              <button type="button" data-filtro={t} aria-pressed="false">
+                {nomes.get(t) ?? t}
+              </button>
+            ))}
+          </nav>
+        )}
+        <ul class="rs-lista">
+          {pares.map(({ r, x }) => (
+            <li data-tratamento={r.tratamento ?? ''}>
+              <Comparador
+                antes={x.antes}
+                depois={x.depois}
+                tempo={r.tempoDecorrido ?? ''}
+                procedimento={nomes.get(r.tratamento ?? '') ?? 'Procedimento'}
+                altAntes={`Antes: ${nomes.get(r.tratamento ?? '') ?? ''}`}
+                altDepois={`Depois: ${nomes.get(r.tratamento ?? '') ?? ''}, ${r.tempoDecorrido ?? ''}`}
+                legenda={r.legenda ?? undefined}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  ) : (
+    <section class="capitulo" data-superficie="perola" aria-labelledby="rs-vazio">
+      <div class="contido rs-vazio">
+        <Haste altura={120} />
+        <div class="pilha">
+          <Rotulo>Antes e depois</Rotulo>
+          <h2 id="rs-vazio" class="t-1">
+            {b['vazio']?.titulo}
+          </h2>
+          {b['vazio']?.paragrafos?.map((x) => (
+            <p class="t-3 t-suave">{x}</p>
+          ))}
+          <p>
+            <Link href={faq}>{b['vazio']?.cta?.texto}</Link>
+          </p>
+          <div>
+            <BotaoAgendar mensagem={m.whatsapp['duvida:resultados']} origem="resultados" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</Pagina>
+
+<style>
+  .rs-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: var(--e-4);
+  }
+  .rs-filtro button {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0.3rem 0;
+    font: inherit;
+    color: var(--suave);
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+  }
+  .rs-filtro button[aria-pressed='true'] {
+    color: var(--texto);
+    border-bottom-color: var(--fio);
+  }
+  .rs-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--e-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
+  }
+  .rs-lista li[hidden] {
+    display: none;
+  }
+  .rs-vazio {
+    display: grid;
+    gap: var(--e-4);
+    max-width: 52rem;
+  }
+  @media (min-width: 56rem) {
+    .rs-vazio {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--e-5);
+    }
+  }
+</style>
+
+<script>
+  for (const raiz of document.querySelectorAll<HTMLElement>('[data-resultados]')) {
+    const botoes = [...raiz.querySelectorAll<HTMLButtonElement>('[data-filtro]')];
+    raiz.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('[data-filtro]');
+      if (!b) return;
+      for (const x of botoes) x.setAttribute('aria-pressed', String(x === b));
+      for (const li of raiz.querySelectorAll<HTMLElement>('[data-tratamento]')) {
+        li.hidden = Boolean(b.dataset.filtro) && li.dataset.tratamento !== b.dataset.filtro;
+      }
+    });
+  }
+</script>

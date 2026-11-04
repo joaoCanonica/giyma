@@ -1,0 +1,133 @@
+---
+// 11. Rodapé: logo, assinatura profissional, endereço, WhatsApp escrito, Instagram, CNPJ
+// (pendente), privacidade e links.
+import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
+import Link from '../base/Link.astro';
+import Logo from '../marca/Logo.astro';
+import { contato, marca, nap } from '../../config/index.ts';
+import { destino, esterPublicada, microtextos } from './dados.ts';
+
+const m = await microtextos();
+const wa = await destino('geral');
+const ig = contato.instagram.valor;
+const n = nap();
+const links: [string, string][] = [
+  ['/tratamentos', 'Tratamentos'],
+  ['/a-giyma', 'A Giyma'],
+  ...(esterPublicada()
+    ? ([['/dra-ester-santos', m.navegacao['dra-ester-santos'] ?? 'Ester Santos']] as [
+        string,
+        string,
+      ][])
+    : []),
+  ['/cada-fase', 'Cada fase'],
+  ['/perguntas-frequentes', 'Perguntas frequentes'],
+  ['/como-chegar', 'Como chegar'],
+  ['/privacidade', 'Privacidade'],
+];
+const ano = new Date().getFullYear();
+---
+
+<footer class="rodape" data-superficie="cacau">
+  <div class="contido rodape-grade">
+    <div class="rodape-marca">
+      <a href="/" class="rodape-logo">
+        <Logo variante="horizontal" />
+      </a>
+      <AssinaturaProfissional />
+    </div>
+    <address class="rodape-contato" data-origem="rodape">
+      {/* NAP: nome, endereço e telefone idênticos em todas as páginas (audit-seo confere). */}
+      <span data-nap="nome">{n.nome}</span>
+      <span data-nap="endereco">{n.endereco}</span>
+      <Link href={wa}>
+        WhatsApp <span data-nap="telefone">{n.telefone}</span>
+      </Link>
+      <Link href={ig.url} externo>
+        Instagram @{ig.usuario}
+      </Link>
+    </address>
+    <nav class="rodape-nav" aria-label="Rodapé">
+      <ul>
+        {links.map(([href, nome]) => (
+          <li>
+            <a class="link" href={href}>
+              {nome}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="rodape-legal t-pequeno t-suave">
+      <p>{String(m.rodape['aviso'] ?? '')}</p>
+      <p>
+        <button type="button" class="link rodape-pref" data-abrir-consentimento>
+          Preferências de privacidade
+        </button>
+      </p>
+      <p>
+        {String(m.rodape['direitos'] ?? '').replace('{ano}', String(ano))}
+        {marca.cnpj.valor && <span> · CNPJ {marca.cnpj.valor}</span>}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    padding-block: var(--e-5) var(--e-4);
+    border-top: 1px solid color-mix(in srgb, var(--fio) 40%, transparent);
+  }
+  .rodape-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .rodape-grade {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr);
+    }
+    .rodape-legal {
+      grid-column: 1 / -1;
+    }
+  }
+  .rodape-marca {
+    display: grid;
+    gap: var(--e-2);
+    align-content: start;
+  }
+  .rodape-logo {
+    color: var(--fio);
+    width: 11rem;
+  }
+  .rodape-contato {
+    display: grid;
+    gap: 0.4rem;
+    align-content: start;
+    font-style: normal;
+  }
+  .rodape-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+  .rodape-nav .link {
+    color: var(--texto);
+  }
+  .rodape-legal {
+    display: grid;
+    gap: 0.3rem;
+    padding-top: var(--e-3);
+    border-top: 1px solid color-mix(in srgb, var(--fio) 30%, transparent);
+  }
+  .rodape-pref {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+</style>

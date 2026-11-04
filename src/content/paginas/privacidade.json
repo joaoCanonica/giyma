@@ -1,0 +1,49 @@
+{
+  "slug": "privacidade",
+  "meta": {
+    "title": "Privacidade · Giyma Saúde e Estética Avançada",
+    "description": "Como a Giyma trata os seus dados: sem formulário e sem cookies. Medição anônima e mapa do Google só se você aceitar. O contato é pelo WhatsApp."
+  },
+  "resposta": "O site da Giyma Saúde e Estética Avançada não tem formulário nem cookies. O contato acontece pelo WhatsApp, quando você escolhe, e a medição anônima e o mapa do Google só carregam se você aceitar.",
+  "blocos": {
+    "resumo": {
+      "rotulo": "Privacidade",
+      "titulo": "O seu cuidado começa pelos seus dados.",
+      "paragrafos": ["Você navega sem deixar dados com a gente."]
+    },
+    "whatsapp": {
+      "titulo": "Quando você fala com a gente",
+      "paragrafos": [
+        "O botão “Agendar avaliação” abre o WhatsApp com uma mensagem pronta. Você decide se envia. A partir daí, a conversa acontece no WhatsApp, que tem a própria política de privacidade.",
+        "Usamos o que você nos conta só para responder, agendar e cuidar do seu atendimento. Não vendemos nem compartilhamos os seus dados para publicidade."
+      ]
+    },
+    "saude": {
+      "titulo": "Dados de saúde e imagens",
+      "paragrafos": [
+        "Informações de saúde e fotos do seu rosto são dados sensíveis. Elas ficam no seu prontuário, com acesso restrito. Fotos de antes e depois só aparecem no site ou nas redes com a sua autorização por escrito, que você pode retirar quando quiser."
+      ]
+    },
+    "externos": {
+      "titulo": "Serviços externos",
+      "paragrafos": [
+        "Os links para Instagram, Google Maps, Waze e Apple Mapas levam a serviços de outras empresas, com as próprias regras.",
+        "Nada de outra empresa carrega antes da sua escolha. Se você aceitar no aviso de privacidade, o mapa interativo do Google pode ser aberto e contamos, de forma anônima e agregada, visitas e cliques nos botões de WhatsApp, Instagram e rotas (Plausible, sem cookies e sem perfil). Se recusar, nada disso acontece.",
+        "A sua escolha fica só no seu navegador e pode ser mudada a qualquer momento em “Preferências de privacidade”, no rodapé."
+      ]
+    },
+    "direitos": {
+      "titulo": "Seus direitos (LGPD)",
+      "paragrafos": [
+        "Você pode pedir para saber quais dados temos sobre você, corrigir, apagar ou retirar uma autorização. Basta chamar a gente no WhatsApp."
+      ]
+    },
+    "responsavel": {
+      "titulo": "Quem é responsável",
+      "paragrafos": [
+        "Giyma Saúde e Estética Avançada · Rua Rui Barbosa, 277, Centro, Lages/SC. Para qualquer pedido sobre os seus dados, fale com a gente pelo WhatsApp (49) 99827-3904.",
+        "Política atualizada em 4 de novembro de 2026."
+      ]
+    }
+  }
+}

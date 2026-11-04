@@ -1,0 +1,102 @@
+---
+// 5. Como é a sua avaliação (pérola): 4 passos em linha com números grandes e o still do
+// planejamento real (a marcação no modelo anatômico).
+import BotaoAgendar from '../base/BotaoAgendar.astro';
+import Citacao from '../base/Citacao.astro';
+import Imagem from '../base/Imagem.astro';
+import Rotulo from '../base/Rotulo.astro';
+import Florescer from '../marca/Florescer.astro';
+import { fontePublica, microtextos, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const m = await microtextos();
+---
+
+<section class="capitulo avaliacao" data-superficie="perola" aria-labelledby="avaliacao-titulo">
+  <div class="contido">
+    <div class="avaliacao-topo">
+      <header class="pilha">
+        <Rotulo>{bloco.rotulo}</Rotulo>
+        <h2 id="avaliacao-titulo" class="t-1">
+          {bloco.titulo}
+        </h2>
+        {bloco.citacao && (
+          <Citacao
+            texto={bloco.citacao.texto}
+            fonte={fontePublica(bloco.citacao.fonte)}
+            tamanho="media"
+          />
+        )}
+      </header>
+      <Florescer as="figure" class="avaliacao-foto">
+        <Imagem
+          id="still-modelo"
+          alt={m.alt['still-modelo'] ?? ''}
+          sizes="(min-width: 56rem) 24rem, 80vw"
+        />
+      </Florescer>
+    </div>
+    <ol class="passos">
+      {bloco.itens?.map((i, n) => (
+        <li class="passo">
+          <span class="passo-num t-numero" aria-hidden="true">
+            {n + 1}
+          </span>
+          <h3 class="t-3">{i.titulo}</h3>
+          <p class="t-suave">{i.texto}</p>
+        </li>
+      ))}
+    </ol>
+    {bloco.cta && (
+      <div class="avaliacao-cta">
+        <BotaoAgendar origem="home-avaliacao">{bloco.cta.texto}</BotaoAgendar>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .avaliacao-topo {
+    display: grid;
+    gap: var(--e-5);
+    align-items: end;
+    margin-bottom: var(--e-5);
+  }
+  @media (min-width: 56rem) {
+    .avaliacao-topo {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    }
+  }
+  :global(.avaliacao-foto) {
+    margin: 0;
+    max-width: 24rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .passos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--e-4) var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    counter-reset: passo;
+  }
+  .passo {
+    display: grid;
+    gap: 0.6rem;
+    align-content: start;
+    padding-top: var(--e-3);
+    border-top: 1px solid var(--fio);
+  }
+  .passo-num {
+    font-size: clamp(3rem, 2rem + 3vw, 5.5rem);
+    line-height: 0.85;
+  }
+  .avaliacao-cta {
+    margin-top: var(--e-5);
+  }
+</style>

@@ -1,0 +1,59 @@
+{
+  "slug": "preenchimento-labial",
+  "nome": "Preenchimento labial",
+  "nomePopular": null,
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["lábios (volume e contorno)"],
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) faz preenchimento labial com ácido hialurônico para redefinir o contorno, devolver volume perdido com o tempo e hidratar os lábios, sempre a partir de uma avaliação individual.",
+  "paraQuem": "Para quem sente que os lábios perderam contorno ou volume com o tempo, ou quer apenas mais definição e hidratação. O resultado pode ser bem sutil.",
+  "oQueE": "O ácido hialurônico é uma substância que o corpo já conhece e que é absorvida aos poucos. No lábio, ele redefine o contorno, repõe volume e hidrata por dentro.",
+  "comoEFeito": "Na avaliação, a Ester olha o formato da sua boca e a proporção com o resto do rosto antes de propor qualquer coisa. A aplicação é feita com anestésico, com calma, e o plano respeita o formato natural dos seus lábios.",
+  "cuidados": [
+    "Nos primeiros dias é normal o lábio ficar inchado e um pouco sensível. O inchaço diminui sozinho e o resultado aparece de verdade depois que ele passa.",
+    "Pode aparecer roxo no local das aplicações. Ele some em alguns dias.",
+    "Você recebe as orientações dos primeiros dias, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
+  "duracaoSessao": null,
+  "resultadosEsperados": "Lábios com contorno mais definido, hidratados e proporcionais ao seu rosto. Não é sobre aumentar por aumentar: o resultado é personalizado e pode ser bem sutil.",
+  "faq": [
+    {
+      "pergunta": "O preenchimento labial sempre aumenta muito os lábios?",
+      "resposta": "Não. O resultado é personalizado e pode ser bem sutil, apenas para definir o contorno e hidratar.",
+      "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+      "origem": "literal"
+    }
+  ],
+  "citacoes": [
+    {
+      "texto": "O preenchimento labial redefine os contornos naturais dos lábios, devolvendo volume perdido com o tempo e valorizando o formato da boca.",
+      "fonte": "carrossel \"3 coisas que o preenchimento labial fará na sua autoestima\", DJ7aKJLBLv5 (21/05/2025)"
+    },
+    {
+      "texto": "A técnica não apenas define, mas também hidrata profundamente, reduzindo linhas finas e trazendo uma aparência mais jovem e saudável.",
+      "fonte": "carrossel \"3 coisas que o preenchimento labial fará na sua autoestima\", DJ7aKJLBLv5 (21/05/2025)"
+    },
+    {
+      "texto": "Quando você se sente bem, tudo ao seu redor muda. É sobre olhar no espelho e amar cada detalhe.",
+      "fonte": "carrossel \"3 coisas que o preenchimento labial fará na sua autoestima\", DJ7aKJLBLv5 (21/05/2025)"
+    }
+  ],
+  "midia": [],
+  "fases": [],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre preenchimento labial.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "≥ 6 posts com antes e depois"
+    },
+    {
+      "ref": "media.manifest.json, f14/f16/f17",
+      "nota": "carrossel \"3 coisas que o preenchimento labial fará na sua autoestima\" (DJ7aKJLBLv5)"
+    }
+  ],
+  "meta": {
+    "title": "Preenchimento labial em Lages · Giyma",
+    "description": "Preenchimento labial com ácido hialurônico em Lages, com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984). Contorno, volume e hidratação sob medida."
+  }
+}

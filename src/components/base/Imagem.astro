@@ -1,0 +1,45 @@
+---
+// Imagem do índice de mídia: <picture> AVIF/WebP com srcset, dimensões (CLS 0) e LQIP
+// por baixo enquanto carrega. "prioridade" = imagem do LCP (eager + fetchpriority).
+import { imagem, srcset } from './midia.ts';
+
+interface Props {
+  id: string;
+  alt: string;
+  sizes?: string;
+  prioridade?: boolean;
+  class?: string | undefined;
+}
+const { id, alt, sizes = '100vw', prioridade = false, class: classe } = Astro.props;
+const i = imagem(id);
+const media = i.fontes.webp[Math.min(1, i.fontes.webp.length - 1)] ?? i.fontes.webp[0];
+---
+
+<picture
+  class:list={['imagem', classe]}
+  style={`--lqip:url("${i.lqip}");aspect-ratio:${i.largura}/${i.altura}`}
+>
+  <source type="image/avif" srcset={srcset(i.fontes.avif)} sizes={sizes} />
+  <source type="image/webp" srcset={srcset(i.fontes.webp)} sizes={sizes} />
+  <img
+    src={media?.src}
+    alt={alt}
+    width={i.largura}
+    height={i.altura}
+    loading={prioridade ? 'eager' : 'lazy'}
+    decoding={prioridade ? 'sync' : 'async'}
+    fetchpriority={prioridade ? 'high' : 'auto'}
+  />
+</picture>
+
+<style is:global>
+  .imagem {
+    display: block;
+    background: var(--lqip) center / cover no-repeat;
+  }
+  .imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

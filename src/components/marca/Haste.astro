@@ -1,0 +1,89 @@
+---
+// (b) Divisor "Haste": linha vertical fina em ouro com as duas folhas do monograma
+// (mesmas curvas, em escala) que se abrem quando o divisor entra na tela.
+interface Props {
+  altura?: number;
+  class?: string | undefined;
+}
+const { altura = 120, class: classe } = Astro.props;
+// Folha esquerda do monograma, com a ponta na haste (0,0). Curvas do giyma-logo-mark.svg.
+const folha = 'M-150.5 -122.5C-65.5 -126.5 -8 -82.5 0 0C-60 12 -145.5 -47.5 -150.5 -122.5Z';
+const juncao = Math.round(altura * 0.62);
+---
+
+<div class:list={['haste', classe]} data-haste role="separator" aria-orientation="vertical">
+  <svg
+    width="44"
+    height={altura}
+    viewBox={`-22 0 44 ${altura}`}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <line class="haste-linha" x1="0" y1="0" x2="0" y2={altura} pathLength="1"></line>
+    <g transform={`translate(0 ${juncao})`}>
+      <g class="haste-folha haste-folha--e">
+        <path d={folha} transform="scale(0.12)"></path>
+      </g>
+      <g class="haste-folha haste-folha--d">
+        <path d={folha} transform="scale(-0.12 0.12)"></path>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<style is:global>
+  .haste {
+    display: flex;
+    justify-content: center;
+    color: var(--fio);
+  }
+  .haste svg {
+    overflow: visible;
+  }
+  .haste-linha,
+  .haste-folha path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+  .haste-linha {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .haste-folha {
+    transform-box: fill-box;
+  }
+  .haste-folha--e {
+    transform-origin: 100% 100%;
+  }
+  .haste-folha--d {
+    transform-origin: 0% 100%;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .js .haste:not([data-aberto]) .haste-linha {
+      stroke-dashoffset: 1;
+    }
+    .js .haste:not([data-aberto]) .haste-folha {
+      opacity: 0;
+    }
+    .js .haste:not([data-aberto]) .haste-folha--e {
+      transform: rotate(48deg) scale(0.4);
+    }
+    .js .haste:not([data-aberto]) .haste-folha--d {
+      transform: rotate(-48deg) scale(0.4);
+    }
+    .haste-linha {
+      transition: stroke-dashoffset var(--d-4) var(--curva);
+    }
+    .haste-folha {
+      transition:
+        transform var(--d-3) var(--curva) var(--d-2),
+        opacity var(--d-2) var(--curva) var(--d-2);
+    }
+  }
+</style>
+
+<script>
+  import './florescer.ts';
+</script>

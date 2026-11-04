@@ -1,0 +1,67 @@
+---
+// Documento base: <head> (fontes, tokens, robots, ícones), faixa de preview e o slot.
+import '../../styles/global.css';
+import bellefair from '../../styles/fontes/bellefair-latin-400-normal.woff2?url';
+import mulish from '../../styles/fontes/mulish-latin-wght-normal.woff2?url';
+import Consentimento from '../consentimento/Consentimento.astro';
+import PreviewBanner from '../PreviewBanner.astro';
+import Seo from '../seo/Seo.astro';
+import type { ItemTrilha, No } from '../seo/jsonld.ts';
+
+interface Props {
+  titulo: string;
+  descricao?: string | undefined;
+  /** Página interna (ex.: /_estilo): nunca indexa, mesmo em produção. */
+  interna?: boolean;
+  superficie?: 'perola' | 'nevoa' | 'cacau' | 'petroleo';
+  /** Trilha (BreadcrumbList) a partir do Início, sem ele. */
+  trilha?: readonly ItemTrilha[] | undefined;
+  /** Nós extras do JSON-LD da página (Service, FAQPage…). */
+  jsonld?: readonly No[] | undefined;
+  tipoOg?: 'website' | 'profile' | 'article';
+}
+const {
+  titulo,
+  descricao,
+  interna = false,
+  superficie = 'perola',
+  trilha,
+  jsonld,
+  tipoOg = 'website',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo
+      titulo={titulo}
+      descricao={descricao}
+      interna={interna}
+      trilha={trilha}
+      jsonld={jsonld}
+      tipoOg={tipoOg}
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" href={bellefair} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={mulish} as="font" type="font/woff2" crossorigin />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <slot name="head" />
+  </head>
+  <body data-superficie={superficie}>
+    <a class="pular-conteudo" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+    <slot name="inicio" />
+    <PreviewBanner />
+    <slot />
+    <Consentimento />
+  </body>
+</html>

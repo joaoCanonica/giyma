@@ -1,0 +1,267 @@
+---
+// /dra-ester-santos: página de autoridade (pessoas, Google e IAs). A história em capítulos,
+// os marcos, a formação (pós em PROVISÓRIO até chegar), "por que uma farmacêutica esteta".
+// Em produção, enquanto a pós-graduação for bloqueante, a página não é publicada (redireciona
+// para o início e os links para ela somem: ver paginaLiberada em src/config).
+import AssinaturaProfissional from '../components/base/AssinaturaProfissional.astro';
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Citacao from '../components/base/Citacao.astro';
+import Imagem from '../components/base/Imagem.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Florescer from '../components/marca/Florescer.astro';
+import Haste from '../components/marca/Haste.astro';
+import Provisorio from '../components/Provisorio.astro';
+import {
+  comAssinatura,
+  fontePublica,
+  microtextos,
+  pagina,
+  textoHtml,
+} from '../components/secoes/dados.ts';
+import { modoAtual, paginaLiberada, profissional } from '../config/index.ts';
+import Pagina from '../layouts/Pagina.astro';
+
+if (modoAtual() === 'producao' && !paginaLiberada('dra-ester-santos')) return Astro.redirect('/');
+
+const p = await pagina('dra-ester-santos');
+const b = p.blocos;
+const m = await microtextos();
+const CAPITULOS = [
+  { id: 'muitas-esters', numero: '1999', nome: 'As muitas Esters' },
+  { id: '2015', numero: '2015', nome: '2015' },
+  { id: 'os-38', numero: '38', nome: 'Os 38' },
+  { id: 'a-giyma', numero: '2023', nome: 'A Giyma' },
+  { id: 'hoje', numero: '50', nome: 'Hoje' },
+];
+// Marcos: o "renascimento" aparece como "aos 38" (o ano é aproximado).
+const marcos = profissional.marcos.map((x) =>
+  x.ano === 2014
+    ? { numero: '38', texto: 'anos: começa como paciente' }
+    : { numero: String(x.ano), texto: x.fato },
+);
+const abertura = b['abertura'];
+---
+
+<Pagina
+  meta={p.meta}
+  resposta={p.resposta}
+  tipoOg="profile"
+  trilha="Ester Santos"
+  rotulo={abertura?.rotulo}
+  titulo={abertura?.titulo ?? ''}
+  abertura={abertura?.paragrafos}
+>
+  <div slot="hero" class="ester-assinatura">
+    <AssinaturaProfissional formato="bloco" />
+  </div>
+
+  <section class="capitulo ester-retrato" data-superficie="perola" aria-label="Retrato">
+    <div class="contido ester-retrato-grade">
+      <Florescer as="figure" class="ester-foto">
+        <Imagem
+          id="retrato-3x4"
+          alt={m.alt['retrato-3x4'] ?? ''}
+          sizes="(min-width: 56rem) 40vw, 92vw"
+        />
+      </Florescer>
+      {abertura?.citacao && (
+        <Citacao texto={abertura.citacao.texto} fonte={fontePublica(abertura.citacao.fonte)} />
+      )}
+    </div>
+  </section>
+
+  {CAPITULOS.map((c, i) => {
+    const bl = b[c.id];
+    if (!bl) return null;
+    return (
+      <section
+        class="capitulo ester-cap"
+        data-superficie={i % 2 ? 'nevoa' : 'perola'}
+        aria-labelledby={`cap-${c.id}`}
+      >
+        <div class="contido ester-cap-grade">
+          <div class="ester-cap-num t-numero" aria-hidden="true">
+            {c.numero}
+          </div>
+          <div class="pilha ester-cap-texto">
+            <Rotulo>{c.nome}</Rotulo>
+            <h2 id={`cap-${c.id}`} class="t-1">
+              {bl.titulo}
+            </h2>
+            {bl.paragrafos?.map((x) => (
+              <p {...comAssinatura(x)} set:html={textoHtml(x)} />
+            ))}
+            {bl.citacao && (
+              <Citacao
+                texto={bl.citacao.texto}
+                fonte={fontePublica(bl.citacao.fonte)}
+                tamanho="media"
+              />
+            )}
+            {bl.citacoes?.map((ct) => (
+              <Citacao texto={ct.texto} fonte={fontePublica(ct.fonte)} tamanho="media" />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="capitulo" data-superficie="petroleo" aria-labelledby="marcos-titulo">
+    <div class="contido">
+      <Rotulo as="h2">
+        <span id="marcos-titulo">Marcos</span>
+      </Rotulo>
+      <ol class="ester-marcos">
+        {marcos.map((x) => (
+          <li>
+            <span class="t-numero">{x.numero}</span>
+            <span class="t-pequeno t-suave">{x.texto}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="formacao-titulo">
+    <div class="contido ester-duas">
+      <div class="pilha">
+        <Rotulo as="h2">
+          <span id="formacao-titulo">{b['formacao']?.rotulo}</span>
+        </Rotulo>
+        <dl class="ester-formacao">
+          {b['formacao']?.itens?.map((it) => (
+            <div>
+              <dt>{it.titulo}</dt>
+              <dd>
+                {it.texto ?? (
+                  <>
+                    A confirmar <Provisorio rotulo={it.pendente ?? 'dado pendente'} />
+                  </>
+                )}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div class="pilha">
+        <Rotulo as="h2">{b['por-que-farmaceutica']?.rotulo}</Rotulo>
+        <h3 class="t-2">
+          {b['por-que-farmaceutica']?.titulo}
+          {b['por-que-farmaceutica']?.pendente && <Provisorio rotulo="texto da Ester a receber" />}
+        </h3>
+        {b['por-que-farmaceutica']?.paragrafos?.map((x) => (
+          <p class="t-suave" set:html={textoHtml(x)} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="capitulo ester-convite"
+    data-superficie="cacau"
+    data-agendar-secao
+    aria-labelledby="convite-titulo"
+  >
+    <div class="contido pilha ester-convite-grade">
+      <Haste altura={110} />
+      <h2 id="convite-titulo" class="t-1">
+        {b['convite']?.titulo}
+      </h2>
+      {b['convite']?.citacao && (
+        <Citacao
+          texto={b['convite'].citacao.texto}
+          fonte={fontePublica(b['convite'].citacao.fonte)}
+          tamanho="media"
+        />
+      )}
+      {b['convite']?.paragrafos?.map((x) => (
+        <p class="t-suave">{x}</p>
+      ))}
+      <BotaoAgendar origem="ester-convite">{b['convite']?.cta?.texto}</BotaoAgendar>
+    </div>
+  </section>
+</Pagina>
+
+<style>
+  .ester-retrato-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: end;
+  }
+  @media (min-width: 56rem) {
+    .ester-retrato-grade {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    }
+  }
+  :global(.ester-foto) {
+    margin: 0;
+    max-width: 36rem;
+  }
+  .ester-cap-grade {
+    display: grid;
+    gap: var(--e-3);
+  }
+  @media (min-width: 56rem) {
+    .ester-cap-grade {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+      gap: var(--e-5);
+      align-items: start;
+    }
+  }
+  .ester-cap-num {
+    font-size: clamp(4.5rem, 2.5rem + 9vw, 11rem);
+    line-height: 0.85;
+  }
+  .ester-cap-texto {
+    max-width: 40rem;
+  }
+  .ester-marcos {
+    list-style: none;
+    padding: 0;
+    margin: var(--e-4) 0 0;
+    display: grid;
+    gap: var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    border-top: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+    padding-top: var(--e-3);
+  }
+  .ester-marcos li {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+  }
+  .ester-marcos .t-numero {
+    font-size: clamp(2.6rem, 1.8rem + 3vw, 4.5rem);
+  }
+  .ester-duas {
+    display: grid;
+    gap: var(--e-5);
+  }
+  @media (min-width: 56rem) {
+    .ester-duas {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    }
+  }
+  .ester-formacao {
+    margin: 0;
+    display: grid;
+    gap: var(--e-3);
+  }
+  .ester-formacao div {
+    border-top: 1px solid var(--fio);
+    padding-top: var(--e-2);
+  }
+  .ester-formacao dt {
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-3);
+  }
+  .ester-formacao dd {
+    margin: 0.3rem 0 0;
+    color: var(--suave);
+  }
+  .ester-convite-grade {
+    justify-items: center;
+    text-align: center;
+  }
+</style>

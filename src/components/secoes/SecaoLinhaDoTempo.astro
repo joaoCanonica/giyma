@@ -1,0 +1,80 @@
+---
+// 3. A linha do tempo da pele (pérola): o seletor em destaque e o vídeo "fases" ao lado.
+import { getCollection } from 'astro:content';
+import LinhaDoTempo, { type FaseLinha } from '../base/LinhaDoTempo.astro';
+import MolduraVideo from '../base/MolduraVideo.astro';
+import Rotulo from '../base/Rotulo.astro';
+import { destino, microtextos, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const m = await microtextos();
+const nomes = new Map((await getCollection('tratamentos')).map((t) => [t.data.slug, t.data.nome]));
+const fases: FaseLinha[] = await Promise.all(
+  (await getCollection('fases'))
+    .map((f) => f.data)
+    .sort((a, b) => a.ordem - b.ordem)
+    .map(async (f) => ({
+      faixa: f.faixa,
+      titulo: f.titulo,
+      oQueMuda: f.oQueMuda,
+      rascunho: f.base[0]?.nota ?? '',
+      focos: f.focos.map((slug) => ({ slug, nome: nomes.get(slug) ?? slug })),
+      frase: f.frase?.texto ?? '',
+      whatsapp: await destino(`fase:${f.faixa}`),
+    })),
+);
+---
+
+<section class="capitulo secao-linha" data-superficie="perola" aria-labelledby="linha-titulo">
+  <div class="contido">
+    <header class="secao-linha-cabeca pilha">
+      <Rotulo>{bloco.rotulo}</Rotulo>
+      <h2 id="linha-titulo" class="t-1">
+        {bloco.titulo}
+      </h2>
+      {bloco.paragrafos?.map((p) => (
+        <p class="medida t-suave">{p}</p>
+      ))}
+    </header>
+    <div class="secao-linha-grade">
+      <LinhaDoTempo
+        fases={fases}
+        comTitulo={false}
+        rotuloBotao={bloco.cta?.texto ?? 'Agendar avaliação'}
+        id="home-linha"
+      />
+      <div class="secao-linha-video">
+        <MolduraVideo
+          trecho="fases"
+          modo="player"
+          titulo={m.videos['fases'] ?? 'Vídeo sobre as fases da pele'}
+        />
+        <p class="t-pequeno t-suave">{m.videos['fases']}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .secao-linha-cabeca {
+    margin-bottom: var(--e-5);
+  }
+  .secao-linha-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: start;
+  }
+  @media (min-width: 64rem) {
+    .secao-linha-grade {
+      grid-template-columns: minmax(0, 1fr) 18rem;
+    }
+  }
+  .secao-linha-video {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 18rem;
+  }
+</style>

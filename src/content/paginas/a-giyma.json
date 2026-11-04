@@ -1,0 +1,89 @@
+{
+  "slug": "a-giyma",
+  "meta": {
+    "title": "A Giyma: clínica de estética no Centro de Lages",
+    "description": "Conheça a Giyma Saúde e Estética Avançada, na Rua Rui Barbosa, 277, Centro de Lages: o espaço, os valores e como é o atendimento."
+  },
+  "resposta": "A Giyma Saúde e Estética Avançada é a clínica de estética da Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984), na Rua Rui Barbosa, 277, Centro de Lages/SC. Abriu em 15 de setembro de 2023 para cuidar da beleza natural em cada fase da vida, com avaliação individual antes de qualquer procedimento.",
+  "blocos": {
+    "abertura": {
+      "rotulo": "A Giyma",
+      "titulo": "Um lugar seguro para florescer.",
+      "paragrafos": [
+        "A Giyma abriu em 15 de setembro de 2023, na Rua Rui Barbosa, no Centro de Lages. Do café na recepção à luz do consultório, tudo foi pensado para você chegar sem pressa e sair segura do que foi feito."
+      ]
+    },
+    "tour": {
+      "rotulo": "O espaço",
+      "titulo": "O que tem dentro?",
+      "paragrafos": ["Faça o tour: da fachada à recepção, em pouco mais de 30 segundos."]
+    },
+    "valores": {
+      "rotulo": "Valores",
+      "titulo": "Quatro compromissos com você.",
+      "itens": [
+        {
+          "titulo": "Segurança e cuidado",
+          "texto": "Avaliação antes de tudo, técnica, higiene e produtos regularizados. A segurança é inegociável.",
+          "citacao": {
+            "texto": "A SEGURANÇA é inegociável.",
+            "fonte": "frases reais enviadas pelo João (CLAUDE.md, seção 1)"
+          }
+        },
+        {
+          "titulo": "Naturalidade com propósito",
+          "texto": "O plano respeita o seu rosto e a sua idade. Nada de exageros: o objetivo é você se reconhecer no espelho."
+        },
+        {
+          "titulo": "Ética e transparência",
+          "texto": "Você sabe o que vai ser feito, por quê, o que esperar e quais são os cuidados. Sem promessas vazias."
+        },
+        {
+          "titulo": "Acolhimento humanizado",
+          "texto": "Cada pessoa é única, e é assim que você é recebida: com escuta, tempo e respeito."
+        }
+      ]
+    },
+    "experiencia": {
+      "rotulo": "Do primeiro contato ao retorno",
+      "titulo": "Como é ser atendida aqui.",
+      "itens": [
+        {
+          "id": "contato",
+          "titulo": "O primeiro contato",
+          "texto": "Você chama no WhatsApp, tira as primeiras dúvidas com a equipe e agenda a sua avaliação."
+        },
+        {
+          "id": "chegada",
+          "titulo": "A chegada",
+          "texto": "Na recepção, um café e tempo para respirar. Ninguém tem pressa."
+        },
+        {
+          "id": "avaliacao",
+          "titulo": "A avaliação",
+          "texto": "A Ester escuta, analisa o rosto e a pele e monta com você um plano por etapas."
+        },
+        {
+          "id": "procedimento",
+          "titulo": "O procedimento",
+          "texto": "Quando faz sentido e você se sente pronta, com a técnica e os cuidados de segurança de sempre."
+        },
+        {
+          "id": "retorno",
+          "titulo": "O retorno",
+          "texto": "Você sai com as orientações dos primeiros dias, e o retorno é combinado para acompanhar o resultado."
+        }
+      ]
+    },
+    "fachada": {
+      "rotulo": "Para reconhecer na rua",
+      "titulo": "A faixa branca com o nome GIYMA.",
+      "paragrafos": ["Rua Rui Barbosa, 277 · Centro · Lages/SC."],
+      "cta": {
+        "texto": "Como chegar",
+        "mensagem": "link:/como-chegar"
+      }
+    }
+  },
+  "pendentes": ["quem mais compõe a equipe (\"nossa equipe\")"]
+}

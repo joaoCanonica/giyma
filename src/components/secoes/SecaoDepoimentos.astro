@@ -1,0 +1,110 @@
+---
+// 9. O que dizem (pérola): a avaliação literal de Nathalia F. em citação grande, sem nota nem
+// estrelas (1 avaliação passa fragilidade). "Esther" com h, como ela escreveu.
+import Link from '../base/Link.astro';
+import Rotulo from '../base/Rotulo.astro';
+import { avaliacoes } from '../../config/index.ts';
+import { destino, type Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const d = avaliacoes.destaque.valor;
+const href = bloco.cta ? await destino(bloco.cta.mensagem) : avaliacoes.urlFicha;
+const [ano, mes] = d.mesAprox.split('-');
+const MESES = [
+  'janeiro',
+  'fevereiro',
+  'março',
+  'abril',
+  'maio',
+  'junho',
+  'julho',
+  'agosto',
+  'setembro',
+  'outubro',
+  'novembro',
+  'dezembro',
+];
+const quando = `${MESES[Number(mes) - 1]} de ${ano}`;
+---
+
+<section class="capitulo depoimentos" data-superficie="perola" aria-labelledby="depo-titulo">
+  <div class="contido depo-grade">
+    <Rotulo as="h2">
+      <span id="depo-titulo">{bloco.rotulo}</span>
+    </Rotulo>
+    <figure class="depo">
+      <span class="depo-aspas" aria-hidden="true">
+        “
+      </span>
+      <blockquote data-citacao-literal>
+        <p>{d.texto}</p>
+      </blockquote>
+      <figcaption>
+        <span class="depo-autora">{d.autorExibicao}</span>
+        <span class="t-pequeno t-suave">
+          Avaliação no {d.plataforma} · {quando}
+        </span>
+      </figcaption>
+    </figure>
+    {avaliacoes.depoimentosAutorizados.map((x) => (
+      <figure class="depo depo--menor">
+        <blockquote data-citacao-literal>
+          <p>{x.texto}</p>
+        </blockquote>
+        <figcaption class="t-pequeno t-suave">{x.autorExibicao}</figcaption>
+      </figure>
+    ))}
+    <p>
+      <Link href={href} externo>
+        {bloco.cta?.texto ?? 'Avaliar a Giyma no Google'}
+      </Link>
+    </p>
+  </div>
+</section>
+
+<style>
+  .depo-grade {
+    display: grid;
+    gap: var(--e-4);
+    justify-items: center;
+    text-align: center;
+  }
+  .depo {
+    margin: 0;
+    max-width: 46rem;
+    display: grid;
+    gap: var(--e-3);
+    justify-items: center;
+  }
+  .depo-aspas {
+    font-family: var(--fonte-titulo);
+    font-size: clamp(5rem, 3rem + 8vw, 9rem);
+    line-height: 0.6;
+    height: 0.45em;
+    color: var(--numero);
+  }
+  .depo blockquote {
+    margin: 0;
+  }
+  .depo p {
+    font-family: var(--fonte-acento);
+    font-style: italic;
+    font-size: var(--t-2);
+    line-height: 1.22;
+    text-wrap: balance;
+  }
+  .depo figcaption {
+    display: grid;
+    gap: 0.3rem;
+  }
+  .depo-autora {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+</style>

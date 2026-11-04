@@ -1,0 +1,295 @@
+---
+// "A Linha do tempo da pele": seletor de fases 20 · 30 · 40 · 50 · 60+.
+// Abas acessíveis (role=tablist, setas, Home/End), ?fase= compartilhável, cross-fade curto.
+// É um seletor, NÃO uma linha que se desenha ao rolar. Sem JS: as cinco fases em sequência.
+import Provisorio from '../Provisorio.astro';
+import Botao from './Botao.astro';
+import Rotulo from './Rotulo.astro';
+
+export interface FaseLinha {
+  faixa: '20' | '30' | '40' | '50' | '60+';
+  titulo: string;
+  oQueMuda: string | null;
+  /** Nota de base (fonte real) mostrada enquanto o texto da sessão 5 não chega. */
+  rascunho: string;
+  focos: { slug: string; nome: string }[];
+  frase: string;
+  whatsapp: string;
+}
+interface Props {
+  fases: FaseLinha[];
+  /** Fase aberta sem ?fase= na URL. */
+  inicial?: FaseLinha['faixa'];
+  id?: string;
+  /** Texto do botão de cada fase ({faixa} é trocado pela faixa). */
+  rotuloBotao?: string;
+  /** false: a seção que usa o componente já tem o próprio título. */
+  comTitulo?: boolean;
+}
+const {
+  fases,
+  inicial = '40',
+  id = 'linha-do-tempo',
+  rotuloBotao = 'Conversar sobre os {faixa}',
+  comTitulo = true,
+} = Astro.props;
+const param = (f: string) => f.replace('+', '');
+const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
+---
+
+<section
+  class="linha"
+  id={id}
+  data-linha
+  data-inicial={param(inicial)}
+  aria-labelledby={`${id}-titulo`}
+>
+  {comTitulo ? (
+    <Rotulo as="h2" class="linha-titulo">
+      <span id={`${id}-titulo`}>A linha do tempo da pele</span>
+    </Rotulo>
+  ) : (
+    <h2 class="so-leitor" id={`${id}-titulo`}>
+      Fases da pele
+    </h2>
+  )}
+  <div class="linha-abas" role="tablist" aria-labelledby={`${id}-titulo`}>
+    {fases.map((f, i) => (
+      <button
+        type="button"
+        role="tab"
+        class="linha-aba t-tabular"
+        id={`${id}-aba-${param(f.faixa)}`}
+        aria-controls={`${id}-painel-${param(f.faixa)}`}
+        aria-selected={f.faixa === inicial ? 'true' : 'false'}
+        tabindex={f.faixa === inicial ? 0 : -1}
+        data-fase={param(f.faixa)}
+      >
+        <span class="so-leitor">{f.titulo}</span>
+        <span aria-hidden="true">{rotuloFaixa(f.faixa)}</span>
+        {i < fases.length - 1 && (
+          <span class="linha-ponto" aria-hidden="true">
+            ·
+          </span>
+        )}
+      </button>
+    ))}
+  </div>
+  <div class="linha-paineis">
+    {fases.map((f) => (
+      <div
+        class="linha-painel"
+        role="tabpanel"
+        id={`${id}-painel-${param(f.faixa)}`}
+        aria-labelledby={`${id}-aba-${param(f.faixa)}`}
+        tabindex="0"
+        data-fase={param(f.faixa)}
+        data-inicial-painel={f.faixa === inicial ? '' : undefined}
+      >
+        <div class="linha-numero t-numero" aria-hidden="true">
+          {rotuloFaixa(f.faixa)}
+        </div>
+        <div class="linha-corpo pilha">
+          <h3 class="t-2">{f.titulo}</h3>
+          {f.oQueMuda ? (
+            <p class="medida">{f.oQueMuda}</p>
+          ) : (
+            <p class="medida t-suave">
+              {f.rascunho}
+              <Provisorio rotulo="texto da fase (sessão 5)" />
+            </p>
+          )}
+          {f.focos.length > 0 && (
+            <div>
+              <Rotulo>O que costuma fazer sentido</Rotulo>
+              <ul class="linha-focos">
+                {f.focos.map((t) => (
+                  <li>
+                    <a class="link" href={`/tratamentos/${t.slug}`}>
+                      {t.nome}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {f.frase && <p class="t-acento t-3">{f.frase}</p>}
+          <div>
+            <Botao
+              href={f.whatsapp}
+              variante="secundario"
+              icone="whatsapp"
+              dados={{ origem: 'linha-do-tempo', fase: f.faixa }}
+            >
+              {rotuloBotao.replace('{faixa}', rotuloFaixa(f.faixa))}
+            </Botao>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style is:global>
+  .linha-titulo {
+    margin-bottom: var(--e-3);
+  }
+  .linha-abas {
+    display: none;
+  }
+  .linha-paineis {
+    display: grid;
+    gap: var(--e-5);
+  }
+  .linha-painel {
+    display: grid;
+    gap: var(--e-3) var(--e-5);
+    align-items: start;
+  }
+  @media (min-width: 56rem) {
+    .linha-painel {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+  }
+  .linha-numero {
+    letter-spacing: -0.02em;
+  }
+  .linha-focos {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+  .linha-focos .link {
+    font-size: var(--t-3);
+    font-family: var(--fonte-titulo);
+    text-decoration-thickness: 1px;
+  }
+  /* Com JS: abas visíveis, um painel por vez. */
+  /* Com JS (classe .js no <html>, antes da pintura), o estado das abas já vale no primeiro
+     quadro: sem salto de layout quando o script chega (CLS 0). */
+  .js .linha:not([data-pronto]) .linha-painel:not([data-inicial-painel]) {
+    display: none;
+  }
+  .linha[data-pronto] .linha-abas,
+  .js .linha .linha-abas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0;
+    margin-bottom: var(--e-4);
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 55%, transparent);
+  }
+  .linha-aba {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0.4rem 0 0.9rem;
+    margin: 0;
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-2);
+    line-height: 1;
+    color: var(--suave);
+    cursor: pointer;
+    position: relative;
+    transition: color var(--d-2) var(--curva);
+  }
+  .linha-aba:hover,
+  .linha-aba[aria-selected='true'] {
+    color: var(--texto);
+  }
+  .linha-aba[aria-selected='true']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 1.2em;
+    bottom: -1px;
+    height: 1px;
+    background: var(--fio);
+  }
+  .linha-aba:last-child[aria-selected='true']::after {
+    right: 0;
+  }
+  .linha-ponto {
+    display: inline-block;
+    width: 1.2em;
+    text-align: center;
+    color: var(--fio);
+  }
+  .linha[data-pronto] .linha-painel[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  for (const raiz of document.querySelectorAll<HTMLElement>('[data-linha]')) {
+    const abas = [...raiz.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const paineis = [...raiz.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+    const reduzido = matchMedia('(prefers-reduced-motion: reduce)');
+    const da = (fase: string | null) => abas.find((a) => a.dataset.fase === fase);
+
+    const selecionar = (aba: HTMLButtonElement, focar: boolean, url: boolean) => {
+      for (const a of abas) {
+        const ativa = a === aba;
+        a.setAttribute('aria-selected', String(ativa));
+        a.tabIndex = ativa ? 0 : -1;
+      }
+      for (const p of paineis) {
+        const ativo = p.dataset.fase === aba.dataset.fase;
+        if (ativo && p.hidden && !reduzido.matches) {
+          p.animate([{ opacity: 0 }, { opacity: 1 }], {
+            duration: 220,
+            easing: 'cubic-bezier(0.22, 0.61, 0.24, 1)',
+          });
+        }
+        p.hidden = !ativo;
+      }
+      // Avisa a página (ex.: o convite final de /cada-fase segue a fase escolhida).
+      const link = paineis
+        .find((p) => p.dataset.fase === aba.dataset.fase)
+        ?.querySelector<HTMLAnchorElement>('a[href^="https://wa.me/"]');
+      raiz.dispatchEvent(
+        new CustomEvent('giyma:fase', {
+          bubbles: true,
+          detail: { fase: aba.dataset.fase, href: link?.getAttribute('href') },
+        }),
+      );
+      if (focar) aba.focus();
+      if (url) {
+        const u = new URL(location.href);
+        u.searchParams.set('fase', aba.dataset.fase ?? '');
+        history.replaceState(history.state, '', u);
+      }
+    };
+
+    raiz.addEventListener('click', (e) => {
+      const aba = (e.target as Element).closest<HTMLButtonElement>('[role="tab"]');
+      if (aba) selecionar(aba, false, true);
+    });
+    raiz.querySelector('[role="tablist"]')?.addEventListener('keydown', (e) => {
+      const ev = e as KeyboardEvent;
+      const i = abas.indexOf(document.activeElement as HTMLButtonElement);
+      const alvo =
+        ev.key === 'ArrowRight'
+          ? abas[(i + 1) % abas.length]
+          : ev.key === 'ArrowLeft'
+            ? abas[(i - 1 + abas.length) % abas.length]
+            : ev.key === 'Home'
+              ? abas[0]
+              : ev.key === 'End'
+                ? abas[abas.length - 1]
+                : undefined;
+      if (!alvo) return;
+      ev.preventDefault();
+      selecionar(alvo, true, true);
+    });
+
+    const inicial =
+      da(new URLSearchParams(location.search).get('fase')) ??
+      da(raiz.dataset.inicial ?? null) ??
+      abas[0];
+    raiz.dataset.pronto = '';
+    if (inicial) selecionar(inicial, false, false);
+  }
+</script>

@@ -1,0 +1,35 @@
+{
+  "slug": "tratamentos",
+  "meta": {
+    "title": "Tratamentos de harmonização facial em Lages · Giyma",
+    "description": "Toxina botulínica, preenchimento, bioestimulador de colágeno, microagulhamento e peeling em Lages, sempre com avaliação individual na Giyma."
+  },
+  "resposta": "Na Giyma, no Centro de Lages/SC, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) faz toxina botulínica, preenchimento labial, contorno facial, sulcos e olheiras, bioestimulador de colágeno, rejuvenescimento de mãos, microagulhamento e peeling. Cada tratamento só é indicado depois da avaliação individual e do planejamento.",
+  "blocos": {
+    "abertura": {
+      "rotulo": "Tratamentos",
+      "titulo": "Cada tratamento começa numa conversa."
+    },
+    "rosto": {
+      "rotulo": "Rosto",
+      "paragrafos": ["Rugas de expressão, contorno, volume e sustentação."]
+    },
+    "maos": {
+      "rotulo": "Mãos",
+      "paragrafos": ["As mãos também contam o tempo, e também podem ser cuidadas."]
+    },
+    "pele": {
+      "rotulo": "Qualidade da pele",
+      "paragrafos": ["Renovação, textura e viço."]
+    },
+    "convite": {
+      "titulo": "Não sabe por onde começar?",
+      "paragrafos": ["A avaliação existe para isso."],
+      "cta": {
+        "texto": "Agendar avaliação",
+        "mensagem": "geral"
+      }
+    }
+  },
+  "pendentes": ["harmonização corporal: só entra quando a clínica confirmar os procedimentos"]
+}

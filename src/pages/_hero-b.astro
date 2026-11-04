@@ -1,0 +1,17 @@
+---
+// /_hero-b (interna, noindex): alternativa com o loop das letras douradas.
+import Documento from '../components/base/Documento.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import HeroLetras from '../components/hero/HeroLetras.astro';
+---
+
+<Documento titulo="Hero B · letras · Giyma" interna superficie="petroleo">
+  <Entrada slot="inicio" />
+  <div class="topo">
+    <Cabecalho />
+    <main id="conteudo" tabindex="-1">
+      <HeroLetras />
+    </main>
+  </div>
+</Documento>

@@ -1,0 +1,60 @@
+---
+// <head> de SEO: title, description, robots, canonical, Open Graph, Twitter e JSON-LD.
+// O grafo de toda página traz o negócio, a profissional e o site (NAP idêntico: vem da config);
+// a página acrescenta o que é dela (Service, FAQPage) e a trilha (BreadcrumbList).
+import { esterPublicada } from '../secoes/dados.ts';
+import { robots, seo, urlAbsoluta } from '../../config/index.ts';
+import { grafo, negocio, pessoa, site, trilha, type ItemTrilha, type No } from './jsonld.ts';
+import { tratamentosLd } from './dados.ts';
+
+interface Props {
+  titulo: string;
+  descricao?: string | undefined;
+  interna?: boolean;
+  /** Trilha a partir do Início (sem ele). Vazia na home. */
+  trilha?: readonly ItemTrilha[] | undefined;
+  /** Nós extras do grafo (Service, FAQPage…). */
+  jsonld?: readonly No[] | undefined;
+  tipoOg?: 'website' | 'profile' | 'article';
+}
+const {
+  titulo,
+  descricao,
+  interna = false,
+  trilha: itens = [],
+  jsonld = [],
+  tipoOg = 'website',
+} = Astro.props;
+const caminho = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
+const canonical = urlAbsoluta(caminho);
+const imagem = urlAbsoluta(seo.imagemOg.caminho);
+const tratamentos = await tratamentosLd();
+const urlEster = esterPublicada() ? urlAbsoluta('/dra-ester-santos') : urlAbsoluta('/');
+const nos: No[] = interna
+  ? []
+  : [
+      negocio(tratamentos),
+      pessoa(tratamentos, urlEster),
+      site(),
+      ...jsonld,
+      ...(itens.length ? [trilha([{ nome: 'Início', caminho: '/' }, ...itens])] : []),
+    ];
+---
+
+<title>{titulo}</title>
+{descricao && <meta name="description" content={descricao} />}
+<meta name="robots" content={interna ? 'noindex, nofollow' : robots()} />
+{!interna && <link rel="canonical" href={canonical} />}
+<meta property="og:locale" content={seo.local} />
+<meta property="og:type" content={tipoOg} />
+<meta property="og:site_name" content="Giyma Saúde e Estética Avançada" />
+<meta property="og:title" content={titulo} />
+{descricao && <meta property="og:description" content={descricao} />}
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imagem} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content={String(seo.imagemOg.largura)} />
+<meta property="og:image:height" content={String(seo.imagemOg.altura)} />
+<meta property="og:image:alt" content={seo.imagemOgAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+{nos.length > 0 && <script is:inline type="application/ld+json" set:html={grafo(nos)} />}

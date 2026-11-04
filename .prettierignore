@@ -1,0 +1,14 @@
+dist/
+.astro/
+node_modules/
+pnpm-lock.yaml
+public/
+media-originais/
+assets/
+videos/
+docs/
+CLAUDE.md
+.cache/
+media.manifest.json
+src/styles/tokens.css
+scripts/lib/schemaorg-vocab.json

@@ -1,0 +1,55 @@
+---
+// Home: entrada, hero e as seções da sessão 6A (textos da coleção "paginas/home").
+import Documento from '../components/base/Documento.astro';
+import Entrada from '../components/entrada/Entrada.astro';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import HeroRetrato from '../components/hero/HeroRetrato.astro';
+import BotaoFlutuante from '../components/secoes/BotaoFlutuante.astro';
+import { home } from '../components/secoes/dados.ts';
+import Manifesto from '../components/secoes/Manifesto.astro';
+import Rodape from '../components/secoes/Rodape.astro';
+import SecaoAgendar from '../components/secoes/SecaoAgendar.astro';
+import SecaoAvaliacao from '../components/secoes/SecaoAvaliacao.astro';
+import SecaoDepoimentos from '../components/secoes/SecaoDepoimentos.astro';
+import SecaoEspaco from '../components/secoes/SecaoEspaco.astro';
+import SecaoEster from '../components/secoes/SecaoEster.astro';
+import SecaoLinhaDoTempo from '../components/secoes/SecaoLinhaDoTempo.astro';
+import SecaoNaturalidade from '../components/secoes/SecaoNaturalidade.astro';
+import SecaoTratamentos from '../components/secoes/SecaoTratamentos.astro';
+import SecaoValores from '../components/secoes/SecaoValores.astro';
+import { getEntry } from 'astro:content';
+
+const b = await home();
+const pagina = await getEntry('paginas', 'home');
+const bloco = (k: string) => {
+  const x = b[k];
+  if (!x) throw new Error(`bloco "${k}" não existe em paginas/home.json`);
+  return x;
+};
+---
+
+<Documento
+  titulo={pagina?.data.meta.title ?? 'Giyma'}
+  descricao={pagina?.data.meta.description}
+  superficie="cacau"
+>
+  <Entrada slot="inicio" />
+  <div class="topo">
+    <Cabecalho />
+    <main id="conteudo" tabindex="-1">
+      <HeroRetrato resposta={pagina?.data.resposta} />
+      <Manifesto bloco={bloco('manifesto')} />
+      <SecaoEster bloco={bloco('ester')} />
+      <SecaoLinhaDoTempo bloco={bloco('linha-do-tempo')} />
+      <SecaoTratamentos bloco={bloco('tratamentos')} />
+      <SecaoAvaliacao bloco={bloco('avaliacao')} />
+      <SecaoEspaco bloco={bloco('espaco')} />
+      <SecaoValores bloco={bloco('valores')} />
+      <SecaoNaturalidade bloco={bloco('naturalidade')} />
+      <SecaoDepoimentos bloco={bloco('depoimentos')} />
+      <SecaoAgendar bloco={bloco('agendar')} />
+    </main>
+  </div>
+  <Rodape />
+  <BotaoFlutuante />
+</Documento>

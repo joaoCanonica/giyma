@@ -1,0 +1,106 @@
+---
+// 10. Agendar e visitar (cacau): o CTA grande, horário (ou "Horário pelo WhatsApp"), endereço,
+// mapa estático com rotas e Instagram. O botão flutuante some quando esta seção aparece.
+import BotaoAgendar from '../base/BotaoAgendar.astro';
+import Assistente from '../cta/Assistente.astro';
+import Link from '../base/Link.astro';
+import MapaEstatico from '../base/MapaEstatico.astro';
+import Rotulo from '../base/Rotulo.astro';
+import Provisorio from '../Provisorio.astro';
+import { contato, horario } from '../../config/index.ts';
+import { linhasDaSemana, type Semana } from '../../lib/horario.ts';
+import type { Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const campo = horario.semana as { estado: string; valor: unknown };
+const semana = campo.estado === 'confirmado' ? (campo.valor as Semana) : null;
+const ig = contato.instagram.valor;
+---
+
+<section
+  class="capitulo agendar"
+  id="agendar"
+  data-superficie="cacau"
+  data-agendar-secao
+  aria-labelledby="agendar-titulo"
+>
+  <div class="contido">
+    <div class="agendar-topo">
+      <div class="pilha">
+        <Rotulo>{bloco.rotulo}</Rotulo>
+        <h2 id="agendar-titulo" class="t-display agendar-titulo">
+          {bloco.titulo}
+        </h2>
+        <p class="t-3 t-suave">{bloco.paragrafos?.[0]}</p>
+      </div>
+      <div class="agendar-acao">
+        <BotaoAgendar origem="home-agendar">{bloco.cta?.texto}</BotaoAgendar>
+        <div class="agendar-horario">
+          <Rotulo>Horário</Rotulo>
+          {semana ? (
+            <>
+              <ul class="t-tabular">
+                {linhasDaSemana(semana).map((l) => (
+                  <li>
+                    <span>{l.nome}</span> {l.texto}
+                  </li>
+                ))}
+              </ul>
+              <p class="t-pequeno t-suave">{horario.observacao}</p>
+            </>
+          ) : (
+            <p>
+              {horario.textoSemHorario}
+              <Provisorio rotulo="horário de atendimento" />
+            </p>
+          )}
+        </div>
+        <p>
+          <Link href={ig.url} externo>
+            Instagram @{ig.usuario}
+          </Link>
+        </p>
+      </div>
+    </div>
+    <div class="agendar-assist">
+      <Assistente id="assistente-home" origem="assistente-home" />
+    </div>
+    <MapaEstatico />
+  </div>
+</section>
+
+<style>
+  .agendar-assist {
+    margin-bottom: var(--e-5);
+  }
+  .agendar-topo {
+    display: grid;
+    gap: var(--e-4);
+    align-items: end;
+    margin-bottom: var(--e-5);
+  }
+  @media (min-width: 56rem) {
+    .agendar-topo {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    }
+  }
+  .agendar-titulo {
+    max-width: 9em;
+  }
+  .agendar-acao {
+    display: grid;
+    gap: var(--e-3);
+    justify-items: start;
+  }
+  .agendar-horario ul {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
+  .agendar-horario p {
+    margin-top: 0.5rem;
+  }
+</style>

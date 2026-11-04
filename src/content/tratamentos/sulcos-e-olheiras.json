@@ -1,0 +1,46 @@
+{
+  "slug": "sulcos-e-olheiras",
+  "nome": "Sulcos e olheiras",
+  "nomePopular": null,
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["bigode chinês", "olheiras", "marionete", "pré-jowls"],
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) trata sulcos como o bigode chinês, a marionete e os pré-jowls, e olheiras profundas, com ácido hialurônico, sempre depois de uma avaliação individual que confirma se esse é o caminho.",
+  "paraQuem": "Para quem nota sulcos mais marcados ao redor da boca e no contorno do maxilar, ou olheiras fundas que dão ar de cansaço.",
+  "oQueE": "É a reposição de volume perdido com o tempo em pontos específicos, com ácido hialurônico. Nem toda olheira é de volume: algumas têm causa de pigmento ou de circulação e não melhoram com preenchimento. A avaliação diz qual é o seu caso.",
+  "comoEFeito": "Os sulcos costumam ser consequência de volume e sustentação que o rosto perdeu em outros pontos. Por isso a Ester olha o rosto inteiro antes de tratar uma linha, e pode propor um plano por etapas.",
+  "cuidados": [
+    "Nos primeiros dias é comum um pouco de inchaço e roxo nos pontos tratados. Na região das olheiras a pele é mais fina, então o roxo pode aparecer mais. Ele passa.",
+    "Você recebe as orientações dos primeiros dias, e o retorno é combinado na avaliação.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
+  "duracaoSessao": null,
+  "resultadosEsperados": "Sulcos mais suaves e um olhar mais descansado, sem apagar as marcas que contam a sua história.",
+  "faq": [],
+  "citacoes": [],
+  "midia": [],
+  "fases": ["40", "50", "60+"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre sulcos e olheiras.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "posts 26/04/2024, 09/07/2025 e 01/12/2024 (marionete, pré-jowls)"
+    },
+    {
+      "ref": "media.manifest.json, f35-arte",
+      "nota": "bigode chinês, olheiras profundas"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 40 ou +\": sustentação; ácido hialurônico em pontos estratégicos (29–43 s)"
+    },
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
+      "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
+    }
+  ],
+  "meta": {
+    "title": "Bigode chinês e olheiras em Lages · Giyma",
+    "description": "Tratamento de bigode chinês, marionete e olheiras com ácido hialurônico em Lages, com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984)."
+  }
+}

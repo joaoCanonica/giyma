@@ -1,0 +1,63 @@
+---
+// 1. Manifesto (pérola): a haste abre antes do texto; frases grandes em serifa, a ideia-chave em itálico.
+import Haste from '../marca/Haste.astro';
+import type { Bloco } from './dados.ts';
+
+interface Props {
+  bloco: Bloco;
+}
+const { bloco } = Astro.props;
+const titulo = bloco.titulo ?? '';
+const destaque = 'quem você é';
+const [antes, depois] = titulo.includes(destaque) ? titulo.split(destaque) : [titulo, ''];
+const esc = (x: string) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+// Numa string só: quebras de linha no JSX virariam espaço antes do ponto ("é .").
+const tituloHtml = titulo.includes(destaque)
+  ? `${esc(antes ?? '')}<em>${esc(destaque)}</em>${esc(depois ?? '')}`
+  : esc(titulo);
+---
+
+<section class="capitulo manifesto" data-superficie="perola" aria-labelledby="manifesto-titulo">
+  <div class="contido manifesto-grade">
+    <Haste altura={140} class="manifesto-haste" />
+    <div class="manifesto-texto">
+      <h2 id="manifesto-titulo" class="manifesto-frase" set:html={tituloHtml} />
+      {bloco.paragrafos?.map((p) => (
+        <p class="manifesto-frase manifesto-frase--apoio">{p}</p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .manifesto-grade {
+    display: grid;
+    justify-items: center;
+    gap: var(--e-4);
+  }
+  .manifesto-texto {
+    display: grid;
+    gap: var(--e-3);
+    max-width: 22em;
+    text-align: center;
+    font-size: var(--t-1);
+  }
+  .manifesto-frase {
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  .manifesto-frase em {
+    font-family: var(--fonte-acento);
+    font-style: italic;
+    letter-spacing: -0.02em;
+  }
+  .manifesto-frase--apoio {
+    font-size: 0.62em;
+    line-height: 1.25;
+    color: var(--suave);
+  }
+</style>

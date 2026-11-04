@@ -1,0 +1,190 @@
+---
+// /a-giyma: o tour (vídeo com capítulos), os valores, a experiência do primeiro contato ao
+// retorno e a fachada (para reconhecer na rua).
+import Citacao from '../components/base/Citacao.astro';
+import Imagem from '../components/base/Imagem.astro';
+import Link from '../components/base/Link.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Florescer from '../components/marca/Florescer.astro';
+import { destino, fontePublica, microtextos, pagina } from '../components/secoes/dados.ts';
+import SecaoEspaco from '../components/secoes/SecaoEspaco.astro';
+import Pagina from '../layouts/Pagina.astro';
+
+const p = await pagina('a-giyma');
+const home = await pagina('home');
+const b = p.blocos;
+const m = await microtextos();
+const tour = { ...home.blocos['espaco'], ...b['tour'], itens: home.blocos['espaco']?.itens };
+const STILL: Record<string, string> = {
+  'Segurança e cuidado': 'still-consultorio',
+  'Naturalidade com propósito': 'still-recepcao',
+  'Ética e transparência': 'still-placa',
+  'Acolhimento humanizado': 'still-xicaras',
+};
+const comoChegar = b['fachada']?.cta ? await destino(b['fachada'].cta.mensagem) : '/como-chegar';
+---
+
+<Pagina
+  meta={p.meta}
+  resposta={p.resposta}
+  trilha="A Giyma"
+  rotulo={b['abertura']?.rotulo}
+  titulo={b['abertura']?.titulo ?? ''}
+  abertura={b['abertura']?.paragrafos}
+>
+  <SecaoEspaco bloco={tour} superficie="petroleo" />
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="gv-titulo">
+    <div class="contido">
+      <header class="pilha gv-cabeca">
+        <Rotulo>{b['valores']?.rotulo}</Rotulo>
+        <h2 id="gv-titulo" class="t-1">
+          {b['valores']?.titulo}
+        </h2>
+      </header>
+      <ol class="gv-lista">
+        {b['valores']?.itens?.map((v, i) => {
+          const still = STILL[v.titulo ?? ''] ?? 'still-consultorio';
+          return (
+            <li class:list={['gv-item', { 'gv-item--inverso': i % 2 }]}>
+              <div class="gv-foto">
+                <Imagem
+                  id={still}
+                  alt={m.alt[still] ?? ''}
+                  sizes="(min-width: 56rem) 22rem, 40vw"
+                />
+              </div>
+              <div class="pilha">
+                <span class="gv-num t-tabular" aria-hidden="true">{`0${i + 1}`}</span>
+                <h3 class="t-2">{v.titulo}</h3>
+                <p class="t-suave medida">{v.texto}</p>
+                {v.citacao && (
+                  <Citacao
+                    texto={v.citacao.texto}
+                    fonte={fontePublica(v.citacao.fonte)}
+                    tamanho="media"
+                  />
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="nevoa" aria-labelledby="gx-titulo">
+    <div class="contido">
+      <header class="pilha gv-cabeca">
+        <Rotulo>{b['experiencia']?.rotulo}</Rotulo>
+        <h2 id="gx-titulo" class="t-1">
+          {b['experiencia']?.titulo}
+        </h2>
+      </header>
+      <ol class="gx-lista">
+        {b['experiencia']?.itens?.map((e, i) => (
+          <li>
+            <span class="t-numero gx-num" aria-hidden="true">
+              {i + 1}
+            </span>
+            <h3 class="t-3">{e.titulo}</h3>
+            <p class="t-suave">{e.texto}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="capitulo" data-superficie="perola" aria-labelledby="gf-titulo">
+    <div class="contido gf-grade">
+      <Florescer as="figure" class="gf-foto">
+        <Imagem
+          id="still-fachada"
+          alt={m.alt['still-fachada'] ?? ''}
+          sizes="(min-width: 56rem) 30rem, 92vw"
+        />
+      </Florescer>
+      <div class="pilha">
+        <Rotulo>{b['fachada']?.rotulo}</Rotulo>
+        <h2 id="gf-titulo" class="t-1">
+          {b['fachada']?.titulo}
+        </h2>
+        {b['fachada']?.paragrafos?.map((x) => (
+          <p class="t-3">{x}</p>
+        ))}
+        {b['fachada']?.cta && (
+          <p>
+            <Link href={comoChegar}>{b['fachada'].cta.texto}</Link>
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+</Pagina>
+
+<style>
+  .gv-cabeca {
+    margin-bottom: var(--e-5);
+  }
+  .gv-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--e-5);
+  }
+  .gv-item {
+    display: grid;
+    gap: var(--e-3);
+    grid-template-columns: 7rem minmax(0, 1fr);
+    align-items: start;
+  }
+  @media (min-width: 56rem) {
+    .gv-item {
+      grid-template-columns: 18rem minmax(0, 1fr);
+      gap: var(--e-5);
+      max-width: 62rem;
+    }
+    .gv-item--inverso {
+      margin-left: auto;
+    }
+  }
+  .gv-num {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.12em;
+    color: var(--rotulo);
+  }
+  .gx-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--e-4) var(--e-3);
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+  .gx-lista li {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    padding-top: var(--e-2);
+    border-top: 1px solid var(--fio);
+  }
+  .gx-num {
+    font-size: clamp(3rem, 2rem + 3vw, 5rem);
+  }
+  .gf-grade {
+    display: grid;
+    gap: var(--e-5);
+    align-items: center;
+  }
+  @media (min-width: 56rem) {
+    .gf-grade {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    }
+  }
+  :global(.gf-foto) {
+    margin: 0;
+    max-width: 30rem;
+  }
+</style>

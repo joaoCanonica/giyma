@@ -1,0 +1,33 @@
+---
+// Selo PROVISÓRIO ao lado de um dado não confirmado. Só em preview.
+import { ehPreview } from '../config/index.ts';
+
+interface Props {
+  /** O que está pendente (ex.: "horário"). Vai no title para quem revisa. */
+  rotulo: string;
+}
+const { rotulo } = Astro.props;
+const mostrar = ehPreview();
+---
+
+{mostrar && (
+  <span class="provisorio" data-provisorio title={`Pendente: ${rotulo}`}>
+    provisório
+  </span>
+)}
+
+<style>
+  .provisorio {
+    display: inline-block;
+    margin-inline-start: 0.4em;
+    padding: 0.05em 0.4em;
+    font:
+      600 0.6875rem/1.4 system-ui,
+      sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    color: var(--rotulo, #7a5a2e);
+    border: 1px solid currentColor;
+  }
+</style>

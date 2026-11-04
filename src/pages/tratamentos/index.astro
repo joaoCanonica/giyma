@@ -1,0 +1,271 @@
+---
+// /tratamentos: índice editorial por região (rosto · mãos · qualidade da pele).
+// Rejuvenescimento das mãos ganha destaque: nicho pouco ocupado em Lages (post de 30/10/2026).
+import { getCollection, getEntry } from 'astro:content';
+import BotaoAgendar from '../../components/base/BotaoAgendar.astro';
+import Documento from '../../components/base/Documento.astro';
+import Link from '../../components/base/Link.astro';
+import Rotulo from '../../components/base/Rotulo.astro';
+import Cabecalho from '../../components/hero/Cabecalho.astro';
+import Haste from '../../components/marca/Haste.astro';
+import BotaoFlutuante from '../../components/secoes/BotaoFlutuante.astro';
+import Rodape from '../../components/secoes/Rodape.astro';
+
+const pagina = await getEntry('paginas', 'tratamentos');
+if (!pagina) throw new Error('src/content/paginas/tratamentos.json não encontrado');
+const b = pagina.data.blocos;
+const confirmados = (await getCollection('tratamentos'))
+  .map((t) => t.data)
+  .filter((t) => t.status === 'confirmado');
+const ORDEM = [
+  'toxina-botulinica',
+  'preenchimento-labial',
+  'contorno-facial',
+  'sulcos-e-olheiras',
+  'bioestimulador-de-colageno',
+  'microagulhamento',
+  'peeling',
+];
+const por = (cats: string[]) =>
+  confirmados
+    .filter((t) => cats.includes(t.categoria))
+    .sort((a, z) => ORDEM.indexOf(a.slug) - ORDEM.indexOf(z.slug));
+const grupos = [
+  { id: 'rosto', bloco: b['rosto'], itens: por(['facial']) },
+  { id: 'pele', bloco: b['pele'], itens: por(['pele']) },
+];
+const maos = confirmados.find((t) => t.slug === 'rejuvenescimento-de-maos');
+const frase = (s: string | null) => (s ?? '').split(/(?<=\.)\s/)[0] ?? '';
+let n = 0;
+---
+
+<Documento
+  titulo={pagina.data.meta.title}
+  descricao={pagina.data.meta.description}
+  superficie="perola"
+  trilha={[{ nome: 'Tratamentos', caminho: '/tratamentos' }]}
+>
+  <div class="topo">
+    <Cabecalho />
+    <main id="conteudo" tabindex="-1">
+      <section class="hero ti-hero" data-superficie="cacau" aria-labelledby="ti-titulo">
+        <div class="contido ti-hero-grade">
+          <nav class="ti-trilha" aria-label="Você está em">
+            <a href="/">Início</a> <span aria-hidden="true">/</span>{' '}
+            <span aria-current="page">Tratamentos</span>
+          </nav>
+          <div class="pilha">
+            <Rotulo>{b['abertura']?.rotulo}</Rotulo>
+            <h1 id="ti-titulo" class="t-display">
+              Tratamentos em Lages
+            </h1>
+            <p class="ti-subtitulo t-acento t-2">{b['abertura']?.titulo}</p>
+            {[pagina.data.resposta, ...(b['abertura']?.paragrafos ?? [])].flatMap((p, i) =>
+              p
+                ? [
+                    <p
+                      class="ti-abertura"
+                      data-resposta={i === 0 ? '' : undefined}
+                      data-assinatura-profissional
+                      set:html={p
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace('CRF-SC 3984', '<span class="sem-quebra">CRF-SC 3984</span>')}
+                    />,
+                  ]
+                : [],
+            )}
+          </div>
+        </div>
+      </section>
+
+      {grupos.map((g) => (
+        <section
+          class="capitulo ti-grupo"
+          data-superficie={g.id === 'rosto' ? 'perola' : 'nevoa'}
+          aria-labelledby={`ti-${g.id}`}
+        >
+          <div class="contido ti-grupo-grade">
+            <header class="pilha ti-grupo-cabeca">
+              <Rotulo as="h2">
+                <span id={`ti-${g.id}`}>{g.bloco?.rotulo}</span>
+              </Rotulo>
+              {g.bloco?.paragrafos?.map((p) => (
+                <p class="t-3">{p}</p>
+              ))}
+            </header>
+            <ol class="ti-lista">
+              {g.itens.map((t) => {
+                n += 1;
+                return (
+                  <li>
+                    <a class="ti-item" href={`/tratamentos/${t.slug}`}>
+                      <span class="ti-num t-tabular" aria-hidden="true">
+                        {String(n).padStart(2, '0')}
+                      </span>
+                      <span class="ti-nome">{t.nome}</span>
+                      <span class="ti-areas">{t.areas.join(' · ')}</span>
+                      <span class="ti-frase">{frase(t.paraQuem)}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </section>
+      ))}
+
+      {maos && (
+        <section class="capitulo ti-maos" data-superficie="petroleo" aria-labelledby="ti-maos">
+          <div class="contido ti-maos-grade">
+            <Haste altura={180} class="ti-maos-haste" />
+            <div class="pilha">
+              <Rotulo>{b['maos']?.rotulo} · em destaque</Rotulo>
+              <h2 id="ti-maos" class="t-display ti-maos-titulo">
+                As mãos também <span class="t-acento">contam o tempo.</span>
+              </h2>
+              <p class="t-3 ti-maos-texto">{maos.paraQuem}</p>
+              <p class="medida t-suave">{maos.oQueE}</p>
+              <p>
+                <Link href={`/tratamentos/${maos.slug}`}>Conheça o rejuvenescimento das mãos</Link>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section
+        class="capitulo ti-convite"
+        data-superficie="cacau"
+        data-agendar-secao
+        aria-labelledby="ti-convite"
+      >
+        <div class="contido pilha ti-convite-grade">
+          <h2 id="ti-convite" class="t-1">
+            {b['convite']?.titulo}
+          </h2>
+          {b['convite']?.paragrafos?.map((p) => (
+            <p class="t-suave">{p}</p>
+          ))}
+          <BotaoAgendar origem="tratamentos-indice">
+            {b['convite']?.cta?.texto ?? 'Agendar avaliação'}
+          </BotaoAgendar>
+        </div>
+      </section>
+    </main>
+  </div>
+  <Rodape />
+  <BotaoFlutuante />
+</Documento>
+
+<style>
+  .ti-hero {
+    padding: clamp(6.5rem, 5rem + 6vw, 10rem) 0 var(--e-5);
+  }
+  .ti-hero-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  .ti-trilha {
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+  .ti-trilha a {
+    color: inherit;
+  }
+  .ti-trilha span[aria-hidden] {
+    margin-inline: 0.5rem;
+    color: var(--fio);
+  }
+  .ti-subtitulo {
+    color: var(--rotulo);
+  }
+  .ti-abertura {
+    max-width: 38em;
+    font-size: 1.1875rem;
+    line-height: 1.6;
+  }
+  .ti-grupo-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .ti-grupo-grade {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+      align-items: start;
+    }
+    .ti-grupo-cabeca {
+      position: sticky;
+      top: var(--e-4);
+    }
+  }
+  .ti-lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+  }
+  .ti-item {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    gap: 0.35rem var(--e-2);
+    padding: var(--e-3) 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+    color: inherit;
+    text-decoration: none;
+  }
+  .ti-num {
+    grid-row: 1 / span 3;
+    padding-top: 0.6rem;
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    color: var(--rotulo);
+  }
+  .ti-nome {
+    font-family: var(--fonte-titulo);
+    /* "Rejuvenescimento" e "Microagulhamento" cabem inteiros até 320 px (sem hífen). */
+    font-size: min(var(--t-1), 10vw);
+    line-height: 1.02;
+    transition: color var(--d-2) var(--curva);
+  }
+  .ti-item:hover .ti-nome,
+  .ti-item:focus-visible .ti-nome {
+    color: var(--link);
+  }
+  .ti-areas {
+    font-family: var(--fonte-rotulo);
+    font-size: var(--t-rotulo);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rotulo);
+  }
+  .ti-frase {
+    color: var(--suave);
+    max-width: 38em;
+  }
+  .ti-maos-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .ti-maos-grade {
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--e-5);
+      align-items: center;
+    }
+  }
+  .ti-maos-titulo {
+    max-width: 10em;
+  }
+  .ti-maos-titulo .t-acento {
+    color: var(--rotulo);
+  }
+  .ti-maos-texto {
+    max-width: 24em;
+    line-height: 1.35;
+  }
+  .ti-convite-grade {
+    justify-items: center;
+    text-align: center;
+  }
+</style>

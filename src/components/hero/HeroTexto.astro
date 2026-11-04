@@ -1,0 +1,116 @@
+---
+// Texto do hero (comum às alternativas A e B). Copy provisória: a sessão 5 refina.
+import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
+import Botao from '../base/Botao.astro';
+import BotaoAgendar from '../base/BotaoAgendar.astro';
+import Link from '../base/Link.astro';
+import Rotulo from '../base/Rotulo.astro';
+import { contato } from '../../config/index.ts';
+import { comAssinatura, esterPublicada, textoHtml } from '../secoes/dados.ts';
+
+interface Props {
+  /** Na alternativa A (mobile), o nome já está na placa da foto. */
+  assinaturaNoDesktop?: boolean;
+  /** Parágrafo-resposta da home (paginas/home.json): quem, o quê, onde. */
+  resposta?: string | undefined;
+}
+const { assinaturaNoDesktop = true, resposta } = Astro.props;
+const e = contato.endereco.valor;
+const ig = contato.instagram.valor;
+---
+
+<div class="ht">
+  <Rotulo as="p" class="ht-rotulo">
+    Saúde e estética avançada · Lages
+  </Rotulo>
+  <h1 id="hero-titulo" class="ht-titulo">
+    Beleza natural em cada fase da vida.
+  </h1>
+  <div class="ht-acoes">
+    <BotaoAgendar origem="hero" />
+    {esterPublicada() && (
+      <Botao href="/dra-ester-santos" variante="secundario">
+        Conheça a Ester Santos
+      </Botao>
+    )}
+  </div>
+  {resposta ? (
+    <p class="ht-apoio" data-resposta {...comAssinatura(resposta)} set:html={textoHtml(resposta)} />
+  ) : (
+    <p class="ht-apoio">
+      Harmonização facial com avaliação individual, planejamento e o cuidado de quem conhece a pele
+      por dentro.
+    </p>
+  )}
+  <AssinaturaProfissional
+    class:list={['ht-assinatura', { 'ht-assinatura--so-desktop': assinaturaNoDesktop }]}
+  />
+  <p class="ht-rodape t-pequeno">
+    <span>
+      {e.logradouro}, {e.numero} · {e.bairro} · {e.cidade}/{e.uf}
+    </span>
+    <Link href={ig.url} externo>
+      @{ig.usuario}
+    </Link>
+  </p>
+</div>
+
+<style is:global>
+  .ht {
+    display: grid;
+    gap: var(--e-3);
+    max-width: 36rem;
+  }
+  .ht-titulo {
+    font-size: clamp(2.6rem, 1.5rem + 4.1vw, 5.75rem);
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .ht-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .ht-apoio {
+    max-width: 30em;
+    color: var(--suave);
+  }
+  .ht-rodape {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    color: var(--suave);
+  }
+  /* Mobile: a ordem prioriza o agendar na primeira dobra. Desktop: apoio antes dos botões. */
+  @media (max-width: 55.99rem) {
+    .ht-assinatura--so-desktop {
+      display: none;
+    }
+    .ht-titulo {
+      font-size: clamp(2.35rem, 1.7rem + 3vw, 3rem);
+    }
+  }
+  @media (min-width: 56rem) {
+    .ht-rotulo {
+      order: 1;
+    }
+    .ht-titulo {
+      order: 2;
+    }
+    .ht-apoio {
+      order: 3;
+      font-size: 1.1875rem;
+    }
+    .ht-assinatura {
+      order: 4;
+    }
+    .ht-acoes {
+      order: 5;
+      margin-top: var(--e-2);
+    }
+    .ht-rodape {
+      order: 6;
+      margin-top: var(--e-3);
+    }
+  }
+</style>

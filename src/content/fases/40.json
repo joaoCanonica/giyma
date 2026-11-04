@@ -1,0 +1,36 @@
+{
+  "faixa": "40",
+  "ordem": 3,
+  "titulo": "Aos 40",
+  "oQueMuda": "A partir dos 40, o rosto perde volume e sustentação em pontos estratégicos: o contorno fica menos definido e os sulcos aparecem mais. O cuidado passa a ser de sustentação, com ácido hialurônico onde faz sentido e estímulo de colágeno, também nas mãos.",
+  "focos": [
+    "contorno-facial",
+    "sulcos-e-olheiras",
+    "bioestimulador-de-colageno",
+    "rejuvenescimento-de-maos"
+  ],
+  "frase": {
+    "texto": "Nós buscamos sustentação.",
+    "fonte": "vídeo DbBfgMjRUkX (20/07/2026), legendas (trecho \"Aos 40 ou +\")"
+  },
+  "video": {
+    "trecho": "fases",
+    "inicio": 29,
+    "fim": 43,
+    "observacao": "O vídeo trata \"Aos 40 ou +\" junto; 50 e 60+ usam o mesmo trecho."
+  },
+  "base": [
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 40 ou +\": sustentação; ácido hialurônico em pontos estratégicos (29–43 s)"
+    },
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §1.4",
+      "nota": "conteúdos para \"40, 50 ou 60 anos\": flacidez, mãos, bigode chinês, jowls, bioestimulador"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX",
+      "nota": "cita fios de PDO combinados ao preenchimento: não há tratamento cadastrado (pendente)"
+    }
+  ]
+}

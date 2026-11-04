@@ -1,0 +1,33 @@
+---
+// (a) Revelação "O Florescer": duas folhas (elipses de clip-path) se abrem do centro,
+// 700–900 ms, uma vez, ao entrar na tela (WAAPI). Sem JS ou com movimento reduzido:
+// o conteúdo aparece direto.
+interface Props {
+  /** ms, entre 700 e 900. */
+  duracao?: number;
+  as?: 'div' | 'figure' | 'section';
+  class?: string | undefined;
+}
+const { duracao = 800, as: Tag = 'div', class: classe } = Astro.props;
+const ms = Math.min(900, Math.max(700, duracao));
+---
+
+<Tag class:list={['florescer', classe]} data-florescer data-duracao={ms}>
+  <div class="florescer-alvo">
+    <slot />
+  </div>
+</Tag>
+
+<style is:global>
+  /* O observador vê o invólucro; o recorte vai no filho (o IntersectionObserver
+     considera o clip-path do próprio alvo). */
+  @media (prefers-reduced-motion: no-preference) {
+    .js [data-florescer]:not([data-florido]) > .florescer-alvo {
+      clip-path: inset(0 50%);
+    }
+  }
+</style>
+
+<script>
+  import './florescer.ts';
+</script>

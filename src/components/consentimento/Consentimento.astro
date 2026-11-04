@@ -1,0 +1,162 @@
+---
+// Aviso de consentimento (LGPD). "Aceitar" e "Recusar" com o mesmo peso visual.
+// Sem escolha, nada de terceiro carrega: nem medição nem mapa do Google.
+// Abre sozinho na primeira visita só se a medição estiver configurada (PLAUSIBLE_DOMINIO);
+// sempre pode ser aberto pelo rodapé ("Preferências de privacidade") ou pelo mapa.
+import { lerEnv } from '../../config/ambiente.ts';
+
+const dominio = lerEnv('PLAUSIBLE_DOMINIO')?.trim() || undefined;
+const script = lerEnv('PLAUSIBLE_SCRIPT')?.trim() || 'https://plausible.io/js/script.js';
+---
+
+<div
+  class="consent"
+  role="dialog"
+  aria-modal="false"
+  aria-labelledby="consent-titulo"
+  data-consentimento
+  data-dominio={dominio}
+  data-script={dominio ? script : undefined}
+  hidden
+>
+  <div class="consent-texto">
+    <p id="consent-titulo" class="consent-titulo">
+      Privacidade
+    </p>
+    <p class="t-pequeno">
+      {dominio
+        ? 'Podemos contar visitas e cliques de forma anônima (Plausible, sem cookies) e mostrar o mapa do Google? Nada é carregado sem a sua escolha.'
+        : 'Podemos mostrar o mapa do Google? Ele só carrega com a sua escolha.'}{' '}
+      <a class="link" href="/privacidade">
+        Saiba mais
+      </a>
+    </p>
+  </div>
+  <div class="consent-acoes">
+    <button type="button" class="consent-botao" data-escolha="aceito">
+      Aceitar
+    </button>
+    <button type="button" class="consent-botao" data-escolha="recusado">
+      Recusar
+    </button>
+  </div>
+</div>
+
+<style is:global>
+  .consent {
+    position: fixed;
+    z-index: 60;
+    left: var(--margem);
+    right: var(--margem);
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    max-width: 40rem;
+    margin-inline: auto;
+    display: grid;
+    gap: var(--e-2);
+    padding: var(--e-3);
+    background: var(--c-cacau);
+    color: var(--c-perola);
+    box-shadow: inset 0 0 0 1px var(--c-ouro);
+  }
+  .consent[hidden] {
+    display: none;
+  }
+  .consent .link {
+    color: inherit;
+  }
+  .consent-titulo {
+    margin: 0 0 0.3rem;
+    font-family: var(--fonte-rotulo);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--c-ouro);
+  }
+  .consent-texto p {
+    margin: 0;
+  }
+  .consent-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  /* Mesmo peso: os dois botões são idênticos (fio, mesma cor, mesmo tamanho). */
+  .consent-botao {
+    appearance: none;
+    min-height: 2.75rem;
+    padding: 0.7rem 1rem;
+    font-family: var(--fonte-rotulo);
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-perola);
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .consent-botao:hover,
+  .consent-botao:focus-visible {
+    border-color: var(--c-ouro);
+    box-shadow: inset 0 0 0 1px var(--c-ouro);
+  }
+</style>
+
+<script>
+  import { classificar, propriedades } from '../../lib/medicao.ts';
+  import { abrir, aceito, definir, escolha, quandoAceitar, type Escolha } from './consentimento.ts';
+
+  type Plausible = ((e: string, o?: { props: Record<string, string> }) => void) & { q?: unknown[] };
+  const w = window as unknown as { plausible?: Plausible };
+  const caixa = document.querySelector<HTMLElement>('[data-consentimento]');
+
+  if (caixa) {
+    const raiz = document.documentElement;
+    const { dominio, script } = caixa.dataset;
+    const mostrar = (sim: boolean, focar = false) => {
+      caixa.hidden = !sim;
+      raiz.toggleAttribute('data-consentimento-aberto', sim);
+      if (focar) caixa.querySelector<HTMLButtonElement>('[data-escolha]')?.focus();
+    };
+    caixa.addEventListener('click', (e) => {
+      const b = (e.target as Element).closest<HTMLButtonElement>('[data-escolha]');
+      if (!b) return;
+      definir(b.dataset.escolha as Escolha);
+      mostrar(false);
+    });
+    caixa.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') mostrar(false);
+    });
+    addEventListener('giyma:abrir-consentimento', () => mostrar(true, true));
+    document.addEventListener('click', (e) => {
+      if ((e.target as Element).closest('[data-abrir-consentimento]')) abrir();
+    });
+    if (dominio && !escolha()) mostrar(true);
+
+    // Medição: o script do Plausible só é pedido depois de "Aceitar".
+    if (dominio && script) {
+      quandoAceitar(() => {
+        if (document.querySelector('script[data-plausible]')) return;
+        if (!w.plausible) {
+          const fila: unknown[] = [];
+          w.plausible = Object.assign((...a: unknown[]) => void fila.push(a), { q: fila });
+        }
+        const s = document.createElement('script');
+        s.defer = true;
+        s.src = script;
+        s.dataset.domain = dominio;
+        s.dataset.plausible = '';
+        document.head.append(s);
+      });
+      // Eventos: clique_whatsapp (origem, tratamento, fase), clique_como_chegar, clique_instagram.
+      document.addEventListener('click', (e) => {
+        if (e.defaultPrevented || !aceito()) return;
+        const a = (e.target as Element).closest<HTMLAnchorElement>('a[href]');
+        const evento = a && classificar(a.href);
+        if (!a || !evento) return;
+        const props = propriedades(a, location.pathname);
+        w.plausible?.(evento, { props: { ...props } });
+      });
+    }
+  }
+</script>

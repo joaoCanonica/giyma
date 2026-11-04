@@ -1,0 +1,189 @@
+{
+  "slug": "perguntas-frequentes",
+  "meta": {
+    "title": "Perguntas frequentes sobre harmonização · Lages",
+    "description": "Toxina botulínica deixa o rosto paralisado? Preenchimento sempre aumenta os lábios? Farmacêutico pode aplicar? As respostas, na Giyma, em Lages."
+  },
+  "resposta": "Estas são as dúvidas mais comuns sobre harmonização facial na Giyma, em Lages/SC: toxina botulínica, preenchimento, bioestimulador de colágeno, a avaliação e quem pode aplicar. Quem atende é a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984).",
+  "blocos": {
+    "abertura": {
+      "rotulo": "Perguntas frequentes",
+      "titulo": "Dúvidas que recebo aqui na Giyma.",
+      "paragrafos": [
+        "As respostas abaixo são gerais. A sua, com o seu rosto e a sua história, vem na avaliação."
+      ]
+    },
+    "toxina": {
+      "rotulo": "Toxina botulínica",
+      "itens": [
+        {
+          "id": "toxina-paralisa",
+          "titulo": "A toxina botulínica ({{nome-popular:botox}}) deixa o rosto paralisado?",
+          "paragrafos": [
+            "Não! Quando bem aplicado, ele suaviza as rugas sem tirar sua naturalidade.",
+            "Você continua sorrindo, se expressando, sendo você mesma."
+          ],
+          "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal; vídeo DP9tLKNEeOG (18/10/2025), legendas",
+          "origem": "literal"
+        },
+        {
+          "id": "toxina-rugas-profundas",
+          "titulo": "Toxina botulínica é só para quem já tem rugas profundas?",
+          "paragrafos": [
+            "Não. Ela também serve como prevenção. Muitas pacientes começam aos 25 ou 30 anos, justamente para evitar que as linhas de expressão marquem com o tempo."
+          ],
+          "fonte": "vídeo DP9tLKNEeOG (18/10/2025), legendas",
+          "origem": "baseado-em-post"
+        },
+        {
+          "id": "toxina-sempre",
+          "titulo": "Se eu fizer uma vez, vou ter que fazer sempre?",
+          "paragrafos": [
+            "Não. O efeito dura em média de 3 a 6 meses. Você pode escolher manter os resultados, mas não é uma obrigação.",
+            "Se não reaplicar, o seu rosto não vai piorar: ele volta ao estado natural."
+          ],
+          "fonte": "vídeo DP9tLKNEeOG (18/10/2025), legendas",
+          "origem": "baseado-em-post"
+        },
+        {
+          "id": "toxina-x-preenchimento",
+          "titulo": "Qual a diferença entre toxina botulínica e preenchimento?",
+          "paragrafos": [
+            "A toxina botulínica trata e previne rugas que aparecem com o tempo, as chamadas rugas dinâmicas: pés de galinha, linhas da testa e glabela (a ruga de “bravo” entre as sobrancelhas).",
+            "O preenchimento repõe o volume perdido com o tempo, preenche sulcos profundos e estrutura o rosto: bigode chinês, olheiras profundas, lábios (volume e contorno), malar e mandíbula (sustentação).",
+            "Muitas vezes os dois se complementam. Cada pessoa é única, e a avaliação mostra qual é o seu caso."
+          ],
+          "fonte": "carrossel \"Botox vs Preenchimento\", DQ-C44oEQVP (12/11/2025)",
+          "origem": "baseado-em-post"
+        }
+      ]
+    },
+    "preenchimento": {
+      "rotulo": "Preenchimento",
+      "itens": [
+        {
+          "id": "preenchimento-labial-aumenta",
+          "titulo": "O preenchimento labial sempre aumenta muito os lábios?",
+          "paragrafos": [
+            "Não. O resultado é personalizado e pode ser bem sutil, apenas para definir o contorno e hidratar."
+          ],
+          "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+          "origem": "literal"
+        },
+        {
+          "id": "preenchimento-artificial",
+          "titulo": "Vou ficar artificial?",
+          "paragrafos": [
+            "O que deixa um rosto artificial é exagero e pressa. Aqui o plano respeita a sua anatomia, a sua idade e o que você quer, e pode ser feito por etapas.",
+            "O segredo não está em uma fórmula mágica, e sim no respeito à individualidade do seu rosto."
+          ],
+          "fonte": "legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3) (\"Vou ficar artificial?\"); frases reais enviadas pelo João (CLAUDE.md, seção 1)",
+          "origem": "redacao-a-validar"
+        },
+        {
+          "id": "preenchimento-sem-volta",
+          "titulo": "É um caminho sem volta?",
+          "paragrafos": [
+            "Não. O ácido hialurônico usado no preenchimento é absorvido pelo organismo aos poucos. Manter ou não o resultado é uma escolha sua, conversada na avaliação."
+          ],
+          "fonte": "legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3) (\"É um caminho sem volta?\"); Resoluções CFF 616/2015, 645/2017 e 669/2018 (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 6) (preenchedores absorvíveis)",
+          "origem": "redacao-a-validar"
+        }
+      ]
+    },
+    "bioestimulador": {
+      "rotulo": "Bioestimulador e qualidade da pele",
+      "itens": [
+        {
+          "id": "creme-x-bioestimulador",
+          "titulo": "Creme ou bioestimulador nas mãos?",
+          "paragrafos": [
+            "O creme hidrata e protege a superfície da pele, e é parte do cuidado diário. O bioestimulador age em outra camada: estimula a pele a produzir o próprio colágeno, o que melhora espessura e firmeza aos poucos.",
+            "Um não substitui o outro. Na avaliação, a Ester olha as suas mãos e diz o que faz sentido."
+          ],
+          "fonte": "legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3) (\"creme × bioestimulador\")",
+          "origem": "redacao-a-validar"
+        },
+        {
+          "id": "microagulhamento-doi",
+          "titulo": "Microagulhamento dói?",
+          "paragrafos": ["Com o uso de anestésico tópico, o procedimento é confortável e seguro."],
+          "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+          "origem": "literal"
+        },
+        {
+          "id": "inverno",
+          "titulo": "Por que começar no inverno?",
+          "paragrafos": [
+            "O frio é um aliado da pele. Nessa época do ano, a menor exposição ao sol ajuda na regeneração, principalmente depois de microagulhamento, peeling e bioestimuladores.",
+            "No frio também acontece a vasoconstrição, a diminuição dos vasos sanguíneos, que ajuda a reduzir inchaço e vermelhidão depois do procedimento.",
+            "E como muitos tratamentos levam algumas semanas para chegar ao resultado, começar no inverno é chegar ao verão com a pele renovada."
+          ],
+          "fonte": "vídeo DYnNCJ3P80V (21/05/2026), legendas",
+          "origem": "baseado-em-post"
+        }
+      ]
+    },
+    "avaliacao": {
+      "rotulo": "Avaliação",
+      "itens": [
+        {
+          "id": "preciso-avaliacao",
+          "titulo": "Preciso de avaliação antes?",
+          "paragrafos": [
+            "Sempre! Cada pele e cada rosto são únicos, por isso a avaliação personalizada é indispensável."
+          ],
+          "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+          "origem": "literal"
+        },
+        {
+          "id": "avaliacao-personalizada",
+          "titulo": "O que é a avaliação personalizada?",
+          "paragrafos": [
+            "É a conversa que vem antes de qualquer procedimento. A Ester escuta o que te incomoda e o que você espera, analisa o rosto e a pele, considera a sua saúde e monta com você um plano por etapas: o que faz sentido agora, o que pode esperar e o que não é para você.",
+            "Você sai sabendo o que pode ser feito, por quê e quais são os cuidados."
+          ],
+          "fonte": "destaque \"Comece aqui\" do Instagram; legendas do Instagram (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 3) (\"planejamento, sem pressa\")",
+          "origem": "redacao-a-validar"
+        }
+      ],
+      "pendente": "se a avaliação tem custo e como funciona o agendamento (a clínica informa no WhatsApp)"
+    },
+    "profissional": {
+      "rotulo": "Sobre a profissional",
+      "itens": [
+        {
+          "id": "farmaceutico-pode",
+          "titulo": "Quem pode aplicar? Farmacêutico pode?",
+          "paragrafos": [
+            "Pode. A atuação do farmacêutico na estética é regulamentada pelo Conselho Federal de Farmácia desde 2015 (Resoluções 616/2015 e 645/2017), que incluem procedimentos como toxina botulínica, preenchimento com ácido hialurônico, bioestimuladores, microagulhamento e peelings. A exigência é pós-graduação em saúde estética e registro da especialização no conselho regional.",
+            "Em outubro de 2025, a Justiça Federal (TRF1) manteve a validade da Resolução CFF 669/2018, que trata dessa atuação.",
+            "A Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) é formada pela UFSC e atua na Giyma, em Lages."
+          ],
+          "fonte": "Resoluções CFF 616/2015, 645/2017 e 669/2018 (docs/GIYMA_INVESTIGACAO_CLIENTE.md, seção 6)",
+          "origem": "redacao-a-validar"
+        }
+      ],
+      "pendente": "confirmar a pós-graduação e a averbação da especialização da Ester no CRF-SC antes de publicar esta resposta"
+    },
+    "visita": {
+      "rotulo": "Visita",
+      "itens": [
+        {
+          "id": "como-chegar",
+          "titulo": "Como chegar e onde estacionar?",
+          "paragrafos": [
+            "A Giyma fica na Rua Rui Barbosa, 277, no Centro de Lages. Na página “Como chegar” você abre a rota no Google Maps, no Waze ou no Apple Mapas."
+          ],
+          "fonte": "contato da ficha do Google",
+          "origem": "redacao-a-validar"
+        }
+      ],
+      "pendente": "estacionamento e referências de chegada: aguardando a clínica"
+    }
+  },
+  "pendentes": [
+    "3 mitos do preenchimento: só um tem resposta literal (os outros dois são redação a validar)",
+    "resposta sobre farmacêutico depende da confirmação da pós/averbação"
+  ]
+}

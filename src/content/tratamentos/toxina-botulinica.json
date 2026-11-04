@@ -1,0 +1,68 @@
+{
+  "slug": "toxina-botulinica",
+  "nome": "Toxina botulínica",
+  "nomePopular": "botox",
+  "categoria": "facial",
+  "status": "confirmado",
+  "areas": ["linhas da testa", "glabela (entre as sobrancelhas)", "pés de galinha"],
+  "resposta": "Na Giyma, no Centro de Lages, a Dra. Ester Santos (farmacêutica esteta, CRF-SC 3984) aplica toxina botulínica para suavizar e prevenir rugas de expressão, como as da testa, entre as sobrancelhas e os pés de galinha, sempre depois de uma avaliação individual.",
+  "paraQuem": "Para quem quer suavizar as linhas que aparecem quando o rosto se movimenta e para quem prefere começar antes que elas fiquem marcadas. A Ester conta que muitas pacientes começam aos 25 ou 30 anos, justamente como prevenção.",
+  "oQueE": "É um medicamento aplicado em pequenas doses em músculos específicos do rosto. Ele diminui a força da contração que forma as rugas dinâmicas, aquelas da expressão, e o rosto continua se movendo.",
+  "comoEFeito": "Depois da avaliação, a Ester marca os pontos de aplicação de acordo com a sua expressão. As aplicações são feitas com agulha fina, em poucos minutos. O efeito aparece aos poucos nos dias seguintes e, segundo a Ester, dura em média de 3 a 6 meses.",
+  "cuidados": [
+    "É comum ficar com pequenas marcas das picadas e um leve inchaço no local, que somem em pouco tempo. Às vezes aparece um roxinho, que também passa.",
+    "No dia da aplicação, você recebe as orientações dos primeiros cuidados. Seguir essas orientações faz diferença no resultado.",
+    "Algumas situações pedem para adiar o procedimento, como gestação e amamentação. Por isso a avaliação vem sempre antes.",
+    "O retorno é combinado na avaliação, para olhar o resultado com calma.",
+    "Na avaliação, a Ester explica o que faz sentido para você."
+  ],
+  "duracaoSessao": null,
+  "resultadosEsperados": "As linhas de expressão ficam mais suaves e o rosto continua seu: você sorri, se expressa e se reconhece no espelho. Se não reaplicar, o rosto não piora; ele volta ao estado natural.",
+  "faq": [
+    {
+      "pergunta": "A toxina botulínica é só para quem já tem rugas profundas?",
+      "resposta": "Não. A toxina também serve como prevenção. Muitas pacientes começam aos 25 ou 30 anos, justamente para evitar que as linhas de expressão marquem com o tempo.",
+      "fonte": "vídeo DP9tLKNEeOG (18/10/2025), legendas",
+      "origem": "baseado-em-post"
+    },
+    {
+      "pergunta": "Se eu fizer uma vez, vou ter que fazer sempre?",
+      "resposta": "Não. O efeito dura em média de 3 a 6 meses. Você pode escolher manter os resultados, mas não é uma obrigação: se não reaplicar, o seu rosto não vai piorar, vai apenas voltar ao estado natural.",
+      "fonte": "vídeo DP9tLKNEeOG (18/10/2025), legendas",
+      "origem": "baseado-em-post"
+    },
+    {
+      "pergunta": "A toxina botulínica deixa o rosto paralisado?",
+      "resposta": "Não! Quando bem aplicado, ele suaviza as rugas sem tirar sua naturalidade.",
+      "fonte": "carrossel \"Dúvidas frequentes\", DOZUDsrEdFL (09/09/2025), resposta literal",
+      "origem": "literal"
+    }
+  ],
+  "citacoes": [
+    {
+      "texto": "Ele suaviza as rugas de expressão, mas sem tirar a sua naturalidade. Você continua sorrindo, se expressando… sendo você mesma.",
+      "fonte": "vídeo DP9tLKNEeOG (18/10/2025), legendas"
+    }
+  ],
+  "midia": ["faq-toxina"],
+  "fases": ["20"],
+  "whatsappMensagem": "Olá! Vim pelo site da Giyma e gostaria de agendar uma avaliação sobre toxina botulínica.",
+  "provas": [
+    {
+      "ref": "docs/GIYMA_INVESTIGACAO_CLIENTE.md, §4",
+      "nota": "vários posts e reels (preventiva e full face)"
+    },
+    {
+      "ref": "media.manifest.json, f34-arte",
+      "nota": "rugas dinâmicas: testa, glabela, pés de galinha"
+    },
+    {
+      "ref": "vídeo DbBfgMjRUkX (20/07/2026), media.manifest.json v-fases",
+      "nota": "\"Aos 20\": toxina preventiva para linhas de expressão (11–18 s)"
+    }
+  ],
+  "meta": {
+    "title": "Toxina botulínica em Lages · Giyma",
+    "description": "Toxina botulínica em Lages com a Dra. Ester Santos, farmacêutica esteta (CRF-SC 3984): suaviza rugas de expressão com naturalidade, após avaliação."
+  }
+}

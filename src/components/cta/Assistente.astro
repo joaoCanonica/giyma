@@ -1,0 +1,156 @@
+---
+// Mini assistente "Não sei o que fazer": 3 perguntas (rádios nativos) montam a mensagem e o
+// link abre o WhatsApp. Nada é guardado nem enviado ao site: o texto só existe no link.
+// Sem JS: o link leva a mensagem geral. O texto é o de mensagens.assistente (teste garante).
+import {
+  FAIXA_EM_TEXTO,
+  HISTORICO_EM_TEXTO,
+  INCOMODOS,
+  linkWhatsApp,
+  mensagens,
+  type Faixa,
+  type Historico,
+} from '../../lib/whatsapp.ts';
+
+interface Props {
+  /** id do bloco (os rádios ficam num <form> próprio: dois assistentes não colidem). */
+  id?: string;
+  origem: string;
+}
+const { id = 'assistente', origem } = Astro.props;
+const FAIXAS = Object.keys(FAIXA_EM_TEXTO) as Faixa[];
+const HISTORICOS = Object.keys(HISTORICO_EM_TEXTO) as Historico[];
+const ROTULO_HIST: Record<Historico, string> = { nunca: 'Nunca fiz', 'ja-fez': 'Já fiz' };
+// Modelo com marcadores; o script troca e codifica. Mesma frase de mensagens.assistente.
+const modelo = mensagens
+  .assistente('§i', '20', 'nunca')
+  .replace(FAIXA_EM_TEXTO['20'], '§f')
+  .replace(HISTORICO_EM_TEXTO.nunca, '§h');
+const geral = linkWhatsApp(mensagens.geral());
+const base = geral.slice(0, geral.indexOf('?text=') + 6);
+---
+
+<details class="assist" data-assistente data-modelo={modelo} data-base={base} id={id}>
+  <summary class="assist-resumo">
+    <span class="t-3">Não sei o que fazer</span>
+    <span class="t-pequeno t-suave">Três perguntas montam a sua mensagem. Nada fica guardado.</span>
+  </summary>
+  <form class="assist-corpo">
+    <fieldset>
+      <legend>O que te incomoda hoje?</legend>
+      {INCOMODOS.map((x) => (
+        <label>
+          <input type="radio" name="i" value={x} />
+          {x.charAt(0).toUpperCase() + x.slice(1)}
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>Faixa de idade</legend>
+      {FAIXAS.map((f) => (
+        <label>
+          <input type="radio" name="f" value={FAIXA_EM_TEXTO[f]} />
+          {f === '60+' ? '60 ou mais' : `${f} a ${f.slice(0, 1)}9`}
+        </label>
+      ))}
+    </fieldset>
+    <fieldset>
+      <legend>Já fez algum procedimento estético?</legend>
+      {HISTORICOS.map((h) => (
+        <label>
+          <input type="radio" name="h" value={HISTORICO_EM_TEXTO[h]} />
+          {ROTULO_HIST[h]}
+        </label>
+      ))}
+    </fieldset>
+    <p class="assist-aviso t-pequeno" role="status" data-aviso></p>
+    <a class="botao botao--primario" href={geral} data-origem={origem} data-enviar>
+      <span>Abrir no WhatsApp</span>
+    </a>
+  </form>
+</details>
+
+<style is:global>
+  .assist {
+    border-top: 1px solid var(--fio);
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 45%, transparent);
+    max-width: 44rem;
+  }
+  .assist-resumo {
+    display: grid;
+    gap: 0.25rem;
+    padding: var(--e-2) 0;
+    cursor: pointer;
+    list-style: none;
+  }
+  .assist-resumo::-webkit-details-marker {
+    display: none;
+  }
+  .assist-resumo .t-3::after {
+    content: ' +';
+    color: var(--fio);
+  }
+  .assist[open] .assist-resumo .t-3::after {
+    content: ' −';
+  }
+  .assist-corpo {
+    display: grid;
+    gap: var(--e-3);
+    padding-bottom: var(--e-3);
+  }
+  .assist fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+  }
+  .assist legend {
+    padding: 0;
+    margin-bottom: 0.6rem;
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-3);
+  }
+  .assist label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+  .assist input {
+    accent-color: var(--fio);
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: 0;
+  }
+  .assist-aviso:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  for (const r of document.querySelectorAll<HTMLElement>('[data-assistente]')) {
+    const link = r.querySelector<HTMLAnchorElement>('[data-enviar]');
+    const aviso = r.querySelector<HTMLElement>('[data-aviso]');
+    const grupos = [...r.querySelectorAll('fieldset')];
+    const marcado = (g: Element) => g.querySelector<HTMLInputElement>('input:checked');
+    const montar = () => {
+      const [i, f, h] = grupos.map((g) => marcado(g)?.value);
+      if (!link || !i || !f || !h) return false;
+      const t = (r.dataset.modelo ?? '').replace('§i', i).replace('§f', f).replace('§h', h);
+      link.href = (r.dataset.base ?? '') + encodeURIComponent(t);
+      if (aviso) aviso.textContent = '';
+      return true;
+    };
+    r.addEventListener('change', montar);
+    link?.addEventListener('click', (e) => {
+      if (montar()) return;
+      e.preventDefault();
+      const falta = grupos.find((g) => !marcado(g));
+      if (aviso) aviso.textContent = 'Responda às três perguntas para montar a mensagem.';
+      falta?.querySelector('input')?.focus();
+    });
+  }
+</script>

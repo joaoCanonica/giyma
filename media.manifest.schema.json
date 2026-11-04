@@ -1,0 +1,229 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://giyma.local/media.manifest.schema.json",
+  "title": "Manifesto de mídia da Giyma",
+  "description": "Um registro por arquivo em media-originais/. Os derivados são gerados por scripts/prepare-media.mjs a partir daqui.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["versao", "itens"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "versao": { "const": 1 },
+    "itens": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/definitions/item" }
+    }
+  },
+  "definitions": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "consentimento": { "enum": ["pendente", "autorizado", "nao-precisa"] },
+    "retangulo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "largura", "altura"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "largura": { "type": "integer", "minimum": 16 },
+        "altura": { "type": "integer", "minimum": 16 }
+      }
+    },
+    "post": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["codigo", "data", "confianca"],
+      "properties": {
+        "codigo": { "type": ["string", "null"] },
+        "data": { "type": ["string", "null"], "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$" },
+        "confianca": { "enum": ["confirmado", "provavel", "desconhecido"] },
+        "conta": { "type": "string" }
+      }
+    },
+    "recorte": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "retangulo", "proporcao", "uso"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "retangulo": { "$ref": "#/definitions/retangulo" },
+        "proporcao": { "type": "string", "pattern": "^\\d+:\\d+$|^livre$" },
+        "uso": { "type": "string", "minLength": 3 },
+        "observacao": { "type": "string" }
+      }
+    },
+    "antesDepois": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["procedimento", "tempoDecorrido", "disposicao", "antes", "depois"],
+      "properties": {
+        "procedimento": { "type": ["string", "null"] },
+        "procedimentoProvavel": { "type": "string" },
+        "tempoDecorrido": { "type": ["string", "null"] },
+        "disposicao": { "enum": ["lado-a-lado", "empilhado"] },
+        "antes": { "$ref": "#/definitions/retangulo" },
+        "depois": { "$ref": "#/definitions/retangulo" },
+        "olhosTarjados": { "type": "boolean" },
+        "observacao": { "type": "string" }
+      }
+    },
+    "capitulo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "titulo", "inicio", "fim"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "titulo": { "type": "string" },
+        "inicio": { "type": "number", "minimum": 0 },
+        "fim": { "type": "number", "exclusiveMinimum": 0 },
+        "observacao": { "type": "string" }
+      }
+    },
+    "trecho": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "inicio", "fim", "uso", "larguras", "poster"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "inicio": { "type": "number", "minimum": 0 },
+        "fim": { "type": "number", "exclusiveMinimum": 0 },
+        "uso": { "type": "string" },
+        "loop": { "type": "boolean" },
+        "larguras": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "integer", "minimum": 160 }
+        },
+        "pesoMaximoKB": { "type": "integer", "minimum": 50 },
+        "variantes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "retangulo", "proporcao", "uso"],
+            "properties": {
+              "id": { "$ref": "#/definitions/id" },
+              "retangulo": { "$ref": "#/definitions/retangulo" },
+              "proporcao": { "type": "string" },
+              "uso": { "type": "string" }
+            }
+          }
+        },
+        "poster": {
+          "description": "\"auto\" = quadro mais nítido do trecho (medido), ou um tempo em segundos.",
+          "oneOf": [{ "const": "auto" }, { "type": "number", "minimum": 0 }]
+        },
+        "posterJanela": {
+          "description": "Janela (s) onde o pôster \"auto\" procura o quadro mais nítido.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["inicio", "fim"],
+          "properties": {
+            "inicio": { "type": "number", "minimum": 0 },
+            "fim": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "capitulos": { "type": "array", "items": { "$ref": "#/definitions/capitulo" } },
+        "observacao": { "type": "string" }
+      }
+    },
+    "still": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "em", "recorte", "uso", "natureza", "larguraMaxExibicao"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "em": { "type": "number", "minimum": 0 },
+        "recorte": { "$ref": "#/definitions/retangulo" },
+        "uso": { "type": "string" },
+        "natureza": { "const": "quadro de vídeo" },
+        "larguraMaxExibicao": {
+          "type": "integer",
+          "description": "Largura máxima de exibição em pixels físicos (sem upscale)."
+        },
+        "observacao": { "type": "string" }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "arquivo",
+        "tipo",
+        "natureza",
+        "grupo",
+        "post",
+        "textoTranscrito",
+        "uso",
+        "consentimento",
+        "audioLiberado",
+        "problemas",
+        "edicoes",
+        "naoUsar",
+        "dimensoes"
+      ],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "arquivo": { "type": "string", "pattern": "^media-originais/(fotos|videos|marca)/" },
+        "tipo": { "enum": ["foto", "video", "marca"] },
+        "natureza": {
+          "enum": ["arte-instagram", "retrato", "antes-depois", "video-instagram", "vetor", "print"]
+        },
+        "grupo": { "type": "string", "description": "Número(s) do grupo no GIYMA_MAPA_MIDIA.md." },
+        "indiceMapa": { "type": ["integer", "null"] },
+        "post": { "$ref": "#/definitions/post" },
+        "textoTranscrito": { "type": ["string", "null"] },
+        "uso": { "type": "string", "minLength": 3 },
+        "consentimento": { "$ref": "#/definitions/consentimento" },
+        "audioLiberado": { "type": "boolean" },
+        "problemas": { "type": "array", "items": { "type": "string" } },
+        "edicoes": {
+          "type": "array",
+          "description": "Só edições globais permitidas (CLAUDE.md, seção 7).",
+          "items": { "type": "string" }
+        },
+        "naoUsar": { "type": "boolean" },
+        "motivoNaoUsar": { "type": "string" },
+        "credito": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status"],
+          "properties": {
+            "status": { "enum": ["pendente", "confirmado", "nao-se-aplica"] },
+            "nome": { "type": "string" }
+          }
+        },
+        "dimensoes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["largura", "altura"],
+          "properties": {
+            "largura": { "type": "integer" },
+            "altura": { "type": "integer" },
+            "duracao": { "type": "number" },
+            "fps": { "type": "number" }
+          }
+        },
+        "derivados": {
+          "type": "boolean",
+          "description": "Gera AVIF/WebP do arquivo inteiro (além de recortes, trechos e stills)."
+        },
+        "recortes": { "type": "array", "items": { "$ref": "#/definitions/recorte" } },
+        "antesDepois": { "$ref": "#/definitions/antesDepois" },
+        "trechos": { "type": "array", "items": { "$ref": "#/definitions/trecho" } },
+        "stills": { "type": "array", "items": { "$ref": "#/definitions/still" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "naoUsar": { "const": true } } },
+          "then": { "required": ["motivoNaoUsar"] }
+        },
+        {
+          "if": { "properties": { "natureza": { "const": "antes-depois" } } },
+          "then": { "required": ["antesDepois"] }
+        }
+      ]
+    }
+  }
+}
