@@ -1,8 +1,12 @@
 # QA (sessão 9)
 
-Medido em 04/11/2026 sobre o `dist/` final: o build padrão, que é preview com noindex, e uma
-simulação de produção com indexação (`GIYMA_MODO=producao`, `SITE_URL=https://giyma.com.br`,
-`seo.indexar=true`, revertida depois).
+Medido em 04/11/2026 sobre o `dist/` final em dois builds:
+
+- **preview** (padrão): noindex, faixa "em revisão";
+- **produção real** (`GIYMA_MODO=producao`): horário confirmado, `seo.indexar=true` e endereço
+  padrão `https://giyma-estetica-avancada.vercel.app`.
+
+A produção passa nas travas (`validate-config` aprovado).
 
 Todas as auditorias rodam com o servidor local de `scripts/lib/servidor.mjs`. Ele aplica os
 cabeçalhos do `vercel.json` e comprime com gzip, como a Vercel.
@@ -25,9 +29,10 @@ node scripts/capturar-rotas.mjs docs/capturas/<data>/
 ### Lighthouse mobile
 
 Padrão do Lighthouse 13.6: Moto G Power, 4G lento simulado, CPU 4×. A tabela vem do build
-preview. Em preview o SEO é 66–69 por causa do noindex, que é proposital. Na simulação de produção
-com indexação, **SEO = 100 nas 16 rotas públicas**, e as outras notas ficaram iguais
-(`docs/qa/lighthouse-producao.json`).
+preview. Em preview o SEO é 66–69 por causa do noindex, que é proposital. **Na produção real,
+SEO = 100 nas 16 rotas públicas** (`docs/qa/lighthouse-producao.json`), e as outras notas ficaram
+iguais, com uma exceção: a home deu **96**, LCP 1,81 s e TBT 157 ms. A variação vem do TBT do
+Lighthouse simulado; continua acima da meta.
 
 | Rota | Perf. | A11y | BP | SEO (prod.) | LCP | CLS | TBT | JS gzip | CSS gzip | Peso total |
 | --- | --: | --: | --: | --: | --: | --: | --: | --: | --: | --: |
@@ -48,7 +53,7 @@ caso da página da Ester, e a confirmação do procedimento, no caso da harmoniz
 
 **Metas** (CLAUDE.md §4): Performance e BP ≥ 95, A11y = 100, SEO ≥ 95, JS ≤ 35 KB gzip e
 LCP < 2,0 s. **18 de 18 rotas na meta.** O pior caso é a home: LCP 1,96 s no Lighthouse, que é
-pessimista, e 0,99 s no navegador com rede limitada (tabela abaixo).
+pessimista, e 1,01 s no navegador com rede limitada (tabela abaixo).
 
 ### LCP com e sem a entrada
 
@@ -57,8 +62,8 @@ mediana de 5 carregamentos frios.
 
 | Home | LCP (mediana) | Execuções | Elemento |
 | --- | --: | --- | --- |
-| Com a entrada (1ª visita) | **0,99 s** | 988 · 920 · 992 · 1136 · 1096 ms | retrato (IMG) |
-| Sem a entrada (volta na sessão) | **1,03 s** | 1056 · 1000 · 988 · 1032 · 1064 ms | retrato (IMG) |
+| Com a entrada (1ª visita) | **1,01 s** | 1028 · 976 · 1008 · 972 · 1016 ms | retrato (IMG) |
+| Sem a entrada (volta na sessão) | **1,00 s** | 968 · 1032 · 1044 · 1000 · 964 ms | retrato (IMG) |
 
 A entrada não piora o LCP: o retrato já está no HTML, com `fetchpriority="high"`, e a camada da
 entrada não compete com ele. **Vídeo nunca é o LCP**: todos os vídeos usam `preload="none"` e só
@@ -81,7 +86,8 @@ carregam o pôster quando chegam perto da tela.
 
 ## 2. Acessibilidade
 
-`pnpm audit-a11y` (axe-core 4.11 + Playwright) fez **116 checagens com 0 problemas**. Ele cobre:
+`pnpm audit-a11y` (axe-core 4.11 + Playwright) fez **116 checagens com 0 problemas** no preview, e
+**103 com 0** na produção, que tem menos rotas. Ele cobre:
 
 - **axe** com as regras WCAG 2.0, 2.1 e 2.2 nos níveis A e AA, mais as regras de boas práticas,
   nas 19 rotas (18 públicas e a 404) e em 3 cenários: 390 claro, 390 escuro e 1440 claro. O axe

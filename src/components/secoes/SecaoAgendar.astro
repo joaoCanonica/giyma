@@ -41,13 +41,16 @@ const ig = contato.instagram.valor;
         <div class="agendar-horario">
           <Rotulo>Horário</Rotulo>
           {semana ? (
-            <ul class="t-tabular">
-              {linhasDaSemana(semana).map((l) => (
-                <li>
-                  <span>{l.nome}</span> {l.texto}
-                </li>
-              ))}
-            </ul>
+            <>
+              <ul class="t-tabular">
+                {linhasDaSemana(semana).map((l) => (
+                  <li>
+                    <span>{l.nome}</span> {l.texto}
+                  </li>
+                ))}
+              </ul>
+              <p class="t-pequeno t-suave">{horario.observacao}</p>
+            </>
           ) : (
             <p>
               {horario.textoSemHorario}

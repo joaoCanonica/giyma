@@ -1,28 +1,29 @@
 {
-  "data": "2026-11-04T16:20:25.391Z",
-  "indexavel": false,
+  "data": "2026-11-04T17:04:45.510Z",
+  "indexavel": true,
   "rotas": [
     {
       "rota": "/",
-      "performance": 98,
+      "performance": 96,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 69,
-      "lcp": 1959,
+      "seo": 100,
+      "lcp": 1809,
       "cls": 0,
-      "tbt": 0,
+      "tbt": 157,
       "fcp": 1056,
-      "bytes": 174794,
+      "bytes": 174993,
       "jsGzip": 7114,
-      "cssGzip": 8995,
-      "htmlGzip": 37725,
+      "cssGzip": 8998,
+      "htmlGzip": 37924,
       "abaixo": [],
       "avisos": [
         "speed-index",
         "image-delivery-insight",
         "network-dependency-tree-insight",
         "render-blocking-insight",
-        "is-crawlable"
+        "max-potential-fid",
+        "mainthread-work-breakdown"
       ]
     },
     {
@@ -30,21 +31,20 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 69,
-      "lcp": 910,
+      "seo": 100,
+      "lcp": 902,
       "cls": 0,
       "tbt": 0,
-      "fcp": 910,
-      "bytes": 287089,
+      "fcp": 902,
+      "bytes": 286918,
       "jsGzip": 2542,
-      "cssGzip": 5555,
-      "htmlGzip": 24672,
+      "cssGzip": 5456,
+      "htmlGzip": 24501,
       "abaixo": [],
       "avisos": [
         "image-delivery-insight",
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -52,20 +52,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
+      "seo": 100,
       "lcp": 905,
       "cls": 0,
-      "tbt": 0,
+      "tbt": 2,
       "fcp": 905,
-      "bytes": 135796,
+      "bytes": 135726,
       "jsGzip": 3498,
-      "cssGzip": 5603,
-      "htmlGzip": 22656,
+      "cssGzip": 5605,
+      "htmlGzip": 22586,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -73,42 +72,20 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 69,
-      "lcp": 904,
+      "seo": 100,
+      "lcp": 901,
       "cls": 0,
-      "tbt": 12,
-      "fcp": 904,
-      "bytes": 123633,
+      "tbt": 0,
+      "fcp": 901,
+      "bytes": 123677,
       "jsGzip": 2553,
-      "cssGzip": 5001,
-      "htmlGzip": 14410,
+      "cssGzip": 5009,
+      "htmlGzip": 14454,
       "abaixo": [],
       "avisos": [
         "image-delivery-insight",
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
-      ]
-    },
-    {
-      "rota": "/dra-ester-santos",
-      "performance": 100,
-      "accessibility": 100,
-      "best-practices": 100,
-      "seo": 69,
-      "lcp": 909,
-      "cls": 0,
-      "tbt": 0,
-      "fcp": 909,
-      "bytes": 135126,
-      "jsGzip": 2104,
-      "cssGzip": 5458,
-      "htmlGzip": 21187,
-      "abaixo": [],
-      "avisos": [
-        "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -116,20 +93,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 902,
+      "seo": 100,
+      "lcp": 905,
       "cls": 0,
       "tbt": 0,
-      "fcp": 902,
-      "bytes": 111383,
+      "fcp": 905,
+      "bytes": 111290,
       "jsGzip": 2457,
-      "cssGzip": 5385,
-      "htmlGzip": 24330,
+      "cssGzip": 5392,
+      "htmlGzip": 24237,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -137,20 +113,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 753,
+      "seo": 100,
+      "lcp": 756,
       "cls": 0,
       "tbt": 0,
-      "fcp": 753,
-      "bytes": 100670,
+      "fcp": 756,
+      "bytes": 100705,
       "jsGzip": 2052,
-      "cssGzip": 4538,
-      "htmlGzip": 13632,
+      "cssGzip": 4579,
+      "htmlGzip": 13667,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -158,20 +133,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 905,
+      "seo": 100,
+      "lcp": 901,
       "cls": 0,
       "tbt": 0,
-      "fcp": 905,
-      "bytes": 101141,
+      "fcp": 901,
+      "bytes": 100983,
       "jsGzip": 2279,
-      "cssGzip": 5383,
-      "htmlGzip": 14103,
+      "cssGzip": 5288,
+      "htmlGzip": 13945,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -179,20 +153,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
+      "seo": 100,
       "lcp": 905,
       "cls": 0,
       "tbt": 0,
       "fcp": 905,
-      "bytes": 127424,
+      "bytes": 127268,
       "jsGzip": 2052,
-      "cssGzip": 4655,
-      "htmlGzip": 14299,
+      "cssGzip": 4563,
+      "htmlGzip": 14143,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -200,20 +173,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1055,
+      "seo": 100,
+      "lcp": 1052,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1055,
-      "bytes": 136699,
+      "fcp": 1052,
+      "bytes": 136634,
       "jsGzip": 2496,
-      "cssGzip": 6571,
-      "htmlGzip": 21557,
+      "cssGzip": 6577,
+      "htmlGzip": 21492,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -221,41 +193,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1052,
+      "seo": 100,
+      "lcp": 1054,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1052,
-      "bytes": 130275,
+      "fcp": 1054,
+      "bytes": 130213,
       "jsGzip": 2052,
-      "cssGzip": 6571,
-      "htmlGzip": 15141,
+      "cssGzip": 6577,
+      "htmlGzip": 15079,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
-      ]
-    },
-    {
-      "rota": "/tratamentos/harmonizacao-corporal",
-      "performance": 100,
-      "accessibility": 100,
-      "best-practices": 100,
-      "seo": 66,
-      "lcp": 907,
-      "cls": 0,
-      "tbt": 0,
-      "fcp": 907,
-      "bytes": 128713,
-      "jsGzip": 2052,
-      "cssGzip": 6571,
-      "htmlGzip": 13579,
-      "abaixo": [],
-      "avisos": [
-        "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -263,20 +213,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1056,
+      "seo": 100,
+      "lcp": 1055,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1056,
-      "bytes": 135898,
+      "fcp": 1055,
+      "bytes": 135830,
       "jsGzip": 2496,
-      "cssGzip": 6571,
-      "htmlGzip": 20756,
+      "cssGzip": 6577,
+      "htmlGzip": 20688,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -284,20 +233,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1056,
+      "seo": 100,
+      "lcp": 1057,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1056,
-      "bytes": 136237,
+      "fcp": 1057,
+      "bytes": 136174,
       "jsGzip": 2496,
-      "cssGzip": 6571,
-      "htmlGzip": 21095,
+      "cssGzip": 6577,
+      "htmlGzip": 21032,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -305,20 +253,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1052,
+      "seo": 100,
+      "lcp": 1055,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1052,
-      "bytes": 130347,
+      "fcp": 1055,
+      "bytes": 130283,
       "jsGzip": 2052,
-      "cssGzip": 6571,
-      "htmlGzip": 15213,
+      "cssGzip": 6577,
+      "htmlGzip": 15149,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -326,20 +273,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1054,
+      "seo": 100,
+      "lcp": 1059,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1054,
-      "bytes": 130132,
+      "fcp": 1059,
+      "bytes": 130065,
       "jsGzip": 2052,
-      "cssGzip": 6571,
-      "htmlGzip": 14998,
+      "cssGzip": 6577,
+      "htmlGzip": 14931,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -347,20 +293,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1057,
+      "seo": 100,
+      "lcp": 1055,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1057,
-      "bytes": 130272,
+      "fcp": 1055,
+      "bytes": 130212,
       "jsGzip": 2052,
-      "cssGzip": 6571,
-      "htmlGzip": 15138,
+      "cssGzip": 6577,
+      "htmlGzip": 15078,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     },
     {
@@ -368,20 +313,19 @@
       "performance": 100,
       "accessibility": 100,
       "best-practices": 100,
-      "seo": 66,
-      "lcp": 1055,
+      "seo": 100,
+      "lcp": 1053,
       "cls": 0,
       "tbt": 0,
-      "fcp": 1055,
-      "bytes": 137430,
+      "fcp": 1053,
+      "bytes": 137365,
       "jsGzip": 2496,
-      "cssGzip": 6571,
-      "htmlGzip": 22288,
+      "cssGzip": 6577,
+      "htmlGzip": 22223,
       "abaixo": [],
       "avisos": [
         "network-dependency-tree-insight",
-        "render-blocking-insight",
-        "is-crawlable"
+        "render-blocking-insight"
       ]
     }
   ]

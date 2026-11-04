@@ -69,15 +69,12 @@ rede bloqueia esses domínios). Por isso:
 Os termos que queremos associar entram no texto de forma natural: beleza natural, cada fase da
 vida, rejuvenescimento de mãos, planejamento por etapas e farmacêutica esteta em Lages.
 
-**Indexação:** `seo.indexar` continua `false`. Com isso:
+**Indexação** (ligada na sessão 9): `seo.indexar` é `true`.
 
-- todas as páginas saem com `noindex, nofollow`;
-- o robots.txt sai com `Disallow: /`;
-- o sitemap é gerado, mas não é anunciado.
-
-Quando `indexar` virar `true` em produção (sessão 9, junto com o domínio em `SITE_URL`), o
-robots.txt passa a `Allow: /` e aponta o sitemap. Isso foi testado com uma simulação:
-16 páginas públicas = 16 URLs no sitemap, e Lighthouse SEO 100.
+- **Em produção:** as páginas saem com `index, follow`, e o robots.txt com `Allow: /` e o sitemap
+  (16 URLs, Lighthouse SEO 100). Endereço: `giyma-estetica-avancada.vercel.app` até o domínio ser
+  comprado (ver docs/DEPLOY.md).
+- **No preview:** sempre `noindex`, `Disallow: /`.
 
 ## 4. Verificação
 

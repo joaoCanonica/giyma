@@ -55,18 +55,28 @@ describe('config', () => {
   it('assinatura sempre completa', () => {
     expect(assinaturaProfissional()).toBe('Dra. Ester Santos · farmacêutica esteta · CRF-SC 3984');
   });
-  it('pendências reais: horário e pós bloqueantes; origem do nome opcional e vazia', () => {
+  it('pendências reais: só a pós bloqueante; origem do nome opcional e vazia', () => {
     const p = pendencias();
     const bloq = p.filter((x) => x.estado === 'bloqueante').map((x) => x.caminho);
-    expect(bloq.sort()).toEqual(['horario.semana', 'profissional.posEstetica']);
+    expect(bloq.sort()).toEqual(['profissional.posEstetica']);
     expect(p.some((x) => x.caminho === 'marca.origemDoNome')).toBe(true);
   });
   it('página da Ester bloqueada pela pós; o resto liberado', () => {
     expect(paginaLiberada('dra-ester-santos')).toBe(false);
     expect(paginaLiberada('toxina-botulinica')).toBe(true);
   });
-  it('horário: texto de preview e fuso', () => {
-    expect(horario.semana.estado).toBe('bloqueante');
+  it('horário confirmado (09–12 e 14–18, dias úteis), fuso e observação do agendamento', () => {
+    expect(horario.semana.estado).toBe('confirmado');
+    const semana = (
+      horario.semana as unknown as { valor: Record<string, { abre: string; fecha: string }[]> }
+    ).valor;
+    expect(semana['seg']).toEqual([
+      { abre: '09:00', fecha: '12:00' },
+      { abre: '14:00', fecha: '18:00' },
+    ]);
+    expect(semana['sab']).toEqual([]);
+    expect(semana['dom']).toEqual([]);
+    expect(horario.observacao).toMatch(/agendamento prévio/);
     expect(horario.textoSemHorario).toBe('Horário pelo WhatsApp');
     expect(horario.fuso).toBe('America/Sao_Paulo');
   });
@@ -76,13 +86,17 @@ describe('config', () => {
     expect(contato.comoChegar).toEqual([]);
     expect(contato.estacionamento.valor).toBeNull();
   });
-  it('avaliações: sem nota; Nathalia F. literal; sem depoimentos', () => {
+  it('avaliações: sem nota; Nathalia F. literal; depoimentos só autorizados e literais', () => {
     expect(avaliacoes.exibirNota).toBe(false);
     expect(avaliacoes.destaque.valor.autorExibicao).toBe('Nathalia F.');
     expect(avaliacoes.destaque.valor.texto).toBe(
       'Lugar aconchegante. Dra. Esther extremamente atenciosa e competente! Recomendo!',
     );
-    expect(avaliacoes.depoimentosAutorizados).toEqual([]);
+    expect(avaliacoes.depoimentosAutorizados.length).toBe(2);
+    for (const d of avaliacoes.depoimentosAutorizados) {
+      expect(d.autorizacao).toMatch(/autorizado/);
+      expect(d.fonte).toMatch(/DMvUX6LRp3r/);
+    }
   });
   it('citações têm fonte', () => {
     for (const c of profissional.citacoes) expect(c.fonte.length).toBeGreaterThan(3);

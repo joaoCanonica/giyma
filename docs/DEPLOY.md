@@ -13,14 +13,14 @@ falha com uma mensagem clara.
 
 ## Uma vez só (João)
 
-1. Criar o projeto na Vercel, apontando para este repositório.
+1. Criar o projeto na Vercel com o nome **`giyma-estetica-avancada`** (vira o endereço `giyma-estetica-avancada.vercel.app`), apontando para este repositório.
    - Framework: Astro (o `vercel.json` já define build, saída e cabeçalhos).
    - Em *Git*, desligar o build automático, porque o deploy vem pelo workflow.
 2. **Variáveis de ambiente** do projeto:
 
    | Variável | Production | Preview |
    | --- | --- | --- |
-   | `SITE_URL` | `https://<domínio final>` (sem barra no fim) | a URL de preview, ou deixar vazio |
+   | `SITE_URL` | não precisa por enquanto: o padrão é `https://giyma-estetica-avancada.vercel.app`. Quando o domínio for comprado: `https://<domínio>` (sem barra no fim) | não definir |
    | `GIYMA_MODO` | `producao` | (não definir: o build fica em preview, com noindex, faixa "em revisão" e selos) |
    | `PLAUSIBLE_DOMINIO` | o domínio na Plausible, se a medição for aprovada | (não definir) |
    | `PLAUSIBLE_SCRIPT` | opcional: URL do script (Plausible ou Umami) | — |
@@ -35,12 +35,17 @@ falha com uma mensagem clara.
 - **Preview:** Actions → `deploy` → Run workflow → `preview`. Sai com `noindex` no HTML, no
   `robots.txt` (`Disallow: /`) e no cabeçalho `X-Robots-Tag` de todo `*.vercel.app`.
 - **Produção:** Actions → `deploy` → `production`. Antes do build, o workflow roda
-  `pnpm validate-config` com as variáveis de produção, e ele **reprova de propósito** enquanto
-  houver trava (hoje: o horário). Depois do build vêm os testes, `audit-compliance`, `audit-seo` e
+  `pnpm validate-config` com as variáveis de produção, e ele **reprova de propósito** se surgir
+  alguma trava (hoje está aprovado: o horário foi confirmado). Depois do build vêm os testes, `audit-compliance`, `audit-seo` e
   `audit-csp`. Qualquer falha impede o deploy. Ver `docs/CONFERENCIA_FINAL.md`.
-- **Indexar:** em `src/config/seo.ts`, trocar `indexar: false` para `true`, num commit próprio,
-  quando o João liberar. Com isso o `robots.txt` passa a `Allow: /` com o sitemap, e as páginas
-  saem com `index, follow`.
+- **Indexação:** `seo.indexar` já está `true`: em produção, o `robots.txt` sai com `Allow: /` e o
+  sitemap, e as páginas com `index, follow`. Preview nunca indexa.
+- **Quando o domínio for comprado:**
+  1. adicionar o domínio no projeto e marcá-lo como principal (a Vercel redireciona o
+     `.vercel.app` com 301);
+  2. trocar `SITE_URL` em Production;
+  3. publicar de novo;
+  4. no Google Search Console, cadastrar o domínio novo e enviar o sitemap.
 
 ## Conferir depois do deploy
 

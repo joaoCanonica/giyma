@@ -4,7 +4,6 @@
 import AssinaturaProfissional from '../base/AssinaturaProfissional.astro';
 import Link from '../base/Link.astro';
 import Logo from '../marca/Logo.astro';
-import Provisorio from '../Provisorio.astro';
 import { contato, marca, nap } from '../../config/index.ts';
 import { destino, esterPublicada, microtextos } from './dados.ts';
 
@@ -68,14 +67,7 @@ const ano = new Date().getFullYear();
       </p>
       <p>
         {String(m.rodape['direitos'] ?? '').replace('{ano}', String(ano))}
-        {marca.cnpj.valor ? (
-          <span> · CNPJ {marca.cnpj.valor}</span>
-        ) : (
-          <span>
-            {' '}
-            · CNPJ <Provisorio rotulo="CNPJ e razão social" />
-          </span>
-        )}
+        {marca.cnpj.valor && <span> · CNPJ {marca.cnpj.valor}</span>}
       </p>
     </div>
   </div>

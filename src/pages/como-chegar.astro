@@ -68,13 +68,16 @@ const mapaUrl = `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=17&output
 
         <Rotulo as="h2">{b['horario']?.rotulo}</Rotulo>
         {semana ? (
-          <ul class="cc-horario t-tabular">
-            {linhasDaSemana(semana).map((l) => (
-              <li>
-                <span>{l.nome}</span> {l.texto}
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul class="cc-horario t-tabular">
+              {linhasDaSemana(semana).map((l) => (
+                <li>
+                  <span>{l.nome}</span> {l.texto}
+                </li>
+              ))}
+            </ul>
+            <p class="t-pequeno t-suave">{horario.observacao}</p>
+          </>
         ) : (
           <p>
             {horario.textoSemHorario}

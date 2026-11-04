@@ -40,12 +40,10 @@
     },
     "responsavel": {
       "titulo": "Quem é responsável",
-      "paragrafos": ["Giyma Saúde e Estética Avançada · Rua Rui Barbosa, 277, Centro, Lages/SC."],
-      "pendente": "razão social, CNPJ e contato do encarregado de dados (LGPD)"
+      "paragrafos": [
+        "Giyma Saúde e Estética Avançada · Rua Rui Barbosa, 277, Centro, Lages/SC. Para qualquer pedido sobre os seus dados, fale com a gente pelo WhatsApp (49) 99827-3904.",
+        "Política atualizada em 4 de novembro de 2026."
+      ]
     }
-  },
-  "pendentes": [
-    "razão social, CNPJ e e-mail do encarregado de dados",
-    "data de atualização da política"
-  ]
+  }
 }

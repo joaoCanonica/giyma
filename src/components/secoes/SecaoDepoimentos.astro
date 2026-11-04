@@ -51,7 +51,7 @@ const quando = `${MESES[Number(mes) - 1]} de ${ano}`;
     </figure>
     {avaliacoes.depoimentosAutorizados.map((x) => (
       <figure class="depo depo--menor">
-        <blockquote>
+        <blockquote data-citacao-literal>
           <p>{x.texto}</p>
         </blockquote>
         <figcaption class="t-pequeno t-suave">{x.autorExibicao}</figcaption>

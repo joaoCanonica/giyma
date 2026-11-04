@@ -33,13 +33,17 @@ caso('preview passa: sem erros, com pendências', () => {
   assert.deepEqual(r.erros, []);
   assert.ok(r.avisos.length > 0);
 });
-caso('produção trava hoje por horário ausente (e só por ele)', () => {
+caso('produção libera com a config real (horário confirmado em 04/11/2026)', () => {
   const r = verificarConfig(base);
-  assert.equal(r.travasProducao.length, 1);
-  assert.match(r.travasProducao[0], /horário ausente/);
+  assert.deepEqual(r.travasProducao, []);
 });
 
 console.log('Travas de dado');
+caso('horário ausente trava produção', () => {
+  const c = clone();
+  c.config.horario.semana = { estado: 'bloqueante', valor: null, rotulo: 'horário não informado' };
+  assert.ok(tem(verificarConfig(c).travasProducao, /horário ausente/));
+});
 caso('com horário confirmado, produção libera', () => {
   const c = clone();
   const dia = [{ abre: '09:00', fecha: '18:00' }];

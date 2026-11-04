@@ -3,10 +3,10 @@ import { lerEnv, modoAtual } from './ambiente.ts';
 import { marca } from './marca.ts';
 
 export const seo = {
-  /** URL pública. Domínio pendente: vem de SITE_URL no ambiente. */
-  siteUrl: (lerEnv('SITE_URL') ?? 'http://localhost:4321').replace(/\/+$/, ''),
-  /** Fica false até a sessão 9 (conferência de normas e deploy). Preview nunca indexa. */
-  indexar: false,
+  /** URL pública: SITE_URL no ambiente. Sem domínio próprio (ainda não comprado), o endereço da Vercel. */
+  siteUrl: (lerEnv('SITE_URL') ?? 'https://giyma-estetica-avancada.vercel.app').replace(/\/+$/, ''),
+  /** Liberado na sessão 9 (conferência feita). Só vale em produção: preview nunca indexa. */
+  indexar: true,
   idioma: 'pt-BR',
   local: 'pt_BR',
   /** Imagem de compartilhamento (gerada no build por scripts/gerar-og.mjs). */

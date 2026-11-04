@@ -114,3 +114,23 @@ Detalhes em docs/CONFERENCIA_FINAL.md (normas), docs/QA.md (números) e docs/DEP
 - **Vídeo de toxina:** legenda original com "Botox" e caixas de Restylane ao fundo. Pôster trocado para um quadro sem a marca; decidir se o vídeo fica.
 - **Navegadores reais:** Safari (iPhone) e Firefox não puderam ser testados aqui (só Chromium); roteiro de 10 min em docs/CONFERENCIA_FINAL.md, §8.
 - **Deploy:** criar o projeto na Vercel, variáveis por ambiente e segredos do workflow (docs/DEPLOY.md). O build precisa de ffmpeg: deploy pelo workflow (build pré-compilado).
+
+## Decisões do João (04/11/2026, fim da sessão 9)
+
+- **Resolvido:**
+  - horário (9h–12h e 14h–18h, com agendamento prévio; dias úteis por padrão);
+  - crédito do retrato (posts da própria Ester);
+  - CNPJ e razão social fora;
+  - vídeo de toxina mantido;
+  - endereço `giyma-estetica-avancada.vercel.app`;
+  - tudo autorizado: tour inteiro e 2 depoimentos do WhatsApp em texto;
+  - indexação ligada em produção.
+- **Ainda falta (dado, não decisão):**
+  - procedimento e tempo decorrido de cada antes e depois (sem isso não publicam);
+  - pós-graduação e averbação (página da Ester);
+  - confirmar se sábado é fechado;
+  - teste em iPhone e Firefox reais;
+  - Rich Results Test com o site no ar;
+  - medição (desligada).
+
+  Detalhes em docs/CONFERENCIA_FINAL.md, §9.

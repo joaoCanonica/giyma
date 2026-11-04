@@ -41,7 +41,7 @@
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "(?<sub>.*)\\.vercel\\.app" }],
+      "has": [{ "type": "host", "value": "giyma-estetica-avancada-(?<preview>.+)\\.vercel\\.app" }],
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     }
   ]

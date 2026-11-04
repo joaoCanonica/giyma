@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // Site estático. SITE_URL vem do ambiente (domínio ainda pendente).
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'http://localhost:4321',
+  site: process.env.SITE_URL ?? 'https://giyma-estetica-avancada.vercel.app',
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },

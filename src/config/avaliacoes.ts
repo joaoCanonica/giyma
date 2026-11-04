@@ -31,6 +31,24 @@ export const avaliacoes = {
     },
     fonte,
   ),
-  /** Depoimentos fora do Google: só com autorização escrita. Vazio até chegar. */
-  depoimentosAutorizados: [] as readonly Depoimento[],
+  /**
+   * Depoimentos fora do Google: só autorizados. Mensagens de WhatsApp publicadas pela Giyma no
+   * post DMvUX6LRp3r (30/07/2025), autorizadas (João, 04/11/2026). Texto literal; nunca o print.
+   */
+  depoimentosAutorizados: [
+    {
+      texto:
+        'Muito obrigada por tudo, eu estou amando o resultado, queria te agradecer ainda mais pela forma que você fez, não tenho palavras',
+      autorExibicao: 'Paciente da Giyma · WhatsApp',
+      fonte: 'post DMvUX6LRp3r (30/07/2025), "Feedback que amamos!"',
+      autorizacao: 'autorizado pelo João em 04/11/2026',
+    },
+    {
+      texto:
+        'Muitoooo obrigada!!! Você é de maaaais!!!!! Toda pessoa que eu puder eu vou indicar seu trabalho!!',
+      autorExibicao: 'Paciente da Giyma · WhatsApp',
+      fonte: 'post DMvUX6LRp3r (30/07/2025), "Feedback que amamos!"',
+      autorizacao: 'autorizado pelo João em 04/11/2026',
+    },
+  ] as readonly Depoimento[],
 } as const;
