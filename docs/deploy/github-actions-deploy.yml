@@ -1,0 +1,48 @@
+# COPIAR para .github/workflows/deploy.yml para ativar (depois de cadastrar os segredos).
+# Deploy na Vercel com build pré-compilado (o media:prepare precisa de ffmpeg, que a imagem de
+# build da Vercel não tem). Só roda à mão (Actions → "deploy" → Run workflow).
+# Segredos no repositório: VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID.
+# Variáveis por ambiente ficam no projeto da Vercel (vercel pull traz): SITE_URL, GIYMA_MODO,
+# PLAUSIBLE_DOMINIO. Ver docs/DEPLOY.md.
+name: deploy
+on:
+  workflow_dispatch:
+    inputs:
+      ambiente:
+        description: 'preview ou production'
+        required: true
+        default: preview
+        type: choice
+        options: [preview, production]
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm dlx vercel@64.7.0 pull --yes --environment=${{ inputs.ambiente }} --token=${{ secrets.VERCEL_TOKEN }}
+      # Travas do CLAUDE.md §9: em produção, dado bloqueante reprova antes do build.
+      - name: travas
+        run: |
+          set -a; . .vercel/.env.${{ inputs.ambiente }}.local; set +a
+          pnpm validate-config
+      - run: pnpm dlx vercel@64.7.0 build ${{ inputs.ambiente == 'production' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
+      # Auditorias no dist/ gerado, com as mesmas variáveis do build.
+      - name: auditorias
+        run: |
+          set -a; . .vercel/.env.${{ inputs.ambiente }}.local; set +a
+          pnpm test
+          pnpm audit-compliance
+          pnpm audit-seo
+          npx playwright install --with-deps chromium
+          pnpm audit-csp
+      - run: pnpm dlx vercel@64.7.0 deploy --prebuilt ${{ inputs.ambiente == 'production' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}

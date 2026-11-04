@@ -1,4 +1,5 @@
 // Acesso ao public/media/indice.json (gerado por pnpm media:prepare) no build.
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -43,8 +44,37 @@ function indice(): Indice {
   const caminho = join(process.cwd(), 'public', 'media', 'indice.json');
   if (!existsSync(caminho))
     throw new Error('public/media/indice.json não existe: rode pnpm media:prepare');
-  cache = JSON.parse(readFileSync(caminho, 'utf8')) as Indice;
+  cache = versionar(JSON.parse(readFileSync(caminho, 'utf8'))) as Indice;
   return cache;
+}
+
+/**
+ * Toda URL de mídia do índice ganha ?v=<hash do conteúdo>: o arquivo pode ficar em cache
+ * por um ano (immutable, ver vercel.json) e muda de URL quando o conteúdo muda.
+ */
+const hashes = new Map<string, string>();
+export function comVersao(src: string): string {
+  if (!src.startsWith('/media/') || src.includes('?')) return src;
+  let h = hashes.get(src);
+  if (!h) {
+    const arq = join(process.cwd(), 'public', src);
+    h = existsSync(arq)
+      ? createHash('sha256').update(readFileSync(arq)).digest('hex').slice(0, 10)
+      : 'ausente';
+    hashes.set(src, h);
+  }
+  return `${src}?v=${h}`;
+}
+function versionar(x: unknown): unknown {
+  if (Array.isArray(x)) return x.map(versionar);
+  if (x && typeof x === 'object')
+    return Object.fromEntries(
+      Object.entries(x).map(([k, v]) => [
+        k,
+        k === 'src' && typeof v === 'string' ? comVersao(v) : versionar(v),
+      ]),
+    );
+  return x;
 }
 
 export function imagem(id: string): ImagemIndice {

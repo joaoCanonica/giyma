@@ -104,3 +104,13 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **Nome na ficha do Google:** "Giyma | Saúde e Estética Avançada" ≠ "Giyma Saúde e Estética Avançada" do site. Alinhar (checklist em docs/SEO_GEO.md).
 - **Horário:** sem ele não há `openingHoursSpecification` (e a produção segue travada).
 - **Pós-graduação:** quando chegar, entra em `hasCredential` da Ester e a página /dra-ester-santos volta ao sitemap sozinha.
+
+## QA, normas e deploy (sessão 9)
+
+Detalhes em docs/CONFERENCIA_FINAL.md (normas), docs/QA.md (números) e docs/DEPLOY.md.
+
+- **Retrato do hero/OG/página da Ester:** crédito e licença do fotógrafo (veio de post de outra conta). Ou os originais do ensaio com autorização.
+- **Tour do espaço:** publicado até 17,6 s (a paciente aparece de 17,7 a 25,3 s sem autorização escrita). Com a autorização, voltar o fim do trecho para 32,3 s e os capítulos "Procedimento" e "Recepção" no media.manifest.json.
+- **Vídeo de toxina:** legenda original com "Botox" e caixas de Restylane ao fundo. Pôster trocado para um quadro sem a marca; decidir se o vídeo fica.
+- **Navegadores reais:** Safari (iPhone) e Firefox não puderam ser testados aqui (só Chromium); roteiro de 10 min em docs/CONFERENCIA_FINAL.md, §8.
+- **Deploy:** criar o projeto na Vercel, variáveis por ambiente e segredos do workflow (docs/DEPLOY.md). O build precisa de ffmpeg: deploy pelo workflow (build pré-compilado).

@@ -14,6 +14,7 @@
     "dev": "astro dev",
     "prebuild": "node scripts/prepare-media.mjs && node scripts/gerar-og.mjs",
     "build": "astro build",
+    "postbuild": "node scripts/pos-build.mjs",
     "preview": "astro preview",
     "check": "astro check && eslint . && prettier --check .",
     "test": "vitest run && node scripts/test-config.mjs && node scripts/test-seo.mjs",
@@ -29,7 +30,9 @@
     "media:prepare": "node scripts/prepare-media.mjs",
     "capturar": "node scripts/capturar.mjs",
     "media:stills": "node scripts/extract-stills.mjs",
-    "test-config": "node scripts/test-config.mjs"
+    "test-config": "node scripts/test-config.mjs",
+    "audit": "pnpm audit-compliance && pnpm audit-seo && pnpm audit-csp && pnpm audit-a11y && pnpm audit-lighthouse",
+    "audit-csp": "node scripts/audit-csp.mjs"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -46,10 +49,12 @@
     "@types/node": "24.19.2",
     "ajv": "8.20.0",
     "astro-eslint-parser": "3.2.0",
+    "axe-core": "4.11.0",
     "eslint": "10.14.0",
     "eslint-plugin-astro": "3.2.1",
     "fontkitten": "1.0.3",
     "globals": "17.14.0",
+    "lighthouse": "13.6.0",
     "node-html-parser": "9.0.6",
     "playwright": "1.63.0",
     "prettier": "3.9.10",

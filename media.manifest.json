@@ -1563,7 +1563,7 @@
       "problemas": [
         "Legenda queimada do Instagram. \"Já passei na frente / mas nunca entrei\" (0–1,4 s, y 820–945) e \"O que tem dentro?\" (resto, y≈880–950).",
         "Provável trilha do Instagram: tocar sempre mudo (audioLiberado=false).",
-        "Paciente aparece de costas na consulta (17,7–19,5 s) e deitada no procedimento (21,3–25,3 s): confirmar direito de imagem na sessão 9.",
+        "Paciente aparece de costas na consulta (17,7–19,5 s) e deitada no procedimento (21,3–25,3 s). Sessão 9: sem autorização escrita, os trechos publicados param em 17,6 s; a recepção segue nas fotos (still-recepcao).",
         "Fade para preto nos últimos 0,6 s."
       ],
       "edicoes": [],
@@ -1578,7 +1578,7 @@
         {
           "id": "tour-completo",
           "inicio": 0,
-          "fim": 32.3,
+          "fim": 17.6,
           "uso": "Seção \"A Giyma\".",
           "larguras": [
             720,
@@ -1586,10 +1586,10 @@
           ],
           "poster": "auto",
           "posterJanela": {
-            "inicio": 29.6,
-            "fim": 31.5
+            "inicio": 13.2,
+            "fim": 15.4
           },
-          "observacao": "Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela)."
+          "observacao": "Termina em 17,6 s, antes de a paciente aparecer (17,73 s em diante): corte de trecho, sem outra edição (sessão 9). Pôster: quadro mais nítido do consultório (13,2–15,4 s)."
         },
         {
           "id": "tour-capitulos",
@@ -1600,7 +1600,7 @@
             540
           ],
           "poster": "auto",
-          "observacao": "Cortes de cena medidos (ffmpeg scene): 1,43 · 2,60 · 5,70 · 7,23 · 9,13 · 13,10 · 14,27 · 15,50 · 16,60 · 17,73 · 19,53 · 21,33 · 23,37 · 25,33 · 27,23 · 29,47.",
+          "observacao": "Cortes de cena medidos (ffmpeg scene): 1,43 · 2,60 · 5,70 · 7,23 · 9,13 · 13,10 · 14,27 · 15,50 · 16,60 · 17,73 · 19,53 · 21,33 · 23,37 · 25,33 · 27,23 · 29,47. Capítulos \"Procedimento\" (21,33–24,5 s, paciente deitada) e \"Recepção\" (27,23–31,7 s, depois do trecho da paciente) ficam fora até a autorização escrita da paciente (sessão 9).",
           "capitulos": [
             {
               "id": "fachada",
@@ -1641,22 +1641,8 @@
               "id": "planejamento",
               "titulo": "Planejamento",
               "inicio": 15.5,
-              "fim": 20.5,
-              "observacao": "Modelo anatômico 15,5–16,6 e 19,53–21,33; consulta 17,73–19,53 (paciente de costas)."
-            },
-            {
-              "id": "procedimento",
-              "titulo": "Procedimento",
-              "inicio": 21.33,
-              "fim": 24.5,
-              "observacao": "Paciente aparece: direito de imagem a confirmar."
-            },
-            {
-              "id": "recepcao",
-              "titulo": "Recepção",
-              "inicio": 27.23,
-              "fim": 31.7,
-              "observacao": "Letras douradas 27,23–29,47; Ester na recepção até o fade (31,7 s)."
+              "fim": 17.6,
+              "observacao": "Modelo anatômico 15,5–16,6 s; termina antes da consulta (17,73 s, paciente de costas)."
             }
           ]
         }
@@ -1950,10 +1936,10 @@
             540
           ],
           "poster": "auto",
-          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido dentro da janela (sem legenda grande nem cartela).",
+          "observacao": "Pedido \"inteiro\"; termina antes da cartela final (medida por crominância). Pôster: quadro mais nítido entre 6,8 e 7,6 s (\"como prevenção.\"): a legenda queimada do pôster não traz a marca comercial (sessão 9).",
           "posterJanela": {
-            "inicio": 4.0,
-            "fim": 6.0
+            "inicio": 6.8,
+            "fim": 7.6
           }
         }
       ]

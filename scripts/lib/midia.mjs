@@ -24,7 +24,15 @@ export function rodar(cmd, args, { binario = false } = {}) {
     let erro = '';
     p.stdout.on('data', (c) => saida.push(c));
     p.stderr.on('data', (c) => (erro += c));
-    p.on('error', falha);
+    p.on('error', (e) =>
+      falha(
+        e.code === 'ENOENT'
+          ? new Error(
+              `${cmd} não encontrado: o media:prepare precisa de ffmpeg e ffprobe no PATH (deploy: ver docs/DEPLOY.md, build pré-compilado).`,
+            )
+          : e,
+      ),
+    );
     p.on('close', (codigo) => {
       if (codigo !== 0) return falha(new Error(`${cmd} saiu com ${codigo}\n${erro.slice(-2000)}`));
       const buf = Buffer.concat(saida);

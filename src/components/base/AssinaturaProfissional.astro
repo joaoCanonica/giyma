@@ -11,24 +11,21 @@ interface Props {
 }
 const { as: Tag = 'p', formato = 'linha', class: classe } = Astro.props;
 const p = profissional;
+const esc = (x: string) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+// Numa linha só, sem espaço entre os <span>: o "·" fica preso à palavra anterior (espaço não
+// separável) e nunca abre a linha seguinte.
+const sep = '<span class="ap-sep" aria-hidden="true">&nbsp;· </span>';
+const interno =
+  `<span class="ap-nome">${esc(`${p.tratamento.valor} ${p.nome.valor}`)}</span>${sep}` +
+  `<span class="ap-profissao">${esc(p.profissao.valor)}</span>${sep}` +
+  `<span class="ap-registro t-tabular">${esc(p.registro.valor)}</span>`;
 ---
 
 <Tag
   class:list={['assinatura-profissional', `assinatura-profissional--${formato}`, classe]}
   data-assinatura-profissional
 >
-  <span class="ap-nome">
-    {p.tratamento.valor} {p.nome.valor}
-  </span>
-  <span class="ap-sep" aria-hidden="true">
-    {' '}
-    ·{' '}
-  </span>
-  <span class="ap-profissao">{p.profissao.valor}</span>
-  <span class="ap-sep" aria-hidden="true">
-    ·
-  </span>
-  <span class="ap-registro t-tabular">{p.registro.valor}</span>
+  <Fragment set:html={interno} />
 </Tag>
 
 <style is:global>
@@ -42,6 +39,11 @@ const p = profissional;
   }
   .assinatura-profissional .ap-registro {
     letter-spacing: 0.04em;
+  }
+  /* Cada parte inteira: nunca "farmacêutica / esteta" nem "CRF-SC / 3984". */
+  .assinatura-profissional .ap-nome,
+  .assinatura-profissional .ap-profissao,
+  .assinatura-profissional .ap-registro {
     white-space: nowrap;
   }
   .assinatura-profissional--bloco {

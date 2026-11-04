@@ -105,7 +105,7 @@ const jsonld = [
 >
   <div class="topo">
     <Cabecalho />
-    <main>
+    <main id="conteudo" tabindex="-1">
       <section class="hero tr-hero" data-superficie="cacau" aria-labelledby="tr-titulo">
         <div class="contido tr-hero-grade">
           <nav class="tr-trilha" aria-label="Você está em">
@@ -394,11 +394,13 @@ const jsonld = [
     color: inherit;
   }
   .tr-hero-texto {
+    min-width: 0;
     max-width: 44rem;
     --pilha: var(--e-3);
   }
   .tr-h1 {
-    font-size: var(--t-display);
+    /* A palavra mais longa ("Rejuvenescimento") cabe inteira até 320 px (sem hífen). */
+    font-size: min(var(--t-display), 12.2vw);
     line-height: 0.98;
     letter-spacing: -0.015em;
   }

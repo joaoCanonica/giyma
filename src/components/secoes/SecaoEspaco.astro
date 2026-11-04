@@ -62,19 +62,21 @@ const tempo = (s: number) => `0:${String(Math.floor(s)).padStart(2, '0')}`;
         </video>
       </figure>
       <ol class="espaco-capitulos">
-        {bloco.itens?.map((c) => (
-          <li>
-            <button type="button" class="espaco-cap" data-ir={inicio.get(c.id ?? '') ?? 0}>
-              <span class="espaco-cap-tempo t-tabular">{tempo(inicio.get(c.id ?? '') ?? 0)}</span>
-              <span class="espaco-cap-nome">{c.titulo}</span>
-              <span class="espaco-cap-texto">{c.texto}</span>
-            </button>
-          </li>
-        ))}
+        {bloco.itens
+          ?.filter((c) => inicio.has(c.id ?? ''))
+          .map((c) => (
+            <li>
+              <button type="button" class="espaco-cap" data-ir={inicio.get(c.id ?? '') ?? 0}>
+                <span class="espaco-cap-tempo t-tabular">{tempo(inicio.get(c.id ?? '') ?? 0)}</span>
+                <span class="espaco-cap-nome">{c.titulo}</span>
+                <span class="espaco-cap-texto">{c.texto}</span>
+              </button>
+            </li>
+          ))}
       </ol>
     </div>
 
-    <ul class="espaco-carrossel" aria-label="O espaço em fotos">
+    <ul class="espaco-carrossel" aria-label="O espaço em fotos" tabindex="0">
       {bloco.itens
         ?.filter((c) => STILL[c.id ?? ''])
         .map((c) => (

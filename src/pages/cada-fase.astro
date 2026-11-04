@@ -38,7 +38,7 @@ const fases: FaseLinha[] = await Promise.all(
   titulo={b['abertura']?.titulo ?? ''}
   abertura={b['abertura']?.paragrafos}
 >
-  <section class="capitulo" data-superficie="perola" aria-label="Fases da pele">
+  <section class="capitulo" data-superficie="perola">
     <div class="contido cf-grade">
       <LinhaDoTempo
         fases={fases}
@@ -46,7 +46,7 @@ const fases: FaseLinha[] = await Promise.all(
         id="fases"
         rotuloBotao={b['convite']?.cta?.texto ?? 'Agendar avaliação'}
       />
-      <aside class="cf-video pilha" aria-labelledby="cf-video-titulo">
+      <div class="cf-video pilha">
         <Rotulo as="h2">
           <span id="cf-video-titulo">{b['video']?.rotulo}</span>
         </Rotulo>
@@ -58,7 +58,7 @@ const fases: FaseLinha[] = await Promise.all(
         {b['video']?.paragrafos?.map((x) => (
           <p class="t-pequeno t-suave">{x}</p>
         ))}
-      </aside>
+      </div>
     </div>
   </section>
 

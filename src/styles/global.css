@@ -209,6 +209,35 @@ p + p {
   border: 0;
 }
 
+/* ---------- pular para o conteúdo (WCAG 2.4.1) ---------- */
+.pular-conteudo {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1.1rem;
+  font-family: var(--fonte-rotulo);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--c-perola);
+  background: var(--c-cacau);
+  box-shadow: inset 0 0 0 1px var(--c-ouro);
+  transform: translateY(-200%);
+}
+.pular-conteudo:focus-visible {
+  transform: none;
+}
+main:focus {
+  outline: none;
+}
+/* Vídeo com controles nativos: o foco fica nos controles internos; o contorno vai no vídeo. */
+video:focus-within {
+  outline: 2px solid var(--foco);
+  outline-offset: 3px;
+}
+
 /* ---------- foco e hover (assinatura c) ---------- */
 /* Foco visível de alto contraste, sempre (cor do foco tem ≥ 3:1 em toda superfície). */
 :focus-visible {

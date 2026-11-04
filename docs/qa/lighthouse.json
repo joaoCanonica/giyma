@@ -1,0 +1,388 @@
+{
+  "data": "2026-11-04T16:20:25.391Z",
+  "indexavel": false,
+  "rotas": [
+    {
+      "rota": "/",
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "lcp": 1959,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1056,
+      "bytes": 174794,
+      "jsGzip": 7114,
+      "cssGzip": 8995,
+      "htmlGzip": 37725,
+      "abaixo": [],
+      "avisos": [
+        "speed-index",
+        "image-delivery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/a-giyma",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "lcp": 910,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 910,
+      "bytes": 287089,
+      "jsGzip": 2542,
+      "cssGzip": 5555,
+      "htmlGzip": 24672,
+      "abaixo": [],
+      "avisos": [
+        "image-delivery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/cada-fase",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 905,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 905,
+      "bytes": 135796,
+      "jsGzip": 3498,
+      "cssGzip": 5603,
+      "htmlGzip": 22656,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/como-chegar",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "lcp": 904,
+      "cls": 0,
+      "tbt": 12,
+      "fcp": 904,
+      "bytes": 123633,
+      "jsGzip": 2553,
+      "cssGzip": 5001,
+      "htmlGzip": 14410,
+      "abaixo": [],
+      "avisos": [
+        "image-delivery-insight",
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/dra-ester-santos",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 69,
+      "lcp": 909,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 909,
+      "bytes": 135126,
+      "jsGzip": 2104,
+      "cssGzip": 5458,
+      "htmlGzip": 21187,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/perguntas-frequentes",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 902,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 902,
+      "bytes": 111383,
+      "jsGzip": 2457,
+      "cssGzip": 5385,
+      "htmlGzip": 24330,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/privacidade",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 753,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 753,
+      "bytes": 100670,
+      "jsGzip": 2052,
+      "cssGzip": 4538,
+      "htmlGzip": 13632,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/resultados",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 905,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 905,
+      "bytes": 101141,
+      "jsGzip": 2279,
+      "cssGzip": 5383,
+      "htmlGzip": 14103,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 905,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 905,
+      "bytes": 127424,
+      "jsGzip": 2052,
+      "cssGzip": 4655,
+      "htmlGzip": 14299,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/bioestimulador-de-colageno",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1055,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1055,
+      "bytes": 136699,
+      "jsGzip": 2496,
+      "cssGzip": 6571,
+      "htmlGzip": 21557,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/contorno-facial",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1052,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1052,
+      "bytes": 130275,
+      "jsGzip": 2052,
+      "cssGzip": 6571,
+      "htmlGzip": 15141,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/harmonizacao-corporal",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 907,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 907,
+      "bytes": 128713,
+      "jsGzip": 2052,
+      "cssGzip": 6571,
+      "htmlGzip": 13579,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/microagulhamento",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1056,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1056,
+      "bytes": 135898,
+      "jsGzip": 2496,
+      "cssGzip": 6571,
+      "htmlGzip": 20756,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/peeling",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1056,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1056,
+      "bytes": 136237,
+      "jsGzip": 2496,
+      "cssGzip": 6571,
+      "htmlGzip": 21095,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/preenchimento-labial",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1052,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1052,
+      "bytes": 130347,
+      "jsGzip": 2052,
+      "cssGzip": 6571,
+      "htmlGzip": 15213,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/rejuvenescimento-de-maos",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1054,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1054,
+      "bytes": 130132,
+      "jsGzip": 2052,
+      "cssGzip": 6571,
+      "htmlGzip": 14998,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/sulcos-e-olheiras",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1057,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1057,
+      "bytes": 130272,
+      "jsGzip": 2052,
+      "cssGzip": 6571,
+      "htmlGzip": 15138,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    },
+    {
+      "rota": "/tratamentos/toxina-botulinica",
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 66,
+      "lcp": 1055,
+      "cls": 0,
+      "tbt": 0,
+      "fcp": 1055,
+      "bytes": 137430,
+      "jsGzip": 2496,
+      "cssGzip": 6571,
+      "htmlGzip": 22288,
+      "abaixo": [],
+      "avisos": [
+        "network-dependency-tree-insight",
+        "render-blocking-insight",
+        "is-crawlable"
+      ]
+    }
+  ]
+}

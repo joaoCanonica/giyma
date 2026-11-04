@@ -47,7 +47,7 @@ let n = 0;
 >
   <div class="topo">
     <Cabecalho />
-    <main>
+    <main id="conteudo" tabindex="-1">
       <section class="hero ti-hero" data-superficie="cacau" aria-labelledby="ti-titulo">
         <div class="contido ti-hero-grade">
           <nav class="ti-trilha" aria-label="Você está em">
@@ -223,7 +223,8 @@ let n = 0;
   }
   .ti-nome {
     font-family: var(--fonte-titulo);
-    font-size: var(--t-1);
+    /* "Rejuvenescimento" e "Microagulhamento" cabem inteiros até 320 px (sem hífen). */
+    font-size: min(var(--t-1), 10vw);
     line-height: 1.02;
     transition: color var(--d-2) var(--curva);
   }
