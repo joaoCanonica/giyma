@@ -1,10 +1,10 @@
 import { contato, enderecoEmLinha } from './contato.ts';
-import { lerEnv, modoAtual } from './ambiente.ts';
+import { modoAtual, urlDoSite } from './ambiente.ts';
 import { marca } from './marca.ts';
 
 export const seo = {
   /** URL pública: SITE_URL no ambiente. Sem domínio próprio (ainda não comprado), o endereço da Vercel. */
-  siteUrl: (lerEnv('SITE_URL') ?? 'https://giyma-estetica-avancada.vercel.app').replace(/\/+$/, ''),
+  siteUrl: urlDoSite(),
   /** Liberado na sessão 9 (conferência feita). Só vale em produção: preview nunca indexa. */
   indexar: true,
   idioma: 'pt-BR',

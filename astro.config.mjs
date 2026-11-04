@@ -1,9 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Site estático. SITE_URL vem do ambiente (domínio ainda pendente).
+// Site estático. URL: SITE_URL; senão, a URL de produção do projeto na Vercel.
+const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://giyma-estetica-avancada.vercel.app',
+  site:
+    process.env.SITE_URL ??
+    (vercel ? `https://${vercel}` : 'https://giyma-estetica-avancada.vercel.app'),
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },

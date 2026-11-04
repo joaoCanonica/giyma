@@ -559,7 +559,9 @@ function usarDerivadosVersionados() {
   };
   andar(indice);
   if (faltando.length) {
-    console.error(`media:prepare: faltam ${faltando.length} derivados em public/media (ex.: ${faltando[0]}).`);
+    console.error(
+      `media:prepare: faltam ${faltando.length} derivados em public/media (ex.: ${faltando[0]}).`,
+    );
     return false;
   }
   return true;
@@ -569,7 +571,9 @@ async function main() {
   const inicio = Date.now();
   if (!(await temFfmpeg())) {
     if (usarDerivadosVersionados()) {
-      console.log('media:prepare: sem ffmpeg; usando os derivados versionados em public/media (ok).');
+      console.log(
+        'media:prepare: sem ffmpeg; usando os derivados versionados em public/media (ok).',
+      );
       return;
     }
     console.error(
