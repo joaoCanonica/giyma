@@ -16,11 +16,11 @@
       },
       "textoTranscrito": "GIYMA · ESTÉTICA AVANÇADA (marca d’água no centro)",
       "uso": "Resultados: preenchimento labial (só com autorização).",
-      "consentimento": "pendente",
+      "consentimento": "autorizado",
       "audioLiberado": false,
       "problemas": [
         "Logo GIYMA queimado na emenda: recortado fora.",
-        "Tempo decorrido não informado."
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
       ],
       "edicoes": [],
       "naoUsar": false,
@@ -31,7 +31,7 @@
       "derivados": false,
       "antesDepois": {
         "procedimento": "preenchimento labial",
-        "tempoDecorrido": null,
+        "tempoDecorrido": "depende de cada paciente",
         "disposicao": "empilhado",
         "antes": {
           "x": 0,
@@ -117,10 +117,10 @@
       },
       "textoTranscrito": "Preenchimento de mento (queixo)",
       "uso": "Resultados: preenchimento de mento (só com autorização).",
-      "consentimento": "pendente",
+      "consentimento": "autorizado",
       "audioLiberado": false,
       "problemas": [
-        "Tempo decorrido não informado."
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
       ],
       "edicoes": [],
       "naoUsar": false,
@@ -131,7 +131,7 @@
       "derivados": false,
       "antesDepois": {
         "procedimento": "preenchimento de mento",
-        "tempoDecorrido": null,
+        "tempoDecorrido": "depende de cada paciente",
         "disposicao": "lado-a-lado",
         "antes": {
           "x": 88,
@@ -190,10 +190,10 @@
       },
       "textoTranscrito": "Toxina Botulínica",
       "uso": "Resultados: toxina botulínica, testa (só com autorização).",
-      "consentimento": "pendente",
+      "consentimento": "autorizado",
       "audioLiberado": false,
       "problemas": [
-        "Tempo decorrido não informado."
+        "Tempo decorrido: \"depende de cada paciente\" (João, 04/11/2026)."
       ],
       "edicoes": [],
       "naoUsar": false,
@@ -204,7 +204,7 @@
       "derivados": false,
       "antesDepois": {
         "procedimento": "toxina botulínica (testa)",
-        "tempoDecorrido": null,
+        "tempoDecorrido": "depende de cada paciente",
         "disposicao": "empilhado",
         "antes": {
           "x": 210,

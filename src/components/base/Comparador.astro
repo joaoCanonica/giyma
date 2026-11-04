@@ -1,6 +1,7 @@
 ---
-// Antes e depois com range nativo (teclado, leitor de tela). Legendas "Antes" e
-// "Depois · {tempo}" sempre visíveis. Sem JS: os dois lado a lado.
+// Antes e depois com range nativo (teclado, leitor de tela). Rótulos "Antes da harmonização" e
+// "Depois da harmonização na Giyma" sempre visíveis (João, 04/11/2026: o tempo depende de cada
+// paciente); a legenda traz o procedimento. Sem JS: os dois lado a lado.
 // Em produção, só pares com consentimento=autorizado (a trava do audit-compliance acusa o resto).
 import { imagem, srcset, type ImagemIndice } from './midia.ts';
 
@@ -57,8 +58,8 @@ const fonte = (i: typeof a) => i.fontes.webp[Math.min(1, i.fontes.webp.length - 
         decoding="async"
       />
     </picture>
-    <span class="comp-rotulo comp-rotulo--antes">Antes</span>
-    <span class="comp-rotulo comp-rotulo--depois">Depois · {tempo}</span>
+    <span class="comp-rotulo comp-rotulo--antes">Antes da harmonização</span>
+    <span class="comp-rotulo comp-rotulo--depois">Depois da harmonização na Giyma</span>
     <span class="comp-linha" aria-hidden="true"></span>
     <input
       class="comp-range"
@@ -112,6 +113,22 @@ const fonte = (i: typeof a) => i.fontes.webp[Math.min(1, i.fontes.webp.length - 
   }
   .comp-rotulo {
     max-width: calc(50% - 1.25rem);
+  }
+  /* No celular, rótulo menor: não cobre o rosto nos pares baixos (ex.: lábios). */
+  @media (max-width: 40rem) {
+    .comp-rotulo {
+      top: 0.4rem;
+      padding: 0.2rem 0.4rem 0.15rem;
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      line-height: 1.35;
+    }
+    .comp-rotulo--antes {
+      left: 0.4rem;
+    }
+    .comp-rotulo--depois {
+      right: 0.4rem;
+    }
   }
   .comp-range,
   .comp-linha {

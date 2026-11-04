@@ -27,8 +27,8 @@ Legenda:
 | Mensagem pronta do WhatsApp "…avaliação com a Dra. Ester." | ✓ Mantida: é o texto que a paciente escolhe enviar no WhatsApp dela, não publicidade na página (nenhum botão ou texto do site mostra "Dra." sem o CRF) |
 | Sem promessa de resultado | Termos vetados: 0 no HTML (`audit-compliance`), 0 nos textos (`validate-config`), 0 no JSON-LD (`audit-seo`). Varredura ampla adicional ("garant", "imediat", "definitiv", "milagr", "perfeit", "anos mais jovem", "100%") com 0 ocorrência real. O texto de resultados diz "Resultados variam de pessoa para pessoa. Eles mostram o cuidado, não uma promessa." | ✓ |
 | Sem preço, promoção, combo, bônus, vale, sorteio ou "avaliação gratuita" | Varredura de "R$", "preço", "parcel", "promo", "descont", "grátis", "combo", "bônus", "vale", "sorteio": 0 ocorrência ("valores" aparece só no sentido de princípios). O llms.txt diz que o site não divulga preço | ✓ |
-| Antes e depois só autorizados, com legenda técnica | Nenhum par tem `consentimento=autorizado`, então nenhum é publicado. O `prepare-media` nem copia os pares para `public/`, e o `audit-compliance` trava qualquer referência. O comparador exige procedimento + tempo decorrido (schema) | ✓ (hoje: 0 pares no ar) |
-| Habilitação para estética (pós-graduação, averbação no CRF-SC) | `profissional.posEstetica` bloqueante: a página /dra-ester-santos não vai para produção, e a resposta "Farmacêutico pode?" aguarda a confirmação | ⚠ |
+| Antes e depois só autorizados, com legenda técnica | Publicados 3 pares autorizados, com luz e ângulo coerentes: f00 (lábios), f03 (mento) e f05 (toxina na testa). Rótulos "Antes da harmonização" e "Depois da harmonização na Giyma". A legenda traz o procedimento e "O resultado depende de cada paciente". **Por ordem expressa do João (04/11/2026), o tempo decorrido não aparece** ("depende muito de cada paciente"): o campo é preenchido com "depende de cada paciente", e as travas continuam exigindo legenda e autorização. Ficaram fora: f06 (as mesmas fotos do f00), f20 (ângulo diferente), f22 (luz diferente), f18, f19 e f21 (procedimento não informado e marca d’água sobre o rosto) | ✓ |
+| Habilitação para estética | ✓ Pós-graduação lato sensu em Farmácia Estética, que habilita a Ester no CRF-SC para os injetáveis (João, 04/11/2026). A página /dra-ester-santos vai para a produção. Instituição e ano não informados: o site não os cita |
 
 ## 2. Anvisa: marca comercial de medicamento
 
@@ -47,7 +47,7 @@ Legenda:
 | Aviso de que o site não substitui a avaliação | ✓ Rodapé de todas as páginas |
 | Cuidados e riscos de cada tratamento em linguagem simples | ✓ Seção "Quais são os cuidados?" em cada tratamento |
 | CNPJ e razão social | ✓ Decisão do João: ficam de fora por enquanto. O site identifica a clínica por nome, endereço, WhatsApp e profissional com registro |
-| Horário de atendimento | ✓ 9h–12h e 14h–18h, com agendamento prévio |
+| Horário de atendimento | ✓ Segunda a sexta, 9h–19h, com agenda personalizada: o site pede para confirmar o horário antes de ir |
 
 ## 4. LGPD
 
@@ -69,7 +69,7 @@ Legenda:
 | **Crédito do retrato** (hero, OG, página da Ester) | ✓ Os posts são da própria Ester: sem fotógrafo a creditar (João, 04/11/2026) |
 | Imagem da própria Ester | ✓ Autorizada (João, 04/11/2026). Recomendação: guardar por escrito, no contrato com a WAXLO |
 | Depoimentos | ✓ O da Google: "Nathalia F." (primeiro nome + inicial), literal, com link para a ficha. Mais 2 do WhatsApp, autorizados, em texto literal e anônimos ("Paciente da Giyma"), nunca o print |
-| Antes e depois | ✓ Autorizados, mas nenhum publicado: faltam procedimento e tempo decorrido (ver §9) |
+| Antes e depois | ✓ 3 pares autorizados publicados, sem edição além do recorte idêntico (ver §1) |
 | Edição de mídia | ✓ Nenhuma IA generativa, retoque de pele ou texto apagado. Só recorte, trecho e escolha de quadro do pôster (registrados no manifesto) |
 
 ## 6. Google
@@ -89,31 +89,28 @@ e no JSON-LD.
 
 | Decisão | No site |
 | --- | --- |
-| Horário: aberta normalmente das 9h às 12h e das 14h às 18h, com avaliação individual e agendamento prévio | `horario.semana` confirmado: segunda a sexta, 9h–12h e 14h–18h. Sábado e domingo fechados, porque os dias não foram ditos (**conferir**). A observação "Atendimento com avaliação individual e agendamento prévio pelo WhatsApp" aparece junto do horário. Também entra no JSON-LD (`openingHoursSpecification`) e no llms.txt. **A produção não está mais travada** |
+| Horário: segunda a sexta, em horário comercial estendido (frequentemente 9h–19h), com agenda personalizada | `horario.semana` confirmado: segunda a sexta, 9h–19h. A observação "A agenda é personalizada, com avaliação individual: confirme o seu horário pelo WhatsApp antes de vir." aparece junto do horário. Também entra no JSON-LD e no llms.txt. **A produção não está travada** |
 | Os posts são todos da Ester: sem crédito de fotógrafo | Pendência encerrada (manifesto atualizado) |
 | CNPJ e razão social ficam de fora | Saíram do rodapé e da política de privacidade, inclusive o selo de pendência. A política ganhou o contato pelo WhatsApp e a data de atualização |
 | O vídeo de toxina fica: ela arrumou e pediu | Mantido como player mudo. O pôster continua no quadro sem a marca (só escolha de quadro, sem edição) |
 | Sem domínio por enquanto: "giyma estetica avançada" | `SITE_URL` padrão `https://giyma-estetica-avancada.vercel.app`, com o projeto na Vercel chamado `giyma-estetica-avancada`. O noindex de cabeçalho vale só para as URLs de preview (`giyma-estetica-avancada-*.vercel.app`) |
-| Tudo o que foi enviado está autorizado | O **tour volta inteiro** (32,3 s, com os capítulos Procedimento e Recepção). Os **2 depoimentos do WhatsApp** (post de 30/07/2025) entram em texto literal, como "Paciente da Giyma · WhatsApp", nunca o print |
+| Tudo o que foi enviado está autorizado; antes e depois sem tempo, "depende de cada paciente"; pós-graduação em Farmácia Estética | O **tour volta inteiro** (32,3 s, com os capítulos Procedimento e Recepção). Os **2 depoimentos do WhatsApp** (post de 30/07/2025) entram em texto literal, como "Paciente da Giyma · WhatsApp", nunca o print |
 | Indexação | `seo.indexar=true`: em produção, `index, follow`, `robots.txt` com `Allow: /` e sitemap (16 URLs). O preview continua noindex |
 
-## 9. O que ainda falta (não depende de decisão: depende de dado)
+## 9. O que ainda falta
 
-1. **Antes e depois:** autorizados, mas nenhum dos 9 pares tem o **tempo decorrido**, e 5 não têm o
-   procedimento. O CLAUDE.md §8 exige procedimento e tempo decorrido na legenda, e a trava do
-   schema reprova par "autorizado" sem eles. Basta mandar, para cada par, o procedimento e o
-   tempo (ex.: "Preenchimento labial, 15 dias depois"). O site já mostra os pares sozinho.
-2. **Pós-graduação em estética** (instituição e ano) e averbação no CRF-SC: enquanto não chegam, a
-   página /dra-ester-santos fica fora da produção e redireciona para o início.
-3. **Dias de atendimento:** confirmar se sábado é fechado.
-4. **Teste em aparelho real** (10 minutos), porque este ambiente só tem o Chromium:
+1. **Teste em aparelho real** (10 minutos), porque este ambiente só tem o Chromium:
    - **iPhone (Safari):**
      - abrir a home e deixar a entrada rodar;
      - trocar de fase na Linha do tempo;
      - abrir "Não sei o que fazer", responder e tocar em "Abrir no WhatsApp": a mensagem chega
        pronta;
      - abrir /como-chegar → "Mostrar o mapa interativo" → Aceitar;
-     - tocar um vídeo.
+     - tocar um vídeo;
+     - arrastar o antes e depois em /resultados.
    - **Firefox (computador):** o mesmo percurso.
-5. **Rich Results Test e validator.schema.org** com o site no ar (capturas em `docs/capturas/`).
-6. **Medição** (Plausible ou Umami): segue desligada até haver decisão.
+2. **Rich Results Test e validator.schema.org** com o site no ar.
+3. **Antes e depois que ficaram fora** (f18–f22): voltam com o original sem moldura e o
+   procedimento de cada um.
+4. **Medição** (Plausible ou Umami): segue desligada até haver decisão.
+5. **Domínio próprio:** quando for comprado, seguir `docs/DEPLOY.md`.

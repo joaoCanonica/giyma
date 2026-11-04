@@ -1,9 +1,9 @@
 {
   "midia": "f00-antes-depois",
   "tratamento": "preenchimento-labial",
-  "tempoDecorrido": null,
-  "consentimento": "pendente",
-  "legenda": null,
+  "tempoDecorrido": "depende de cada paciente",
+  "consentimento": "autorizado",
+  "legenda": "Preenchimento labial: antes e depois da harmonização na Giyma. O resultado depende de cada paciente.",
   "olhosTarjados": false,
-  "observacao": "Procedimento pela arte do post; tempo decorrido e autorização pendentes."
+  "observacao": "Autorizado (João, 04/11/2026). Sem tempo decorrido por decisão do João: \"depende muito de cada paciente\"."
 }

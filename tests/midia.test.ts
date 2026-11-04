@@ -51,16 +51,18 @@ describe('manifesto de mídia', () => {
     expect(m.itens).toHaveLength(55);
   });
 
-  it('nenhum antes e depois é publicável sem consentimento autorizado', () => {
+  it('antes e depois só é publicável com consentimento autorizado (hoje: f00, f03, f05)', () => {
     const ads = manifesto().itens.filter((i) => i.natureza === 'antes-depois');
     expect(ads.map((i) => i.id).sort()).toEqual(
       ['f00', 'f03', 'f05', 'f06', 'f18', 'f19', 'f20', 'f21', 'f22'].map(
         (n) => `${n}-antes-depois`,
       ),
     );
+    const AUTORIZADOS = ['f00-antes-depois', 'f03-antes-depois', 'f05-antes-depois'];
     for (const item of ads) {
-      expect(item.consentimento, item.id).toBe('pendente');
-      expect(publicavel(item), item.id).toBe(false);
+      const aut = AUTORIZADOS.includes(item.id);
+      expect(item.consentimento, item.id).toBe(aut ? 'autorizado' : 'pendente');
+      expect(publicavel(item), item.id).toBe(aut);
     }
   });
 
@@ -147,7 +149,11 @@ describe.skipIf(!temDerivados)('derivados em public/media (depois de media:prepa
     const pendentes = manifesto()
       .itens.filter((i) => i.natureza === 'antes-depois' && !publicavel(i))
       .map((i) => i.id);
-    expect(Object.keys(indice?.resultados ?? {})).toEqual([]);
+    expect(Object.keys(indice?.resultados ?? {}).sort()).toEqual([
+      'f00-antes-depois',
+      'f03-antes-depois',
+      'f05-antes-depois',
+    ]);
     const andar = (dir: string): string[] =>
       readdirSync(dir, { withFileTypes: true }).flatMap((e) =>
         e.isDirectory() ? andar(join(dir, e.name)) : [e.name],

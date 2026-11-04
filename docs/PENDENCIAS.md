@@ -134,3 +134,10 @@ Detalhes em docs/CONFERENCIA_FINAL.md (normas), docs/QA.md (números) e docs/DEP
   - medição (desligada).
 
   Detalhes em docs/CONFERENCIA_FINAL.md, §9.
+
+## Últimas decisões (04/11/2026)
+
+- **Antes e depois:** 3 pares publicados (f00, f03, f05) com "Antes da harmonização" / "Depois da harmonização na Giyma" e "O resultado depende de cada paciente". O tempo decorrido não aparece, por ordem do João. f06 é duplicado do f00; f18–f22 ficam fora (luz ou ângulo diferente, marca d’água sobre o rosto, procedimento não informado).
+- **Pós-graduação:** em Farmácia Estética (lato sensu), confirmada. A página da Ester vai para a produção. Não há mais nenhum dado bloqueante.
+- **Horário:** segunda a sexta, 9h–19h, com a orientação de confirmar antes de ir.
+- **CRF:** o João escreveu "3984-SC". O site mantém a forma oficial "CRF-SC 3984" (mesmo número).

@@ -96,8 +96,9 @@
           "fonte": "bio do Instagram"
         },
         {
-          "titulo": "Pós-graduação em estética",
-          "pendente": "instituição e ano: aguardando a Ester (campo PROVISÓRIO)"
+          "titulo": "Pós-graduação em Farmácia Estética",
+          "texto": "Especialização lato sensu que habilita a farmacêutica, junto ao CRF-SC, para os procedimentos injetáveis.",
+          "fonte": "João, 04/11/2026"
         }
       ]
     },
@@ -124,8 +125,5 @@
       }
     }
   },
-  "pendentes": [
-    "pós-graduação em estética (bloqueia esta página em produção)",
-    "texto \"Farmacêutico esteta\" da Ester"
-  ]
+  "pendentes": ["texto \"Farmacêutico esteta\" da Ester"]
 }

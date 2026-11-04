@@ -55,28 +55,25 @@ describe('config', () => {
   it('assinatura sempre completa', () => {
     expect(assinaturaProfissional()).toBe('Dra. Ester Santos · farmacêutica esteta · CRF-SC 3984');
   });
-  it('pendências reais: só a pós bloqueante; origem do nome opcional e vazia', () => {
+  it('pendências reais: nenhuma bloqueante; origem do nome opcional e vazia', () => {
     const p = pendencias();
     const bloq = p.filter((x) => x.estado === 'bloqueante').map((x) => x.caminho);
-    expect(bloq.sort()).toEqual(['profissional.posEstetica']);
+    expect(bloq).toEqual([]);
     expect(p.some((x) => x.caminho === 'marca.origemDoNome')).toBe(true);
   });
-  it('página da Ester bloqueada pela pós; o resto liberado', () => {
-    expect(paginaLiberada('dra-ester-santos')).toBe(false);
+  it('página da Ester liberada (pós confirmada em 04/11/2026); o resto liberado', () => {
+    expect(paginaLiberada('dra-ester-santos')).toBe(true);
     expect(paginaLiberada('toxina-botulinica')).toBe(true);
   });
-  it('horário confirmado (09–12 e 14–18, dias úteis), fuso e observação do agendamento', () => {
+  it('horário confirmado (segunda a sexta, 9h–19h), fuso e observação do agendamento', () => {
     expect(horario.semana.estado).toBe('confirmado');
     const semana = (
       horario.semana as unknown as { valor: Record<string, { abre: string; fecha: string }[]> }
     ).valor;
-    expect(semana['seg']).toEqual([
-      { abre: '09:00', fecha: '12:00' },
-      { abre: '14:00', fecha: '18:00' },
-    ]);
+    expect(semana['seg']).toEqual([{ abre: '09:00', fecha: '19:00' }]);
     expect(semana['sab']).toEqual([]);
     expect(semana['dom']).toEqual([]);
-    expect(horario.observacao).toMatch(/agendamento prévio/);
+    expect(horario.observacao).toMatch(/confirme o seu horário/);
     expect(horario.textoSemHorario).toBe('Horário pelo WhatsApp');
     expect(horario.fuso).toBe('America/Sao_Paulo');
   });
@@ -337,10 +334,13 @@ describe('coleções', () => {
       expect(f.oQueMuda).toBeTruthy();
     }
   });
-  it('resultados: todos pendentes, nenhum publicável', () => {
+  it('resultados: só os 3 pares autorizados e com legenda são publicáveis', () => {
     const rs = ler('resultados').map(({ data }) => schemas.resultado.parse(data));
     expect(rs).toHaveLength(9);
-    for (const r of rs) expect(schemas.publicavel.resultado(r)).toBe(false);
+    const pub = rs.filter((r) => schemas.publicavel.resultado(r)).map((r) => r.midia);
+    expect(pub.sort()).toEqual(['f00-antes-depois', 'f03-antes-depois', 'f05-antes-depois']);
+    for (const r of rs.filter((x) => schemas.publicavel.resultado(x)))
+      expect(r.legenda).toMatch(/depende de cada paciente/);
   });
   it('schema de resultado recusa "autorizado" sem legenda e tempo', () => {
     const r = schemas.resultado.safeParse({

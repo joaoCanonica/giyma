@@ -30,7 +30,7 @@ node scripts/capturar-rotas.mjs docs/capturas/<data>/
 
 Padrão do Lighthouse 13.6: Moto G Power, 4G lento simulado, CPU 4×. A tabela vem do build
 preview. Em preview o SEO é 66–69 por causa do noindex, que é proposital. **Na produção real,
-SEO = 100 nas 16 rotas públicas** (`docs/qa/lighthouse-producao.json`), e as outras notas ficaram
+SEO = 100 nas 17 rotas públicas** (com a página da Ester, liberada pela pós-graduação) (`docs/qa/lighthouse-producao.json`), e as outras notas ficaram
 iguais, com uma exceção: a home deu **96**, LCP 1,81 s e TBT 157 ms. A variação vem do TBT do
 Lighthouse simulado; continua acima da meta.
 
@@ -188,3 +188,12 @@ Antes e depois de todas as rotas (390 claro, 1440 claro, 390 escuro, página int
   e afins desligados), `X-Content-Type-Options`, `X-Frame-Options: DENY`, COOP e
   `X-Robots-Tag: noindex` em todo `*.vercel.app`.
 - **E2E do funil** com o CSP ligado e a medição configurada: **10 de 10**.
+
+## Atualização final (04/11/2026, decisões do João)
+
+- **Produção:** 17 rotas, todas na meta no Lighthouse (SEO 100). Também 0 problemas em
+  `audit-compliance`, `audit-seo`, `audit-csp`, `audit-a11y` (109 checagens) e
+  `audit-dispositivos`.
+- **Preview:** testes 56 / 35 / 19 ok; a11y com 116 checagens e 0 problemas; e2e do funil 10 de 10.
+- **Antes e depois** publicados em /resultados e nas páginas dos tratamentos (3 pares). No
+  celular, o rótulo fica menor para não cobrir o rosto.

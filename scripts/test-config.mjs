@@ -89,7 +89,13 @@ caso('CRF ausente trava produção', () => {
   assert.ok(tem(verificarConfig(c).travasProducao, /CRF ausente/));
 });
 caso('pós em estética ausente tira só a página da Ester', () => {
-  const r = verificarConfig(base);
+  const c = clone();
+  c.config.profissional.posEstetica = {
+    estado: 'bloqueante',
+    valor: null,
+    rotulo: 'pós-graduação em estética',
+  };
+  const r = verificarConfig(c);
   assert.ok(tem(r.avisos, /dra-ester-santos/));
   assert.ok(!tem(r.travasProducao, /pós/));
 });
@@ -97,8 +103,9 @@ caso('pós em estética ausente tira só a página da Ester', () => {
 console.log('Conteúdo');
 caso('resultado "autorizado" com manifesto pendente é erro', () => {
   const c = clone();
-  const r = c.conteudo.resultados.find((x) => x.id === 'f03');
+  const r = c.conteudo.resultados.find((x) => x.id === 'f18');
   Object.assign(r.data, {
+    tratamento: 'contorno-facial',
     consentimento: 'autorizado',
     tempoDecorrido: '15 dias',
     legenda: 'Preenchimento de mento, 15 dias depois.',
@@ -107,7 +114,7 @@ caso('resultado "autorizado" com manifesto pendente é erro', () => {
 });
 caso('resultado autorizado sem tempo decorrido é erro de schema', () => {
   const c = clone();
-  c.conteudo.resultados[0].data.consentimento = 'autorizado';
+  c.conteudo.resultados.find((x) => x.id === 'f18').data.consentimento = 'autorizado';
   assert.ok(tem(verificarConfig(c).erros, /tempoDecorrido/));
 });
 caso('termo vetado no conteúdo é erro ("resultado imediato")', () => {
@@ -208,7 +215,7 @@ caso('meta description com o nome e sem CRF trava', () =>
 );
 caso('antes e depois sem consentimento referenciado trava', () =>
   assert.ok(
-    regras(pagina('<img src="/media/resultados/f03-antes-depois-par-800.avif" alt="">')).includes(
+    regras(pagina('<img src="/media/resultados/f18-antes-depois-par-800.avif" alt="">')).includes(
       'midia-proibida',
     ),
   ),

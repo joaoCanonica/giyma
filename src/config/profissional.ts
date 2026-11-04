@@ -1,4 +1,4 @@
-import { aviso, bloqueante, confirmado } from './tipos.ts';
+import { aviso, confirmado } from './tipos.ts';
 
 const POST_ANUNCIO = 'post de 25/07/2023 (anúncio da Giyma)';
 const POST_50 = 'post de 05/06/2026 (aniversário de 50 anos)';
@@ -26,8 +26,11 @@ export const profissional = {
     ],
     POST_ANUNCIO,
   ),
-  /** Pós-graduação em estética: trava SÓ a página da Ester (o resto do site funciona). */
-  posEstetica: bloqueante('pós-graduação em estética (instituição e ano)'),
+  /** Pós-graduação lato sensu em Farmácia Estética: a habilitação no CRF-SC para injetáveis. */
+  posEstetica: confirmado(
+    { curso: 'Farmácia Estética', nivel: 'pós-graduação lato sensu' },
+    'João, 04/11/2026 (instituição e ano não informados)',
+  ),
   trajetoria: confirmado(
     ['professora universitária', 'vigilância sanitária', 'análises laboratoriais'],
     POST_ANUNCIO,

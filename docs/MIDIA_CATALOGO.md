@@ -8,12 +8,12 @@ Regras aplicadas: antes e depois só saem para `public/` com `consentimento: "au
 
 | # | Arquivo | Natureza | Uso | Recorte / trecho | Pesos (derivados) | Consentimento | Problemas |
 |---|---|---|---|---|---|---|---|
-| 0 | `SaveClip…468115140…` | antes-depois | Resultados: preenchimento labial (só com autorização). | antes 1283×500 em 0,0 · depois em 0,712 | não gerado (sem consentimento) | pendente | Logo GIYMA queimado na emenda: recortado fora. Tempo decorrido não informado. |
+| 0 | `SaveClip…468115140…` | antes-depois | Resultados: preenchimento labial (só com autorização). | antes 1283×500 em 0,0 · depois em 0,712 | gerado | autorizado | Logo GIYMA queimado na emenda: recortado fora. Tempo decorrido: "depende de cada paciente" (João, 04/11/2026). |
 | 1 | `SaveClip…491041853…` | arte-instagram | Referência de voz (CTA). | — | — | nao-precisa | Arte com texto, logo e moldura queimados: não serve como fotografia limpa. |
 | 2 | `SaveClip…491440334…` | arte-instagram | Referência: retrato terracota de costas (pedir original do ensaio). | — | — | nao-precisa | Arte com texto, logo e moldura queimados: não serve como fotografia limpa. |
-| 3 | `SaveClip…491440650…` | antes-depois | Resultados: preenchimento de mento (só com autorização). | antes 404×715 em 88,427 · depois em 575,427 | não gerado (sem consentimento) | pendente | Tempo decorrido não informado. |
+| 3 | `SaveClip…491440650…` | antes-depois | Resultados: preenchimento de mento (só com autorização). | antes 404×715 em 88,427 · depois em 575,427 | gerado | autorizado | Tempo decorrido: "depende de cada paciente" (João, 04/11/2026). |
 | 4 | `SaveClip…491441760…` | arte-instagram | Referência: Ester de terracota com xícara (pedir original do ensaio). | — | — | nao-precisa | Arte com texto, logo e moldura queimados: não serve como fotografia limpa. |
-| 5 | `SaveClip…491442068…` | antes-depois | Resultados: toxina botulínica, testa (só com autorização). | antes 650×364 em 210,372 · depois em 210,819 | não gerado (sem consentimento) | pendente | Tempo decorrido não informado. |
+| 5 | `SaveClip…491442068…` | antes-depois | Resultados: toxina botulínica, testa (só com autorização). | antes 650×364 em 210,372 · depois em 210,819 | gerado | autorizado | Tempo decorrido: "depende de cada paciente" (João, 04/11/2026). |
 | 6 | `SaveClip…491442131…` | antes-depois | Resultados: preenchimento labial (só com autorização). | antes 649×366 em 216,353 · depois em 216,801 | não gerado (sem consentimento) | pendente | Tempo decorrido não informado. |
 | 7 | `SaveClip…491443496…` | arte-instagram | Referência de voz. Não reproduzir "Dra." sem o CRF-SC 3984. | — | — | nao-precisa | Arte com texto, logo e moldura queimados: não serve como fotografia limpa. "Dra." sem CRF ao lado e "expert": não reproduzir literal (seção 8). |
 | 8 | `SaveClip…491444770…` | arte-instagram | Referência: Ester de terracota de braços cruzados (pedir original do ensaio). | — | — | nao-precisa | Arte com texto, logo e moldura queimados: não serve como fotografia limpa. |

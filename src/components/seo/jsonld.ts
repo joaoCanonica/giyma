@@ -142,15 +142,26 @@ export function pessoa(tratamentos: readonly TratamentoLd[], urlPagina: string):
     url: urlPagina,
     image: urlAbsoluta('/media/img/retrato-3x4-800.webp'),
     identifier: { '@type': 'PropertyValue', propertyID: conselho, value: numero },
-    hasCredential: {
-      '@type': 'EducationalOccupationalCredential',
-      name: `Registro profissional ${p.registro.valor}`,
-      credentialCategory: 'registro profissional',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'Conselho Regional de Farmácia de Santa Catarina (CRF-SC)',
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: `Registro profissional ${p.registro.valor}`,
+        credentialCategory: 'registro profissional',
+        recognizedBy: {
+          '@type': 'Organization',
+          name: 'Conselho Regional de Farmácia de Santa Catarina (CRF-SC)',
+        },
       },
-    },
+      ...(p.posEstetica.estado === 'confirmado'
+        ? [
+            {
+              '@type': 'EducationalOccupationalCredential',
+              name: `Pós-graduação em ${p.posEstetica.valor.curso}`,
+              credentialCategory: p.posEstetica.valor.nivel,
+            },
+          ]
+        : []),
+    ],
     alumniOf: {
       '@type': 'CollegeOrUniversity',
       name: f?.instituicao,
