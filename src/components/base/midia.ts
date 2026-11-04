@@ -25,9 +25,16 @@ export interface VideoIndice {
   readonly fontes: { readonly mp4: readonly Fonte[]; readonly webm: readonly Fonte[] };
   readonly poster: ImagemIndice & { readonly em: number };
 }
+export interface ParIndice {
+  readonly procedimento: string | null;
+  readonly tempoDecorrido: string | null;
+  readonly antes: ImagemIndice;
+  readonly depois: ImagemIndice;
+}
 interface Indice {
   readonly imagens: Record<string, ImagemIndice>;
   readonly videos: Record<string, VideoIndice>;
+  readonly resultados?: Record<string, ParIndice>;
 }
 
 let cache: Indice | null = null;
@@ -54,3 +61,12 @@ export function video(id: string): VideoIndice {
 
 export const srcset = (fontes: readonly Fonte[]): string =>
   fontes.map((f) => `${f.src} ${f.largura}w`).join(', ');
+
+/** Par antes/depois publicado (só existe com consentimento=autorizado: o prepare-media não gera os outros). */
+export function par(id: string): ParIndice | null {
+  return indice().resultados?.[id] ?? null;
+}
+
+export function temVideo(id: string): boolean {
+  return Boolean(indice().videos[id]);
+}

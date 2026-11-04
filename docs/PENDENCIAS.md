@@ -75,3 +75,10 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **Imagens por tratamento:** não há fotos próprias de cada tratamento (antes e depois sem autorização). A imagem que acende ao lado usa stills reais do espaço; trocar quando houver fotos por tratamento.
 - **Resultados com pares autorizados:** quando o primeiro par for autorizado, o `<Comparador>` da seção 8 precisa ler as imagens de `indice.resultados` (hoje ele lê `indice.imagens`). O caminho não roda enquanto nenhum par está autorizado.
 - **"Avaliar a Giyma no Google":** aponta para a ficha; falta o link direto de avaliação.
+
+## Tratamentos (sessão 6B)
+
+- **Harmonização corporal:** página só no preview (selo PROVISÓRIO). Em produção, não é gerada até a clínica confirmar os procedimentos.
+- **Antes e depois por tratamento:** o template já mostra o par quando ele for autorizado (lê `indice.resultados`). Hoje nenhum aparece.
+- **"Em que fase costuma fazer sentido"** aponta para `/cada-fase?fase=…`, página da sessão 6C.
+- **Vídeo do inverno** (DYnNCJ3P80V) ligado a microagulhamento, peeling e bioestimulador, porque é a fala da Ester sobre esses tratamentos.

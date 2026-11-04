@@ -4,6 +4,7 @@
 import { getCollection } from 'astro:content';
 import Citacao from '../base/Citacao.astro';
 import Comparador from '../base/Comparador.astro';
+import { par } from '../base/midia.ts';
 import Link from '../base/Link.astro';
 import Rotulo from '../base/Rotulo.astro';
 import { publicavel } from '../../content/schemas.ts';
@@ -13,9 +14,12 @@ interface Props {
   bloco: Bloco;
 }
 const { bloco } = Astro.props;
-const autorizados = (await getCollection('resultados'))
-  .map((r) => r.data)
-  .filter(publicavel.resultado);
+const pares = (await getCollection('resultados')).map((r) => r.data).filter(publicavel.resultado);
+// Só pares que existem no índice (o prepare-media só gera os autorizados).
+const autorizados = pares.flatMap((r) => {
+  const p = par(r.midia);
+  return p ? [{ ...r, p }] : [];
+});
 const href = bloco.cta ? await destino(bloco.cta.mensagem) : '/perguntas-frequentes';
 ---
 
@@ -32,8 +36,8 @@ const href = bloco.cta ? await destino(bloco.cta.mensagem) : '/perguntas-frequen
         <div class="natural-pares">
           {autorizados.slice(0, 3).map((r) => (
             <Comparador
-              antes={`${r.midia}-antes`}
-              depois={`${r.midia}-depois`}
+              antes={r.p.antes}
+              depois={r.p.depois}
               tempo={r.tempoDecorrido ?? ''}
               procedimento={r.legenda ?? ''}
               altAntes="Antes do procedimento"

@@ -2,11 +2,12 @@
 // Antes e depois com range nativo (teclado, leitor de tela). Legendas "Antes" e
 // "Depois · {tempo}" sempre visíveis. Sem JS: os dois lado a lado.
 // Em produção, só pares com consentimento=autorizado (a trava do audit-compliance acusa o resto).
-import { imagem, srcset } from './midia.ts';
+import { imagem, srcset, type ImagemIndice } from './midia.ts';
 
 interface Props {
-  antes: string;
-  depois: string;
+  /** ids de indice.imagens, ou as imagens já resolvidas (pares de indice.resultados). */
+  antes: string | ImagemIndice;
+  depois: string | ImagemIndice;
   /** Tempo decorrido (obrigatório na legenda). */
   tempo: string;
   procedimento: string;
@@ -15,8 +16,8 @@ interface Props {
   legenda?: string;
 }
 const { antes, depois, tempo, procedimento, altAntes, altDepois, legenda } = Astro.props;
-const a = imagem(antes);
-const d = imagem(depois);
+const a = typeof antes === 'string' ? imagem(antes) : antes;
+const d = typeof depois === 'string' ? imagem(depois) : depois;
 const fonte = (i: typeof a) => i.fontes.webp[Math.min(1, i.fontes.webp.length - 1)]?.src;
 ---
 
