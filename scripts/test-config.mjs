@@ -225,6 +225,13 @@ caso('srcset com antes e depois trava', () =>
     ).includes('midia-proibida'),
   ),
 );
+caso('link interno para página inexistente trava', () => {
+  const r = auditarHtml(pagina('<a href="/dra-ester-santos">Ester</a>'), {
+    manifesto: base.manifesto,
+    existe: (u, tipo) => tipo !== 'pagina' || u !== '/dra-ester-santos',
+  }).map((p) => p.regra);
+  assert.ok(r.includes('link-quebrado'));
+});
 caso('referência interna no texto visível trava', () =>
   assert.ok(
     regras(pagina('<p>Ester Santos · frases (CLAUDE.md, seção 1)</p>')).includes(

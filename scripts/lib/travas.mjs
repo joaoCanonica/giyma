@@ -412,6 +412,14 @@ export function auditarHtml(html, { manifesto, modo = 'preview', existe = () => 
     }
   }
 
+  // 3b. Links internos precisam existir no dist (ex.: página da Ester bloqueada em produção).
+  for (const a of raiz.querySelectorAll('a[href^="/"]')) {
+    const href = a.getAttribute('href') ?? '';
+    if (href.startsWith('/media/') || href.startsWith('//')) continue;
+    if (!existe(href, 'pagina'))
+      problemas.push({ regra: 'link-quebrado', detalhe: `href="${href}" não existe no dist` });
+  }
+
   // 4. Marcas de preview não podem sair em produção.
   if (modo === 'producao' && raiz.querySelector('[data-provisorio], [data-preview-banner]')) {
     problemas.push({

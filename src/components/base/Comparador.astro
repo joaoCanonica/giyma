@@ -13,7 +13,7 @@ interface Props {
   procedimento: string;
   altAntes: string;
   altDepois: string;
-  legenda?: string;
+  legenda?: string | undefined;
 }
 const { antes, depois, tempo, procedimento, altAntes, altDepois, legenda } = Astro.props;
 const a = typeof antes === 'string' ? imagem(antes) : antes;

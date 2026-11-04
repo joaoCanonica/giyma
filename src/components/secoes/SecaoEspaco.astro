@@ -8,8 +8,9 @@ import { microtextos, type Bloco } from './dados.ts';
 
 interface Props {
   bloco: Bloco;
+  superficie?: 'cacau' | 'petroleo';
 }
-const { bloco } = Astro.props;
+const { bloco, superficie = 'cacau' } = Astro.props;
 const m = await microtextos();
 const tour = video('tour-completo');
 const capitulos = (
@@ -31,7 +32,7 @@ const poster = tour.poster.fontes.webp.at(-1)?.src;
 const tempo = (s: number) => `0:${String(Math.floor(s)).padStart(2, '0')}`;
 ---
 
-<section class="capitulo espaco" data-superficie="cacau" aria-labelledby="espaco-titulo">
+<section class="capitulo espaco" data-superficie={superficie} aria-labelledby="espaco-titulo">
   <div class="contido">
     <header class="pilha espaco-cabeca">
       <Rotulo>{bloco.rotulo}</Rotulo>

@@ -49,9 +49,9 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
       <span id={`${id}-titulo`}>A linha do tempo da pele</span>
     </Rotulo>
   ) : (
-    <span class="so-leitor" id={`${id}-titulo`}>
+    <h2 class="so-leitor" id={`${id}-titulo`}>
       Fases da pele
-    </span>
+    </h2>
   )}
   <div class="linha-abas" role="tablist" aria-labelledby={`${id}-titulo`}>
     {fases.map((f, i) => (
@@ -84,6 +84,7 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
         aria-labelledby={`${id}-aba-${param(f.faixa)}`}
         tabindex="0"
         data-fase={param(f.faixa)}
+        data-inicial-painel={f.faixa === inicial ? '' : undefined}
       >
         <div class="linha-numero t-numero" aria-hidden="true">
           {rotuloFaixa(f.faixa)}
@@ -161,7 +162,13 @@ const rotuloFaixa = (f: string) => (f === '60+' ? '60+' : f);
     text-decoration-thickness: 1px;
   }
   /* Com JS: abas visíveis, um painel por vez. */
-  .linha[data-pronto] .linha-abas {
+  /* Com JS (classe .js no <html>, antes da pintura), o estado das abas já vale no primeiro
+     quadro: sem salto de layout quando o script chega (CLS 0). */
+  .js .linha:not([data-pronto]) .linha-painel:not([data-inicial-painel]) {
+    display: none;
+  }
+  .linha[data-pronto] .linha-abas,
+  .js .linha .linha-abas {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;

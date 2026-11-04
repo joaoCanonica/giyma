@@ -5,7 +5,7 @@ import Imagem from '../base/Imagem.astro';
 import Link from '../base/Link.astro';
 import Rotulo from '../base/Rotulo.astro';
 import Florescer from '../marca/Florescer.astro';
-import { destino, microtextos, type Bloco } from './dados.ts';
+import { destino, esterPublicada, microtextos, type Bloco } from './dados.ts';
 
 interface Props {
   bloco: Bloco;
@@ -43,7 +43,7 @@ const href = bloco.cta ? await destino(bloco.cta.mensagem) : '/dra-ester-santos'
         ))}
       </ol>
       <AssinaturaProfissional />
-      {bloco.cta && (
+      {bloco.cta && esterPublicada() && (
         <p>
           <Link href={href}>{bloco.cta.texto}</Link>
         </p>

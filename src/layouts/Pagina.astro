@@ -1,0 +1,121 @@
+---
+// Layout das páginas internas: topo em cacau (trilha, rótulo, H1, abertura), conteúdo, rodapé.
+import Documento from '../components/base/Documento.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Cabecalho from '../components/hero/Cabecalho.astro';
+import Haste from '../components/marca/Haste.astro';
+import BotaoFlutuante from '../components/secoes/BotaoFlutuante.astro';
+import { comAssinatura, textoHtml } from '../components/secoes/dados.ts';
+import Rodape from '../components/secoes/Rodape.astro';
+
+interface Props {
+  meta: { title: string; description: string };
+  /** Nome da página na trilha (Início / …). */
+  trilha: string;
+  rotulo?: string | undefined;
+  titulo: string;
+  /** Segunda linha do H1, em itálico (ex.: "em Lages"). */
+  tituloAcento?: string | undefined;
+  abertura?: readonly string[] | undefined;
+  /** 404 e páginas internas: noindex sempre. */
+  interna?: boolean;
+  semHaste?: boolean;
+}
+const {
+  meta,
+  trilha,
+  rotulo,
+  titulo,
+  tituloAcento,
+  abertura = [],
+  interna = false,
+  semHaste = false,
+} = Astro.props;
+---
+
+<Documento titulo={meta.title} descricao={meta.description} interna={interna} superficie="perola">
+  <div class="topo">
+    <Cabecalho />
+    <main>
+      <section class="hero pg-hero" data-superficie="cacau" aria-labelledby="pg-titulo">
+        <div class="contido pg-hero-grade">
+          <nav class="pg-trilha" aria-label="Você está em">
+            <a href="/">Início</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{trilha}</span>
+          </nav>
+          <div class="pilha pg-hero-texto">
+            {rotulo && <Rotulo>{rotulo}</Rotulo>}
+            <h1 id="pg-titulo" class="pg-h1">
+              {titulo}
+              {tituloAcento && <span class="t-acento">{tituloAcento}</span>}
+            </h1>
+            {abertura.map((p) => (
+              <p class="pg-abertura" {...comAssinatura(p)} set:html={textoHtml(p)} />
+            ))}
+            <slot name="hero" />
+          </div>
+          {!semHaste && <Haste altura={150} class="pg-haste" />}
+        </div>
+      </section>
+      <slot />
+    </main>
+  </div>
+  <Rodape />
+  <BotaoFlutuante />
+</Documento>
+
+<style>
+  .pg-hero {
+    padding: clamp(6.5rem, 5rem + 6vw, 10rem) 0 var(--e-5);
+  }
+  .pg-hero-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 64rem) {
+    .pg-hero-grade {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+    }
+    .pg-trilha {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 63.99rem) {
+    .pg-hero-grade :global(.pg-haste) {
+      display: none;
+    }
+  }
+  .pg-trilha {
+    font-size: var(--t-pequeno);
+    color: var(--suave);
+  }
+  .pg-trilha a {
+    color: inherit;
+  }
+  .pg-trilha span[aria-hidden] {
+    margin-inline: 0.5rem;
+    color: var(--fio);
+  }
+  .pg-hero-texto {
+    max-width: 46rem;
+    --pilha: var(--e-3);
+  }
+  .pg-h1 {
+    font-size: var(--t-display);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+  }
+  .pg-h1 .t-acento {
+    display: block;
+    font-size: 0.6em;
+    line-height: 1.15;
+    color: var(--rotulo);
+  }
+  .pg-abertura {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    max-width: 36em;
+  }
+</style>

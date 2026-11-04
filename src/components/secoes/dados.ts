@@ -1,6 +1,6 @@
 // Dados da home: textos da coleção "paginas" (sessão 5) + destinos das chamadas.
 import { getCollection, getEntry } from 'astro:content';
-import { avaliacoes } from '../../config/index.ts';
+import { avaliacoes, ehPreview, paginaLiberada } from '../../config/index.ts';
 import { linkWhatsApp } from '../../lib/whatsapp.ts';
 
 export async function home() {
@@ -38,3 +38,30 @@ export function fontePublica(fonte: string): string {
   if (/destaque/i.test(fonte)) return 'Instagram · destaque “Comece aqui”';
   return data ? `Instagram · ${data}` : 'Instagram';
 }
+
+/** Bloco de qualquer página da coleção "paginas". */
+export async function pagina(slug: string) {
+  const p = await getEntry('paginas', slug);
+  if (!p) throw new Error(`src/content/paginas/${slug}.json não encontrado`);
+  return p.data;
+}
+
+/**
+ * Texto do conteúdo para HTML: escapa, mantém "CRF-SC 3984" numa linha e troca
+ * {{nome-popular:x}} por <span data-nome-popular>x</span> (a exceção da FAQ, seção 8).
+ */
+export function textoHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\{\{nome-popular:([^}]+)\}\}/g, '<span data-nome-popular>$1</span>')
+    .replace(/CRF-SC 3984/g, '<span class="sem-quebra">CRF-SC 3984</span>');
+}
+
+/** Parágrafo com "Dra. Ester" precisa do atributo da assinatura (o audit confere o CRF junto). */
+export const comAssinatura = (s: string) =>
+  /Dra\.?\s*Ester/.test(s) ? { 'data-assinatura-profissional': '' } : {};
+
+/** A página da Ester só existe em produção quando a pós-graduação chegar; até lá, links somem. */
+export const esterPublicada = (): boolean => ehPreview() || paginaLiberada('dra-ester-santos');

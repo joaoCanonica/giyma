@@ -6,7 +6,7 @@ import Link from '../base/Link.astro';
 import Logo from '../marca/Logo.astro';
 import Provisorio from '../Provisorio.astro';
 import { contato, marca } from '../../config/index.ts';
-import { destino, microtextos } from './dados.ts';
+import { destino, esterPublicada, microtextos } from './dados.ts';
 
 const m = await microtextos();
 const wa = await destino('geral');
@@ -14,7 +14,12 @@ const ig = contato.instagram.valor;
 const links: [string, string][] = [
   ['/tratamentos', 'Tratamentos'],
   ['/a-giyma', 'A Giyma'],
-  ['/dra-ester-santos', m.navegacao['dra-ester-santos'] ?? 'Ester Santos'],
+  ...(esterPublicada()
+    ? ([['/dra-ester-santos', m.navegacao['dra-ester-santos'] ?? 'Ester Santos']] as [
+        string,
+        string,
+      ][])
+    : []),
   ['/cada-fase', 'Cada fase'],
   ['/perguntas-frequentes', 'Perguntas frequentes'],
   ['/como-chegar', 'Como chegar'],

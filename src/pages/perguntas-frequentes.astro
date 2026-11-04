@@ -1,0 +1,170 @@
+---
+// /perguntas-frequentes: <details> nativos, agrupados. "botox" só como nome popular
+// (<span data-nome-popular>), a exceção da seção 8. Respostas que são redação (não fala da
+// Ester) aparecem com selo PROVISÓRIO no preview até ela validar.
+import BotaoAgendar from '../components/base/BotaoAgendar.astro';
+import Rotulo from '../components/base/Rotulo.astro';
+import Provisorio from '../components/Provisorio.astro';
+import { comAssinatura, fontePublica, pagina, textoHtml } from '../components/secoes/dados.ts';
+import Pagina from '../layouts/Pagina.astro';
+
+const p = await pagina('perguntas-frequentes');
+const b = p.blocos;
+const GRUPOS = ['toxina', 'preenchimento', 'bioestimulador', 'avaliacao', 'profissional', 'visita'];
+const grupos = GRUPOS.flatMap((id) => (b[id] ? [{ id, bloco: b[id] }] : []));
+const credito = (fonte?: string, origem?: string) =>
+  origem === 'literal' || origem === 'baseado-em-post' ? fontePublica(fonte ?? '') : '';
+---
+
+<Pagina
+  meta={p.meta}
+  trilha="Perguntas frequentes"
+  rotulo={b['abertura']?.rotulo}
+  titulo={b['abertura']?.titulo ?? ''}
+  abertura={b['abertura']?.paragrafos}
+>
+  <section class="capitulo" data-superficie="perola" aria-label="Perguntas">
+    <div class="contido fq-grade">
+      <nav class="fq-indice" aria-label="Grupos de perguntas">
+        <ol>
+          {grupos.map((g) => (
+            <li>
+              <a href={`#${g.id}`}>{g.bloco.rotulo}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+      <div class="fq-grupos">
+        {grupos.map((g) => (
+          <section class="fq-grupo" id={g.id} aria-labelledby={`fq-${g.id}`}>
+            <h2 id={`fq-${g.id}`} class="t-2">
+              {g.bloco.rotulo}
+            </h2>
+            {g.bloco.itens?.map((it) => (
+              <details class="fq-item" id={it.id}>
+                <summary>
+                  <span set:html={textoHtml(it.titulo ?? '')} />
+                </summary>
+                <div class="fq-resposta">
+                  {it.paragrafos?.map((x) => (
+                    <p {...comAssinatura(x)} set:html={textoHtml(x)} />
+                  ))}
+                  {credito(it.fonte, it.origem) && (
+                    <p class="fq-fonte t-pequeno">
+                      Resposta da Ester · {credito(it.fonte, it.origem)}
+                    </p>
+                  )}
+                  {it.origem === 'redacao-a-validar' && (
+                    <Provisorio rotulo="resposta a validar com a Ester" />
+                  )}
+                </div>
+              </details>
+            ))}
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="capitulo fq-cta"
+    data-superficie="cacau"
+    data-agendar-secao
+    aria-labelledby="fq-cta"
+  >
+    <div class="contido pilha fq-cta-grade">
+      <Rotulo>Ficou alguma dúvida?</Rotulo>
+      <h2 id="fq-cta" class="t-1">
+        A sua resposta vem na avaliação.
+      </h2>
+      <BotaoAgendar />
+    </div>
+  </section>
+</Pagina>
+
+<style>
+  .fq-grade {
+    display: grid;
+    gap: var(--e-4);
+  }
+  @media (min-width: 56rem) {
+    .fq-grade {
+      grid-template-columns: 14rem minmax(0, 1fr);
+      gap: var(--e-5);
+      align-items: start;
+    }
+    .fq-indice {
+      position: sticky;
+      top: var(--e-4);
+    }
+  }
+  .fq-indice ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+  }
+  @media (min-width: 56rem) {
+    .fq-indice ol {
+      display: grid;
+    }
+  }
+  .fq-indice a {
+    color: var(--link);
+    text-underline-offset: 0.2em;
+  }
+  .fq-grupos {
+    display: grid;
+    gap: var(--e-5);
+    max-width: 50rem;
+  }
+  .fq-grupo {
+    scroll-margin-top: var(--e-4);
+  }
+  .fq-grupo h2 {
+    margin-bottom: var(--e-2);
+  }
+  .fq-item {
+    border-bottom: 1px solid color-mix(in srgb, var(--fio) 60%, transparent);
+    padding: var(--e-2) 0;
+  }
+  .fq-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--e-2);
+    font-family: var(--fonte-titulo);
+    font-size: var(--t-3);
+    line-height: 1.25;
+  }
+  .fq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .fq-item summary::after {
+    content: '+';
+    flex: none;
+    font-family: var(--fonte-texto);
+    color: var(--rotulo);
+    transition: transform var(--d-2) var(--curva);
+  }
+  .fq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .fq-resposta {
+    display: grid;
+    gap: 0.8rem;
+    padding-top: var(--e-2);
+    max-width: 42em;
+    color: var(--suave);
+  }
+  .fq-fonte {
+    color: var(--rotulo);
+  }
+  .fq-cta-grade {
+    justify-items: center;
+    text-align: center;
+  }
+</style>

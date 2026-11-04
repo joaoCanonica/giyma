@@ -6,6 +6,7 @@ import BotaoAgendar from '../base/BotaoAgendar.astro';
 import Link from '../base/Link.astro';
 import Rotulo from '../base/Rotulo.astro';
 import { contato } from '../../config/index.ts';
+import { esterPublicada } from '../secoes/dados.ts';
 
 interface Props {
   /** Na alternativa A (mobile), o nome já está na placa da foto. */
@@ -25,9 +26,11 @@ const ig = contato.instagram.valor;
   </h1>
   <div class="ht-acoes">
     <BotaoAgendar />
-    <Botao href="/dra-ester-santos" variante="secundario">
-      Conheça a Ester Santos
-    </Botao>
+    {esterPublicada() && (
+      <Botao href="/dra-ester-santos" variante="secundario">
+        Conheça a Ester Santos
+      </Botao>
+    )}
   </div>
   <p class="ht-apoio">
     Harmonização facial com avaliação individual, planejamento e o cuidado de quem conhece a pele

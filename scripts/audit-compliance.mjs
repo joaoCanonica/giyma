@@ -14,7 +14,14 @@ if (!existsSync(dist)) {
   process.exit(1);
 }
 const manifesto = carregarManifesto();
-const existe = (url) => existsSync(join(dist, decodeURIComponent(url.split(/[?#]/)[0])));
+const existe = (url, tipo) => {
+  const limpo = decodeURIComponent(url.split(/[?#]/)[0]);
+  if (tipo !== 'pagina') return existsSync(join(dist, limpo));
+  const base = limpo.replace(/\/$/, '');
+  return [`${base}.html`, `${base}/index.html`, limpo === '/' ? '/index.html' : null]
+    .filter(Boolean)
+    .some((c) => existsSync(join(dist, c)));
+};
 
 const htmls = [];
 const andar = (d) => {

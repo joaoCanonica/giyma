@@ -3,8 +3,11 @@
 import Estilo from './_estilo.astro';
 import HeroA from './_hero-a.astro';
 import HeroB from './_hero-b.astro';
+import { modoAtual } from '../config/index.ts';
 
+// Páginas internas (sistema de design, comparação de heroes) não vão para a produção.
 export function getStaticPaths() {
+  if (modoAtual() === 'producao') return [];
   return [
     { params: { interna: '_estilo' } },
     { params: { interna: '_hero-a' } },

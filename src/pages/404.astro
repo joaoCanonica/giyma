@@ -1,0 +1,62 @@
+---
+// 404: curta, com o monograma e três caminhos.
+import Documento from '../components/base/Documento.astro';
+import Link from '../components/base/Link.astro';
+import Logo from '../components/marca/Logo.astro';
+import { destino, pagina } from '../components/secoes/dados.ts';
+
+const p = await pagina('404');
+const b = p.blocos['principal'];
+const caminhos = await Promise.all(
+  (b?.itens ?? []).map(async (it) => ({
+    titulo: it.titulo ?? '',
+    href: it.link?.startsWith('whatsapp:') ? await destino(it.link.slice(9)) : (it.link ?? '/'),
+  })),
+);
+---
+
+<Documento titulo={p.meta.title} descricao={p.meta.description} interna superficie="cacau">
+  <main class="nf">
+    <a href="/" class="nf-marca" aria-label="Giyma: voltar ao início">
+      <Logo variante="monograma" decorativo />
+    </a>
+    <h1 class="t-1">{b?.titulo}</h1>
+    {b?.paragrafos?.map((x) => (
+      <p class="t-suave">{x}</p>
+    ))}
+    <ol class="nf-caminhos">
+      {caminhos.map((c) => (
+        <li>
+          <Link href={c.href}>{c.titulo}</Link>
+        </li>
+      ))}
+    </ol>
+  </main>
+</Documento>
+
+<style>
+  .nf {
+    min-height: 100svh;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: var(--e-3);
+    padding: var(--e-5) var(--margem);
+    text-align: center;
+  }
+  .nf-marca {
+    color: var(--fio);
+    width: 5.5rem;
+  }
+  .nf-caminhos {
+    list-style: none;
+    margin: var(--e-2) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 2rem;
+    font-size: var(--t-3);
+    font-family: var(--fonte-titulo);
+  }
+</style>

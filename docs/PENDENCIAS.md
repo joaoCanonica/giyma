@@ -82,3 +82,10 @@ Lista completa e atualizada: `node scripts/validate-config.mjs --textos` (30 ite
 - **Antes e depois por tratamento:** o template já mostra o par quando ele for autorizado (lê `indice.resultados`). Hoje nenhum aparece.
 - **"Em que fase costuma fazer sentido"** aponta para `/cada-fase?fase=…`, página da sessão 6C.
 - **Vídeo do inverno** (DYnNCJ3P80V) ligado a microagulhamento, peeling e bioestimulador, porque é a fala da Ester sobre esses tratamentos.
+
+## Páginas de confiança (sessão 6C)
+
+- **/dra-ester-santos em produção:** enquanto a pós-graduação for bloqueante, a página vira redirecionamento (noindex) para o início e os links para ela somem (hero, seção da Ester, rodapé). Quando a pós chegar, tudo volta sozinho.
+- **FAQ:** o grupo pedido como "Sobre a Dra. Ester" saiu como "Sobre a profissional" (seção 8). Respostas de redação aparecem com selo PROVISÓRIO no preview até a Ester validar.
+- **/como-chegar:** o mapa estático real (tiles) segue pendente (rede bloqueada); a página usa a fachada. O mapa interativo do Google só carrega depois do clique. Estacionamento: em preview mostra "Pergunte à equipe no WhatsApp" com selo; em produção, o bloco some até o dado chegar.
+- **Páginas internas** (/_estilo, /_hero-a, /_hero-b) não são geradas em produção.
